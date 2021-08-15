@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/zoro.jpg">
+  <link rel="icon" href="/img/zoro.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#efb9b9">
+  <meta name="description" content="">
+  <meta name="author" content="AgoniLay">
+  <meta name="keywords" content="">
+  
+  <title>vue笔记 - AgoniLay的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/arta.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scroller.css">
+<link rel="stylesheet" href="/css/bynode.css">
+<link rel="stylesheet" href="/css/mouse.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading2.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>AgoniLay</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark"></i>
+                索引
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/zoro2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h3" id="subtitle" title="vue笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      AgoniLay
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-14 15:14" pubdate>
+        2021年8月14日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      80
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+			
+			
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">vue笔记</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="什么是-vue"><a href="#什么是-vue" class="headerlink" title="什么是 vue"></a>什么是 vue</h3><p>官方概念：Vue（读音 /vju:/，类似于 view），是一套用于构建用户界面的前端框架</p>
+<ol>
+<li>构建用户界面<ul>
+<li>用 vue 往 html 页面中填充数据，非常的方便</li>
+</ul>
+</li>
+<li>框架<ul>
+<li>框架时一套现成的解决方案，程序员只能遵守框架的规范，去编写自己的业务功能</li>
+<li>要学习 vue，就是在学习 vue 这个框架中规定的用法</li>
+<li>vue 的指令、组件（是对 UI 结构的复用）、路由、Vuex、vue 组件库</li>
+<li>只有把上面罗列的内容掌握以后，才有开发 vue 项目的能力</li>
+</ul>
+</li>
+</ol>
+<h3 id="vue-的特性"><a href="#vue-的特性" class="headerlink" title="vue 的特性"></a>vue 的特性</h3><p>vue 框架的特性，主要体现在两方面：</p>
+<ol>
+<li><p>数据驱动视图</p>
+<ul>
+<li>数据的变化<strong>会驱动视图</strong>自动更新</li>
+<li>好处：当页面数据发生变化时，页面会自动重新渲染</li>
+<li>数据驱动视图时单向的数据绑定</li>
+</ul>
+</li>
+<li><p>双向数据绑定</p>
+<blockquote>
+<p>在网页中，form 表单负责<strong>采集数据</strong>，Ajax 负责<strong>提交数据</strong></p>
+</blockquote>
+<ul>
+<li>在填写表单时，双向数据绑定额可以辅助开发者在不操作 DOM 的前提下，自动把用户填写的内容同步到数据源中</li>
+<li>好处：开发者不需要手动操作 DOM 元素，来获取表单元素最新的值</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>注意：数据驱动视图和双向数据绑定的底层原理是 MVVM（Model 数据源、View 视图、ViewModel 就是 vue 的实例）</p>
+</blockquote>
+<h3 id="vue-的版本"><a href="#vue-的版本" class="headerlink" title="vue 的版本"></a>vue 的版本</h3><p>当前，vue 共有 3 个大版本，其中：</p>
+<ul>
+<li>2.x 版本的 vue 是目前企业级项目开发中的主流版本</li>
+<li>3.x 版本的 vue 于 2020-09-19 发布，生态还不完善，尚未在企业级项目开发中普及和推广</li>
+<li>1.x 版本的 vue 几乎被淘汰，不再建议学习与使用</li>
+</ul>
+<blockquote>
+<p> vue 作者：尤雨溪，中国人</p>
+</blockquote>
+<h2 id="vue-的基本使用"><a href="#vue-的基本使用" class="headerlink" title="vue 的基本使用"></a>vue 的基本使用</h2><h3 id="基本使用步骤"><a href="#基本使用步骤" class="headerlink" title="基本使用步骤"></a>基本使用步骤</h3><ol>
+<li>导入 vue.js 的 script 脚本文件</li>
+<li>在页面中声明一个将要被 vue 控制的 DOM 区域</li>
+<li>创建 vm 实例对象（vue 实例对象）</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 希望 Vue 能够控制下面这个 div，帮我们在把数据填充到 div 内部 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  &#123;&#123; username &#125;&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- 1. 导入 Vue 的库文件，在 window 全局就有了 VUe 这个构造函数 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./lib/vue-2.6.12.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 2. 创建 Vue 的实例对象 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-comment">// 创建 Vue 的实例对象</span></span><br><span class="javascript">  <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-comment">// el 是固定的写法，表示档期那 vm 实例要控制页面上的哪个区域，接收的值是一个选择器</span></span><br><span class="javascript">    <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span><br><span class="javascript">    <span class="hljs-comment">// data 对象就是要渲染到页面上的数据</span></span><br><span class="javascript">    <span class="hljs-attr">data</span>: &#123;</span><br><span class="javascript">      <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;zhangsan&#x27;</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>使用 vue-devtools 调试：在 chrome 中 F12 调试面板中的 vue 一项</p>
+</blockquote>
+<h2 id="vue-的指令和过滤器"><a href="#vue-的指令和过滤器" class="headerlink" title="vue 的指令和过滤器"></a>vue 的指令和过滤器</h2><h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><h4 id="概念和分类"><a href="#概念和分类" class="headerlink" title="概念和分类"></a>概念和分类</h4><p>指令（Directives）是 vue 为开发者提供的模板语法，用于辅助开发者渲染页面的基本结构。</p>
+<p>vue 中的指令按照不同的用途可以分为如下 6 大类：</p>
+<ul>
+<li>内容渲染指令</li>
+<li>属性绑定指令</li>
+<li>事件绑定指令</li>
+<li>双向绑定指令</li>
+<li>条件渲染指令</li>
+<li>列表渲染指令</li>
+</ul>
+<blockquote>
+<p>注意：指令是 vue开发中最基础、最常用、最简单的知识点</p>
+</blockquote>
+<h4 id="内容渲染指令"><a href="#内容渲染指令" class="headerlink" title="内容渲染指令"></a>内容渲染指令</h4><p>内容渲染指令用来辅助开发者渲染 DOM 元素的文本内容。常用的内容渲染指令有如下 3 个：</p>
+<ul>
+<li><code>v-text</code> </li>
+<li><code>&#123;&#123; &#125;&#125;</code> </li>
+<li><code>v-html</code> </li>
+</ul>
+<h5 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h5><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-text</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-text</span>=<span class="hljs-string">&quot;gender&quot;</span>&gt;</span>性别<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span><br><span class="javascript">    <span class="hljs-attr">data</span>: &#123;</span><br><span class="javascript">      <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;zhangsan&#x27;</span>,</span><br><span class="javascript">      <span class="hljs-attr">gender</span>: <span class="hljs-string">&#x27;男&#x27;</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>注意缺点：v-text 指令会覆盖元素内默认的值</p>
+</blockquote>
+<h5 id="插值表达式语法"><a href="#插值表达式语法" class="headerlink" title="插值表达式语法"></a>插值表达式语法</h5><p>vue 提供的 <code>&#123;&#123; &#125;&#125;</code> 语法，专门用来解决 v-text 会覆盖默认文本内容的问题。这种 <code>&#123;&#123; &#125;&#125;</code> 语法的专业名称是<strong>插值表达式</strong>（英文名为：Mustache）</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>姓名：&#123;&#123; username &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>性别：&#123;&#123; gender &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>在实际开发中用的最多，只是内容的占位符，不会覆盖原有的内容</p>
+<blockquote>
+<p>在 vue 提供的模板渲染语法中，除了支持绑定简单的数据值之外，还支持 Javascript 表达式的运算</p>
+</blockquote>
+<h5 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h5><p>v-text 指令和 插值表达式 只能渲染纯文本内容</p>
+<p>v-html 可以把带有标签的字符串，渲染成真正的 HTML 内容</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">&quot;info&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span><br><span class="javascript">    <span class="hljs-attr">data</span>: &#123;</span><br><span class="javascript">      <span class="hljs-attr">info</span>: <span class="hljs-string">&#x27;&lt;h4 style=&quot;color: red; font-weight: bold;&quot;&gt;欢迎大家来学习 vue.js&lt;/h4&gt;&#x27;</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+
+
+<h4 id="属性绑定指令"><a href="#属性绑定指令" class="headerlink" title="属性绑定指令"></a>属性绑定指令</h4><blockquote>
+<p>注意：插值表达式只能用在元素的<strong>内容节点</strong>中，不能用在元素的<strong>属性节点</strong>中！</p>
+</blockquote>
+<h5 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind: | :"></a>v-bind: | :</h5><ul>
+<li><p>在 vue 中，可以使用 <code>v-bind:</code> 指令,为元素的属性动态绑定属性值</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">v-bind:placeholder</span>=<span class="hljs-string">&quot;Tips&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>简写是英文的 <code>:</code> </p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">:placeholder</span>=<span class="hljs-string">&quot;Tips&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>在使用 v-bind 属性绑定期间，如果绑定内容需要进行动态拼接，则字符串的外面应该包裹单引号，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:title</span>=<span class="hljs-string">&quot;&#x27;box&#x27; + index&quot;</span>&gt;</span>这是一个 div<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+</ul>
+<h4 id="事件绑定指令"><a href="#事件绑定指令" class="headerlink" title="事件绑定指令"></a>事件绑定指令</h4><h5 id="v-on"><a href="#v-on" class="headerlink" title="v-on: | @"></a>v-on: | @</h5><p>vue 提供了 v-on 事件绑定指令，用来辅助程序员为 DOM 元素绑定事件监听</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">&quot;add&quot;</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>通过 v-on 绑定的事件处理函数，需要在 methods 节点中进行声明，methods 与 data 节点同级</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">methods: &#123;<br>  add () &#123;<br>    <span class="hljs-built_in">this</span>.count++<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li><p>需要传参在方法名后面加括号即可</p>
+</li>
+<li><p>如果在方法中要修改或访问 data 中的数据，可以通过 this 访问到</p>
+</li>
+<li><p>简写是 <code>@</code> </p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;add&quot;</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>注意：原生 DOM 对象有 onclick、oninput、onkeyup 等原生事件，替换为 vue 的事件绑定形式后，分别为：v-on:click、v-on:input、v-on:keyup</p>
+</blockquote>
+<h5 id="event"><a href="#event" class="headerlink" title="$event"></a>$event</h5><p>vue 提供了内置变量 <strong>$event</strong>，用来表示原生 DOM 的事件参数对象 event</p>
+<p>$event 可以解决事件参数对象 event 被覆盖的问题</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>count 的值是：&#123;&#123; count &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;add(1, $event)&quot;</span>&gt;</span>+N<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span><br><span class="javascript">    <span class="hljs-attr">data</span>: &#123;</span><br><span class="javascript">      <span class="hljs-attr">count</span>: <span class="hljs-number">0</span></span><br><span class="javascript">    &#125;,</span><br><span class="javascript">    <span class="hljs-attr">methods</span>: &#123;</span><br><span class="javascript">      add (n, e) &#123;</span><br><span class="javascript">        <span class="hljs-built_in">this</span>.count += n</span><br><span class="javascript">        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.count % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) &#123;</span><br><span class="javascript">          e.target.style.backgroundColor = <span class="hljs-string">&#x27;red&#x27;</span></span><br><span class="javascript">        &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="javascript">          e.target.style.backgroundColor = <span class="hljs-string">&#x27;&#x27;</span></span><br><span class="javascript">        &#125;</span><br><span class="javascript">      &#125;</span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h5><blockquote>
+<p>在事件处理函数中调用 event.preventDefault() 或 event.stopPropagation() 是非常常见的需求。</p>
+</blockquote>
+<p>vue 提供了事件修饰符的概念，来辅助程序员更方便的对事件的触发进行控制。</p>
+<p>常用的 5 个事件修饰符如下：</p>
+<ul>
+<li><strong>.prevent</strong> ：阻止默认行为（例如：阻止 a 连接的跳转、阻止表单的提交等）</li>
+<li><strong>.stop</strong> ：阻止事件冒泡</li>
+<li>.capture ：以捕获模式触发当前的事件处理函数</li>
+<li>.once ：绑定的事件只触发1次</li>
+<li>.self ：只有在 event.target 是当前元素自身时触发事件处理函数</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://www.baidu.com&quot;</span> @<span class="hljs-attr">click.prevent</span>=<span class="hljs-string">&quot;show&quot;</span>&gt;</span>跳转到百度首页<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="按键修饰符"><a href="#按键修饰符" class="headerlink" title="按键修饰符"></a>按键修饰符</h5><p>可以为键盘相关的事件添加按键修饰符，用的不多</p>
+<ul>
+<li>.esc：按下 esc 按键触发</li>
+<li>.enter：按下 enter 按键触发</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> @<span class="hljs-attr">keyup.esc</span>=<span class="hljs-string">&quot;clearInput&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h4 id="双向绑定指令"><a href="#双向绑定指令" class="headerlink" title="双向绑定指令"></a>双向绑定指令</h4><h5 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h5><p>只有表单元素才可以使用 v-model 指令</p>
+<p>比如：input 输入框、textarea、select</p>
+<h5 id="专用修饰符"><a href="#专用修饰符" class="headerlink" title="专用修饰符"></a>专用修饰符</h5><ul>
+<li><strong>.number</strong>：自动将用户的输入值转为数值类型</li>
+<li><strong>.trim</strong>：自动过滤用户输入的首尾空白字符 </li>
+<li><strong>.lazy</strong>：在 “change” 时而非 “input” 时更新</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">&quot;n1&quot;</span>&gt;</span> + <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">&quot;n2&quot;</span>&gt;</span> = <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123; n1 + n2 &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h4 id="条件渲染指令"><a href="#条件渲染指令" class="headerlink" title="条件渲染指令"></a>条件渲染指令</h4><h5 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h5><p>原理是：动态为元素添加或移除 <code>display: none</code> 样式，来实现元素的显示和隐藏</p>
+<ul>
+<li>如果要频繁的切换元素的显示状态，用 v-show 性能会更好</li>
+</ul>
+<h5 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h5><p>原理是：每次动态创建或移除元素，实现元素的显示和隐藏</p>
+<ul>
+<li>如果刚进入页面的时候，某些元素默认不需要显示，而且后期这个元素很可能也不需要被展示出来，此时 v-if 性能更好</li>
+</ul>
+<blockquote>
+<p>在实际开发中，不用考虑性能问题，直接使用 v-if 即可</p>
+</blockquote>
+<p>v-if 可以单独使用，或配合 v-else 指令一起使用：</p>
+<h5 id="v-else-v-else-if"><a href="#v-else-v-else-if" class="headerlink" title="v-else v-else-if"></a>v-else v-else-if</h5><p>这两个指令均必须配合 v-if 指令一起使用，否则将并不会被识别</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;type === &#x27;A&#x27;&quot;</span>&gt;</span>优秀<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">&quot;type === &#x27;B&#x27;&quot;</span>&gt;</span>良好<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">&quot;type === &#x27;C&#x27;&quot;</span>&gt;</span>一般<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else</span>&gt;</span>差<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h4 id="列表渲染指令"><a href="#列表渲染指令" class="headerlink" title="列表渲染指令"></a>列表渲染指令</h4><h5 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h5><p>v-for 指令需要使</p>
+<p>用 item in items 形式的特殊语法，其中：</p>
+<ul>
+<li>items 是待循环的数组</li>
+<li>item 是被循环的每一项</li>
+</ul>
+<p>指令还支持一个可选的第二个参数，即当前项的<strong>索引</strong>，语法格式为 (item, index) in items</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>索引<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Id<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>姓名<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;(item, index) in list&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123; index &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123; item.id &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123; item.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="key"><a href="#key" class="headerlink" title="key"></a>key</h5><p>官方建议：只要用到了 v-for 指令，那么一定要绑定一个 :key 属性，而且尽量把 id 作为 key 的值</p>
+<p>key 值的要求：</p>
+<ol>
+<li><p><strong>字符串</strong>或<strong>数字</strong>类型</p>
+</li>
+<li><p>key 的值必须具有<strong>唯一性</strong>（即：key 的值不能重复，否则会报错）</p>
+<blockquote>
+<p>[Vue warn]: Duplicate keys detected: ‘ ‘.</p>
+</blockquote>
+</li>
+<li><p>建议把数据项 <strong>id 属性</strong>的值作为 key 的值（因为 id 属性的值具有唯一性）</p>
+</li>
+<li><p>使用 index 的值当作 key 的值没有任何意义（因为 index 的值不具有唯一性）</p>
+<ul>
+<li>当列表项发生变化时，索引可能会前向推进，单个不唯一</li>
+</ul>
+</li>
+<li><p>建议使用 v-for 指令时一定要指定 key 的值（既提升性能、又防止列表状态紊乱）</p>
+</li>
+</ol>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><blockquote>
+<p>Vue3 中已经不可以使用过滤器，Vue2 中仍可以</p>
+</blockquote>
+<p>过滤器（Filters）是 vue 为开发者提供的功能，常用于文本的格式化。</p>
+<p>过滤器可以用在两个地方：<strong>插值表达式</strong>和 <strong>v-bind 属性绑定</strong>；</p>
+<p>过滤器应该被添加在 JavaScript 表达式的尾部，由 “管道符” <code>|</code> 进行调用</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 在插值表达式中调用 capitalize 过滤器，对 message 的值进行格式化 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; message | capitalize &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 在 v-bind: 中调用 formatId 过滤器，对 rawId 的值进行格式化 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">&quot;rawId | formatId&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>注意点：</p>
+<ul>
+<li>在 filters 节点中定义私有过滤器，本质是一个函数</li>
+<li>过滤器函数形参中的 val，永远都是“管道符”前面的那个值</li>
+<li>过滤器中必须有一个 return 值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 过滤器函数，定义到 filters 节点之下，是私有过滤器</span><br><span class="hljs-attr">filters</span>: &#123;<br>  <span class="hljs-comment">// 注意：过滤器函数形参中的 val，永远都是“管道符”前面的那个值</span><br>  capitalize (val) &#123;<br>    <span class="hljs-comment">// 过滤器中必须有一个返回值</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span><br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="全局过滤器"><a href="#全局过滤器" class="headerlink" title="全局过滤器"></a>全局过滤器</h4><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  Vue.filter(<span class="hljs-string">&#x27;capitalize&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">str</span>) =&gt;</span> &#123;</span><br><span class="javascript">    <span class="hljs-keyword">return</span> str.charAt(<span class="hljs-number">0</span>).toUpperCase() + str.slice(<span class="hljs-number">1</span>)</span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>一般使用的都是全局过滤器</p>
+<p>全局和私有过滤器名字一致，此时按照就近原则，调用的是私有过滤器</p>
+<h2 id="watch-侦听器"><a href="#watch-侦听器" class="headerlink" title="watch 侦听器"></a>watch 侦听器</h2><h3 id="什么是-watch-侦听器"><a href="#什么是-watch-侦听器" class="headerlink" title="什么是 watch 侦听器"></a>什么是 watch 侦听器</h3><h4 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123; <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;&#x27;</span> &#125;,<br> 	<span class="hljs-comment">// 所有的侦听器都应该被定义到 watch 节点下</span><br>  <span class="hljs-attr">watch</span>: &#123;<br>    <span class="hljs-comment">// 侦听器本质上是一个函数，要监视哪个数据的变化，就把数据名作为方法名即可</span><br>    <span class="hljs-function"><span class="hljs-title">username</span>(<span class="hljs-params">newVal, oldVal</span>)</span> &#123;<br>      ...<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/vue/">vue</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">前端框架</a>
+                    
+                      <a class="hover-with-bg" href="/tags/vue2/">vue2</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均为本人原创，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/04/CSS%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">CSS笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/img/agoni.gif" srcset="/img/loading2.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;"> <h5 style="text-align: center; margin-top: 1rem;">谢谢您的光临噢！！！</h5> 
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>张宝文</span> <i class="iconfont icon-love"></i> <span>郑佳丽</span>  
+	<!--《添加网站运行时间 -->
+<br/>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+var now = new Date(); 
+
+function createtime() {
+    //此处修改你的建站时间或者网站上线时间
+    var grt = new Date('07/28/2021 19:00:00');
+    now.setTime(now.getTime() + 250);
+    days = (now - grt) / 1000 / 60 / 60 / 24;
+
+    dnum = Math.floor(days);
+    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+        hnum = "0" + hnum;
+    }
+    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+        mnum = "0" + mnum;
+    }
+    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+        snum = "0" + snum;
+    }
+    document.getElementById("timeDate").innerHTML = " 本站已各种夹缝中安全运行 " + dnum + " 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()", 250);
+</script>
+
+<!-- 添加网站运行时间》-->
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+  <script>
+    function typing(id, title){
+        var typed = new Typed('#' + id, {
+            strings: [
+              '  ',
+              title + "&nbsp;",
+            ],
+            cursorChar: "❤",
+            typeSpeed: 150,
+            loop: false,
+        });
+        typed.stop();
+        $(document).ready(function () {
+            $(".typed-cursor").addClass("h2");
+            typed.start();
+        });
+    }
+
+    
+        typing("subtitle", document.getElementById('subtitle').title)
+    
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+</body>
+</html>
