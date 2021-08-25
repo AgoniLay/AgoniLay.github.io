@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/zoro.jpg">
+  <link rel="icon" href="/img/zoro.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#efb9b9">
+  <meta name="description" content="">
+  <meta name="author" content="AgoniLay">
+  <meta name="keywords" content="">
+  
+  <title>JavaScript笔记(三) - AgoniLay的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/arta.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scroller.css">
+<link rel="stylesheet" href="/css/bynode.css">
+<link rel="stylesheet" href="/css/mouse.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading2.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>AgoniLay</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark"></i>
+                索引
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/zoro2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h3" id="subtitle" title="JavaScript笔记(三)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      AgoniLay
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-30 14:48" pubdate>
+        2021年7月30日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      44
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+			
+			
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JavaScript笔记(三)</h1>
+            
+            <div class="markdown-body">
+              <h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p>Document Object Model</p>
+<p>用来操作 html 和 xml 功能的一类对象的集合</p>
+<p>document 代表整个文档</p>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h5 id="getElementById"><a href="#getElementById" class="headerlink" title="getElementById()"></a>getElementById()</h5><p>通过元素的 id 属性值选择</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> div =  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;only&#x27;</span>);<br></code></pre></div></td></tr></table></figure>
+
+<p>定义在了 Document.prototype 上</p>
+<p>ie8以下的浏览器，不区分 id 大小写，而且 name 和 id 一样的元素，也可以选出来</p>
+<h5 id="getElementsByTagName"><a href="#getElementsByTagName" class="headerlink" title="getElementsByTagName() *"></a>getElementsByTagName() *</h5><p>通过标签名的方式选择所有，放到一个类数组中</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> div =  <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&#x27;current&#x27;</span>)[<span class="hljs-number">0</span>];<br></code></pre></div></td></tr></table></figure>
+
+<p>定义在了 Document.prototype 和 Element.prototype 上</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&#x27;div&#x27;</span>)[<span class="hljs-number">0</span>];<br><span class="hljs-keyword">var</span> span = div.document.getElementsByTagName(<span class="hljs-string">&#x27;span&#x27;</span>)[<span class="hljs-number">0</span>];<br></code></pre></div></td></tr></table></figure>
+
+<p>还可以使用 通配符 <code>*</code> 选择全部选择器；</p>
+<p>无任何兼容性问题，较为常用</p>
+<h5 id="getElementsByName"><a href="#getElementsByName" class="headerlink" title="getElementsByName()"></a>getElementsByName()</h5><p>t通过 name 属性值选择所有，放到一个类数组中</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> div =  <span class="hljs-built_in">document</span>.getElementsByName(<span class="hljs-string">&#x27;current&#x27;</span>)[<span class="hljs-number">0</span>];<br></code></pre></div></td></tr></table></figure>
+
+<p>定义在了 HTMLDocument.prototype 上，即 XML 不能可用</p>
+<p>name 并不是在所有标签内都好使</p>
+<h5 id="getElementsByClassName"><a href="#getElementsByClassName" class="headerlink" title="getElementsByClassName()"></a>getElementsByClassName()</h5><p>通过类名 class 选择所有，放到一个类数组中</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> div =  <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">&#x27;current&#x27;</span>)[<span class="hljs-number">0</span>];<br></code></pre></div></td></tr></table></figure>
+
+<p>ie8和ie8以下的ie版本中没有</p>
+<h5 id="querySelector"><a href="#querySelector" class="headerlink" title="querySelector()"></a>querySelector()</h5><p>选一个</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> strong = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;div &gt; span strong.demo&#x27;</span>);<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="querySelectorAll"><a href="#querySelectorAll" class="headerlink" title="querySelectorAll()"></a>querySelectorAll()</h5><p>选一组</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> strong = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;div &gt; span strong.demo&#x27;</span>);<br></code></pre></div></td></tr></table></figure>
+
+<p>以上两个 query 的选择器的缺点：</p>
+<ol>
+<li>在ie7 和 ie7以下版本中没有</li>
+<li>不是实时的，选出来的是静态的，相当于选出来的就是个副本，元素发生改变不会发生改变</li>
+</ol>
+<h3 id="遍历节点树"><a href="#遍历节点树" class="headerlink" title="遍历节点树"></a>遍历节点树</h3><h4 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h4><p>均无兼容性问题</p>
+<h5 id="parentNode"><a href="#parentNode" class="headerlink" title="parentNode"></a>parentNode</h5><p>一个元素只有一个父节点，document 就是最高的</p>
+<p>null &gt; document &gt; html &gt; body &gt; …</p>
+<h5 id="childNodes"><a href="#childNodes" class="headerlink" title="childNodes *"></a>childNodes *</h5><p>获取一个元素所有的<strong>子节点</strong>，包括 文本、注释、属性、元素等</p>
+<h5 id="firstChild"><a href="#firstChild" class="headerlink" title="firstChild"></a>firstChild</h5><p>获取元素的第一个子节点</p>
+<h5 id="lastChild"><a href="#lastChild" class="headerlink" title="lastChild"></a>lastChild</h5><p>获取元素的最后一个子节点</p>
+<h5 id="nextSibling"><a href="#nextSibling" class="headerlink" title="nextSibling"></a>nextSibling</h5><p>获取元素的后一个兄弟节点</p>
+<h5 id="previousSibling"><a href="#previousSibling" class="headerlink" title="previousSibling"></a>previousSibling</h5><p>获取元素的前一个兄弟节点</p>
+<h4 id="获取元素节点"><a href="#获取元素节点" class="headerlink" title="获取元素节点"></a>获取元素节点</h4><p>除 children 无兼容性问题外，其他的均是 ie9及ie9以下不兼容</p>
+<h5 id="parentElement"><a href="#parentElement" class="headerlink" title="parentElement"></a>parentElement</h5><p>父元素节点，没有到 document</p>
+<p>null &gt; html &gt; body &gt; …</p>
+<h5 id="children"><a href="#children" class="headerlink" title="children *"></a>children *</h5><p>获取元素的所有<strong>元素子节点</strong> </p>
+<h5 id="childElementCount"><a href="#childElementCount" class="headerlink" title="childElementCount"></a>childElementCount</h5><p>元素的元素字节点的个数</p>
+<p><code>node.childElementCount === node.children.length</code> </p>
+<h5 id="firstElementChild"><a href="#firstElementChild" class="headerlink" title="firstElementChild"></a>firstElementChild</h5><p>第一个元素子节点</p>
+<h5 id="lastElementChild"><a href="#lastElementChild" class="headerlink" title="lastElementChild"></a>lastElementChild</h5><p>最后一个元素子节点</p>
+<h5 id="nextElementSibling"><a href="#nextElementSibling" class="headerlink" title="nextElementSibling"></a>nextElementSibling</h5><p>上一个兄弟元素节点</p>
+<h5 id="previousElementSibling"><a href="#previousElementSibling" class="headerlink" title="previousElementSibling"></a>previousElementSibling</h5><p>后一个兄弟元素节点</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 返回指定兄弟节点</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">retSibling</span>(<span class="hljs-params">e, n</span>) </span>&#123;<br>    <span class="hljs-keyword">while</span> (e &amp;&amp; n) &#123;<br>        <span class="hljs-keyword">if</span> (n &gt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">if</span> (e.nextElementSibling) &#123;<br>                e = e.nextElementSibling;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">for</span> (e = e.nextSibling; e &amp;&amp; e.nodeType != <span class="hljs-number">1</span>; e = e.nextSibling);<br>            &#125;<br>            n--;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>			<span class="hljs-keyword">if</span> (e.previousElementSibling;) &#123;<br>	            e = e.previousElementSibling;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">for</span> (e = e.previousElementSibling; e &amp;&amp; e.nodeType != <span class="hljs-number">1</span>; e = e.previousSibling);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> e;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>节点的四个属性：</p>
+<h5 id="nodeName"><a href="#nodeName" class="headerlink" title="nodeName"></a>nodeName</h5><ul>
+<li>元素的标签名，以大写形式表示，只读</li>
+</ul>
+<h5 id="nodeValue"><a href="#nodeValue" class="headerlink" title="nodeValue"></a>nodeValue</h5><ul>
+<li>文本节点 和 注释节点的文本内容，可读写</li>
+<li>只有 Text节点 和 Comment节点 </li>
+</ul>
+<h5 id="nodeType"><a href="#nodeType" class="headerlink" title="nodeType *"></a>nodeType *</h5><ul>
+<li>该节点的类型，只读</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 自定义 获取所有元素子节点</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">retElementChild</span>(<span class="hljs-params">node</span>) </span>&#123;<br>    <span class="hljs-comment">// no children</span><br>    <span class="hljs-keyword">var</span> temp = &#123;<br>            <span class="hljs-attr">length</span> : <span class="hljs-number">0</span>,<br>            <span class="hljs-attr">push</span> : <span class="hljs-built_in">Array</span>.prototype.push,<br>        	<span class="hljs-attr">splice</span> : <span class="hljs-built_in">Array</span>.prototype.splice<br>        &#125;,<br>        child = node.childNodes,<br>        len = child.length;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>        <span class="hljs-keyword">if</span> (child[i].nodeType === <span class="hljs-number">1</span>) &#123;<br>            temp.push(child[i]);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> temp;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="attributes"><a href="#attributes" class="headerlink" title="attributes"></a>attributes</h5><ul>
+<li>Element 节点的属性集合</li>
+</ul>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><h5 id="hasChildNodes"><a href="#hasChildNodes" class="headerlink" title="hasChildNodes()"></a>hasChildNodes()</h5><p>判断元素是否具有子节点，返回 boolean值</p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>后面的数字是 nodeType 属性返回的值</p>
+<p>元素节点 – 1</p>
+<p>属性节点 – 2</p>
+<p>文本节点 – 3</p>
+<p>注释节点 – 8</p>
+<p>document – 9</p>
+<h3 id="DOM结构树"><a href="#DOM结构树" class="headerlink" title="DOM结构树"></a>DOM结构树</h3><p>document  –&gt;  HTMLDocument  –&gt;  Document  –&gt;  Node  –&gt;  EventTarget  –&gt;  Object</p>
+<ul>
+<li>document.documentElement 指代的是 html</li>
+<li>HTMLDocumnet.head 指代的是 head</li>
+<li>HTMLDocumnet.body 指代的是 body</li>
+</ul>
+<p>domTree + cssTree = rangerTree</p>
+<p>重排（reflow）：整个界面进行重构，效率很低，要尽量避免</p>
+<ol>
+<li>dom节点的删除，添加</li>
+<li>dom节点的宽高变化，位置变化，display none –&gt;  block</li>
+<li>offsetWidth offsetLeft –&gt; 获取实时数据，也会触发重排</li>
+</ol>
+<p>重绘（repaint）：效率相对消耗比较少，对应位置改变</p>
+<h3 id="DOM基本操作"><a href="#DOM基本操作" class="headerlink" title="DOM基本操作"></a>DOM基本操作</h3><h4 id="增"><a href="#增" class="headerlink" title="增"></a>增</h4><h5 id="createElement"><a href="#createElement" class="headerlink" title="createElement() *"></a>createElement() *</h5><p>创建元素节点，括号内写标签名</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.createElment(<span class="hljs-string">&#x27;div&#x27;</span>);<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="createTextNode"><a href="#createTextNode" class="headerlink" title="createTextNode()"></a>createTextNode()</h5><p>创建文本节点</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> text = <span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">&#x27;AgoniLay&#x27;</span>);<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="createComment"><a href="#createComment" class="headerlink" title="createComment()"></a>createComment()</h5><p>创建注释节点</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> comment = <span class="hljs-built_in">document</span>.createComment(<span class="hljs-string">&#x27;This is AgoniLay！&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="插"><a href="#插" class="headerlink" title="插"></a>插</h4><h5 id="appendChild"><a href="#appendChild" class="headerlink" title="appendChild() *"></a>appendChild() *</h5><p>将节点添加到调用者中，类似于 push</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&#x27;div&#x27;</span>)[<span class="hljs-number">0</span>];<br><span class="hljs-keyword">var</span> text = <span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">&#x27;AgoniLay&#x27;</span>);<br>div.appendChild(text);<br></code></pre></div></td></tr></table></figure>
+
+<p>将已在界面内的节点添加到别的中去</p>
+<p>是剪切效果，原先的会被剪切到要添加的地方</p>
+<h5 id="insertBefore"><a href="#insertBefore" class="headerlink" title="insertBefore() *"></a>insertBefore() *</h5><p>将要插入的 插入到元素中去，并且插入到 第二个参数所代表元素 之前</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">div.insertBefore(strong, span);<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="insertAfter-自定义"><a href="#insertAfter-自定义" class="headerlink" title="insertAfter() 自定义"></a>insertAfter() 自定义</h5><p>自己封装 insertAfter() 方法</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">Element.prototype.insertAfter = funtion (targetNode, afterNode) &#123;<br>    <span class="hljs-keyword">var</span> beforeNode = afterNode.nextElementSibling;<br>    <span class="hljs-keyword">if</span> (beforeNode == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-built_in">this</span>.appendChild(targetNode);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">this</span>.insertBefore(targetNode, beforeNode);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="删"><a href="#删" class="headerlink" title="删"></a>删</h4><h5 id="removeChild"><a href="#removeChild" class="headerlink" title="removeChild() *"></a>removeChild() *</h5><p>父节点剪切出自己的子节点，作为返回值返回出来</p>
+<h5 id="remove"><a href="#remove" class="headerlink" title="remove() *"></a>remove() *</h5><p>自己将自己本身销毁，无返回值</p>
+<h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><h5 id="replaceChild"><a href="#replaceChild" class="headerlink" title="replaceChild()"></a>replaceChild()</h5><p>由父节点调用，用新的 替换 旧的，并将旧的返回出来</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">parentNode.replaceChild(<span class="hljs-keyword">new</span>, origin)<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="节点属性"><a href="#节点属性" class="headerlink" title="节点属性"></a>节点属性</h4><h5 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML() *"></a>innerHTML() *</h5><p>改变一个元素中的 <strong>html</strong> 内容</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">div.innerHTML = <span class="hljs-string">&#x27;123&#x27;</span>; <span class="hljs-comment">// 会将原来里面的所有值覆盖</span><br>div.innerHTML += <span class="hljs-string">&#x27;456&#x27;</span>; <span class="hljs-comment">// 先取值，在追加 --&gt; 可读可写</span><br></code></pre></div></td></tr></table></figure>
+
+<p>会识别括号内的一系列 html 文本</p>
+<h5 id="innerText"><a href="#innerText" class="headerlink" title="innerText()"></a>innerText()</h5><p>读写标签内的文本，但是会覆盖</p>
+<p>innerText() 方法 老版本火狐不兼容，火狐中有 textContent() 方法，但此方法 老版本ie 不好使</p>
+<h4 id="节点方法"><a href="#节点方法" class="headerlink" title="节点方法"></a>节点方法</h4><h5 id="setAttribute"><a href="#setAttribute" class="headerlink" title="setAttribute()"></a>setAttribute()</h5><p>设置行间属性</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">div.setAttribute(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="hljs-string">&#x27;demo&#x27;</span>);<br><span class="hljs-comment">// div --&gt; &lt;div class=&quot;demo&quot;&gt;&lt;/div&gt;</span><br>div.setAttribute(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-string">&#x27;only&#x27;</span>);<br><span class="hljs-comment">// div --&gt; &lt;div class=&quot;demo&quot; id=&quot;only&quot;&gt;&lt;/div&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="getAttribute"><a href="#getAttribute" class="headerlink" title="getAttribute()"></a>getAttribute()</h5><p>取到行内属性</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">div.getAttribute(<span class="hljs-string">&#x27;id&#x27;</span>); <span class="hljs-comment">// --&gt; only</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="className"><a href="#className" class="headerlink" title="className()"></a>className()</h5><p>可以读写元素节点的 class 属性</p>
+<h3 id="脚本化CSS"><a href="#脚本化CSS" class="headerlink" title="脚本化CSS"></a>脚本化CSS</h3><h4 id="读写css属性"><a href="#读写css属性" class="headerlink" title="读写css属性"></a>读写css属性</h4><h5 id="dom-style"><a href="#dom-style" class="headerlink" title="dom.style *"></a>dom.style *</h5><ul>
+<li>如果属性名中带有 <code>-</code> ，则换成小驼峰式：<code>background-color</code> –&gt; <code>backgroundColor</code> </li>
+<li>碰到 float 这样的保留字属性，尽量前面加 css：<code>float</code> –&gt; <code>cssFloat</code> </li>
+<li>复合属性建议拆解：<code>border: 1px soild red;</code> –&gt; <code>borderWidth=&quot;1px&quot;; borderStyle=&quot;soild&quot;; borderColor=&quot;red&quot;</code></li>
+<li>可读可写，但只能读取到行间样式，写也是添加到行间，无兼容性问题</li>
+<li>只有这一种方法可以写入 css 值</li>
+</ul>
+<h5 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle() *"></a>getComputedStyle() *</h5><p>获取当前元素所展示出的一切 css 属性的显式值（最终显示出来的，包括默认值）</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.getComputedStyle(ele, <span class="hljs-literal">null</span>)[prop];<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li><p>只读</p>
+</li>
+<li><p>返回的样式都是绝对值</p>
+<ul>
+<li>颜色：rgb 形式</li>
+<li>尺寸：px 单位</li>
+</ul>
+</li>
+<li><p>第二个参数 null 的作用：获取伪元素的属性表</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.getElementByTagName(<span class="hljs-string">&#x27;div&#x27;</span>)[<span class="hljs-number">0</span>];<br><span class="hljs-built_in">window</span>.getComputedStyle(div, <span class="hljs-string">&quot;after&quot;</span>);<br></code></pre></div></td></tr></table></figure></li>
+<li><p>IE8及IE8以下不兼容</p>
+<ul>
+<li><code>div.currentStyle</code> –&gt; <code>CSSStyleDeclaration</code> </li>
+</ul>
+</li>
+</ul>
+<p>兼容性问题解决：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getStyle</span>(<span class="hljs-params">elem, prop</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.getComputedStyle) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.getComputedStyle(elem, <span class="hljs-literal">null</span>)[prop];<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> elem.currentStyle[prop];<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<p>博客笔记地址（三）：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58163927/article/details/119077863">https://blog.csdn.net/qq_58163927/article/details/119077863</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/tags/DOM/">DOM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均为本人原创，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/30/JavaScript%E7%AC%94%E8%AE%B0-%E5%9B%9B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JavaScript笔记(四)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/30/JavaScript%E7%AC%94%E8%AE%B0-%E4%BA%8C/">
+                        <span class="hidden-mobile">JavaScript笔记(二)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/img/agoni.gif" srcset="/img/loading2.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;"> <h5 style="text-align: center; margin-top: 1rem;">谢谢您的光临噢！！！</h5> 
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>张宝文</span> <i class="iconfont icon-love"></i> <span>郑佳丽</span>  
+	<!--《添加网站运行时间 -->
+<br/>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+var now = new Date(); 
+
+function createtime() {
+    //此处修改你的建站时间或者网站上线时间
+    var grt = new Date('07/28/2021 19:00:00');
+    now.setTime(now.getTime() + 250);
+    days = (now - grt) / 1000 / 60 / 60 / 24;
+
+    dnum = Math.floor(days);
+    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+        hnum = "0" + hnum;
+    }
+    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+        mnum = "0" + mnum;
+    }
+    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+        snum = "0" + snum;
+    }
+    document.getElementById("timeDate").innerHTML = " 本站已各种夹缝中安全运行 " + dnum + " 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()", 250);
+</script>
+
+<!-- 添加网站运行时间》-->
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+  <script>
+    function typing(id, title){
+        var typed = new Typed('#' + id, {
+            strings: [
+              '  ',
+              title + "&nbsp;",
+            ],
+            cursorChar: "❤",
+            typeSpeed: 150,
+            loop: false,
+        });
+        typed.stop();
+        $(document).ready(function () {
+            $(".typed-cursor").addClass("h2");
+            typed.start();
+        });
+    }
+
+    
+        typing("subtitle", document.getElementById('subtitle').title)
+    
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+</body>
+</html>
