@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      300
+      462
        分钟
     </span>
   
@@ -1405,6 +1405,510 @@
 <h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p>可以为一个元素，同时绑定多个事件</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">obj.addEventListener(事件，回调函数，冒泡/捕获) ; <br><br>btn.addEventListener(<span class="hljs-string">&quot;click&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ev</span>)</span>&#123; <span class="hljs-comment">//ev 事件对象 </span><br>  alert(<span class="hljs-string">&#x27;dadaqianduan&#x27;</span>); <br>&#125;,<span class="hljs-literal">false</span>) <br><span class="hljs-comment">//false 冒泡阶段</span><br></code></pre></div></td></tr></table></figure>
 
+<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><p>一款轻量级的 js 库 </p>
+<p>优点：</p>
+<ul>
+<li>丰富的 DOM 选择器 </li>
+<li>简单的事件操作 </li>
+<li>重新封装方法，让操作 DOM 属性更简单 </li>
+<li>链式操作 </li>
+<li>丰富的动画效果 </li>
+<li>Ajax 操作支持 </li>
+<li>浏览器兼容 </li>
+<li>插件扩展开发，可扩展性强 </li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不能向后兼容 </li>
+<li>插件兼容性 </li>
+<li>多个插件冲突 </li>
+</ul>
+<h2 id="jQuery-选择器"><a href="#jQuery-选择器" class="headerlink" title="jQuery 选择器"></a>jQuery 选择器</h2><ol>
+<li>id 选择器 $(‘#box’) </li>
+<li>class 选择器 $(‘.box’) </li>
+<li>标记选择器 $(‘p’) </li>
+<li>* 代表所有标签</li>
+</ol>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><ul>
+<li>[attribute] 匹配包含给定属性的元素 </li>
+<li>[attribute=value] 匹配给定的属性是某个特定值的元素 </li>
+<li>[attribute!=value] 匹配给定的属性不是某个特定值的元素 </li>
+<li>[attribute^=value] 匹配给定的属性是以某些值开始的元素 </li>
+<li>[attribute$=value] 配给定的属性是以某些值结尾的元素 </li>
+<li>[attribute*=value] 匹配给定的属性是以包含某些值的元素 </li>
+</ul>
+<h2 id="位置选择器"><a href="#位置选择器" class="headerlink" title="位置选择器"></a>位置选择器</h2><ul>
+<li>:first 匹配第一个元素 </li>
+<li>:last 获取最后一个元素 </li>
+<li>:not 去除所有与给定选择器匹配的元素 </li>
+<li>:even 匹配所有索引值为偶数的元素，从 0 开始计数 </li>
+<li>:odd 匹配所有索引值为奇数的元素，从 0 开始计数 </li>
+<li>:eq 匹配一个给定索引值的元素 </li>
+<li>:gt 匹配所有大于给定索引值的元素 </li>
+<li>:lt 匹配所有小于给定索引值的元素 </li>
+</ul>
+<h2 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h2><p>$(“选择器 1 选择器 2 ……”) </p>
+<h2 id="子代选择器"><a href="#子代选择器" class="headerlink" title="子代选择器"></a>子代选择器</h2><p>$(“选择器 1&gt;选择器 2&gt;……”) </p>
+<h2 id="选择器对象"><a href="#选择器对象" class="headerlink" title="选择器对象"></a>选择器对象</h2><ul>
+<li>$(“选择器”).each(function(index){this}) 选择器对象的遍历 </li>
+<li>$(“选择器”).find() 找前面选择器匹配到的元素的子元素 </li>
+<li>$(“选择器”).not() 在前面选择器匹配到的元素中去除某个或某多个 </li>
+<li>$(“选择器”).add() 在前面选择器中在追加节点 </li>
+</ul>
+<h2 id="子元素"><a href="#子元素" class="headerlink" title="子元素"></a>子元素</h2><ul>
+<li>:first-child 匹配第一个子元素 </li>
+<li>:last-child 匹配最后一个子元素 </li>
+<li>:first-of-type 选择所有相同的元素名称的第一个兄弟元素 </li>
+<li>:last-of-type 选择所有相同的元素名称的最后一个兄弟元素 </li>
+<li>:nth-child 匹配其父元素下的第 N 个子或奇偶元素 </li>
+<li>:nth-last-child() 选择所有他们父元素的第 n 个子元素。计数从最后一个元素开始到第一个 </li>
+<li>:nth-last-of-type() 选择的所有他们的父级元素的第 n 个子元素，计数从最后一个元素到第一个 </li>
+<li>:nth-of-type() 选择同属于一个父元素之下，并且标签名相同的子元素中的第 n 个 </li>
+<li>:only-child 如果某个元素是父元素中唯一的子元素，那将会被匹配 </li>
+<li>:only-of-type 选择所有没有兄弟元素，且具有相同的元素名称的元素。 </li>
+</ul>
+<p>表单</p>
+<ul>
+<li>:input 匹配所有 input, textarea, select 和 button 元素 </li>
+<li>:text 匹配所有的单行文本框 </li>
+<li>:password 匹配所有密码框 </li>
+<li>:radio 匹配所有单选按钮 </li>
+<li>:checkbox 匹配所有复选框 </li>
+<li>:submit 匹配所有提交按钮 </li>
+<li>:image 匹配所有图像域 :reset 匹配所有重置按钮 </li>
+<li>:button 匹配所有按钮 </li>
+<li>:file 匹配所有文件域 </li>
+<li>:hidden 匹配所有隐藏域 </li>
+</ul>
+<p>表单对象属性</p>
+<ul>
+<li>:enabled 匹配所有可用元素 </li>
+<li>:disabled 匹配所有禁用元素 </li>
+<li>:checked 匹配所有选中的被选中元素 </li>
+<li>:selected 匹配所有选中的 option 元素 </li>
+</ul>
+<h2 id="DOM-操作"><a href="#DOM-操作" class="headerlink" title="DOM 操作"></a>DOM 操作</h2><ol>
+<li>查找获取 <ul>
+<li>text() - 设置或返回所选元素的文本内容 </li>
+<li>html() - 设置或返回所选元素的内容 </li>
+<li>val() - 设置或返回表单字段的值 </li>
+</ul>
+</li>
+<li>内部插入 <ul>
+<li>append() 向每个匹配的元素内部追加内容 </li>
+<li>appendTo() 把所有匹配的元素追加到另一个指定的元素集合中 </li>
+<li>prepend() 向每个匹配的元素内部前置内容 </li>
+<li>prependTo() 把所有匹配的元素前置到另一个、指定的元素集合中 </li>
+</ul>
+</li>
+<li>外部插入 <ul>
+<li>after() 在每个匹配的元素之后插入内容 </li>
+<li>before() 在每个匹配的元素之前插入内容 </li>
+<li>insertAfter() 把所有匹配的元素插入到另一个、指定的元素集合的后面 </li>
+<li>insertBefore() 把所有匹配的元素插入到另一个、指定的元素集合的前面</li>
+</ul>
+</li>
+<li>包裹 <ul>
+<li>wrap() 把所有匹配的元素用其他元素的结构化标记包裹起来 </li>
+<li>unwrap() 这个方法将移出元素的父元素。 </li>
+<li>wrapAll() 将所有匹配的元素用单个元素包裹起来 </li>
+<li>wrapInner() 将每一个匹配的元素的子内容(包括文本节点)用一个 HTML 结构包裹起来 </li>
+</ul>
+</li>
+<li>替换 <ul>
+<li>replaceWith() 将所有匹配的元素替换成指定的 HTML 或 DOM 元素 </li>
+<li>replaceAll() 用匹配的元素替换掉所有 selector 匹配到的元素 </li>
+</ul>
+</li>
+<li>删除 <ul>
+<li>empty() 删除匹配的元素集合中所有的子节点 </li>
+<li>remove() 从 DOM 中删除所有匹配的元素 </li>
+</ul>
+</li>
+<li>克隆 <ul>
+<li>clone() 克隆匹配的 DOM 元素并且选中这些克隆的副本 </li>
+</ul>
+</li>
+</ol>
+<h2 id="JQuery-事件"><a href="#JQuery-事件" class="headerlink" title="JQuery 事件"></a>JQuery 事件</h2><p>页面载入 </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <br>&#125;)<br><span class="hljs-comment">//简写方式 </span><br>$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>事件绑定 </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">$(<span class="hljs-string">&quot;#box&quot;</span>).on(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <br>&#125;)<br><br>$(<span class="hljs-string">&quot;#box&quot;</span>).off(<span class="hljs-string">&quot;click, mousemove&quot;</span>); <br></code></pre></div></td></tr></table></figure>
+
+<h2 id="容器适应"><a href="#容器适应" class="headerlink" title="容器适应"></a>容器适应</h2><p>获取元素的宽高有以下几种方法： </p>
+<ul>
+<li>$(选择器).width() | innerWidth() | outerWidth() </li>
+<li>$(选择器).height() | innerHeight() | outerHeight() </li>
+<li>innerWidth() 和 innerHeight() 是指元素里面内容的宽高加上内边距的宽高； </li>
+<li>outerWidth() 和 outerHeight() 是指元素里面内容的宽高加上内边距的宽高和边框； </li>
+</ul>
+<p>获取窗口的宽高的方法如下：</p>
+<ul>
+<li>$(window).width() </li>
+<li>$(window).height() </li>
+</ul>
+<h2 id="标签样式操作"><a href="#标签样式操作" class="headerlink" title="标签样式操作"></a>标签样式操作</h2><ul>
+<li>$(选择器).css (样式属性名[,值])    方法设置或返回被选元素的一个或多个样式属性 </li>
+<li>$(选择器).addClass(类别名)   增加类别样式 </li>
+<li>$(选择器).removeClass(类别名)   去除类别样式 </li>
+<li>$(选择器).toggleClass(类别名)    交替使用类别样式：有这个类别样式就去除，没有就追加；</li>
+</ul>
+<h2 id="滑动"><a href="#滑动" class="headerlink" title="滑动"></a>滑动</h2><ul>
+<li>show() 显示元素 </li>
+<li>hide() 隐藏元素</li>
+</ul>
+<ul>
+<li>slidDown() 向下滑动显示 </li>
+<li>slideUp() 向上滑动收起隐藏 </li>
+<li>slideToggle() 交替滑动状态 </li>
+</ul>
+<ul>
+<li>fadeIn() 淡入 </li>
+<li>fadeOut() 淡出 </li>
+<li>fadeTo() 动画到指定透明度 </li>
+<li>fadeToggle() 交替淡出、淡入状态 </li>
+</ul>
+<h2 id="自定义动画"><a href="#自定义动画" class="headerlink" title="自定义动画"></a>自定义动画</h2><ul>
+<li>animate() 自定义动画 </li>
+<li>stop() 停止所有在指定元素上正在运行的动画 </li>
+<li>delay() 设置一个延时来推迟执行队列中之后的项目 </li>
+<li>finish() 停止当前正在运行的动画，删除所有排队的动画，并完成匹配元素所有的动画 </li>
+</ul>
+<h2 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h2><ul>
+<li>$.ajax() </li>
+<li>$.get() 通过远程 HTTP GET 请求载入信息 </li>
+<li>$.post() 通过远程 HTTP POST 请求载入信息 </li>
+<li>$.getJSON() 通过 HTTP GET 请求载入 JSON 数据</li>
+</ul>
+<h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><p>AJAX = 异步 JavaScript 和 XML </p>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><p>在浏览器中输入 url 地址请求服务器时，是通过 Ajax 发送 http 请求给服务器，服务的响应结果也是先返回给 Ajax，先 Ajax 处理之后在返回给浏览器显示在页面。 </p>
+<h2 id="XMLHttpRequest-对象"><a href="#XMLHttpRequest-对象" class="headerlink" title="XMLHttpRequest 对象"></a>XMLHttpRequest 对象</h2><p>第一步： </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">xhr = <span class="hljs-keyword">new</span> XMLHttpRequest(); <br></code></pre></div></td></tr></table></figure>
+
+<p>第二步 </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">xhr.open(<span class="hljs-string">&quot;post&quot;</span>, <span class="hljs-string">&quot;test.php&quot;</span>); <br></code></pre></div></td></tr></table></figure>
+
+<p>第三步： </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">xhr.setRequestHeader(<span class="hljs-string">&quot;Content-type&quot;</span>,<span class="hljs-string">&quot;application/x-www-form-urlencoded&quot;</span>);<br></code></pre></div></td></tr></table></figure>
+
+<p>第四步： </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">xhr.send(<span class="hljs-string">&quot;a=1&amp;b=2&quot;</span>);<br></code></pre></div></td></tr></table></figure>
+
+<p>第五步： </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">xhr.onreadystatechange=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <br>  <span class="hljs-keyword">if</span>(xhr.status==<span class="hljs-number">200</span> &amp;&amp; xhr.readyState==<span class="hljs-number">4</span>)&#123; <br>    <span class="hljs-keyword">var</span> result=xhr.responseText;<span class="hljs-comment">//获取到结果 </span><br>    alert(result); <br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="XML-和-HTML-的区别"><a href="#XML-和-HTML-的区别" class="headerlink" title="XML 和 HTML 的区别"></a>XML 和 HTML 的区别</h2><p>XML：所有的标记必须成对出现，且区分大小写</p>
+<p>HTML：不是所有的都需要成对出现，不区分大小写</p>
+<h2 id="get-和-post"><a href="#get-和-post" class="headerlink" title="get() 和 post()"></a>get() 和 post()</h2><p>$.get(url,data,callback,dataType) </p>
+<p>$.post(url,data,callback,dataType) </p>
+<p>Ajax 的基本格式如下： </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">$.ajax(&#123;<br>  <span class="hljs-attr">url</span>:<span class="hljs-string">&#x27;请求的资源&#x27;</span>,<br>  <span class="hljs-attr">type</span>:<span class="hljs-string">&#x27;请求方式 get|post&#x27;</span>,<br>  <span class="hljs-attr">data</span>:<span class="hljs-string">&#x27;发送数据 名=值&amp;名=值&#x27;</span>,<br>  <span class="hljs-attr">dataType</span>:<span class="hljs-string">&#x27;回传值的类型&#x27;</span>,<br>  <span class="hljs-attr">success</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>)</span>&#123;<br>    <span class="hljs-comment">// res 接收返回值</span><br>  &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>HTTP（超文本传输协议）是一种通信协议，它允许将超文本标记语言（HTML）文档从 Web 服务器传送到客户端的浏览器。</p>
+<h2 id="HTTP-消息结构"><a href="#HTTP-消息结构" class="headerlink" title="HTTP 消息结构"></a>HTTP 消息结构</h2><ul>
+<li>request line <ul>
+<li>请求行：第一行必须是请求行，用来说明请求类型、要访问的资源以及使用的HTTP 版本 </li>
+</ul>
+</li>
+<li>header <ul>
+<li>请求头：用来说明服务器要使用的附加信息 </li>
+</ul>
+</li>
+<li>blank line <ul>
+<li>空白行：请求头部与请求体之间必须有一个空白行，必不可少 </li>
+</ul>
+</li>
+<li>body <ul>
+<li>请求体：也叫请求正文，可以添加任意的其他数据 </li>
+</ul>
+</li>
+</ul>
+<p>状态行： </p>
+<ul>
+<li>Host 接受请求的服务器地址，可以是：IP：端口 或 域名 </li>
+<li>User-Agent 发送请求的应用程序名称（浏览器信息） </li>
+<li>Connection 指定与连接相关的属性，如：Connection:Keep-Alive </li>
+<li>Accept-Charset 客户端可以接受的编码格式 </li>
+<li>Accept-Encoding 客户端可以接受的数据压缩格式 </li>
+<li>Accept-Language 客户端可以接受的语言 </li>
+<li>referer 当前请求来自哪个链接（防盗连） </li>
+<li>content-type 请求的文件类型 </li>
+<li>cookie 该网站相关的会话信息 </li>
+</ul>
+<h2 id="url-请求过程"><a href="#url-请求过程" class="headerlink" title="url 请求过程"></a>url 请求过程</h2><ol>
+<li>首先客户端与服务器需要建立连接。</li>
+<li>建立连接后，客户端发送一个请求给服务器，请求方式的格式为：统一资源标识符（URL）、协议版本号，客户端信息和可能的内容。 </li>
+<li>服务器接到请求后，给予相应的响应信息，其格式为一个状态行，包括信息的协议版本号、一个成功或错误的代码（status Code 状态码），后边服务器信息、实体信息和可能的内容。 </li>
+<li>客户端接收完, 服务器所返回的信息后，与服务器断开连接。 </li>
+</ol>
+<blockquote>
+<p>如果在以上过程中的某一步出现错误，那么产生错误的信息将返回到客户端。对于用户来说，这些过程是由 HTTP 自己完成的，用户只要用鼠标点击，等待信息显示就可以了。 </p>
+</blockquote>
+<h1 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h1><p>预加载：将所有所需的资源提前请求加载到本地，后面在需要使用就直接从缓存中存取资源 </p>
+<ol>
+<li><p>使用 image 对象 </p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:none&quot;</span>/&gt;</span> <br></code></pre></div></td></tr></table></figure></li>
+<li><p>使用 image 对象 </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> image = <span class="hljs-keyword">new</span> Image(); <br>image.src=<span class="hljs-string">&quot;&quot;</span>; <br></code></pre></div></td></tr></table></figure></li>
+<li><p>使用 XMLHttpRequest 对象 </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">xmlhttprequest.onreadystatechange = callback;<br>xmlhttprequest.onprogress = progressCallback;<br>xmlhttprequest.open(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&#x27;http://xx.jpg,true&#x27;</span>);<br>xmlhttprequest.send();<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callback</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">if</span>(xmlhttprequest.readyState = <span class="hljs-number">4</span> &amp;&amp; xmlhttprequest.status == <span class="hljs-number">200</span>)&#123;<br>    <span class="hljs-keyword">var</span> responseText = xmlhttprequest.responseText;<br>  &#125;<span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Request was unsuccessful&quot;</span> + xmlhttprequest.status);<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">progressCallback</span>(<span class="hljs-params">e</span>)</span>&#123;<br>  c = e || event;<br>  <span class="hljs-keyword">if</span> (e.lengthComputable) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Received&quot;</span> + e.loaded + <span class="hljs-string">&quot;of&quot;</span> + e.total + <span class="hljs-string">&quot;bytes&quot;</span>);<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+</ol>
+<h1 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h1><p>首屏加载，技术上显示要用的技术就是图片懒加载，即到可视区域再加载。 </p>
+<h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><h2 id="JavaScript-代码优化"><a href="#JavaScript-代码优化" class="headerlink" title="JavaScript 代码优化"></a>JavaScript 代码优化</h2><ol>
+<li>代码与结构分离 </li>
+<li>样式与结构的分离 </li>
+<li>数据与代码分离 </li>
+</ol>
+<p>AMD：Asynchronous Module Definition，即异步模块加载机制。 </p>
+<p>CMD：Common Module Definition，即通用模块定义规范 </p>
+<p>导出（export）与 导入（import）两个模块 </p>
+<h2 id="提升文件加载速度"><a href="#提升文件加载速度" class="headerlink" title="提升文件加载速度"></a>提升文件加载速度</h2><ol>
+<li>合并 JavaScript 代码，尽可能少的使用 script 标签。 </li>
+<li>无堵塞加载 JavaScript </li>
+<li>动态创建 script 标签来加载 </li>
+</ol>
+<h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><p>webpack 是一个 module bundler（模块构建工具），由于 JavaScript 应用程序的复杂性不断增加，构建工具已成为 web 开发中不可或缺的一部分。它帮助我们去打包、编译和管理项目需要的众多资源文件和依赖库。 </p>
+<p>webpack 支持 CommonJS、AMD 和 ES6 模块系统，并且兼容多种 JS 书写规范，可以处理模块间的依赖关系，所以具有更强大的 JS 模块化的功能，它能压缩图片，对 CSS、js 文件进行语法检查、压缩、编译打包。 </p>
+<h2 id="webpack-的特点"><a href="#webpack-的特点" class="headerlink" title="webpack 的特点"></a>webpack 的特点</h2><ol>
+<li>可以很好的用于单页应用 </li>
+<li>同时支持 require() 和 import 模块语法 </li>
+<li>允许非常前沿的 code splitting（代码分割） 特性 </li>
+<li>热加载可以让 React、Vue.js 和其它类似框架的本地开发更快 </li>
+<li>它是目前最受欢迎的构建工具 </li>
+</ol>
+<h2 id="webpack-的缺点"><a href="#webpack-的缺点" class="headerlink" title="webpack 的缺点"></a>webpack 的缺点</h2><ol>
+<li>不适合 web 开发的初学者 </li>
+<li>对于 CSS、图片和其它非 JS 资源文件时，需要先混淆处理 </li>
+<li>文档不够完善 </li>
+<li>变化很大，不同版本的使用方法存在较大差异</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>全局安装</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">//安装全局 webpack </span><br>npm install webpack -g <br><br><span class="hljs-comment">//安装全局 webpack-cli </span><br>npm install webpack-cli -g <br></code></pre></div></td></tr></table></figure>
+
+<h2 id="webpack-基本应用"><a href="#webpack-基本应用" class="headerlink" title="webpack 基本应用"></a>webpack 基本应用</h2><p>SPA（single page web application） 单页应用程序，是 webpack 打包的典型应用示例，主要的几个部分组成： </p>
+<ul>
+<li>index.html    主文件 </li>
+<li>JS 文件    可能有多个 JS 文件，可通过 webpack 合并打包为一个文件 </li>
+<li>CSS 文件    可能有多个 CSS 文件，可通过 webpack 合并打包为一个文件 </li>
+<li>图片    可通过 webpack 压缩优化 </li>
+</ul>
+<p>dist 文件夹（存放打包后的文件，可以先不创建，打包时可以自动创建） </p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">-dis,dist,bulit <br></code></pre></div></td></tr></table></figure>
+
+<p>打包： </p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">webpack --mode development <br></code></pre></div></td></tr></table></figure>
+
+<h2 id="配置文件入门"><a href="#配置文件入门" class="headerlink" title="配置文件入门"></a>配置文件入门</h2><p>默认的配置文件名为：webpack.config.js </p>
+<p>核心概念</p>
+<p>一个配置文件的基本结构如下： </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">//配置项</span><br><span class="hljs-built_in">module</span>.exports=&#123;<br>  <span class="hljs-comment">//入口</span><br>  <span class="hljs-attr">entry</span>: <span class="hljs-string">&quot;&quot;</span>,<br>  <span class="hljs-comment">//输出配置</span><br>  <span class="hljs-attr">output</span>: &#123;&#125;,<br>  <span class="hljs-comment">//模块</span><br>  <span class="hljs-attr">module</span>: &#123;&#125;,<br>  <span class="hljs-comment">//解析</span><br>  resolve：&#123;&#125;,<br>  <span class="hljs-comment">//插件（数组）</span><br>  <span class="hljs-attr">plugins</span>: [],<br>  <span class="hljs-comment">//开发服务器</span><br>  <span class="hljs-attr">devServer</span>: &#123;&#125;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>entry 入口 定义入口文件，默认入口文件：./src/index.js </li>
+<li>output 输出 定义出口文件，默认出口文件：./dist/main.js </li>
+<li>resolve 解析 路径映射、省略后缀名等 </li>
+<li>module 模块 定义不同 loader，让 webpack 能够处理非 JavaScript 模块 </li>
+<li>plugins 插件 扩展 webpack 功能 </li>
+<li>devServer 开发服务器 用于配置 webpack-dev-server 选项 </li>
+</ul>
+<p>设置配置文件自动完成： </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// webpack 是基于 node 构建的，只支持 CommonJS 模块 </span><br><span class="hljs-built_in">module</span>.exports=&#123;<br>  <span class="hljs-comment">// 入口配置 </span><br>  <span class="hljs-attr">entry</span>:<span class="hljs-string">&#x27;./src/js/main.js&#x27;</span>, <br>  <span class="hljs-comment">// 出口配置 </span><br>  <span class="hljs-attr">output</span>:&#123; <br>    <span class="hljs-attr">path</span>:__dirname +<span class="hljs-string">&#x27;/dist&#x27;</span>, <span class="hljs-comment">// 输出目录 </span><br>    <span class="hljs-comment">// __dirname:本文件所在硬盘 </span><br>    <span class="hljs-comment">// 路径（node 全局变量） </span><br>    <span class="hljs-attr">filename</span>:<span class="hljs-string">&#x27;js/main.js&#x27;</span> <span class="hljs-comment">// 文件名称（可以有子目录） </span><br>  &#125; <br>&#125;;<br></code></pre></div></td></tr></table></figure>
+
+<p>修改 webpack.json 文件 </p>
+<p>在 webpack.json 中的”scripts”下增加： </p>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-string">&quot;scripts&quot;</span>: &#123; <br>  <span class="hljs-attr">&quot;dev&quot;</span>: <span class="hljs-string">&quot;webpack --mode development&quot;</span>,<br>  <span class="hljs-attr">&quot;build&quot;</span>: <span class="hljs-string">&quot;webpack --mode production&quot;</span><br>&#125;, <br></code></pre></div></td></tr></table></figure>
+
+<p>执行打包</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">npm run dev <br></code></pre></div></td></tr></table></figure>
+
+<h2 id="entry-和-output"><a href="#entry-和-output" class="headerlink" title="entry 和 output"></a>entry 和 output</h2><ol>
+<li>entry 入口配置 是指页面中的入口文件。也就是打包从哪个文件开始。默认入口文件：./src/index.js </li>
+<li>output 出口配置 是指生成的文件输出到哪个地方去，默认出口文件：./dist/main.js，主要有以下属性：<ul>
+<li>path 输出路径 </li>
+<li>filename 输出文件名 </li>
+</ul>
+</li>
+</ol>
+<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>webpack 只能打包 js 文件（只理解 JavaScript 语法），无法识别其他语法的文件，如果要让 webpack 打包其他文件，首先需要让 webpack 识别不同文件，这就需要特别的模块，这种模块统称为 loader。 </p>
+<h3 id="loader-分类"><a href="#loader-分类" class="headerlink" title="loader 分类"></a>loader 分类</h3><ul>
+<li>转换编译  script-loader，babel-loader，ts-loader，coffee-loader </li>
+<li>处理样式  style-loader ， css-loader ， less-loader ， sass-loader ，postcss-loader </li>
+<li>处理文件  raw–loader，url-loader，file-loader </li>
+<li>处理数据  csv-loader，xml-loader </li>
+<li>处理模板语言  html-loader，pug-loader，jade-loader，markdown-loader </li>
+<li>清理和测试  mocha-loader，eslint-loader</li>
+</ul>
+<h3 id="常用-loader"><a href="#常用-loader" class="headerlink" title="常用 loader"></a>常用 loader</h3><ul>
+<li>css-loader  解析 css 语句 </li>
+<li>style-loader  将 css-loader 解析后的文本，添加 <code>&lt;style&gt;</code> 标签 </li>
+<li>babel-loader  将 ES6+、JSX 语法转成 ES5 低版本语法 </li>
+<li>url-loader  对未设置或者小于 limit byte 设置的图片以 base64 的格式进行转换，对于大于 limit byte 的图片用 file-loader 进行解析 </li>
+<li>file-loader  解析项目中的 url 引入（包括 img 的 src 和 background 的 url）修改打包后文件引用路径，使之指向正确的文件 </li>
+<li>less-loader less 编译器 </li>
+<li>vue-loader  Vue 也推出了自己的 vue-loader，可以方便的打包 .vue 文件 的代码在 vue-cli（快速构建单页应用的脚手架）中得到应用。 </li>
+</ul>
+<h4 id="css-loader"><a href="#css-loader" class="headerlink" title="css loader"></a>css loader</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">//index.js </span><br><span class="hljs-keyword">import</span> a <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./a.js&quot;</span>; <br><span class="hljs-keyword">import</span> b <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./b.js&quot;</span>; <br><br><span class="hljs-keyword">var</span> txt = <span class="hljs-string">&quot;hello world&quot;</span>; <br>a.run(); <br>b.play(txt);<span class="hljs-comment">//打包 css 文件 </span><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;./style.css&quot;</span>; <span class="hljs-comment">//注意：是相对路径</span><br></code></pre></div></td></tr></table></figure>
+
+<p>安装 loader（loader 也是依赖包，需要安装） </p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">npm install css-loader style-loader --save-dev <br></code></pre></div></td></tr></table></figure>
+
+<p>在 module 中定义 ccs 模块相关的配置： </p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">module: &#123;<br>  rules: [<br>    &#123;<br>      test: /.css$/, <span class="hljs-comment">// 正则</span><br>      <span class="hljs-comment">// 把 css 添加到 html 的 style 标签里(style-loader 要先加载)</span><br>      loader: [<span class="hljs-string">&#x27;style-loader&#x27;</span>,<span class="hljs-string">&#x27;css-loader&#x27;</span>], <span class="hljs-comment">// loader 或者 use</span><br>      exclude: /node_modules/, <span class="hljs-comment">// 正则 排除 node_modules 目录</span><br>    &#125;<br>  ] <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="babel-loader"><a href="#babel-loader" class="headerlink" title="babel loader"></a>babel loader</h4><p>babel 是一个 js 编译器，它通过语法转换器支持最新版本的 JavaScript（包括 JSX、TypeScript 等新语法）。 这些插件允许你立刻使用新语法，无需等待浏览器支持。 </p>
+<p>使用 Babel 首先要配置 .babelrc 文件，该文件用来设置转码规则和插件（ json 格式），存放在项目的根目录下。</p>
+<blockquote>
+<p>tips：在 linux 系统中，rc 结尾的文件通常代表运行时自动加载的 文件、配置 等等。 </p>
+</blockquote>
+<p>在 .babelrc 配置文件中，主要是对 预设（presets）和 插件（plugins）进行配置。</p>
+<p>.babelrc 配置文件一般为如下： </p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">&#123;<br>  <span class="hljs-string">&quot;presets&quot;</span>: [<br>    [<span class="hljs-string">&quot;env&quot;</span>, &#123; <span class="hljs-string">&quot;modules&quot;</span>: <span class="hljs-literal">false</span> &#125; ] <span class="hljs-comment">// modules 是配置项</span><br>  ],<br>  <span class="hljs-string">&quot;plugins&quot;</span>: [<br>    [ <span class="hljs-string">&quot;transform-runtime&quot;</span>, &#123; <span class="hljs-string">&quot;polyfill&quot;</span>: <span class="hljs-literal">false</span>&#125; ] <span class="hljs-comment">// polyfill 是配置项</span><br>  ]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>预设 对 js 最新的语法糖进行编译，并不负责转译新增的 api 和全局对象。 </li>
+<li>插件 控制如何转换代码，babel 默认只转换新的 js 语法，而不转换新的 API </li>
+</ul>
+<h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><p>插件（plugins）可以扩展 webpack 的功能，</p>
+<p>loader 不能做的处理都能交给 plugin 来做。 </p>
+<p>如：HtmlWebpackPlugin 插件简化了 HTML 文件的创建，可以通过模板文件，生成一个 HTML 文件 </p>
+<h2 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h2><p>resolve（译：解析）配置 webpack 如何寻找模块对应的文件。 </p>
+<p>alias（译：别名）通过别名将原来导入路径映射成一个新的导入路径 extensions（译：扩展）数组 导入模块时，可以省略的文件后缀名 </p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">resolve: &#123;<br>  alias: &#123;<br>    <span class="hljs-string">&quot;@&quot;</span>: path.join(__dirname, <span class="hljs-string">&quot;./src&quot;</span>) <span class="hljs-comment">// 将项目根目录下的 src 目录，映射为 @</span><br>  &#125;,<br>  extensions: [<span class="hljs-string">&quot;.js&quot;</span>, <span class="hljs-string">&quot;.json&quot;</span>]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>其他配置项示例： </p>
+<ul>
+<li>devtool  是否生成以及如何生成 sourcemap </li>
+<li>devserver  开启一个本地开发服务器 </li>
+<li>watch  监听文件变化并自动打包 </li>
+<li>watchoption  用来定制 watch 模式的选项 </li>
+<li>performance  打包后命令行如何展示性能提示，如果超过某个大小是警告还是报错</li>
+</ul>
+<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h2><p>webpack-dev-server 是一个小型的 web 服务器，可以自动监视项目文件的变化，自动刷新浏览器，其 HMR（Hot Module Replacement 热模块替换）方式只替换更新的部分，而不是重载页面，大大提高了刷新效率。 </p>
+<p>需要本地安装 webpack 和 webpack-cli </p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">npm install webpack webpack-cli webpack-dev-server --save-dev <br></code></pre></div></td></tr></table></figure>
+
+<p>webpack.config.js 配置文件：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> path=<span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;path&quot;</span>); <br><br><span class="hljs-comment">// HtmlWebpackPlugin 插件</span><br><span class="hljs-keyword">let</span> HtmlWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;html-webpack-plugin&#x27;</span>);<br><span class="hljs-keyword">let</span> htmlPlugin = <span class="hljs-keyword">new</span> HtmlWebpackPlugin(&#123;<br>  <span class="hljs-attr">filename</span>: <span class="hljs-string">&quot;index.html&quot;</span>, <span class="hljs-comment">// 生成的新文件</span><br>  <span class="hljs-attr">template</span>: __dirname + <span class="hljs-string">&quot;/src/index_temp.html&quot;</span>, <span class="hljs-comment">// 模板文件</span><br>  <span class="hljs-attr">minify</span>: &#123; <span class="hljs-comment">//压缩</span><br>    <span class="hljs-attr">removeComments</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 刪除注释</span><br>    <span class="hljs-attr">collapseWhitespace</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 合并空格</span><br>  &#125;,<br>&#125;);<br><br><span class="hljs-comment">//配置项</span><br><span class="hljs-built_in">module</span>.exports = &#123;<br>  <span class="hljs-comment">//输入</span><br>  <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;./src/js/main.js&#x27;</span>, <span class="hljs-comment">// 主入口文件 </span><br><br>  <span class="hljs-comment">//输出 </span><br>  <span class="hljs-attr">output</span>: &#123;<br>    <span class="hljs-attr">path</span>: __dirname + <span class="hljs-string">&quot;/dist&quot;</span>, <span class="hljs-comment">// 打包后的文件存放的地方</span><br>    <span class="hljs-attr">filename</span>: <span class="hljs-string">&quot;main.js&quot;</span> <span class="hljs-comment">// 打包后输出的文件名</span><br>  &#125;,<br><br>  <span class="hljs-comment">//模块</span><br>  <span class="hljs-attr">module</span>: &#123;<br>    <span class="hljs-attr">rules</span>: [<br>      &#123;<br>        <span class="hljs-attr">test</span>: <span class="hljs-regexp">/.css$/</span>, <span class="hljs-comment">//正则 解析 css 文件</span><br>        <span class="hljs-comment">// 把 css 添加到 html 的 style 标签里(style-loader 要先加载) </span><br>        use: [<span class="hljs-string">&#x27;style-loader&#x27;</span>, <span class="hljs-string">&#x27;css-loader&#x27;</span>],<br>        <span class="hljs-attr">exclude</span>: <span class="hljs-regexp">/node_modules/</span>, <span class="hljs-comment">// 正则 必须要写 exclude！！</span><br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.js$/</span>,<br>        use: <span class="hljs-string">&#x27;babel-loader&#x27;</span>,<br>        <span class="hljs-attr">exclude</span>: <span class="hljs-regexp">/node_modules/</span>, <span class="hljs-comment">// 正则 必须要写 exclude！！</span><br>      &#125;]<br>  &#125;,<br><br>  <span class="hljs-comment">// 插件</span><br>  <span class="hljs-attr">plugins</span>:[<br>    htmlPlugin<br>  ],<br><br>  <span class="hljs-comment">// 解析</span><br>  <span class="hljs-attr">resolve</span>: &#123;<br>    <span class="hljs-attr">alias</span>: &#123;<br>      <span class="hljs-string">&quot;@&quot;</span>: path.join(__dirname, <span class="hljs-string">&quot;./src&quot;</span>) <span class="hljs-comment">// 将项目根目录下的 src 目录，映射为 &quot;@&quot;</span><br>    &#125;,<br>    <span class="hljs-attr">extensions</span>:[<span class="hljs-string">&#x27;.js&#x27;</span>, <span class="hljs-string">&#x27;.json&#x27;</span>]<br>  &#125;,<br><br>  <span class="hljs-comment">// 开发服务器 </span><br>  <span class="hljs-attr">devServer</span>: &#123;<br>    <span class="hljs-attr">inline</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 支持 dev-server 自动刷新</span><br>    <span class="hljs-attr">port</span>: <span class="hljs-string">&quot;8080&quot;</span>, <span class="hljs-comment">// 端口</span><br>    <span class="hljs-attr">open</span>: <span class="hljs-literal">true</span>,   <span class="hljs-comment">// 自动打开默认浏览器</span><br>  &#125;,<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-string">&quot;scripts&quot;</span>: &#123; <br>  <span class="hljs-attr">&quot;dev&quot;</span>: <span class="hljs-string">&quot;webpack-dev-server --hot&quot;</span>, <br>  <span class="hljs-attr">&quot;build&quot;</span>: <span class="hljs-string">&quot;webpack --mode production&quot;</span>  <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h2 id="MVC-模式"><a href="#MVC-模式" class="headerlink" title="MVC 模式"></a>MVC 模式</h2><p>MVC 模式是移动最广泛的软件架构之一，把应用程序强制性地划分为三部分：模型（Model）、视图（View）和控制器（Controller）。 </p>
+<h2 id="MVVM-模式"><a href="#MVVM-模式" class="headerlink" title="MVVM 模式"></a>MVVM 模式</h2><p>MVVM 模式是把 MVC 模式的 Controller 改成 ViewModel。View 的变化会自动更新 ViewModel，ViewModel 的变化也会自动同步到 View 上显示。 </p>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><ul>
+<li>el   把 Vue 实例挂载到 DOM 元素上，通过 id 绑定 html 元素 </li>
+<li>data  数据对象，Vue 实例的数据（注意：数据不要与 methods 中的方法重名）</li>
+<li>methods  事件对象，包含事件所要触发的函数（注意：方法名不要与 data 中的数据重名） </li>
+<li>computed  计算属性 </li>
+<li>watch  监听器 </li>
+<li>directives  自定义指令 </li>
+<li>钩子（hook）函数（8 个）  hook（钩子）函数，不同生命周期引发的动作 </li>
+<li>路由钩子函数（3 个）  路由组件在不同状态时触发 </li>
+<li>components  组件容器 </li>
+<li>template  定义模板，可以是字符串，也可以是”#“选择器 </li>
+<li>props  用于接收来自父组件的数据</li>
+<li>router  路由 </li>
+<li>store  vuex 状态 </li>
+</ul>
+<h2 id="实例属性-方法"><a href="#实例属性-方法" class="headerlink" title="实例属性/方法"></a>实例属性/方法</h2><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>vm.$el  Vue 实例使用的根 DOM 元素 </li>
+<li>vm.$data  Vue 的 data 配置项 </li>
+<li>vm.$options  用于当前 Vue 实例的初始化选项 </li>
+<li>vm.$props  当前组件接收到的 props 对象 </li>
+<li>vm.$parent  父实例（如果当前实例有的话） </li>
+<li>vm.$root  当前组件树的根 Vue 实例 </li>
+<li>vm.$children  当前实例的直接子组件 </li>
+<li>vm.$refs  原生 DOM 元素或子组件注册引用信息 </li>
+<li>vm.$slots  用来访问被插槽分发的内容 </li>
+<li>vm.$router  全局路由（vue-router 插件） </li>
+<li>vm.$store vuex  状态对象（vuex 插件）</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>vm.$emit()  子组件可以使用 $emit 触发父组件的自定义事件 </li>
+<li>vm.$set()  Vue.set 的别名，设置对象的属性， 这个方法主要用于避开 Vue 不能检测属性被添加的限制 </li>
+<li>vm.$watch  侦听数据变化vm.$on() 监听当前实例上的自定义事件。事件可以由 vm.$emit 触发。回调函数会接收所有传入事件触发函数的额外参数。 </li>
+<li>vm.$mount  可以使用 vm.$mount() 手动挂载（Vue 实例化时没有 el 选项） </li>
+<li>vm.$destroy  完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器。 触发 beforeDestroy 和 destroyed 的钩子。 </li>
+</ul>
+<h2 id="属性绑定指令"><a href="#属性绑定指令" class="headerlink" title="属性绑定指令"></a>属性绑定指令</h2><p>v-bind 动态改变 dom 标签上的属性</p>
+<p><code>v-bind:class=&quot;&quot;</code>  简写  <code>:class=&quot;&quot;</code>  </p>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>4 个阶段：创建 → 挂载 → 更新 → 销毁 </p>
+<p>beforeCreate  实例创建前 </p>
+<p>created  实例创建后 初始化数据（Ajax 数据请求，获取 Vuex 状态、路由切换等） </p>
+<p>beforeMount  载入前 </p>
+<p>mounted  载入后 需要操作 DOM 时（应用第三方插件等） </p>
+<p>beforeUpdate  更新前 </p>
+<p>updated  更新后 通过事件修改数据、v-model 引发数据变化、AJAX 异步更新数据</p>
+<p>beforeDestroy  实例销毁前 </p>
+<p>destroyed  实例销毁后 切换路由（组件将被销毁） </p>
+<h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p>多次访问计算属性会立即返回之前的计算结果，而不必再次执行函数。 </p>
+<p>计算属性具有缓存 </p>
+<h2 id="数组的更新检查"><a href="#数组的更新检查" class="headerlink" title="数组的更新检查"></a>数组的更新检查</h2><p>变异方法，可触发视图更新</p>
+<ul>
+<li>push()、pop()、shift()、unshift()、splice()、sort()、reverse() </li>
+</ul>
+<p>非变异方法，不触发视图更新 </p>
+<ul>
+<li>filter(), concat() 和 slice() </li>
+<li>它们可以返回新数组，用新数组替换旧数组，就可以刷新视图 </li>
+</ul>
+<h2 id="事件对象-1"><a href="#事件对象-1" class="headerlink" title="事件对象"></a>事件对象</h2><p>event.type 触发的事件类型 </p>
+<p>event.target 触发事件的 HTML 元素 </p>
+<p>event.preventDefault( ) 阻止事件的默认行为 </p>
+<p>event.stopPropagation( ) 阻止事件冒泡 </p>
+<h2 id="Vue-组件"><a href="#Vue-组件" class="headerlink" title="Vue 组件"></a>Vue 组件</h2><p>创建组件</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> myTemp = &#123;<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;#temp&#x27;</span>, <span class="hljs-comment">// 模板 id</span><br>  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">// 必须为 函数(闭包)</span><br>    <span class="hljs-keyword">return</span> &#123; <span class="hljs-comment">// 必须有 return，返回值为 对象&#123;&#125;</span><br>      <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;dadaqianduan&quot;</span><br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>注册组件 </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 在 components 配置项中注册组件</span><br><span class="hljs-keyword">let</span> app = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#box&quot;</span>,<br>  <span class="hljs-attr">components</span>: &#123; myTemp &#125;<br>&#125;);<br><br><span class="hljs-comment">// 全局注册组件，还可以使用 Vue.component 方法（仅限全局注册，不建议使用）</span><br>Vue.component(<span class="hljs-string">&#x27;myTemp&#x27;</span>, MyTemp);<br></code></pre></div></td></tr></table></figure>
+
+<p>使用组件 </p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--在 Vue 实例中使用组件--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&#x27;box&#x27;</span>&gt;</span><br>  <span class="hljs-comment">&lt;!--组件名如果用驼峰定义，改为短横线命名--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">my-temp</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-temp</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>事件通信 </p>
+<p>父子组件之间的数据操作，是通过 <strong>props</strong> 属性和 <strong>$emit()</strong> 方法来实现的 </p>
+<h2 id="路由使用"><a href="#路由使用" class="headerlink" title="路由使用"></a>路由使用</h2><p>定义路由包括路由路径（path）、路由名称（name）、路由组件对象（component） </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">routes: [<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/&#x27;</span>,<br>    <span class="hljs-comment">// 路由路径</span><br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;home&#x27;</span>,<br>    <span class="hljs-comment">// 路由名称</span><br>    <span class="hljs-attr">component</span>: Home<br>    <span class="hljs-comment">// 路由组件对象</span><br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/users&#x27;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Users&#x27;</span>,<br>    <span class="hljs-attr">component</span>: UserComponent<br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/about&#x27;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;about&#x27;</span>,<br>    <span class="hljs-attr">component</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">import</span>( <span class="hljs-string">&#x27;./views/About.vue&#x27;</span>)<br>  &#125;<br>]<br></code></pre></div></td></tr></table></figure>
+
+<p>动态路由</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">routes: [<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/users/:username/post/:postid&#x27;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Users&#x27;</span>,<br>    <span class="hljs-attr">component</span>: UserComponent,<br>  &#125;<br>]<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>/user/:username  –&gt;  /user/tom </p>
+<p>{ username: ‘tom’ } </p>
+</blockquote>
+<blockquote>
+<p>/user/:username/post/:postId  –&gt;  /user/tom/post/3 </p>
+<p>{ username: ‘tom’, postId: ‘3’ }</p>
+</blockquote>
+<h2 id="路由导航"><a href="#路由导航" class="headerlink" title="路由导航"></a>路由导航</h2><h3 id="路由导航守卫"><a href="#路由导航守卫" class="headerlink" title="路由导航守卫"></a>路由导航守卫</h3><p>路由导航守卫可以简单理解为路由组件的生命周期回调函数。 </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 作用：在第一次进入当前路由组件之前被调用</span><br><span class="hljs-comment">// 使用场景：获取 ajax 数据</span><br><span class="hljs-function"><span class="hljs-title">beforeRouteEnter</span>(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>)</span> &#123;<br>  <span class="hljs-comment">// to：表示要进入的路由组件</span><br>  <span class="hljs-comment">// from：表示将要离开的路由组件</span><br>  <span class="hljs-comment">// next：表示后续操作函数</span><br>  <span class="hljs-comment">// 此时还未进入到组件中，故不能使用 this 获取当前组件的实例</span><br>  next(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">app</span>) </span>&#123;<br>    <span class="hljs-comment">// 进入到当前组件后，才执行的回调</span><br>    <span class="hljs-comment">// 此时回调参数 app 表示当前组件的实例对象</span><br>    axios.get(<span class="hljs-string">&#x27;/users/&#x27;</span> + app.id).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>      app.user = res.data.data;<br>    &#125;);<br>  &#125;);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">beforeRouteUpdate</span>(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>)</span> &#123;<br>  <span class="hljs-comment">// 此时，可以使用 this 表示当前组件对象</span><br>  <span class="hljs-keyword">const</span> app = <span class="hljs-built_in">this</span>;<br>  <span class="hljs-comment">// 发送 ajax 请求</span><br>  <span class="hljs-comment">// this 表示切换前的状态</span><br>  <span class="hljs-comment">// to 表示要切换到的路由对象 route</span><br>  axios.get(<span class="hljs-string">&#x27;/users/&#x27;</span> + to.params.id).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>    app.user = res.data.data;<br>  &#125;); <span class="hljs-comment">// 执行后续</span><br>  next();<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="编程式路由导航"><a href="#编程式路由导航" class="headerlink" title="编程式路由导航"></a>编程式路由导航</h3><ul>
+<li>push() 跳转到指定的路由地址， 并把当前地址写入到 history 中，参数可以是字符串路径或描述地址信息的对象 <ul>
+<li>字符串 router.push(‘home’) </li>
+<li>对象 router.push({path:’home’}) </li>
+<li>命名的路由 router.push({name:user,params:{userId:1}}) </li>
+</ul>
+</li>
+<li>replace( )：跳转到指定路由，它不会向 history 添加新记录，而是替换掉当前的 history 记录。 </li>
+</ul>
+<h3 id="全局路由导航守卫"><a href="#全局路由导航守卫" class="headerlink" title="全局路由导航守卫"></a>全局路由导航守卫</h3><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">router.beforeEach(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>) =&gt;</span> &#123;<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h2><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">children: [<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;&quot;</span>,<br>    <span class="hljs-attr">component</span>: 路由名<br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;路径名&quot;</span>,<br>    <span class="hljs-attr">component</span>: 路由名<br>  &#125;<br>]<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="命名视图"><a href="#命名视图" class="headerlink" title="命名视图"></a>命名视图</h2><p>使用 <code>&lt;router-view&gt;</code> 可以使用 name 属性为其设置名称，即命名路由的视图简称命名视图。 </p>
+<p>示例： </p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>/&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">router-view</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span> <br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> About <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./views/About.vue&#x27;</span>;<br>routes: [<br>  &#123;<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;/about&quot;</span>,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;about&quot;</span>,<br>    <span class="hljs-attr">components</span>: &#123;<br>      <span class="hljs-attr">default</span>: About,<br>      <span class="hljs-attr">content</span>: UserComponent<br>    &#125;<br>  &#125;<br>]<br></code></pre></div></td></tr></table></figure>
+
 
             </div>
             <hr>
@@ -1434,9 +1938,19 @@
                     
                       <a class="hover-with-bg" href="/tags/HTML5/">HTML5</a>
                     
+                      <a class="hover-with-bg" href="/tags/webpack/">webpack</a>
+                    
                       <a class="hover-with-bg" href="/tags/CSS/">CSS</a>
                     
                       <a class="hover-with-bg" href="/tags/CSS3/">CSS3</a>
+                    
+                      <a class="hover-with-bg" href="/tags/vue/">vue</a>
+                    
+                      <a class="hover-with-bg" href="/tags/jQuery/">jQuery</a>
+                    
+                      <a class="hover-with-bg" href="/tags/AJAX/">AJAX</a>
+                    
+                      <a class="hover-with-bg" href="/tags/HTTP/">HTTP</a>
                     
                   </div>
                 
