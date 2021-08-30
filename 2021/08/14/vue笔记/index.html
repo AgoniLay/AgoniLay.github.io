@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      385
+      482
        分钟
     </span>
   
@@ -473,6 +473,8 @@
 <li><p>.self ：只有在 event.target 是当前元素自身时触发事件处理函数</p>
 </li>
 <li><p><strong>.native</strong> ：监听组件根元素的原生事件</p>
+<p>解决组件根元素没有该原生事件的情况：使用 <strong>$listeners</strong> 属性，是一个对象，里面包含了作用在这个组件上的所有监听器</p>
+<p>可以使用 v-on=”$linsteners” 将组件上的所有事件监听器转发到特定的子元素</p>
 </li>
 <li><p>.passive ：以 { passive: true } 模式添加监听器</p>
 </li>
@@ -731,141 +733,10 @@
 <li>渲染只会遍历符合计算属性中条件的，渲染更高效</li>
 <li>解耦渲染层的逻辑，可维护性（<strong>对逻辑的更改和扩展</strong>）更强</li>
 </ul>
-<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><blockquote>
-<p>axios 是一个专注于网络请求的库！</p>
-</blockquote>
-<p>axios（发音：艾克C奥斯）是前端圈最火的库。</p>
-<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><ol>
-<li>调用 axios 之后，使用 async / await 进行简化</li>
-<li>使用解构赋值，从 axios 封装的大对象中，把 data 属性解构出来</li>
-<li>把解构出来的 data 属性，使用 : 进行重命名，一般都重命名为 <code>&#123; data: res&#125;</code> </li>
-</ol>
-<p>调用 axios 方法的返回值是一个 Promise 对象：</p>
-<blockquote>
-<p>axios 在请求到接口数据之后，在真正的数据之外，套了一层壳</p>
-</blockquote>
-<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<br>  config: &#123;&#125;,<br>  data: &#123;&#x27;真正的接口数据&#x27;&#125;,<br>  headers: &#123;&#125;,<br>  request: &#123;&#125;,<br>  status: xxx,<br>  statusText: &#x27;&#x27;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-<h4 id="发起-GET-请求"><a href="#发起-GET-请求" class="headerlink" title="发起 GET 请求"></a>发起 GET 请求</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios(&#123;<br>  <span class="hljs-comment">// 请求方式</span><br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span>,<br>  <span class="hljs-comment">// 请求的地址</span><br>  <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-comment">// URL 中的查询参数</span><br>  <span class="hljs-attr">params</span>: &#123;<br>    <span class="hljs-attr">id</span>: <span class="hljs-number">1</span><br>  &#125;<br>&#125;).then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(res)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
-
-<p>也可以使用 <strong>axios.get</strong> 方法：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios.get(<span class="hljs-string">&#x27;url地址&#x27;</span>, &#123;<br>  <span class="hljs-comment">// GET参数</span><br>  <span class="hljs-attr">params</span>: &#123;&#125; <br>&#125;)<br></code></pre></div></td></tr></table></figure>
-
-<h4 id="发起-POST-请求"><a href="#发起-POST-请求" class="headerlink" title="发起 POST 请求"></a>发起 POST 请求</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios(&#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>  <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-comment">// 请求体</span><br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;agoni&#x27;</span><br>  &#125;<br>&#125;).then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(res)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
-
-<p>也可以使用 <strong>axios.post</strong> 方法：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios.post(<span class="hljs-string">&#x27;url&#x27;</span>, &#123; <span class="hljs-comment">/* POST请求体数据 */</span> &#125;)<br></code></pre></div></td></tr></table></figure>
-
-<h4 id="await-和-async"><a href="#await-和-async" class="headerlink" title="await 和 async"></a>await 和 async</h4><ul>
-<li>如果调用某个方法的返回值是 Promise 实例，则前面可以添加 await</li>
-<li>await 只能用在被 async 修饰的方法中</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> axios(&#123;<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>    <span class="hljs-attr">data</span>: &#123;<br>      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;agoni&#x27;</span><br>    &#125;<br>  &#125;)<br>  <span class="hljs-built_in">console</span>.log(result)<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-<h4 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h4><blockquote>
-<p>解构赋值的时候可以使用 : 进行重命名</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> &#123; <span class="hljs-attr">data</span>: res &#125; = <span class="hljs-keyword">await</span> axios(&#123;<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span>,<br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;&#x27;</span><br>  &#125;)<br>  <span class="hljs-built_in">console</span>.log(res.data)<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-<h3 id="使用优化"><a href="#使用优化" class="headerlink" title="使用优化"></a>使用优化</h3><h4 id="挂载在-Vue-原型"><a href="#挂载在-Vue-原型" class="headerlink" title="挂载在 Vue 原型"></a>挂载在 Vue 原型</h4><p>使用 axios 需要各页面导入 axios 才可使用，比较麻烦</p>
-<p>可以将 axios 挂载在 Vue 的原型上：</p>
-<ol>
-<li><p>在 main.js 中导入 axios</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios</span><br></code></pre></div></td></tr></table></figure></li>
-<li><p>配置请求根路径</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios.defaults.baseURL = <span class="hljs-string">&#x27;请求根路径&#x27;</span><br></code></pre></div></td></tr></table></figure></li>
-<li><p>把 axios 挂载到 Vue.prototype 原型上</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">Vue.prototype.$http = axios<br></code></pre></div></td></tr></table></figure>
-
-<blockquote>
-<p>一般命名为 $http，今后在每个 .vue 组件中要发起请求，直接调用 this.$http 接口即可</p>
-</blockquote>
-</li>
-</ol>
-<p>缺点：</p>
-<ul>
-<li>不利于 api 接口的复用，所以一般不使用，了解即可</li>
-</ul>
-<h4 id="增强复用"><a href="#增强复用" class="headerlink" title="增强复用 *"></a>增强复用 *</h4><p>util/request.js：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span><br><br><span class="hljs-keyword">const</span> request = axios.create(&#123;<br>  <span class="hljs-comment">// 指定请求的根路径</span><br>  <span class="hljs-attr">baseURL</span>: <span class="hljs-string">&#x27;https://www.escook.cn&#x27;</span><br>&#125;)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> request<br></code></pre></div></td></tr></table></figure>
-
-<p>api/articleAPI.js：</p>
-<blockquote>
-<p>一般以 API 命名结尾</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 文章相关的 API 接口</span><br><span class="hljs-keyword">import</span> request <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/utils/request.js&#x27;</span><br><br><span class="hljs-comment">// 向外按需导出一个 API 函数</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getArticleListAPI = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">_page, _limit</span>) </span>&#123;<br>	<span class="hljs-keyword">return</span> request.get(<span class="hljs-string">&#x27;/articles&#x27;</span>, &#123;<br>    <span class="hljs-attr">params</span>: &#123;<br>      _page,<br>      _limit<br>    &#125;<br>  &#125;)<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-<p>Home.vue：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 按需导入 API 接口</span><br><span class="hljs-keyword">import</span> &#123; getArticleListAPI &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/api/articleAPI.js&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-comment">// 页码值</span><br>      <span class="hljs-attr">page</span>: <span class="hljs-number">1</span>,<br>      <span class="hljs-comment">// 每页显示多少条数据</span><br>      <span class="hljs-attr">limit</span>: <span class="hljs-number">8</span>,<br>      <span class="hljs-comment">// 文章列表数组</span><br>      <span class="hljs-attr">articleList</span>: []<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-comment">// 封装获取文章列表数据的方法</span><br>    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">initArticleLsit</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-keyword">const</span> &#123; <span class="hljs-attr">data</span>: res &#125; = <span class="hljs-keyword">await</span> getArticleLsitAPI(<span class="hljs-built_in">this</span>.page, <span class="hljs-built_in">this</span>.limit)<br>      <span class="hljs-built_in">this</span>.articleList = res<br>    &#125;<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-title">create</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-built_in">this</span>.initArticleLsit()<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-
-<h2 id="单页面应用程序"><a href="#单页面应用程序" class="headerlink" title="单页面应用程序"></a>单页面应用程序</h2><p>单页面应用程序（Single Page Application）简称 SPA，指一个 Web 网站中只有唯一的一个 HTML 页面，所有的功能和交互都在这唯一的一个页面完成</p>
-<p>优点：</p>
-<ol>
-<li>前后端分离</li>
-<li>良好的用户体验</li>
-<li>减轻服务器压力</li>
-<li>共用一套后端程序代码</li>
-</ol>
-<p>缺点：</p>
-<ol>
-<li>初次加载消耗多</li>
-<li>前进后退有一定问题</li>
-<li>SEO 难度较高</li>
-</ol>
-<h2 id="Vue-CLI"><a href="#Vue-CLI" class="headerlink" title="Vue CLI"></a>Vue CLI</h2><p>vue-cli 是 Vue.js 开发的标准工具。简化了程序员基于 webpack 创建工程化的 Vue 项目的工程</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装 3.x 版本的 Vue 脚手架：</p>
-<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">npm install -g @vue/cli<br></code></pre></div></td></tr></table></figure>
-
-<p>检查安装</p>
-<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">vue -V <span class="hljs-comment">// 检查是否安装 及 版本号</span><br></code></pre></div></td></tr></table></figure>
-
-<p>看到 显示 <code>@vue/cli 版本号</code> 即为安装成功</p>
-<h3 id="创建-Vue-项目"><a href="#创建-Vue-项目" class="headerlink" title="创建 Vue 项目"></a>创建 Vue 项目</h3><ol>
-<li><p>基于 <strong>交互式命令行</strong> 的方式，创建 新版 vue 项目</p>
-<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">vue create my-project<br></code></pre></div></td></tr></table></figure>
-
-<p>一般选择最后一项创建自定义</p>
-</li>
-<li><p>基于 <strong>图形化界面</strong> 的方式，创建 新版 vue 项目</p>
-<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">vue ui<br></code></pre></div></td></tr></table></figure></li>
-<li><p>基于 2.x 的旧模板 ，创建 旧版 vue 项目（了解）</p>
-<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">npm install -g @vue/cli-init<br>vue init webpack my-project<br></code></pre></div></td></tr></table></figure></li>
-</ol>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><h4 id="public-文件夹"><a href="#public-文件夹" class="headerlink" title="public 文件夹"></a>public 文件夹</h4><h5 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h5><p>index.html 为项目主页面</p>
-<p>其中 一行注释，表示生成脚本文件的将自动注入这个位置</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- built files will be auto injected --&gt;</span><br></code></pre></div></td></tr></table></figure>
-
-<p>id 属性为 app 的 div 之后将会被替换掉</p>
-<blockquote>
-<p>不要改动 inde.html 中的内容</p>
-</blockquote>
-<h5 id="favicon-ico"><a href="#favicon-ico" class="headerlink" title="favicon.ico"></a>favicon.ico</h5><p>网页的图标</p>
-<h4 id="src-文件夹"><a href="#src-文件夹" class="headerlink" title="src 文件夹"></a>src 文件夹</h4><figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">assets 文件夹：存放项目中用到的静态资源文件，例如：css 样式表、图片资源<br>components 文件夹：存放程序员封装的、可复用的组件<br><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span> 是项目的入口文件。整个项目的运行，要先执行 <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span><br>App<span class="hljs-selector-class">.vue</span> 是项目的根组件<br></code></pre></div></td></tr></table></figure>
-
-<h5 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h5><p>将 main.js 中 render 函数指定的结构替换掉 index.html 中指定的 el区域 <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code> </p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 导入 vue 这个包，得到 vue 构造函数</span><br><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-comment">// 导入 App.vue 根组件，将来要把 App.vue 中的模板结构，渲染到 HTML 页面中</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App.vue&#x27;</span><br><br><span class="hljs-comment">// false 是开发模式，true 是发布模式</span><br><span class="hljs-comment">// 默认为 true</span><br>Vue.config.productionTip = <span class="hljs-literal">false</span><br><br><span class="hljs-comment">// 创建 Vue 的 实例对象</span><br><span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-comment">// el: &#x27;#app&#x27;,  // 这个和 $mount 二选一使用即可</span><br>  <span class="hljs-comment">// 把 render 函数指定的组件，渲染到 HTML 页面中</span><br>  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),<br>&#125;).$mount(<span class="hljs-string">&#x27;#app&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
-
-<blockquote>
-<p>Vue 实例的 $mount() 方法，作用和 el 属性完全一样！</p>
-</blockquote>
-<h5 id="components-amp-views"><a href="#components-amp-views" class="headerlink" title="components &amp; views"></a>components &amp; views</h5><p>两个文件夹都是放组件的，区别在于：</p>
-<ul>
-<li>components 文件夹用来放各页面复用的组件</li>
-<li>views 文件夹用来放 <strong>使用路由切换</strong> 的组件</li>
-</ul>
-<h3 id="运行流程"><a href="#运行流程" class="headerlink" title="运行流程"></a>运行流程</h3><blockquote>
-<p>在工程化的项目中，vue 要做的事情很单纯：通过 main.js 把 App.vue 渲染到 index.html 的指定区域中</p>
-</blockquote>
-<ol>
-<li>App.vue 用来编写待渲染的模板结构</li>
-<li>index.html 中需要预留一个 el 区域</li>
-<li>main.js 把 App.vue 渲染到了 index.html 所预留的区域中</li>
-</ol>
 <h2 id="component-组件"><a href="#component-组件" class="headerlink" title="component 组件"></a>component 组件</h2><p>组件 – 对 UI 结构的复用</p>
 <p>组件化开发 – 根据封装的思想，把页面上可重用的 UI 结构封装为组件，从而方便项目的开发和维护</p>
-<h3 id="组成结构"><a href="#组成结构" class="headerlink" title="组成结构"></a>组成结构</h3><ul>
+<h3 id="组成结构"><a href="#组成结构" class="headerlink" title="组成结构"></a>组成结构</h3><p>单文件组件的组成结构：</p>
+<ul>
 <li>template -&gt; 组件的模板结构</li>
 <li>script       -&gt; 业务逻辑区域，组件的 JavaScript 行为</li>
 <li>style         -&gt; 样式区域</li>
@@ -878,6 +749,16 @@
 <li>在组件中，this 表示当前组件的实例对象</li>
 <li>style 中 加 lang 属性可以使用指定语法编写样式，例： <code>&lt;style lang=&quot;less&quot;&gt;&lt;/style&gt;</code> </li>
 </ul>
+<p>除了以上在 template 标签内定义 模板内容 外，还有其他两种方式：</p>
+<ol>
+<li><p>内联模板：在子组件上使用一个特殊的属性 inline-template，使得这个组件将使用其元素标签内容作为模板，而不是分发到子组件 solt 中</p>
+<ul>
+<li>inline-template 的使用会让模板的作用域变得更加难以理解，所以不推荐使用</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button-counter</span> <span class="hljs-attr">inline-template</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;count++&quot;</span>&gt;</span>You clicked me &#123;&#123; count &#125;&#125; times.<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">button-counter</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  Vue.component(<span class="hljs-string">&#x27;ButtonCounter&#x27;</span>, &#123;</span><br><span class="javascript">    <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">      <span class="hljs-keyword">return</span> &#123;</span><br><span class="javascript">        <span class="hljs-attr">count</span>: <span class="hljs-number">0</span></span><br><span class="javascript">      &#125;</span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;)</span><br><span class="javascript">  <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span></span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>X-Template：把模板的内容放到 script 元素中，在 script 元素上使用 type=”text/x-template”，并指定一个 id 值，随后在组件的 template 选项中使用 #id 的形式来引用模板</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button-counter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button-counter</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/x-template&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn-counter&quot;</span>&gt;</span><span class="handlebars"><span class="xml"></span></span><br><span class="xml"><span class="handlebars">    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;count++&quot;</span>&gt;</span>You clicked me </span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">count</span> &#125;&#125;</span><span class="xml"> times.<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="xml"><span class="handlebars"></span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  Vue.component(<span class="hljs-string">&#x27;ButtonCounter&#x27;</span>, &#123;</span><br><span class="javascript">    <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">      <span class="hljs-keyword">return</span> &#123;</span><br><span class="javascript">        <span class="hljs-attr">count</span>: <span class="hljs-number">0</span></span><br><span class="javascript">      &#125;</span><br><span class="javascript">    &#125;,</span><br><span class="javascript">    <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;#btn-counter&#x27;</span></span><br><span class="javascript">  &#125;)</span><br><span class="javascript">  <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span></span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+</ol>
 <h3 id="使用组件的步骤"><a href="#使用组件的步骤" class="headerlink" title="使用组件的步骤"></a>使用组件的步骤</h3><h4 id="1-import-导入"><a href="#1-import-导入" class="headerlink" title="1. import 导入"></a>1. import 导入</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> Left <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/components/Left.vue&#x27;</span><br></code></pre></div></td></tr></table></figure>
 
 <blockquote>
@@ -913,7 +794,7 @@
 <h3 id="prop-props"><a href="#prop-props" class="headerlink" title="prop - props"></a>prop - props</h3><p>props 是组件的自定义属性</p>
 <figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">zujian</span> <span class="hljs-attr">:init</span>=<span class="hljs-string">&quot;value&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-comment">// props 是&quot;自定义属性&quot;，允许使用者通过自定义属性，为当前组件指定初始值</span><br>  <span class="hljs-comment">// 自定义属性的名字，是封装者自定义的（只要名称合法即可）</span><br>  <span class="hljs-comment">// props 中的数据，可以直接在模板结构中被使用</span><br>  <span class="hljs-attr">props</span>: [<span class="hljs-string">&#x27;属性值1&#x27;</span>, <span class="hljs-string">&#x27;属性值2&#x27;</span>, ...]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-comment">// props 是&quot;自定义属性&quot;，允许使用者通过自定义属性，为当前组件指定初始值</span><br>  <span class="hljs-comment">// 自定义属性的名字，是封装者自定义的（只要名称合法即可）</span><br>  <span class="hljs-comment">// props 中的数据，可以直接在模板结构中作为数据属性被使用</span><br>  <span class="hljs-attr">props</span>: [<span class="hljs-string">&#x27;属性值1&#x27;</span>, <span class="hljs-string">&#x27;属性值2&#x27;</span>, ...]<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h4 id="只读性"><a href="#只读性" class="headerlink" title="只读性"></a>只读性</h4><p>props 是<strong>只读的</strong>，不能直接修改 props 的值，否则终端会报错！</p>
 <p>要想修改 props 的值，可以</p>
@@ -949,6 +830,27 @@
 <blockquote>
 <p>如果不希望组件的根元素继承外部设置的属性，可以在组件的选项中设置： inheritAttrs: false</p>
 </blockquote>
+<h4 id="sync-修饰符"><a href="#sync-修饰符" class="headerlink" title=".sync 修饰符"></a>.sync 修饰符</h4><p>对一个组件的 prop 进行双向绑定，vue 中推荐使用 update:myPropName 模式触发事件来实现</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">Vue.component(<span class="hljs-string">&#x27;child&#x27;</span>, &#123;<br>  data () &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">count</span>: <span class="hljs-built_in">this</span>.val<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">props</span>: &#123;<br>    <span class="hljs-attr">val</span>: &#123;<br>      <span class="hljs-attr">type</span>: Nmuber,<br>      <span class="hljs-attr">default</span>: <span class="hljs-number">0</span><br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    handleClick () &#123;<br>      <span class="hljs-built_in">this</span>.$emit(<span class="hljs-string">&#x27;update:val&#x27;</span>, ++<span class="hljs-built_in">this</span>.count)<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">template</span>: <br>  	<span class="hljs-string">`&lt;div&gt;</span><br><span class="hljs-string">			&lt;span&gt;计数：&#123;&#123; val &#125;&#125;&lt;/span&gt;</span><br><span class="hljs-string">			&lt;button @click=&quot;handleClick&quot;&gt;增加计数&lt;/button&gt;</span><br><span class="hljs-string">		&lt;/div&gt;`</span><br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>计数器的值： &#123;&#123; counter &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">child</span> <span class="hljs-attr">v-bind:val</span>=<span class="hljs-string">&quot;counter&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">v-on:update:val</span>=<span class="hljs-string">&quot;counter = $event&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>: <span class="hljs-string">&quot;#app&quot;</span>,</span><br><span class="javascript">    <span class="hljs-attr">data</span>: &#123;</span><br><span class="javascript">      <span class="hljs-attr">counter</span>: <span class="hljs-number">0</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>$event 是自定义事件的附加参数！</p>
+</blockquote>
+<p>.sync 的作用就是简化这个方式的书写：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">child</span> <span class="hljs-attr">v-bind:val.sync</span>=<span class="hljs-string">&quot;counter&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<ol>
+<li>.sync 只是简化了上面 child 元素的 v-bind 和 v-on 指令的使用，对于子组件来说，该有的定义和事件必不可少</li>
+<li>带有 .sync 修饰符的 v-bind 不能和表达式一起使用（类似于 v-model）</li>
+<li>不能将 v-bind.sync 使用在一个字面量对象上，无法正常工作</li>
+</ol>
+<h4 id="自定义组件的-v-model"><a href="#自定义组件的-v-model" class="headerlink" title="自定义组件的 v-model"></a>自定义组件的 v-model</h4><p>默认情况下一个组件上的 v-model 会把 value 作为 prop，把 input 事件作为 event</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">Vue.component(<span class="hljs-string">&#x27;MyCheckBox&#x27;</span>, &#123;<br>  <span class="hljs-attr">model</span>: &#123;<br>    <span class="hljs-comment">// 使用 checked 替换 value 作为 prop</span><br>    <span class="hljs-attr">prop</span>: <span class="hljs-string">&#x27;checked&#x27;</span>,<br>    <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;change&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">props</span>: &#123;<br>    <span class="hljs-attr">value</span>: <span class="hljs-built_in">String</span>,<br>    <span class="hljs-comment">// props 中仍需声明</span><br>    <span class="hljs-attr">checked</span>: &#123;<br>      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Boolean</span>,<br>      <span class="hljs-attr">default</span>: <span class="hljs-literal">false</span><br>    &#125;<br>  &#125;,<br>  ...<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+
+
 <h3 id="组件之间的样式冲突问题"><a href="#组件之间的样式冲突问题" class="headerlink" title="组件之间的样式冲突问题"></a>组件之间的样式冲突问题</h3><p>默认情况下，写在 .vue 组件中的样式会<strong>全局生效</strong>，因此很容易造成多个组件之间的样式冲突问题</p>
 <p>导致组件之间样式冲突的根本原因是：</p>
 <ol>
@@ -985,14 +887,79 @@
 <p>组件运行阶段：beforeUpdate -&gt; <strong>updated</strong> -&gt;</p>
 <p>组件销毁阶段：beforeDestory -&gt; destoryed</p>
 <ul>
-<li>created 生命周期函数非常常用，经常在其中调用方法请求服务器的数据</li>
-<li>mounted：其中经常操作 DOM 元素，做大部分操作</li>
+<li><p>beforeCreate：在实例初始化之后，数据观测和事件/监听器配置之前被调用。</p>
+<ul>
+<li>此时 Vue 实例的挂载元素 $el 和 数据对象 data 都为 undefined，还未初始化</li>
+<li>可以在这一阶段添加 loading 事件</li>
+</ul>
+</li>
+<li><p>created：在实例创建完成后立即调用</p>
+<ul>
+<li>数据观测、计算属性、方法、watch/event 回调 已经被配置</li>
+<li>挂载阶段还没有开始，$el 属性目前还不可用</li>
+<li>this.data 已经可以访问</li>
+<li>可以在这一阶段结束 loading，请求数据为 mounted 渲染做准备</li>
+</ul>
+</li>
+<li><p>beforeMount：在挂载开始之前调用，render 函数首次被调用</p>
+<ul>
+<li>此时 DOM 还无法操作</li>
+<li>相较于 created 钩子，这一阶段只是多了一个 $el 属性，但其值仍是 undefined</li>
+</ul>
+</li>
+<li><p>mounted：在实例被挂载后调用</p>
+<ul>
+<li><p>el 被新创建的 vm.$el 替换</p>
+</li>
+<li><p>元素已完成渲染，有依赖于 DOM 的代码可以放在这里</p>
+</li>
+<li><p>可以在这个钩子中项服务端发起请求，获取数据</p>
+<blockquote>
+<p>注意：mounted 并不保证所有的子组件已挂载，如果要等到整个视图渲染完毕，可以在 mounted 钩子中使用 vm.<strong>$nextTick</strong>（后面有介绍）</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>beforeUpdate：在修改 DOM 之前，当数据更改时调用</p>
+<ul>
+<li>适合在更新之前访问现有的 DOM</li>
+<li>可以在这个钩子中进一步修改 Vue 实例的数据属性，而不会触发额外的重新渲染过程</li>
+</ul>
+</li>
+<li><p>updated：在数据更改导致的虚拟 DOM 被重新渲染和修补后调用</p>
+<ul>
+<li><p>调用时，DOM 已经被更新</p>
+<blockquote>
+<p>注意：updated 并不保证所有的子组件已重新渲染，如果要等到整个视图渲染完毕，可以在 updated 钩子中使用 vm.<strong>$nextTick</strong>（后面有介绍）</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>beforeDestroy：在 Vue 实例被销毁之前调用</p>
+<ul>
+<li>在这一阶段，实例仍然是完全可用的</li>
+</ul>
+</li>
+<li><p>destroyed：在 Vue 实例被销毁后调用</p>
+<ul>
+<li>Vue 实例的所有指令已解除绑定，所有的事件监听器已移除，所有的子实例已销毁</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/images/lifecycle.png">https://cn.vuejs.org/images/lifecycle.png</a> 生命周期图示</p>
 </blockquote>
 <img src="/2021/08/14/vue%E7%AC%94%E8%AE%B0/lifesycle.png" srcset="/img/loading2.gif" lazyload class title="lifesycle">
 
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li>activated：当 keep-alive 组件激活时调用</li>
+<li>deactivated：当 keep-alive 组件停用时调用</li>
+<li>errorCaptured：当捕获一个来自任何后代组件的错误时被调用<ul>
+<li>接受三个参数：错误对象、发生错误的组件实例、一个包含错误来源信息的字符串</li>
+<li>该钩子可以返回 false，阻止错误的进一步传播</li>
+</ul>
+</li>
+</ul>
 <h3 id="组件间的数据共享"><a href="#组件间的数据共享" class="headerlink" title="组件间的数据共享"></a>组件间的数据共享</h3><h4 id="组件间的关系"><a href="#组件间的关系" class="headerlink" title="组件间的关系"></a>组件间的关系</h4><blockquote>
 <p>组件在被分装好之后，彼此之间是相互独立的，不存在关系</p>
 </blockquote>
@@ -1003,11 +970,19 @@
 <li>子组件中通过 props 接收数据</li>
 </ul>
 <h5 id="子向父共享数据"><a href="#子向父共享数据" class="headerlink" title="子向父共享数据"></a>子向父共享数据</h5><p>子组件向父组件共享数据使用<strong>自定义事件</strong> </p>
+<p>子组件使用 <strong>$emit()</strong> 方法触发事件，父组件使用 <strong>v-on</strong> 指令监听子组件的自定义事件</p>
+<p>$emit() 方法的语法形式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">vm.$emit(eventName, [...args])<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>eventName 是事件名</li>
+<li>args 是附加参数，会传递给监听器的回调函数</li>
+</ul>
 <p>子组件</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>	data () &#123;<br>    <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">count</span>: <span class="hljs-number">0</span> &#125;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    add () &#123;<br>      <span class="hljs-built_in">this</span>.count ++<br>      <span class="hljs-comment">// 修改数据时，通过 $emit() 触发自定义事件</span><br>      <span class="hljs-built_in">this</span>.$emit(<span class="hljs-string">&#x27;numchange&#x27;</span>, <span class="hljs-built_in">this</span>.count)<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>父组件</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">Son</span> @<span class="hljs-attr">numchange</span>=<span class="hljs-string">&quot;getNewCount&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Son</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="javascript">  data () &#123;</span><br><span class="javascript">    <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">countFromSon</span>: <span class="hljs-number">0</span> &#125;</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">  <span class="hljs-attr">methods</span>: &#123;</span><br><span class="javascript">    getNewCount (val) &#123;</span><br><span class="javascript">      <span class="hljs-built_in">this</span>.countFromSon = val</span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;</span><br><span class="javascript">&#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">Son</span> @<span class="hljs-attr">numchange</span>=<span class="hljs-string">&quot;getNewCount&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Son</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="javascript">  data () &#123;</span><br><span class="javascript">    <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">countFromSon</span>: <span class="hljs-number">0</span> &#125;</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">  <span class="hljs-attr">methods</span>: &#123;</span><br><span class="javascript">    <span class="hljs-comment">// 自定义事件的附加参数会自动传入方法</span></span><br><span class="javascript">    getNewCount (val) &#123;</span><br><span class="javascript">      <span class="hljs-built_in">this</span>.countFromSon = val</span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;</span><br><span class="javascript">&#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <blockquote>
 <p>@click 事件是由 this.$emit(‘click’, {…}) 触发的</p>
@@ -1022,6 +997,94 @@
 <li><p>在数据接收方，在 <strong>created</strong> 生命周期函数中调用 <code>bus.$on(&#39;事件名称&#39;, 事件处理函数)</code> 方法注册一个自定义事件</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> bus <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./eventBus.js&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  data () &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">msgFromLeft</span>: <span class="hljs-string">&#x27;&#x27;</span><br>    &#125;<br>  &#125;,<br>  created () &#123;<br>    bus.$on(<span class="hljs-string">&#x27;share&#x27;</span>, <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> &#123;<br>      <span class="hljs-built_in">this</span>.msgFromLeft = val<br>    &#125;)<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
 </ol>
+<h4 id="手动监听事件"><a href="#手动监听事件" class="headerlink" title="手动监听事件"></a>手动监听事件</h4><p>除了 $emit() 以外，Vue 还提供了以下三个事件方法：</p>
+<ul>
+<li>$on(eventName, eventHandler) ：监听当前实例上的自定义事件，事件可由 vm.$emit 触发</li>
+<li>$once(eventName, eventHandler) ：与 $.on 相同，但是只触发一次，一旦触发之后，监听器就会被删除</li>
+<li>$off(eventName, eventHandler) ：删除自定义事件监听器</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">child</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  Vue.component(<span class="hljs-string">&#x27;child&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    created () &#123;</span><br><span class="javascript">      <span class="hljs-comment">// 监听当前实例的 greet 事件</span></span><br><span class="javascript">      <span class="hljs-built_in">this</span>.$on(<span class="hljs-string">&#x27;greet&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">        <span class="hljs-built_in">this</span>.$parent.sayHello()</span><br><span class="javascript">      &#125;)</span><br><span class="javascript">    &#125;,</span><br><span class="javascript">    beforeDestroy () &#123;</span><br><span class="javascript">      <span class="hljs-comment">// 删除 greet 事件的所有监听器</span></span><br><span class="javascript">      <span class="hljs-built_in">this</span>.$off(<span class="hljs-string">&#x27;greet&#x27;</span>)</span><br><span class="javascript">    &#125;,</span><br><span class="javascript">    <span class="hljs-attr">methods</span>: &#123;</span><br><span class="javascript">      handleClick () &#123;</span><br><span class="javascript">          <span class="hljs-comment">// 触发自定义事件 greet</span></span><br><span class="javascript">          <span class="hljs-built_in">this</span>.$emit(<span class="hljs-string">&#x27;greet&#x27;</span>)</span><br><span class="javascript">        &#125;</span><br><span class="javascript">      &#125;,</span><br><span class="javascript">    <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;button @click=&quot;handleClick&quot;&gt;手动监听事件&lt;/button&gt;&#x27;</span></span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><br><span class="javascript">  <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> VUe(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span><br><span class="javascript">    <span class="hljs-attr">methods</span>: &#123;</span><br><span class="javascript">      sayHello () &#123;</span><br><span class="javascript">        alert(<span class="hljs-string">&#x27;HELLO AGONILAY&#x27;</span>)</span><br><span class="javascript">      &#125;</span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+
+
+<h4 id="组件通讯的其他方式"><a href="#组件通讯的其他方式" class="headerlink" title="组件通讯的其他方式"></a>组件通讯的其他方式</h4><p>总结常用的组件通讯的方式：</p>
+<ul>
+<li>父组件通过 prop 向子组件传递数据</li>
+<li>子组件通过自定义事件向父组件发起通知或进行数据传递</li>
+<li>子组件通过 slot 元素充当占位符，获取父组件分发的内容；也可以子啊子组件的 solt 元素上使用 v-bind 指令绑定一个插槽 prop，向父组件提供数据</li>
+</ul>
+<p>其他方式：</p>
+<ol>
+<li><p><strong>$root</strong> 访问根实例：在每一个 new Vue() 实例的子组件中，都可以通过 $root 属性来访问根实例</p>
+<ul>
+<li>不管组件是根实例的子组件，还是更深层级的后代组件，$root 属性总是代表了根实例</li>
+</ul>
+</li>
+<li><p><strong>$parent</strong> 访问父组件实例：在一个子组件中访问父组件的实例，可以代替父组件通过 prop 向子组件传数据的方式</p>
+<ul>
+<li>只能应用于访问父组件实例，如果父组件之上还有父组件，那么该组件通过 $parent 是访问不到的</li>
+</ul>
+</li>
+<li><p><strong>$refs</strong> 访问子组件实例或子元素：为子元素或子组件添加一个 ref 属性，分配一个 引用ID</p>
+<ul>
+<li>$refs 属性只在组件渲染之后生效，并且不是响应式的</li>
+<li>要避免在模板和计算属性中访问 $refs</li>
+</ul>
+</li>
+<li><p><strong>provide</strong> <strong>inject</strong> 依赖注入：</p>
+<ul>
+<li>provide 选项指定要提供给后代组件的数据和方法</li>
+<li>在后代组件中使用 reject 选项来接受要添加到实例中的特定属性</li>
+<li>缺点：<ol>
+<li>将应用程序中的组件和它们当前的组织方式耦合起来，使重构变得更加困难</li>
+<li>所提供的属性是非响应式的</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>如果数据需要在多个组件中访问，并且能够响应更新，之后会使用真正的管理解决方案：Vuex</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="slot-插槽"><a href="#slot-插槽" class="headerlink" title="slot 插槽"></a>slot 插槽</h3><h4 id="什么是插槽"><a href="#什么是插槽" class="headerlink" title="什么是插槽"></a>什么是插槽</h4><p>插槽（Slot）是 vue 为组件的封装者提供的能力。允许开发者在封装组件时，把不确定的、希望由用户指定的部分定义为插槽</p>
+<p>可以把插槽认为是组件封装期间，为用户预留的内容的占位符</p>
+<h4 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h4><p>在封装组件时，可以通过 <strong><slot></slot></strong> 元素定义插槽，从而为用户预留内容占位符</p>
+<p>Left.vue</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left-container&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Left 组件<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 声明一个插槽区域 --&gt;</span><br>    <span class="hljs-comment">&lt;!-- vue 官方规定：每一个 slot 插槽，都要有一个 name 名称 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;default&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>App.vue</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">Left</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>用户自定义的内容，会在 slot 区域展示<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">Left</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li><p>如果在封装组件时没有预留任何 slot 插槽，则用户提供的任何自定义内容都会被丢弃</p>
+</li>
+<li><p>封装组件时，可以为预留的 slot 插槽提供后备内容（默认内容）。如果组件的使用者没有为插槽提供任何内容，则后备内容会生效</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;default&quot;</span>&gt;</span><br>  后备内容<br><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+</ul>
+<h4 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h4><p>如果在封装组件时需要预留多个插槽节点，则需要为每个 slot 插槽指定具体的 name 名称。这种带有具体名称的插槽叫做“具名插槽”</p>
+<blockquote>
+<p>注意：没有指定 name 名称的插槽， 会有隐含的名称叫做 “default”</p>
+</blockquote>
+<p>在向具名插槽提供内容的时候，我们可以在一个 template 元素上使用 <strong>v-slot:</strong> 指令，并以 v-slot 的参数的形式提供其名称</p>
+<ul>
+<li>v-slot: 指令不能直接用用在元素身上，必须用在 template 标签 或 组件元素 上</li>
+<li>template 这个标签，它是一个虚拟的标签，只起到包裹性质的作用，但是，不会被渲染为任何实质性的 HTML 元素</li>
+<li>简写：把参数之前的所有内容 (v-slot:) 替换为字符 <code>#</code> </li>
+<li><code>v-solt:[变量]</code> 可以定义动态的插槽名</li>
+</ul>
+<h4 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h4><p>在封装组件的过程中，可以为预留的 slot 插槽绑定 props 数据，这种带有 props 数据的 slot 叫做“<strong>作用域插槽</strong>”</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;content&quot;</span> <span class="hljs-attr">msg</span>=<span class="hljs-string">&quot;hello AgoniLay&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p><strong>接收</strong>作用域插槽对外提供的数据:</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">content</span>=<span class="hljs-string">&quot;scope&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; scope.msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>作用域插槽对外提供的数据对象，可以使用<strong>解构赋值</strong>简化数据的接收过程</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">content</span>=<span class="hljs-string">&quot;&#123; msg : message &#125;&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+
+
+
+
 <h3 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h3><p>动态组件指的是动态切换组件的显示与隐藏</p>
 <h4 id="动态组件渲染"><a href="#动态组件渲染" class="headerlink" title="动态组件渲染"></a>动态组件渲染</h4><p>vue 提供了一个内置的 <strong><component></component></strong> 组件标签，专门用来实现动态组件的渲染</p>
 <ol>
@@ -1056,11 +1119,27 @@
 <li>在调试工具中看到的也会是 name 属性值</li>
 <li>建议开发中给所有组件定义一个专属名称，即 name 属性值</li>
 </ul>
-<h2 id="ref-引用"><a href="#ref-引用" class="headerlink" title="ref 引用"></a>ref 引用</h2><p>ref 用来辅助开发者在不依赖于 jQuery 的情况下，获取 DOM 元素或组件的引用</p>
+<h3 id="混入"><a href="#混入" class="headerlink" title="混入"></a>混入</h3><p>混入（mixin）提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 定义一个混入对象</span><br><span class="hljs-keyword">var</span> myMixin = &#123;<br>  created () &#123;<br>    <span class="hljs-built_in">this</span>.startMixin()<br>  &#125;,<br>  <span class="hljs-attr">method</span>: &#123;<br>    startMixin () &#123;<br>      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;混入实现&#x27;</span>)<br>    &#125;<br>  &#125;<br>&#125;<br><span class="hljs-comment">// 定义一个组件，使用这个混入对象</span><br><span class="hljs-keyword">var</span> Component = Vue.extend(&#123;<br>  <span class="hljs-attr">mixins</span>: [myMixin],<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;p&gt;Vue.js 无难事&lt;/p&gt;&#x27;</span><br>&#125;)<br><span class="hljs-comment">// 创建根实例</span><br><span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">components</span>: &#123;<br>    Component<br>  &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>以上，组件 Component 相当于定义了一个 created 钩子函数 和一个 startMixin() 方法</p>
+<h4 id="选项合并"><a href="#选项合并" class="headerlink" title="选项合并"></a>选项合并</h4><p>当混入对象和组件本身包含重复的选项时，将以下面的策略进行合并：</p>
+<ol>
+<li>数据对象进行递归合并，在发生冲突时<strong>以组件的数据优先</strong> </li>
+<li>同名的钩子函数被合并到一个数组中，因此这些函数均会被调用，且<strong>混入对象的钩子将在组件自身钩子之前调用</strong> </li>
+<li>值为对象的选项，如 methods、components、directives，将被合并为同一个对象，键名发生冲突同样<strong>优先组件的选项</strong> </li>
+<li>Vue.extend() 而言是用同样的策略进行合并</li>
+</ol>
+<h4 id="全局混入"><a href="#全局混入" class="headerlink" title="全局混入"></a>全局混入</h4><p>混入也可以全局注册，通过 Vue.mixin() 方法来实现</p>
+<p>使用得当可用于为自定义选项注入处理逻辑</p>
+<blockquote>
+<p>很危险，会影响随后创建的每一个 Vue 实例，大多数情况只应用于自定义选项</p>
+</blockquote>
+<h3 id="ref-引用"><a href="#ref-引用" class="headerlink" title="ref 引用"></a>ref 引用</h3><p>ref 用来辅助开发者在不依赖于 jQuery 的情况下，获取 DOM 元素或组件的引用</p>
 <blockquote>
 <p><strong>ref 属性起名推荐使用 xxxRef 格式</strong> </p>
 </blockquote>
-<h3 id="使用-ref-引用-DOM-元素"><a href="#使用-ref-引用-DOM-元素" class="headerlink" title="使用 ref 引用 DOM 元素"></a>使用 ref 引用 DOM 元素</h3><p>每个 vue 的组件实例上，都包含一个 $refs 对象，里面存储着对应的 DOM 元素或组件的引用。默认情况下， 组件的 $refs 指向一个空对象</p>
+<h4 id="使用-ref-引用-DOM-元素"><a href="#使用-ref-引用-DOM-元素" class="headerlink" title="使用 ref 引用 DOM 元素"></a>使用 ref 引用 DOM 元素</h4><p>每个 vue 的组件实例上，都包含一个 $refs 对象，里面存储着对应的 DOM 元素或组件的引用。默认情况下， 组件的 $refs 指向一个空对象</p>
 <p>步骤：</p>
 <ol>
 <li>给需要获取的 DOM 元素设置 ref 属性，一个组件内 ref 不可以重复</li>
@@ -1068,7 +1147,7 @@
 </ol>
 <figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;myh3&quot;</span>&gt;</span>MyRef 组件<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;getRef&quot;</span>&gt;</span>获取 $refs 引用<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-attr">method</span>: &#123;</span><br><span class="javascript">    getRef () &#123;</span><br><span class="javascript">      <span class="hljs-comment">// 通过 this.$refs 访问</span></span><br><span class="javascript">      <span class="hljs-built_in">this</span>.$refs.myh3.style.color = <span class="hljs-string">&#x27;red&#x27;</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<h3 id="使用-ref-引用组件实例"><a href="#使用-ref-引用组件实例" class="headerlink" title="使用 ref 引用组件实例"></a>使用 ref 引用组件实例</h3><p>步骤：</p>
+<h4 id="使用-ref-引用组件实例"><a href="#使用-ref-引用组件实例" class="headerlink" title="使用 ref 引用组件实例"></a>使用 ref 引用组件实例</h4><p>步骤：</p>
 <ol>
 <li>给相应组件设置 ref 属性</li>
 <li>通过 <code>this.$refs.组件对应ref值</code> 获取引用组件的实例</li>
@@ -1076,48 +1155,15 @@
 </ol>
 <figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-counter</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;counterRef&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-counter</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;getRef&quot;</span>&gt;</span>获取 $refs 引用<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-attr">method</span>: &#123;</span><br><span class="javascript">    getRef () &#123;</span><br><span class="javascript">      <span class="hljs-comment">// 通过 this.$refs.引用的名称 可以引用组件的实例</span></span><br><span class="javascript">      <span class="hljs-comment">// 引用到组件的实例之后，就可以调用组件上的 数据 和 methods 方法</span></span><br><span class="javascript">      <span class="hljs-built_in">this</span>.$refs.counterRef.add()</span><br><span class="javascript">      <span class="hljs-built_in">this</span>.$refs.counterRef.count = <span class="hljs-number">0</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<h3 id="this-nextTick-cb-延迟执行"><a href="#this-nextTick-cb-延迟执行" class="headerlink" title="this.$nextTick(cb) 延迟执行"></a>this.$nextTick(cb) 延迟执行</h3><p>组件的 <strong>$nextTick(cb)</strong> 方法，会把 cb 回调推迟到<strong>下一个 DOM 更新周期之后</strong>执行</p>
+<h4 id="this-nextTick-cb-延迟执行"><a href="#this-nextTick-cb-延迟执行" class="headerlink" title="this.$nextTick(cb) 延迟执行"></a>this.$nextTick(cb) 延迟执行</h4><p>组件的 <strong>$nextTick(cb)</strong> 方法，会把 cb 回调推迟到<strong>下一个 DOM 更新周期之后</strong>执行</p>
 <p>通俗的理解是：<strong>等组件的 DOM 更新完成之后，再执行 cb 回调函数</strong>。从而能保证 cb 回调函数可以操作到最新的 DOM 元素</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;inputRef&quot;</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;!inputVisible&quot;</span> @<span class="hljs-attr">blur</span>=<span class="hljs-string">&quot;inputVisible = true&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-else</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;showInput&quot;</span>&gt;</span>展示 input<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="javascript">      <span class="hljs-attr">inputVisible</span>: <span class="hljs-literal">true</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">    <span class="hljs-attr">method</span>: &#123;</span><br><span class="javascript">      showInput () &#123;</span><br><span class="javascript">        <span class="hljs-built_in">this</span>.inputVisible = <span class="hljs-literal">false</span></span><br><span class="javascript">        <span class="hljs-built_in">this</span>.$nextTick(<span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="javascript">          <span class="hljs-built_in">this</span>.$refs.inputRef.focus()</span><br><span class="javascript">        &#125;)</span><br><span class="javascript">      &#125;</span><br><span class="javascript">    &#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;inputRef&quot;</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;!inputVisible&quot;</span> @<span class="hljs-attr">blur</span>=<span class="hljs-string">&quot;inputVisible = true&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-else</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;showInput&quot;</span>&gt;</span>展示 input<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="javascript">      <span class="hljs-attr">inputVisible</span>: <span class="hljs-literal">true</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">    <span class="hljs-attr">method</span>: &#123;</span><br><span class="javascript">      showInput () &#123;</span><br><span class="javascript">        <span class="hljs-built_in">this</span>.inputVisible = <span class="hljs-literal">false</span></span><br><span class="javascript">        <span class="hljs-built_in">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">          <span class="hljs-built_in">this</span>.$refs.inputRef.focus()</span><br><span class="javascript">        &#125;)</span><br><span class="javascript">      &#125;</span><br><span class="javascript">    &#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-
-
-<h2 id="slot-插槽"><a href="#slot-插槽" class="headerlink" title="slot 插槽"></a>slot 插槽</h2><h3 id="什么是插槽"><a href="#什么是插槽" class="headerlink" title="什么是插槽"></a>什么是插槽</h3><p>插槽（Slot）是 vue 为组件的封装者提供的能力。允许开发者在封装组件时，把不确定的、希望由用户指定的部分定义为插槽</p>
-<p>可以把插槽认为是组件封装期间，为用户预留的内容的占位符</p>
-<h3 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h3><p>在封装组件时，可以通过 <strong><slot></slot></strong> 元素定义插槽，从而为用户预留内容占位符</p>
-<p>Left.vue</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;left-container&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Left 组件<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 声明一个插槽区域 --&gt;</span><br>    <span class="hljs-comment">&lt;!-- vue 官方规定：每一个 slot 插槽，都要有一个 name 名称 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;default&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
-
-<p>App.vue</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">Left</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>用户自定义的内容，会在 slot 区域展示<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">Left</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
-
+<p>与 <strong>vm.$nextTick()</strong> 相对应的还有 Vue 全局上的 <strong>Vue.nextTick()</strong> 方法</p>
+<p>区别：</p>
 <ul>
-<li><p>如果在封装组件时没有预留任何 slot 插槽，则用户提供的任何自定义内容都会被丢弃</p>
-</li>
-<li><p>封装组件时，可以为预留的 slot 插槽提供后备内容（默认内容）。如果组件的使用者没有为插槽提供任何内容，则后备内容会生效</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;default&quot;</span>&gt;</span><br>  后备内容<br><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+<li>vm.$nextTick() 方法回调函数中的 this 会自动绑定到当前的 Vue 实例上，而不用像 Vue.nextTick() 需要使用箭头函数来绑定 this 到 Vue 实例</li>
 </ul>
-<h3 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h3><p>如果在封装组件时需要预留多个插槽节点，则需要为每个 slot 插槽指定具体的 name 名称。这种带有具体名称的插槽叫做“具名插槽”</p>
-<blockquote>
-<p>注意：没有指定 name 名称的插槽， 会有隐含的名称叫做 “default”</p>
-</blockquote>
-<p>在向具名插槽提供内容的时候，我们可以在一个 template 元素上使用 <strong>v-slot:</strong> 指令，并以 v-slot 的参数的形式提供其名称</p>
-<ul>
-<li>v-slot: 指令不能直接用用在元素身上，必须用在 template 标签上</li>
-<li>template 这个标签，它是一个虚拟的标签，只起到包裹性质的作用，但是，不会被渲染为任何实质性的 HTML 元素</li>
-<li>简写：把参数之前的所有内容 (v-slot:) 替换为字符 <code>#</code> </li>
-</ul>
-<h3 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h3><p>在封装组件的过程中，可以为预留的 slot 插槽绑定 props 数据，这种带有 props 数据的 slot 叫做“<strong>作用域插槽</strong>”</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;content&quot;</span> <span class="hljs-attr">msg</span>=<span class="hljs-string">&quot;hello AgoniLay&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
-
-<p><strong>接收</strong>作用域插槽对外提供的数据:</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">content</span>=<span class="hljs-string">&quot;scope&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; scope.msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
-
-<p>作用域插槽对外提供的数据对象，可以使用<strong>解构赋值</strong>简化数据的接收过程</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">content</span>=<span class="hljs-string">&quot;&#123; msg &#125;&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
-
-
-
 <h2 id="router-路由"><a href="#router-路由" class="headerlink" title="router 路由"></a>router 路由</h2><p>路由（router）就是对应关系</p>
 <p>前端路由就是指：Hash 地址 与 组件 之间的对应关系</p>
 <figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123; path: &#x27;#/home&#x27;, component: Home &#125;,<br></code></pre></div></td></tr></table></figure>
@@ -1262,8 +1308,171 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">router.beforeEach(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (to.path === <span class="hljs-string">&#x27;/main&#x27;</span>) &#123;<br>    <span class="hljs-comment">// 获取 token 值</span><br>    <span class="hljs-keyword">const</span> token = <span class="hljs-built_in">localStorage</span>.getItem(<span class="hljs-string">&#x27;token&#x27;</span>)<br>    <span class="hljs-keyword">if</span> (token) next() <span class="hljs-comment">// 已登录，放行</span><br>    <span class="hljs-keyword">else</span> next(<span class="hljs-string">&#x27;/login&#x27;</span>) <span class="hljs-comment">// 未登录，跳转到指定页面，一般为登录页</span><br>  &#125; <span class="hljs-keyword">else</span> next()<br>&#125;)<br></code></pre></div></td></tr></table></figure>
 
+<h2 id="虚拟-DOM-和-render-函数"><a href="#虚拟-DOM-和-render-函数" class="headerlink" title="虚拟 DOM 和 render 函数"></a>虚拟 DOM 和 render 函数</h2><h3 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h3><p>虚拟 DOM 使用普通的 JavaScript 对象来描述 DOM 元素，在 Vue.js 中，每一个虚拟节点都是一个 VNode 的实例</p>
+<p>例如下面的 DOM 结构：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, Vue.js<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>Vue.js 的虚拟 DOM 创建的 JavaScript 对象形式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> vNode = &#123;<br>  <span class="hljs-attr">tag</span>: <span class="hljs-string">&#x27;div&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">attrs</span>: &#123;<br>      <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;app&#x27;</span><br>    &#125;<br>  &#125;,<br>  <span class="hljs-comment">// VNode 的数组</span><br>  <span class="hljs-attr">children</span>: &#123;<br>    <span class="hljs-comment">// h1 节点</span><br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>Vue 在更新真实 DOM 前，会比较更新前后虚拟 DOM 结构中有差异的部分，然后采用异步更新队列的方式将差异部分更新到真实 DOM 中，从而减少了最终要在真实DOM 上的操作次数，提高了页面渲染的效率</p>
+<blockquote>
+<p>虚拟 DOM 是普通的 JavaScript 对象，访问 JavaScript 对象自然比访问真实的 DOM 要快得多。</p>
+</blockquote>
+<h3 id="render-函数"><a href="#render-函数" class="headerlink" title="render 函数"></a>render 函数</h3><p>在一些场景中，需要使用 JavaScript 的编程能力，这时就可以使用 render 函数，它比模板更接近编译器。</p>
+<p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">anchored-heading</span> <span class="hljs-attr">:level</span>=<span class="hljs-string">&quot;3&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;hello-world&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#hello-world&quot;</span>&gt;</span><br>      Hello world!<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">anchored-heading</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  Vue.component(<span class="hljs-string">&#x27;anchored-heading&#x27;</span>, &#123;</span><br><span class="javascript">    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;</span><br><span class="javascript">      <span class="hljs-keyword">return</span> createElement(</span><br><span class="javascript">        <span class="hljs-string">&#x27;h&#x27;</span> + <span class="hljs-built_in">this</span>.level, <span class="hljs-comment">// 标签名称</span></span><br><span class="javascript">        <span class="hljs-built_in">this</span>.$slots.default <span class="hljs-comment">// 子节点数组</span></span><br><span class="javascript">      )</span><br><span class="javascript">    &#125;,</span><br><span class="javascript">    <span class="hljs-attr">props</span>: &#123;</span><br><span class="javascript">      <span class="hljs-attr">level</span>:&#123;</span><br><span class="javascript">        <span class="hljs-attr">type</span>: <span class="hljs-built_in">Number</span>,</span><br><span class="javascript">        <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span></span><br><span class="javascript">      &#125;</span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;)</span><br><span class="javascript">  <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">    <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span></span><br><span class="javascript">  &#125;)</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h4 id="slots"><a href="#slots" class="headerlink" title="$slots"></a>$slots</h4><p>用于以编程方式访问有插槽分发的内容</p>
+<ul>
+<li>每个命名的插槽都有其对应的属性（例如：v-slot:foo 的内容将在 vm.$slots.foo 中找到）</li>
+<li>default 属性包含了所有未包含在命名插槽中的节点或 v-slot:default 的内容</li>
+</ul>
+<h4 id="createElement"><a href="#createElement" class="headerlink" title="createElement()"></a>createElement()</h4><p>createElement() 函数并不是 DOM API 中的 document.createElement() 方法，而是 Vue.js 中的一个函数，用来描述节点信息及其子节点信息的一个对象，即虚拟节点（VNode）</p>
+<ul>
+<li>可以带三个参数，第一个参数是必须的，形式为：<code>&#123;String | Object | Funtion&#125;</code> ，即可以是 字符串（HTML 标签名）、对象（组件选项对象）、函数对象（解析前两者之一的 async 函数）；</li>
+<li>第二个参数是可选的，形式为：<code>&#123;Object&#125;</code> ，表示一个与模板中元素属性对应的数据对象；</li>
+<li>第三个参数也可选，用于生成虚拟节点，形式为：<code>&#123;String | Array&#125;</code> ，字符串（文本虚拟节点）、数组（子虚拟节点的数组）</li>
+</ul>
+<p>createElement() 可以接受的各种参数的形式：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// @returns &#123;VNode&#125;</span><br>createElement &#123;<br><span class="hljs-comment">// -------------- 第一个参数，必填项 --------------</span><br>  <span class="hljs-comment">// &#123;String | Object | Function&#125;</span><br>  <span class="hljs-comment">// 一个 HTML 标签名、组件选项对象，或者解析前两者其一的 async 函数</span><br>  <span class="hljs-string">&#x27;div&#x27;</span>,<br><span class="hljs-comment">// -------------- 第二个参数，可选项 --------------</span><br>  <span class="hljs-comment">// &#123;Object&#125;</span><br>  <span class="hljs-comment">// 一个与模板中元素属性对应的数据对象</span><br>  &#123;<br>		<span class="hljs-comment">// 与 v-bind:class 一样的 API，接收一个字符串、对象或字符串和对象的数组</span><br>    <span class="hljs-string">&#x27;class&#x27;</span>: &#123;<br>      <span class="hljs-attr">foo</span>: <span class="hljs-literal">true</span>,<br>      <span class="hljs-attr">bar</span>: <span class="hljs-literal">false</span><br>    &#125;,<br>    <span class="hljs-comment">// 与 v-bind:style 一样的 API，接收一个字符串、对象或对象数组</span><br>    <span class="hljs-attr">style</span>: &#123;<br>      <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;pink&#x27;</span>,<br>      <span class="hljs-attr">fontSize</span>: <span class="hljs-string">&#x27;14px&#x27;</span><br>    &#125;,<br>    <span class="hljs-comment">// 普通的 HTML 属性</span><br>    <span class="hljs-attr">attrs</span>: &#123;<br>      <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;foo&#x27;</span><br>    &#125;,<br>    <span class="hljs-comment">// 组件 prop</span><br>    <span class="hljs-attr">props</span>: &#123;<br>      <span class="hljs-attr">myProp</span>: <span class="hljs-string">&#x27;bar&#x27;</span><br>    &#125;,<br>    <span class="hljs-comment">// DOM 属性</span><br>    <span class="hljs-attr">domProps</span>: &#123;<br>      <span class="hljs-attr">innerHTML</span>: <span class="hljs-string">&#x27;baz&#x27;</span><br>    &#125;,<br>    <span class="hljs-comment">// 在 &#x27;on&#x27; 属性内的事件监听器，但不支持如 &#x27;@keyup.enter&#x27; 这样的修饰符</span><br>    <span class="hljs-attr">on</span>: &#123;<br>      <span class="hljs-attr">click</span>: <span class="hljs-built_in">this</span>.clickHandler<br>    &#125;,<br>    <span class="hljs-comment">// 仅用于组件，用于监听原生事件，而不是组件内部使用 vm.$emit 触发的自定义事件</span><br>    <span class="hljs-attr">nativeOn</span>: &#123;<br>      <span class="hljs-attr">click</span>: <span class="hljs-built_in">this</span>.nativeClickHandler<br>    &#125;,<br>    <span class="hljs-comment">// 自定义指令。注意：不能对 binding 中的 oldValue 赋值，Vue 会替你跟踪它</span><br>    <span class="hljs-attr">directives</span>: [<br>      &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;my-custom-directive&#x27;</span>,<br>        <span class="hljs-attr">value</span>: <span class="hljs-number">2</span>,<br>        <span class="hljs-attr">expression</span>: <span class="hljs-string">&#x27;1 + 1&#x27;</span>,<br>        <span class="hljs-attr">arg</span>: <span class="hljs-string">&#x27;foo&#x27;</span>,<br>        <span class="hljs-attr">modifiers</span>: &#123;<br>          <span class="hljs-attr">bar</span>: <span class="hljs-literal">true</span><br>        &#125;<br>      &#125;<br>    ],<br>    <span class="hljs-comment">// 作用域插槽的格式为</span><br>    <span class="hljs-comment">// &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;</span><br>    <span class="hljs-attr">scopedSlots</span>: &#123;<br>      <span class="hljs-attr">default</span>: <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> createElement(<span class="hljs-string">&#x27;span&#x27;</span>, props.text)<br>    &#125;,<br>    <span class="hljs-comment">// 如果组件是其他组件的子组件，需为插槽指定名称</span><br>    <span class="hljs-attr">slot</span>: <span class="hljs-string">&#x27;name-of-slot&#x27;</span>,<br>    <span class="hljs-comment">// 其他特殊顶层属性</span><br>    <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;myKey&#x27;</span>,<br>    <span class="hljs-attr">ref</span>: <span class="hljs-string">&#x27;myRef&#x27;</span>,<br>    <span class="hljs-comment">// 如果在 render 函数中给多个元素都应用了形同的 ref 名，那么 $refs.myRef 会变成一个数组</span><br>    <span class="hljs-attr">refInFor</span>: <span class="hljs-literal">true</span><br>  &#125;,<br><span class="hljs-comment">// -------------- 第三个参数，可选项 --------------</span><br>  <span class="hljs-comment">// &#123;String | Array&#125;</span><br>  <span class="hljs-comment">// 子虚拟节点（VNode），有 createElement() 构建而成，也可以使用字符串来生成“文本虚拟节点”</span><br>  [<br>    <span class="hljs-string">&#x27;先写一些文本&#x27;</span>,<br>    createElement(<span class="hljs-string">&#x27;h1&#x27;</span>, <span class="hljs-string">&#x27;一则头条&#x27;</span>),<br>    createElement(MyComponent, &#123;<br>      <span class="hljs-attr">props</span>: &#123;<br>        <span class="hljs-attr">someProp</span>: <span class="hljs-string">&#x27;foobar&#x27;</span><br>      &#125;<br>    &#125;)<br>  ]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>组件树中的所有 VNode 必须是唯一的，如果需要重复很多相同的元素或组件，可以使用工厂函数来实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">&#x27;div&#x27;</span>,<br>    <span class="hljs-built_in">Array</span>.apply(<span class="hljs-literal">null</span>, &#123; <span class="hljs-attr">length</span>: <span class="hljs-number">20</span> &#125;).map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>      <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">&#x27;p&#x27;</span>, <span class="hljs-string">&#x27;hi&#x27;</span>)<br>    &#125;)<br>  )<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</blockquote>
+<h1 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h1><blockquote>
+<p>axios 是一个专注于网络请求的库！</p>
+</blockquote>
+<p>axios（发音：艾克C奥斯）是前端圈最火的库。</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><ol>
+<li>调用 axios 之后，使用 async / await 进行简化</li>
+<li>使用解构赋值，从 axios 封装的大对象中，把 data 属性解构出来</li>
+<li>把解构出来的 data 属性，使用 : 进行重命名，一般都重命名为 <code>&#123; data: res&#125;</code> </li>
+</ol>
+<p>调用 axios 方法的返回值是一个 Promise 对象：</p>
+<blockquote>
+<p>axios 在请求到接口数据之后，在真正的数据之外，套了一层壳</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<br>  config: &#123;&#125;,<br>  data: &#123;&#x27;真正的接口数据&#x27;&#125;,<br>  headers: &#123;&#125;,<br>  request: &#123;&#125;,<br>  status: xxx,<br>  statusText: &#x27;&#x27;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="发起-GET-请求"><a href="#发起-GET-请求" class="headerlink" title="发起 GET 请求"></a>发起 GET 请求</h3><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios(&#123;<br>  <span class="hljs-comment">// 请求方式</span><br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span>,<br>  <span class="hljs-comment">// 请求的地址</span><br>  <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-comment">// URL 中的查询参数</span><br>  <span class="hljs-attr">params</span>: &#123;<br>    <span class="hljs-attr">id</span>: <span class="hljs-number">1</span><br>  &#125;<br>&#125;).then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(res)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>也可以使用 <strong>axios.get</strong> 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios.get(<span class="hljs-string">&#x27;url地址&#x27;</span>, &#123;<br>  <span class="hljs-comment">// GET参数</span><br>  <span class="hljs-attr">params</span>: &#123;&#125; <br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="发起-POST-请求"><a href="#发起-POST-请求" class="headerlink" title="发起 POST 请求"></a>发起 POST 请求</h3><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios(&#123;<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>  <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-comment">// 请求体</span><br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;agoni&#x27;</span><br>  &#125;<br>&#125;).then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(res)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>也可以使用 <strong>axios.post</strong> 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios.post(<span class="hljs-string">&#x27;url&#x27;</span>, &#123; <span class="hljs-comment">/* POST请求体数据 */</span> &#125;)<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="await-和-async"><a href="#await-和-async" class="headerlink" title="await 和 async"></a>await 和 async</h3><ul>
+<li>如果调用某个方法的返回值是 Promise 实例，则前面可以添加 await</li>
+<li>await 只能用在被 async 修饰的方法中</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> axios(&#123;<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>    <span class="hljs-attr">data</span>: &#123;<br>      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;agoni&#x27;</span><br>    &#125;<br>  &#125;)<br>  <span class="hljs-built_in">console</span>.log(result)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><blockquote>
+<p>解构赋值的时候可以使用 : 进行重命名</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> &#123; <span class="hljs-attr">data</span>: res &#125; = <span class="hljs-keyword">await</span> axios(&#123;<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span>,<br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;&#x27;</span><br>  &#125;)<br>  <span class="hljs-built_in">console</span>.log(res.data)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="使用优化"><a href="#使用优化" class="headerlink" title="使用优化"></a>使用优化</h2><h3 id="挂载在-Vue-原型"><a href="#挂载在-Vue-原型" class="headerlink" title="挂载在 Vue 原型"></a>挂载在 Vue 原型</h3><p>使用 axios 需要各页面导入 axios 才可使用，比较麻烦</p>
+<p>可以将 axios 挂载在 Vue 的原型上：</p>
+<ol>
+<li><p>在 main.js 中导入 axios</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>配置请求根路径</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios.defaults.baseURL = <span class="hljs-string">&#x27;请求根路径&#x27;</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>把 axios 挂载到 Vue.prototype 原型上</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">Vue.prototype.$http = axios<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>一般命名为 $http，今后在每个 .vue 组件中要发起请求，直接调用 this.$http 接口即可</p>
+</blockquote>
+</li>
+</ol>
+<p>缺点：</p>
+<ul>
+<li>不利于 api 接口的复用，所以一般不使用，了解即可</li>
+</ul>
+<h3 id="增强复用"><a href="#增强复用" class="headerlink" title="增强复用 *"></a>增强复用 *</h3><p>util/request.js：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;axios&#x27;</span><br><br><span class="hljs-keyword">const</span> request = axios.create(&#123;<br>  <span class="hljs-comment">// 指定请求的根路径</span><br>  <span class="hljs-attr">baseURL</span>: <span class="hljs-string">&#x27;https://www.escook.cn&#x27;</span><br>&#125;)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> request<br></code></pre></div></td></tr></table></figure>
+
+<p>api/articleAPI.js：</p>
+<blockquote>
+<p>一般以 API 命名结尾</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 文章相关的 API 接口</span><br><span class="hljs-keyword">import</span> request <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/utils/request.js&#x27;</span><br><br><span class="hljs-comment">// 向外按需导出一个 API 函数</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getArticleListAPI = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">_page, _limit</span>) </span>&#123;<br>	<span class="hljs-keyword">return</span> request.get(<span class="hljs-string">&#x27;/articles&#x27;</span>, &#123;<br>    <span class="hljs-attr">params</span>: &#123;<br>      _page,<br>      _limit<br>    &#125;<br>  &#125;)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>Home.vue：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 按需导入 API 接口</span><br><span class="hljs-keyword">import</span> &#123; getArticleListAPI &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/api/articleAPI.js&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-comment">// 页码值</span><br>      <span class="hljs-attr">page</span>: <span class="hljs-number">1</span>,<br>      <span class="hljs-comment">// 每页显示多少条数据</span><br>      <span class="hljs-attr">limit</span>: <span class="hljs-number">8</span>,<br>      <span class="hljs-comment">// 文章列表数组</span><br>      <span class="hljs-attr">articleList</span>: []<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-comment">// 封装获取文章列表数据的方法</span><br>    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-title">initArticleLsit</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-keyword">const</span> &#123; <span class="hljs-attr">data</span>: res &#125; = <span class="hljs-keyword">await</span> getArticleLsitAPI(<span class="hljs-built_in">this</span>.page, <span class="hljs-built_in">this</span>.limit)<br>      <span class="hljs-built_in">this</span>.articleList = res<br>    &#125;<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-title">create</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-built_in">this</span>.initArticleLsit()<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
+
+<h1 id="单页面应用程序"><a href="#单页面应用程序" class="headerlink" title="单页面应用程序"></a>单页面应用程序</h1><p>单页面应用程序（Single Page Application）简称 SPA，指一个 Web 网站中只有唯一的一个 HTML 页面，所有的功能和交互都在这唯一的一个页面完成</p>
+<p>优点：</p>
+<ol>
+<li>前后端分离</li>
+<li>良好的用户体验</li>
+<li>减轻服务器压力</li>
+<li>共用一套后端程序代码</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>初次加载消耗多</li>
+<li>前进后退有一定问题</li>
+<li>SEO 难度较高</li>
+</ol>
+<h1 id="Vue-CLI"><a href="#Vue-CLI" class="headerlink" title="Vue CLI"></a>Vue CLI</h1><p>vue-cli 是 Vue.js 开发的标准工具。简化了程序员基于 webpack 创建工程化的 Vue 项目的工程</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装 3.x 版本的 Vue 脚手架：</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">npm install -g @vue/cli<br></code></pre></div></td></tr></table></figure>
+
+<p>检查安装</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">vue -V <span class="hljs-comment">// 检查是否安装 及 版本号</span><br></code></pre></div></td></tr></table></figure>
+
+<p>看到 显示 <code>@vue/cli 版本号</code> 即为安装成功</p>
+<h2 id="创建-Vue-项目"><a href="#创建-Vue-项目" class="headerlink" title="创建 Vue 项目"></a>创建 Vue 项目</h2><ol>
+<li><p>基于 <strong>交互式命令行</strong> 的方式，创建 新版 vue 项目</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">vue create my-project<br></code></pre></div></td></tr></table></figure>
+
+<p>一般选择最后一项创建自定义</p>
+</li>
+<li><p>基于 <strong>图形化界面</strong> 的方式，创建 新版 vue 项目</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">vue ui<br></code></pre></div></td></tr></table></figure></li>
+<li><p>基于 2.x 的旧模板 ，创建 旧版 vue 项目（了解）</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">npm install -g @vue/cli-init<br>vue init webpack my-project<br></code></pre></div></td></tr></table></figure></li>
+</ol>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><h3 id="public-文件夹"><a href="#public-文件夹" class="headerlink" title="public 文件夹"></a>public 文件夹</h3><h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><p>index.html 为项目主页面</p>
+<p>其中 一行注释，表示生成脚本文件的将自动注入这个位置</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- built files will be auto injected --&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>id 属性为 app 的 div 之后将会被替换掉</p>
+<blockquote>
+<p>不要改动 inde.html 中的内容</p>
+</blockquote>
+<h4 id="favicon-ico"><a href="#favicon-ico" class="headerlink" title="favicon.ico"></a>favicon.ico</h4><p>网页的图标</p>
+<h3 id="src-文件夹"><a href="#src-文件夹" class="headerlink" title="src 文件夹"></a>src 文件夹</h3><figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">assets 文件夹：存放项目中用到的静态资源文件，例如：css 样式表、图片资源<br>components 文件夹：存放程序员封装的、可复用的组件<br><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span> 是项目的入口文件。整个项目的运行，要先执行 <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span><br>App<span class="hljs-selector-class">.vue</span> 是项目的根组件<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><p>将 main.js 中 render 函数指定的结构替换掉 index.html 中指定的 el区域 <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code> </p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 导入 vue 这个包，得到 vue 构造函数</span><br><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-comment">// 导入 App.vue 根组件，将来要把 App.vue 中的模板结构，渲染到 HTML 页面中</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App.vue&#x27;</span><br><br><span class="hljs-comment">// false 是开发模式，true 是发布模式</span><br><span class="hljs-comment">// 默认为 true</span><br>Vue.config.productionTip = <span class="hljs-literal">false</span><br><br><span class="hljs-comment">// 创建 Vue 的 实例对象</span><br><span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-comment">// el: &#x27;#app&#x27;,  // 这个和 $mount 二选一使用即可</span><br>  <span class="hljs-comment">// 把 render 函数指定的组件，渲染到 HTML 页面中</span><br>  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),<br>&#125;).$mount(<span class="hljs-string">&#x27;#app&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>Vue 实例的 $mount() 方法，作用和 el 属性完全一样！</p>
+</blockquote>
+<h4 id="components-amp-views"><a href="#components-amp-views" class="headerlink" title="components &amp; views"></a>components &amp; views</h4><p>两个文件夹都是放组件的，区别在于：</p>
+<ul>
+<li>components 文件夹用来放各页面复用的组件</li>
+<li>views 文件夹用来放 <strong>使用路由切换</strong> 的组件</li>
+</ul>
+<h2 id="运行流程"><a href="#运行流程" class="headerlink" title="运行流程"></a>运行流程</h2><blockquote>
+<p>在工程化的项目中，vue 要做的事情很单纯：通过 main.js 把 App.vue 渲染到 index.html 的指定区域中</p>
+</blockquote>
+<ol>
+<li>App.vue 用来编写待渲染的模板结构</li>
+<li>index.html 中需要预留一个 el 区域</li>
+<li>main.js 把 App.vue 渲染到了 index.html 所预留的区域中</li>
+</ol>
 <h1 id="Eslint"><a href="#Eslint" class="headerlink" title="Eslint"></a>Eslint</h1><p>一个插件化的javascript代码检测工具</p>
 <h2 id="基本使用-1"><a href="#基本使用-1" class="headerlink" title="基本使用"></a>基本使用</h2><p>生成 .eslintrc.js 文件</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = &#123;<br>  <span class="hljs-attr">root</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">env</span>: &#123;<br>    <span class="hljs-attr">node</span>: <span class="hljs-literal">true</span><br>  &#125;,<br>  <span class="hljs-attr">extends</span>: [<br>    <span class="hljs-string">&#x27;plugin:vue/essential&#x27;</span>,<br>    <span class="hljs-string">&#x27;@vue/standard&#x27;</span><br>  ],<br>  <span class="hljs-attr">parserOptions</span>: &#123;<br>    <span class="hljs-attr">parser</span>: <span class="hljs-string">&#x27;babel-eslint&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">rules</span>: &#123;<br>    <span class="hljs-string">&#x27;no-console&#x27;</span>: process.env.NODE_ENV === <span class="hljs-string">&#x27;production&#x27;</span> ? <span class="hljs-string">&#x27;warn&#x27;</span> : <span class="hljs-string">&#x27;off&#x27;</span>,<br>    <span class="hljs-string">&#x27;no-debugger&#x27;</span>: process.env.NODE_ENV === <span class="hljs-string">&#x27;production&#x27;</span> ? <span class="hljs-string">&#x27;warn&#x27;</span> : <span class="hljs-string">&#x27;off&#x27;</span><br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
