@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      531
+      553
        分钟
     </span>
   
@@ -1169,6 +1169,11 @@
 <blockquote>
 <p>Hash 地址也就是 锚链接，location.hash 获取地址栏 Hash 地址</p>
 </blockquote>
+<h3 id="安装导入"><a href="#安装导入" class="headerlink" title="安装导入"></a>安装导入</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/vue-router/dist/vue-router.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> vue-router<br></code></pre></div></td></tr></table></figure>
+
 <h3 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h3><ol>
 <li>用户点击了页面上的路由链接</li>
 <li>导致了 URL 地址栏中的 Hash 值发生了变化</li>
@@ -1217,6 +1222,14 @@
 <h4 id="路由重定向"><a href="#路由重定向" class="headerlink" title="路由重定向"></a>路由重定向</h4><p>路由重定向指的是：用户在访问地址 A 的时候，强制用户跳转到地址 C ，从而展示特定的组件页面</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    <span class="hljs-comment">// 在 routes 数组中，声明路由的匹配规则</span><br>    <span class="hljs-comment">// 重定向的路由规则：当用户访问 / 时，通过 redirect 属性跳转到 &#x27;/home&#x27; 对应的路由规则</span><br>    &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-attr">redirect</span>: <span class="hljs-string">&#x27;/home&#x27;</span> &#125;,<br>    &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/home&#x27;</span>, <span class="hljs-attr">component</span>: Home &#125;<br>    ...<br>  ]<br>&#125;)<br></code></pre></div></td></tr></table></figure>
 
+<h4 id="通配符匹配"><a href="#通配符匹配" class="headerlink" title="通配符匹配"></a>通配符匹配</h4><p>想匹配任意路径，可以使用通配符（*）</p>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<br>  <span class="hljs-comment">// 将匹配所有路径</span><br>  path: &#x27;*&#x27;<br>&#125;<br>&#123;<br>	<span class="hljs-comment">// 将匹配以 /user- 开头的任意路径</span><br>  path: &#x27;/user-*&#x27;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>当使用通配符路由时，要确保路由的顺序是正确的。</p>
+<blockquote>
+<p>含有通配符的路由应该放在最后。路由 { path: ‘*’ } 通常用于客户端 404 错误</p>
+</blockquote>
+<p>当使用一个通配符时，$route.params 内会自动添加一个名为 pathMatch 的参数，包含了 URL 中通过通配符匹配的部分。</p>
 <h4 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h4><p>通过路由实现组件的嵌套展示，叫做嵌套路由</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123;<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/about&#x27;</span>,<br>      <span class="hljs-attr">component</span>: About,<br>      <span class="hljs-comment">// 重定向，直接去找 tab1 显示</span><br>      <span class="hljs-attr">redirect</span>: <span class="hljs-string">&#x27;/about/tab1&#x27;</span>,<br>      <span class="hljs-comment">// 通过 children 属性，嵌套声明子级路由规则</span><br>      <span class="hljs-attr">children</span>: [<br>        <span class="hljs-comment">// 子级路由不加 /</span><br>        &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;tab1&#x27;</span>, <span class="hljs-attr">component</span>: Tab1 &#125;,<br>        &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;tab2&#x27;</span>, <span class="hljs-attr">component</span>: Tab2 &#125;<br>      ]<br>    &#125;<br>  ]<br>&#125;)<br></code></pre></div></td></tr></table></figure>
 
@@ -1534,7 +1547,25 @@
 <li>前进后退有一定问题</li>
 <li>SEO 难度较高</li>
 </ol>
-<h1 id="Vue-CLI"><a href="#Vue-CLI" class="headerlink" title="Vue CLI"></a>Vue CLI</h1><p>vue-cli 是 Vue.js 开发的标准工具。简化了程序员基于 webpack 创建工程化的 Vue 项目的工程</p>
+<h1 id="Vue-CLI"><a href="#Vue-CLI" class="headerlink" title="Vue CLI"></a>Vue CLI</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>vue-cli 是 Vue.js 开发的标准工具。简化了程序员基于 webpack 创建工程化的 Vue 项目的工程</p>
+<p>Vue CLI 有三个组件：</p>
+<ol>
+<li><p>CLI（@vue/cli）</p>
+<p>全局安装的 npm 包，提供了终端里的 vue 命令（如 vue create、vue serve、vue ui）</p>
+</li>
+<li><p>CLI 服务（@vue/cli-service）</p>
+<p>CLI 服务是一个开发环境依赖。它是一个 npm 包，本地安装到 @vue/cli 创建的每个项目中。是构建于 webpack 和 webpack-dev-server 之上的，包含了：</p>
+<ul>
+<li>加载其他 CLI 插件的核心服务</li>
+<li>一个为绝大部分应用优化过的内部 webpck 配置</li>
+<li>项目内部的 vue-cli-service 命令，包含基本的 serve、build 和 inspect 命令</li>
+</ul>
+</li>
+<li><p>CLI 插件</p>
+<p>是给 Vue 项目提供可选功能的 npm 包（如：Babel/TypeScript 转译、ESLIint 集成、单元测试 和 end-to-end 测试等）</p>
+<p>Vue CLI 中插件的名字以 @vue/cli-plugin-（用于内置插件）或 vue/cli-plugin-（用于社区插件）开头</p>
+</li>
+</ol>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装 3.x 版本的 Vue 脚手架：</p>
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">npm install -g @vue/cli<br></code></pre></div></td></tr></table></figure>
 
@@ -1546,7 +1577,13 @@
 <li><p>基于 <strong>交互式命令行</strong> 的方式，创建 新版 vue 项目</p>
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">vue create my-project<br></code></pre></div></td></tr></table></figure>
 
+<blockquote>
+<p>项目名中不能有大写字母</p>
+</blockquote>
 <p>一般选择最后一项创建自定义</p>
+<blockquote>
+<p>vue create 命令有一些可选项，可以输入 vue create –help 来查看这些选项</p>
+</blockquote>
 </li>
 <li><p>基于 <strong>图形化界面</strong> 的方式，创建 新版 vue 项目</p>
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">vue ui<br></code></pre></div></td></tr></table></figure></li>
@@ -1565,7 +1602,7 @@
 <h3 id="src-文件夹"><a href="#src-文件夹" class="headerlink" title="src 文件夹"></a>src 文件夹</h3><figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">assets 文件夹：存放项目中用到的静态资源文件，例如：css 样式表、图片资源<br>components 文件夹：存放程序员封装的、可复用的组件<br><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span> 是项目的入口文件。整个项目的运行，要先执行 <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span><br>App<span class="hljs-selector-class">.vue</span> 是项目的根组件<br></code></pre></div></td></tr></table></figure>
 
 <h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><p>将 main.js 中 render 函数指定的结构替换掉 index.html 中指定的 el区域 <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code> </p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 导入 vue 这个包，得到 vue 构造函数</span><br><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-comment">// 导入 App.vue 根组件，将来要把 App.vue 中的模板结构，渲染到 HTML 页面中</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App.vue&#x27;</span><br><br><span class="hljs-comment">// false 是开发模式，true 是发布模式</span><br><span class="hljs-comment">// 默认为 true</span><br>Vue.config.productionTip = <span class="hljs-literal">false</span><br><br><span class="hljs-comment">// 创建 Vue 的 实例对象</span><br><span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-comment">// el: &#x27;#app&#x27;,  // 这个和 $mount 二选一使用即可</span><br>  <span class="hljs-comment">// 把 render 函数指定的组件，渲染到 HTML 页面中</span><br>  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),<br>&#125;).$mount(<span class="hljs-string">&#x27;#app&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 导入 vue 这个包，得到 vue 构造函数</span><br><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-comment">// 导入 App.vue 根组件，将来要把 App.vue 中的模板结构，渲染到 HTML 页面中</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App.vue&#x27;</span><br><br><span class="hljs-comment">// false 是开发模式，true 是发布模式 （是否生成提示信息）</span><br><span class="hljs-comment">// 默认为 true</span><br>Vue.config.productionTip = <span class="hljs-literal">false</span><br><br><span class="hljs-comment">// 创建 Vue 的 实例对象</span><br><span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-comment">// el: &#x27;#app&#x27;,  // 这个和 $mount 二选一使用即可</span><br>  <span class="hljs-comment">// 把 render 函数指定的组件，渲染到 HTML 页面中</span><br>  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),<br>&#125;).$mount(<span class="hljs-string">&#x27;#app&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
 
 <blockquote>
 <p>Vue 实例的 $mount() 方法，作用和 el 属性完全一样！</p>
@@ -1574,6 +1611,25 @@
 <ul>
 <li>components 文件夹用来放各页面复用的组件</li>
 <li>views 文件夹用来放 <strong>使用路由切换</strong> 的组件</li>
+</ul>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><ul>
+<li>.browserslistrc：配置项目目标浏览器的范围</li>
+<li>.gitignore：配置在 git 提交项目代码时忽略哪些文件或文件夹</li>
+<li>.eslintrc.js：ESLint 使用的配置文件</li>
+<li>babel.config.js：Babel 使用的配置文件</li>
+<li>postcss.config.js：PostCSS 使用的配置文件</li>
+<li>package.json：npm 的配置文件，其中设定了脚本和项目依赖的库</li>
+<li>package-lock.json：用于锁定项目实际安装的各个 npm 包的具体来源和版本号</li>
+<li>README.md：项目说明文件</li>
+</ul>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>一个 JSON 格式的 npm 配置文件，定义了项目需要的各种模块，以及项目的配置信息（如名称、版本、许可证等元数据）</p>
+<p>代码如下所示：</p>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;helloworld&quot;</span>,	<span class="hljs-comment">// 项目名称</span><br>  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;0.1.0&quot;</span>,		<span class="hljs-comment">// 项目版本</span><br>  <span class="hljs-attr">&quot;private&quot;</span>: <span class="hljs-literal">true</span>,			<span class="hljs-comment">// 是否私有项目</span><br>  <span class="hljs-attr">&quot;scripts&quot;</span>: &#123; <span class="hljs-comment">// 值是一个对象，其中指定了项目声明周期各个环节需要执行的命令</span><br>    <span class="hljs-attr">&quot;serve&quot;</span>: <span class="hljs-string">&quot;vue-cli-service serve&quot;</span>, <span class="hljs-comment">// 执行 npm run serve，运行项目</span><br>    <span class="hljs-attr">&quot;build&quot;</span>: <span class="hljs-string">&quot;vue-cli-service build&quot;</span>, <span class="hljs-comment">// 执行 npm run build，构建项目</span><br>    <span class="hljs-attr">&quot;lint&quot;</span>: <span class="hljs-string">&quot;vue-cli-service lint&quot;</span>		<span class="hljs-comment">// 执行 npm run lint，运行 ESLint 验证并格式化代码</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;dependencies&quot;</span>: &#123; <span class="hljs-comment">// 配置项目依赖的模块列表</span><br>    <span class="hljs-attr">&quot;vue&quot;</span>: <span class="hljs-string">&quot;^2.6.10&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;devDependencies&quot;</span>: &#123; <span class="hljs-comment">// 用于开发环境的依赖，不发布到生产环境</span><br>    <span class="hljs-attr">&quot;@vue/cli-plugin-babel&quot;</span>: <span class="hljs-string">&quot;^4.0.0&quot;</span><br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>使用 NPM 安装依赖的模块时，可以根据模块是否需要在生产环境下使用而选择附加 -S（–save）或者 -D（–save-dev）参数。</p>
+<ul>
+<li>-S：安装后在 dependencies 中写入，项目打包时，dependencies 中的依赖项也会<strong>一起</strong>打包</li>
+<li>-D：写入 devDependencies 中，在项目打包时<strong>不会一起</strong>打包</li>
 </ul>
 <h2 id="运行流程"><a href="#运行流程" class="headerlink" title="运行流程"></a>运行流程</h2><blockquote>
 <p>在工程化的项目中，vue 要做的事情很单纯：通过 main.js 把 App.vue 渲染到 index.html 的指定区域中</p>
