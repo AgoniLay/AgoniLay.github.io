@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/zoro.jpg">
+  <link rel="icon" href="/img/zoro.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#efb9b9">
+  <meta name="description" content="">
+  <meta name="author" content="AgoniLay">
+  <meta name="keywords" content="">
+  
+  <title>JS模块化 - AgoniLay的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/arta.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scroller.css">
+<link rel="stylesheet" href="/css/bynode.css">
+<link rel="stylesheet" href="/css/mouse.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading2.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>AgoniLay</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark"></i>
+                索引
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/zoro2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h3" id="subtitle" title="JS模块化">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      AgoniLay
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-11 10:36" pubdate>
+        2021年11月11日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+			
+			
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JS模块化</h1>
+            
+            <div class="markdown-body">
+              <h1 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h1><p>进化路线：</p>
+<p>全局 function 模式 –&gt; namespace 模式 –&gt; IIFE 模式（匿名函数自调用，闭包） –&gt; IIFE 增强：引入依赖</p>
+<p>好处：</p>
+<ol>
+<li>避免命名冲突（减少命名空间污染）</li>
+<li>更好的分离，按需加载</li>
+<li>更高复用性</li>
+<li>高可维护性</li>
+</ol>
+<p>问题：</p>
+<ol>
+<li>请求过多</li>
+<li>依赖模糊</li>
+<li>难以维护</li>
+</ol>
+<h1 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h1><h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h3><p>说明：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://wiki.commonjs.org/wiki/Modules/1.1">http://wiki.commonjs.org/wiki/Modules/1.1</a></li>
+<li>每个文件都可当作一个模块</li>
+<li>在服务器端：模块的加载时运行时同步加载的</li>
+<li>在浏览器端：模块需要提前编译打包处理</li>
+</ul>
+<p>基本语法：</p>
+<p>暴露模块</p>
+<ul>
+<li>module.exports = value</li>
+<li>exports.xxx = value</li>
+<li>暴露的本质：都是 exports 这个对象</li>
+</ul>
+<p>引入模块</p>
+<ul>
+<li>require(xxx)<ul>
+<li>第三方模块：xxx 为模块名</li>
+<li>自定义模块：xxx 为模块文件路径</li>
+</ul>
+</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>使用 browserify 工具打包</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">npm install browser -g <span class="hljs-regexp">//</span> 全局安装<br>npm install browser -D <span class="hljs-regexp">//</span> 项目内开发安装<br></code></pre></div></td></tr></table></figure>
+
+<p>生成时：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm"><span class="hljs-keyword">browserify </span>需要打包的文件名 -o 要输出的地址<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><h3 id="规范-1"><a href="#规范-1" class="headerlink" title="规范"></a>规范</h3><p>说明：</p>
+<ul>
+<li>Asynchronous Module Definition 异步模式定义</li>
+<li>专门用于浏览器端</li>
+<li>模块的加载是异步的</li>
+</ul>
+<p>基本语法：</p>
+<p>暴露模块</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 定义没有依赖的模块</span><br>define(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> 模块<br>&#125;)<br><br><span class="hljs-comment">// 定义有依赖的模块</span><br>define([<span class="hljs-string">&#x27;module1&#x27;</span>, <span class="hljs-string">&#x27;module2&#x27;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">m1, m2</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> 模块<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>引入模块</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 配置路径映射</span><br>requirejs.config(&#123;<br>  <span class="hljs-attr">baseUrl</span>: <span class="hljs-string">&#x27;js/&#x27;</span>, <span class="hljs-comment">// 基本的路径 出发点根目录下</span><br>  <span class="hljs-attr">paths</span>: &#123; <span class="hljs-comment">// 配置路径</span><br>    <span class="hljs-attr">dataService</span>: <span class="hljs-string">&#x27;./modules/dataService&#x27;</span>, <span class="hljs-comment">// 默认会在末尾加 .js 所以这里不能加</span><br>    <span class="hljs-attr">alerter</span>: <span class="hljs-string">&#x27;./modules/alerter&#x27;</span>,<br>    <span class="hljs-attr">jquery</span>: <span class="hljs-string">&#x27;./libs/jquery.min&#x27;</span>,<br>    <span class="hljs-attr">angular</span>: <span class="hljs-string">&#x27;./libs/angular&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">shim</span>: &#123;<br>    <span class="hljs-attr">angular</span>: &#123;<br>      <span class="hljs-attr">exports</span>: <span class="hljs-string">&#x27;angular&#x27;</span><br>    &#125;<br>  &#125;<br>&#125;)<br><br><span class="hljs-built_in">require</span>([<span class="hljs-string">&#x27;alerter&#x27;</span>, <span class="hljs-string">&#x27;anguler&#x27;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">m1, m2</span>) </span>&#123;<br>  使用 m1/m2<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">data-main</span>=<span class="hljs-string">&quot;./js/main.js&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/libs/requirejs.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="实现（浏览器端）"><a href="#实现（浏览器端）" class="headerlink" title="实现（浏览器端）"></a>实现（浏览器端）</h3><ul>
+<li>Require.js （<a target="_blank" rel="noopener" href="http://www.requirejs.org)/">http://www.requirejs.org）</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/11/require_js.html">http://www.ruanyifeng.com/blog/2012/11/require_js.html</a></li>
+</ul>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>jQuery 支持 AMD，但引入时必须使用 jquery （小写）；</li>
+<li>augular 需要额外在 shim 中定义</li>
+</ul>
+</blockquote>
+<h2 id="CMD-了解"><a href="#CMD-了解" class="headerlink" title="CMD(了解)"></a>CMD(了解)</h2><h3 id="规范-2"><a href="#规范-2" class="headerlink" title="规范"></a>规范</h3><p>说明：</p>
+<ul>
+<li>Common Module Definition 通用模块定义</li>
+<li>专门用于浏览器端</li>
+<li>模块的加载是异步的</li>
+<li>模块使用时才会加载执行</li>
+</ul>
+<p>基本语法：</p>
+<p>暴露模块：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">define(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-built_in">require</span>, <span class="hljs-built_in">exports</span>, <span class="hljs-built_in">module</span></span>) </span>&#123;<br>  <span class="hljs-comment">// 引入依赖模块（同步）</span><br>	<span class="hljs-keyword">var</span> module1 = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./module1&#x27;</span>)<br>  <span class="hljs-comment">// 引入依赖模块（异步）</span><br>  <span class="hljs-keyword">var</span> module2 = <span class="hljs-built_in">require</span>.async(<span class="hljs-string">&#x27;./module2&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">m2</span>) </span>&#123;<br>    <br>  &#125;)<br>  <span class="hljs-comment">// 暴露模块</span><br>  <span class="hljs-built_in">exports</span>.xxx = value<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>引入模块：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">define(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-built_in">require</span></span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> m1 = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./module1&#x27;</span>)<br>  <span class="hljs-keyword">var</span> m2 = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./module2&#x27;</span>)<br>  m1.show()<br>  m2.show()<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><ul>
+<li>sea.js （<a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/sp/seajs/%EF%BC%89">http://www.zhangxinxu.com/sp/seajs/）</a></li>
+</ul>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h3 id="规范-3"><a href="#规范-3" class="headerlink" title="规范"></a>规范</h3><p>说明：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/#docs/module">http://www.ruanyifeng.com/#docs/module</a></li>
+<li>依赖模块需要编译打包处理</li>
+</ul>
+<p>语法：</p>
+<p>暴露模块：</p>
+<ul>
+<li>export</li>
+<li>export default （默认暴露）</li>
+</ul>
+<p>引入模块：import</p>
+<h3 id="实现（浏览器端）-1"><a href="#实现（浏览器端）-1" class="headerlink" title="实现（浏览器端）"></a>实现（浏览器端）</h3><p>babel，browserify</p>
+<p>安装 babel-cli，babel-preset-es2015 和 browserify</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm">npm i <span class="hljs-keyword">babel-cli </span><span class="hljs-keyword">browserify </span>-g<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight q"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs q">npm i babel-preset-es2015 --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>cli：command line interface </p>
+</blockquote>
+<p>根目录下添加配置文件 .babelrc ：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">&#123;<br>  <span class="hljs-string">&quot;presets&quot;</span>: [<span class="hljs-string">&quot;es2015&quot;</span>]<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">babel js<span class="hljs-regexp">/src -d js/</span>lib<br></code></pre></div></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/">模块化</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均为本人原创，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/11/NodeJS%E9%BB%91%E9%A9%AC/">
+                        <span class="hidden-mobile">NodeJS 黑马笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/img/agoni.gif" srcset="/img/loading2.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;"> <h5 style="text-align: center; margin-top: 1rem;">谢谢您的光临噢！！！</h5> 
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>张宝文</span> <i class="iconfont icon-love"></i> <span>郑佳丽</span>  
+	<!--《添加网站运行时间 -->
+<br/>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+var now = new Date(); 
+
+function createtime() {
+    //此处修改你的建站时间或者网站上线时间
+    var grt = new Date('07/28/2021 19:00:00');
+    now.setTime(now.getTime() + 250);
+    days = (now - grt) / 1000 / 60 / 60 / 24;
+
+    dnum = Math.floor(days);
+    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+        hnum = "0" + hnum;
+    }
+    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+        mnum = "0" + mnum;
+    }
+    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+        snum = "0" + snum;
+    }
+    document.getElementById("timeDate").innerHTML = " 本站已各种夹缝中安全运行 " + dnum + " 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()", 250);
+</script>
+
+<!-- 添加网站运行时间》-->
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+  <script>
+    function typing(id, title){
+        var typed = new Typed('#' + id, {
+            strings: [
+              '  ',
+              title + "&nbsp;",
+            ],
+            cursorChar: "❤",
+            typeSpeed: 150,
+            loop: false,
+        });
+        typed.stop();
+        $(document).ready(function () {
+            $(".typed-cursor").addClass("h2");
+            typed.start();
+        });
+    }
+
+    
+        typing("subtitle", document.getElementById('subtitle').title)
+    
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+</body>
+</html>
