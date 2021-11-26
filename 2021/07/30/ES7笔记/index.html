@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/arta.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/vs2015.min.css" />
     
   
 
@@ -210,16 +210,13 @@
 
 <div class="mt-1">
   
-
-  
     
     <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      1
-       分钟
+      <i class="iconfont icon-chart"></i>
+      72 字
     </span>
+  
+
   
 
   
@@ -258,6 +255,12 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">ES7笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年7月30日 下午
+                
+              </p>
             
             <div class="markdown-body">
               <h2 id="ES7-新特性"><a href="#ES7-新特性" class="headerlink" title="ES7 新特性"></a>ES7 新特性</h2><h3 id="Array-prototype-includes"><a href="#Array-prototype-includes" class="headerlink" title="Array.prototype.includes"></a>Array.prototype.includes</h3><p>Includes 方法用来检测数组中是否包含某个元素，返回 boolean 类型值</p>
@@ -324,6 +327,34 @@
             </div>
 
             
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://agonilay.github.io/2021/07/30/ES7%E7%AC%94%E8%AE%B0/';
+          this.page.identifier = '/2021/07/30/ES7%E7%AC%94%E8%AE%B0/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
           </article>
         </div>
       </div>
@@ -386,7 +417,7 @@
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <span>张宝文</span> <i class="iconfont icon-love"></i> <span>郑佳丽</span>  
+     <span>张宝文</span> ❤ <span>郑佳丽</span>  
 	<!--《添加网站运行时间 -->
 <br/>
 
@@ -396,7 +427,7 @@ var now = new Date();
 
 function createtime() {
     //此处修改你的建站时间或者网站上线时间
-    var grt = new Date('07/28/2021 19:00:00');
+    var grt = new Date('07/28/2020 17:53:14');
     now.setTime(now.getTime() + 250);
     days = (now - grt) / 1000 / 60 / 60 / 24;
 

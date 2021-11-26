@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/arta.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/vs2015.min.css" />
     
   
 
@@ -210,16 +210,13 @@
 
 <div class="mt-1">
   
-
-  
     
     <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      871
-       分钟
+      <i class="iconfont icon-chart"></i>
+      28.6k 字
     </span>
+  
+
   
 
   
@@ -258,6 +255,12 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Vue 源码剖析</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年11月27日 凌晨
+                
+              </p>
             
             <div class="markdown-body">
               <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="认识-Flow"><a href="#认识-Flow" class="headerlink" title="认识 Flow"></a>认识 Flow</h2><p>Flow 是 facebook 出品的 JavaScript 静态类型检查工具。Vue.js 的源码利用了 Flow 做了静态类型检查，了解 Flow 有利于阅读源码。</p>
@@ -325,7 +328,11 @@
 <figure class="highlight typescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs typescript"><span class="hljs-comment">/* #flow */</span><br><span class="hljs-keyword">var</span> foo: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | <span class="hljs-built_in">void</span><br><span class="hljs-keyword">var</span> foo: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | <span class="hljs-built_in">void</span> = <span class="hljs-literal">undefined</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="Flow-在-Vue-js-源码中的应用"><a href="#Flow-在-Vue-js-源码中的应用" class="headerlink" title="Flow 在 Vue.js 源码中的应用"></a>Flow 在 Vue.js 源码中的应用</h3><p>在我们引用第三方库，或者自定义一些类型时，Flow 并不认识，因此在检查的时候会报错。因此，Flow 提出了一个 <code>libdef</code>  的概念，可以用来识别这些第三方库或者是自定义类型，而 Vue.js 也利用了这一特性。</p>
-<p>在 Vue.js 的主目录下由 <code>.flowconfig</code> 文件，它是 Flow 的配置文件（官方文档地址：<a target="_blank" rel="noopener" href="https://flow.org/en/docs/config/%EF%BC%89%EF%BC%8C%E5%85%B6%E4%B8%AD%E7%9A%84">https://flow.org/en/docs/config/），其中的</a> <code>[libs]</code> 部分用来描述包括指定库定义的目录，默认是名为 <code>flow-typed</code> 的目录。</p>
+<p>在 Vue.js 的主目录下由 <code>.flowconfig</code> 文件，它是 Flow 的配置文件。</p>
+<blockquote>
+<p>官方文档地址：<a target="_blank" rel="noopener" href="https://flow.org/en/docs/config">https://flow.org/en/docs/config</a> </p>
+</blockquote>
+<p>其中的 <code>[libs]</code> 部分用来描述包括指定库定义的目录，默认是名为 <code>flow-typed</code> 的目录。</p>
 <p>Vue.js 源码中指定了 <code>flow</code> 目录，表示指定的库定义都在 flow 文件夹内，文件结构：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">flow<br>├── compiler.js        # 编译相关<br>├── component.js       # 组件数据结构<br>├── global-api.js      # Global API 结构<br>├── modules.js         # 第三方库定义<br>├── options.js         # 选项相关<br>├── ssr.js             # 服务端渲染相关<br>├── vnode.js           # 虚拟 node 相关<br>├── weex.js						 # weex 相关<br></code></pre></div></td></tr></table></figure>
 
@@ -1520,11 +1527,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">前端框架</a>
+                    
                       <a class="hover-with-bg" href="/tags/%E6%BA%90%E7%A0%81/">源码</a>
                     
                       <a class="hover-with-bg" href="/tags/vue/">vue</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">前端框架</a>
                     
                   </div>
                 
@@ -1556,6 +1563,34 @@
               
             </div>
 
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://agonilay.github.io/2021/11/26/vue%20%E6%BA%90%E7%A0%81/';
+          this.page.identifier = '/2021/11/26/vue%20%E6%BA%90%E7%A0%81/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
             
           </article>
         </div>
@@ -1619,7 +1654,7 @@
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <span>张宝文</span> <i class="iconfont icon-love"></i> <span>郑佳丽</span>  
+     <span>张宝文</span> ❤ <span>郑佳丽</span>  
 	<!--《添加网站运行时间 -->
 <br/>
 
@@ -1629,7 +1664,7 @@ var now = new Date();
 
 function createtime() {
     //此处修改你的建站时间或者网站上线时间
-    var grt = new Date('07/28/2021 19:00:00');
+    var grt = new Date('07/28/2020 17:53:14');
     now.setTime(now.getTime() + 250);
     days = (now - grt) / 1000 / 60 / 60 / 24;
 

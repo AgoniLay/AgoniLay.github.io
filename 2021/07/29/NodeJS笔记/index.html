@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/arta.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/vs2015.min.css" />
     
   
 
@@ -210,16 +210,13 @@
 
 <div class="mt-1">
   
-
-  
     
     <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      58
-       分钟
+      <i class="iconfont icon-chart"></i>
+      2k 字
     </span>
+  
+
   
 
   
@@ -258,6 +255,12 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">NodeJS笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年11月11日 上午
+                
+              </p>
             
             <div class="markdown-body">
               <h3 id="一、NodeJS-简介"><a href="#一、NodeJS-简介" class="headerlink" title="一、NodeJS 简介"></a>一、NodeJS 简介</h3><h4 id="1-1-Node-js-是什么"><a href="#1-1-Node-js-是什么" class="headerlink" title="1.1 Node.js 是什么"></a>1.1 Node.js 是什么</h4><p>Node.js 是 JavaScript 运行环境</p>
@@ -411,6 +414,34 @@
             </div>
 
             
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://agonilay.github.io/2021/07/29/NodeJS%E7%AC%94%E8%AE%B0/';
+          this.page.identifier = '/2021/07/29/NodeJS%E7%AC%94%E8%AE%B0/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
           </article>
         </div>
       </div>
@@ -473,7 +504,7 @@
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <span>张宝文</span> <i class="iconfont icon-love"></i> <span>郑佳丽</span>  
+     <span>张宝文</span> ❤ <span>郑佳丽</span>  
 	<!--《添加网站运行时间 -->
 <br/>
 
@@ -483,7 +514,7 @@ var now = new Date();
 
 function createtime() {
     //此处修改你的建站时间或者网站上线时间
-    var grt = new Date('07/28/2021 19:00:00');
+    var grt = new Date('07/28/2020 17:53:14');
     now.setTime(now.getTime() + 250);
     days = (now - grt) / 1000 / 60 / 60 / 24;
 
