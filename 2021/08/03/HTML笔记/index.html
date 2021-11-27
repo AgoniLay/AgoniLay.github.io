@@ -269,7 +269,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月3日 下午
+                  本文最后更新于：2021年11月27日 下午
                 
               </p>
             
@@ -288,40 +288,41 @@
 </li>
 </ul>
 <h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ol>
-<li><p>html文档后缀名 .html 或者 .htm</p>
+<li><p>html 文档后缀名 .html 或者 .htm</p>
 </li>
 <li><p>标签分为</p>
 <ol>
-<li>围堵标签：有开始标签和结束标签。如 <code>&lt;html&gt;&lt;/html&gt;</code> </li>
-<li>自闭合标签：开始标签和结束标签在一起。如 <code>&lt;br/&gt;</code> </li>
+<li>围堵标签：有开始标签和结束标签。如 <code>&lt;html&gt;&lt;/html&gt;</code></li>
+<li>自闭合标签：开始标签和结束标签在一起。如 <code>&lt;br/&gt;</code></li>
 </ol>
 </li>
 <li><p>标签可以嵌套：</p>
 </li>
 </ol>
-<p>  需要正确嵌套，不能你中有我，我中有你</p>
+<p>需要正确嵌套，不能你中有我，我中有你</p>
 <ul>
-<li><p>错误：<code>&lt;a&gt;&lt;b&gt;&lt;/a&gt;&lt;/b&gt;</code> </p>
+<li><p>错误：<code>&lt;a&gt;&lt;b&gt;&lt;/a&gt;&lt;/b&gt;</code></p>
 </li>
-<li><p>正确：<code>&lt;a&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;</code> </p>
+<li><p>正确：<code>&lt;a&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;</code></p>
 </li>
 </ul>
 <ol start="4">
 <li><p>在开始标签中可以定义属性。属性是由键值对构成，值需要用引号(单双都可)引起来</p>
 </li>
-<li><p>html的标签不区分大小写，但是建议使用小写。</p>
+<li><p>html 的标签不区分大小写，但是建议使用小写。</p>
 </li>
 </ol>
 <ul>
-<li>代码：  <figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">FONT</span> <span class="hljs-attr">color</span>=<span class="hljs-string">&#x27;red&#x27;</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">FONT</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">color</span>=<span class="hljs-string">&#x27;green&#x27;</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">color</span>=<span class="hljs-string">&quot;red&quot;</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">color</span>=<span class="hljs-string">&quot;green&quot;</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
 </ul>
-<h3 id="标签学习"><a href="#标签学习" class="headerlink" title="标签学习"></a>标签学习</h3><h4 id="文件标签"><a href="#文件标签" class="headerlink" title="文件标签"></a>文件标签</h4><p>构成html最基 本的标签</p>
+<h3 id="标签学习"><a href="#标签学习" class="headerlink" title="标签学习"></a>标签学习</h3><h4 id="文件标签"><a href="#文件标签" class="headerlink" title="文件标签"></a>文件标签</h4><p>构成 html 最基 本的标签</p>
 <ul>
-<li>html : html文档的根标签</li>
-<li>head : 头标签。用于指定html文档的一些属性。引入外部的资源</li>
+<li>html : html 文档的根标签</li>
+<li>head : 头标签。用于指定 html 文档的一些属性。引入外部的资源</li>
 <li>title : 标题标签</li>
 <li>body : 体标签</li>
-<li><code>&lt;!DOCTYPE html&gt;</code> : html5 中定义该文档是 html文档</li>
+<li><code>&lt;!DOCTYPE html&gt;</code> : html5 中定义该文档是 html 文档</li>
 </ul>
 <h4 id="文本标签"><a href="#文本标签" class="headerlink" title="文本标签"></a>文本标签</h4><p>和文本有关的标签</p>
 <ul>
@@ -367,14 +368,14 @@
 </ul>
 <h4 id="属性定义"><a href="#属性定义" class="headerlink" title="属性定义"></a>属性定义</h4><ul>
 <li>color：<ol>
-<li>英文单词：red,green,blue</li>
-<li>rgb(值1，值2，值3)：值的范围：0~255  如  rgb(0,0,255)</li>
-<li>#值1值2值3：值的范围：00~FF之间。如： #FF00FF</li>
+<li> 英文单词：red,green,blue</li>
+<li> rgb(值 1，值 2，值 3)：值的范围：0~255 如 rgb(0,0,255)</li>
+<li> #值 1 值 2 值 3：值的范围：00~FF 之间。如： #FF00FF</li>
 </ol>
 </li>
 <li>width：<ol>
-<li>数值：<code>width=&#39;20&#39;</code> 数值的单位默认是 px(像素)</li>
-<li>数值%：占比相对于父元素的比例</li>
+<li> 数值：<code>width=&#39;20&#39;</code> 数值的单位默认是 px(像素)</li>
+<li> 数值%：占比相对于父元素的比例</li>
 </ol>
 </li>
 </ul>
@@ -383,16 +384,16 @@
         * src：指定图片的位置
 </code></pre></div>
 <h4 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h4><p>有序列表：</p>
-<p><code>&lt;ol&gt;&lt;li&gt;&lt;/li&gt;&lt;/ol&gt;</code> </p>
+<p><code>&lt;ol&gt;&lt;li&gt;&lt;/li&gt;&lt;/ol&gt;</code></p>
 <p>无序列表：</p>
-<p><code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</code> </p>
+<p><code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</code></p>
 <p>自定义列表：</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>自定义列表题目<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>内容描述1<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>内容描述2<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>自定义列表题目<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>内容描述1<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>内容描述2<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h4 id="链接标签"><a href="#链接标签" class="headerlink" title="链接标签"></a>链接标签</h4><p><code>&lt;a href=&quot;&quot; target=&quot;&quot;&gt;&lt;/a&gt;</code> : 定义一个超链接</p>
 <p>属性：</p>
 <ul>
-<li>href：指定访问资源的URL(统一资源定位符)</li>
+<li>href：指定访问资源的 URL(统一资源定位符)</li>
 <li>target：指定打开资源的方式<ul>
 <li><code>_self</code> : 默认值，在当前页面打开</li>
 <li><code>_blank</code> : 在空白页面打开</li>
@@ -400,7 +401,7 @@
 </li>
 </ul>
 <h4 id="div-amp-span"><a href="#div-amp-span" class="headerlink" title="div &amp; span"></a>div &amp; span</h4><ul>
-<li><code>&lt;div&gt;&lt;/div</code> : 每一个div占满一整行，块级标签；</li>
+<li><code>&lt;div&gt;&lt;/div</code> : 每一个 div 占满一整行，块级标签；</li>
 <li><code>&lt;span&gt;&lt;/span&gt;</code> : 文本信息在一行展示，行内标签，内联标签</li>
 </ul>
 <h4 id="语义化标签"><a href="#语义化标签" class="headerlink" title="语义化标签"></a>语义化标签</h4><p>html5 中为了提高程序的可读性，提供了一些标签</p>
@@ -413,7 +414,7 @@
 <li>width：宽度</li>
 <li>border：边框</li>
 <li>cellpadding：定义内容和单元格的距离</li>
-<li>cellspacing：定义单元格之间的距离。如果指定为0，则单元格的线会合为一条、</li>
+<li>cellspacing：定义单元格之间的距离。如果指定为 0，则单元格的线会合为一条、</li>
 <li>bgcolor：背景色</li>
 <li>align：对齐方式</li>
 </ul>
@@ -428,7 +429,7 @@
 <li>rowspan：合并行 上下 先上 先左</li>
 </ul>
 <p><code>&lt;th&gt;&lt;/th&gt;</code> : 定义表头单元格</p>
-<p><code>&lt;caption&gt;&lt;/caption&gt;</code> : 表格标题，在table内写</p>
+<p><code>&lt;caption&gt;&lt;/caption&gt;</code> : 表格标题，在 table 内写</p>
 <p><code>&lt;thead&gt;&lt;/thead&gt;</code> : 表示表格的头部分</p>
 <p><code>&lt;tbody&gt;&lt;/tbody&gt;</code> : 表示表格的体部分</p>
 <p><code>&lt;tfoot&gt;&lt;/tfoot&gt;</code> : 表示表格的脚部分</p>
@@ -524,7 +525,7 @@
 <tr>
 <td align="center">radio</td>
 <td align="center">单选框</td>
-<td align="center">多个单选框实现单选 : name属性值必须一样<br>value 属性，指定其被选中后提交的值<br>checked 属性，可以指定默认值</td>
+<td align="center">多个单选框实现单选 : name 属性值必须一样<br>value 属性，指定其被选中后提交的值<br>checked 属性，可以指定默认值</td>
 </tr>
 <tr>
 <td align="center">checkbox</td>
@@ -588,7 +589,7 @@
 </tr>
 <tr>
 <td align="center">autocomplete</td>
-<td align="center">自动记录输入内容，需要提交按钮，要有name<br>参数：on || off</td>
+<td align="center">自动记录输入内容，需要提交按钮，要有 name<br>参数：on || off</td>
 </tr>
 <tr>
 <td align="center">require</td>
@@ -603,17 +604,17 @@
 <td align="center">指定输入框的文字描述信息</td>
 </tr>
 </tbody></table>
-<p>注意：label 的for属性一般会和 input 的 id属性值 对应。如果对应了，则点击label区域，会让input输入框获取焦点</p>
+<p>注意：label 的 for 属性一般会和 input 的 id 属性值 对应。如果对应了，则点击 label 区域，会让 input 输入框获取焦点</p>
 <h5 id="select"><a href="#select" class="headerlink" title="select"></a>select</h5><p>下拉列表，子元素列表选项为 <code>&lt;option&gt;&lt;/option&gt;</code></p>
-<h5 id="datalist"><a href="#datalist" class="headerlink" title="datalist"></a>datalist</h5><p>下拉列表选择，子元素 option 指定列表项 与input使用id实现链接</p>
+<h5 id="datalist"><a href="#datalist" class="headerlink" title="datalist"></a>datalist</h5><p>下拉列表选择，子元素 option 指定列表项 与 input 使用 id 实现链接</p>
 <h5 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h5><p>文本域</p>
 <ul>
 <li>cols : 指定列数，每一行有多少个字符</li>
 <li>row : 默认多少行</li>
 </ul>
 <h5 id="filedset"><a href="#filedset" class="headerlink" title="filedset"></a>filedset</h5><p>打包，可以将表单内的相关元素打包，分组</p>
-<h2 id="文档结构和基本语法"><a href="#文档结构和基本语法" class="headerlink" title="文档结构和基本语法"></a>文档结构和基本语法</h2><h3 id="XHTML"><a href="#XHTML" class="headerlink" title="XHTML"></a>XHTML</h3><p>The Extensible HyperText Markup Language  =&gt;  可扩展标识语言</p>
-<h4 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h4><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 定义文档类型 doctype -&gt; document type 使用时必须大写 --&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span> <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//W3C//DTD XHTML1.0 Transitional//EN&quot;</span> <span class="hljs-meta-string">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 声明文档命名空间 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- 设置文档字符编码--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;Content-Type&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;text/html; charset=gb2312&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<h2 id="文档结构和基本语法"><a href="#文档结构和基本语法" class="headerlink" title="文档结构和基本语法"></a>文档结构和基本语法</h2><h3 id="XHTML"><a href="#XHTML" class="headerlink" title="XHTML"></a>XHTML</h3><p>The Extensible HyperText Markup Language =&gt; 可扩展标识语言</p>
+<h4 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h4><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 定义文档类型 doctype -&gt; document type 使用时必须大写 --&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span> <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//W3C//DTD XHTML1.0 Transitional//EN&quot;</span> <span class="hljs-meta-string">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 声明文档命名空间 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 设置文档字符编码--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;Content-Type&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;text/html; charset=gb2312&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>XHTML 是 HTML 向 XML 过渡的标识语言</p>
 <h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><ol>
@@ -628,7 +629,7 @@
 <li>不要在注释内容中使用“–”，只能出现在注释开头和结束</li>
 <li>废除了 name 属性，而使用 id 属性作为统一的名称</li>
 </ol>
-<h3 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h3><h4 id="基本结构-1"><a href="#基本结构-1" class="headerlink" title="基本结构"></a>基本结构</h4><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>...<br></code></pre></div></td></tr></table></figure>
+<h3 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h3><h4 id="基本结构-1"><a href="#基本结构-1" class="headerlink" title="基本结构"></a>基本结构</h4><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span><br>...<br></code></pre></div></td></tr></table></figure>
 
 <h4 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h4><h5 id="文档类型-DOCTYPE"><a href="#文档类型-DOCTYPE" class="headerlink" title="文档类型 DOCTYPE"></a>文档类型 DOCTYPE</h5><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
@@ -637,7 +638,7 @@
 </li>
 <li><p>不需要向 XHTML 那么复杂，<code>&lt;!DOCTYPE html&gt;</code> 即可</p>
 </li>
-<li><p>使用工具时，在声明中加入 SYSTEM 识别符：<code>&lt;!DOCTYPE html SSYSTEM &quot;about:legacy-compat&quot;&gt;</code> </p>
+<li><p>使用工具时，在声明中加入 SYSTEM 识别符：<code>&lt;!DOCTYPE html SSYSTEM &quot;about:legacy-compat&quot;&gt;</code></p>
 </li>
 <li><p>在 HTML5 中是不区分大小写的，引号也不区分单双</p>
 </li>
@@ -650,7 +651,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="字符编码-meta"><a href="#字符编码-meta" class="headerlink" title="字符编码 meta"></a>字符编码 meta</h5><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<h5 id="字符编码-meta"><a href="#字符编码-meta" class="headerlink" title="字符编码 meta"></a>字符编码 meta</h5><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h5 id="标记省略"><a href="#标记省略" class="headerlink" title="标记省略"></a>标记省略</h5><p>不允许写结束标记的：只允许使用 <code>&lt;br/&gt;</code> 或 <code>&lt;br&gt;</code> 这种形式</p>
 <p>area base br col command embed hr img input keygen link meta param source track wbr</p>
@@ -833,7 +834,7 @@
 <p>已废用:</p>
 <p>center(定义文本居中)</p>
 <p>font(定义文字的样式大小颜色)</p>
-<p>s(strike的缩写) strike(定义删除线)</p>
+<p>s(strike 的缩写) strike(定义删除线)</p>
 <h3 id="HTML4-属性"><a href="#HTML4-属性" class="headerlink" title="HTML4 属性"></a>HTML4 属性</h3><h4 id="核心属性"><a href="#核心属性" class="headerlink" title="核心属性"></a>核心属性</h4><p>主要包括以下三个，为大部分元素所拥有</p>
 <table>
 <thead>
@@ -892,7 +893,7 @@
 </tr>
 </tbody></table>
 <p>使用 accesskey 可以通过（Alt + 字母 ）访问指定 URL，但浏览器不能很好的支持</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://agonilay.githib.io&quot;</span> <span class="hljs-attr">accesskey</span>=<span class="hljs-string">&quot;a&quot;</span>&gt;</span>按住 Alt 键，单击 A 键可以链接到我的博客<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://agonilay.githib.io&quot;</span> <span class="hljs-attr">accesskey</span>=<span class="hljs-string">&quot;a&quot;</span></span><br><span class="hljs-tag">  &gt;</span>按住 Alt 键，单击 A 键可以链接到我的博客&lt;/a<br>&gt;<br></code></pre></div></td></tr></table></figure>
 
 <p>tabindex 用来定义元素的 Tab 键访问顺序</p>
 <figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span>Tab 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">&quot;3&quot;</span>&gt;</span>Tab 3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span>Tab 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
@@ -925,7 +926,7 @@
 <td>定义元素包含内容的日期和时间</td>
 </tr>
 </tbody></table>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;URL&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;图片无法正常显示时的替换文本&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;鼠标悬停时的提示文本&quot;</span> /&gt;</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span></span><br><span class="hljs-tag">  <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;URL&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;图片无法正常显示时的替换文本&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;鼠标悬停时的提示文本&quot;</span></span><br><span class="hljs-tag">/&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h4 id="其他属性"><a href="#其他属性" class="headerlink" title="其他属性"></a>其他属性</h4><table>
 <thead>
@@ -1209,7 +1210,7 @@
 <p>所有主流浏览器都支持 contenteditable 属性</p>
 <p>在 JavaScript 中，元素还有一个 isContentEditable 属性，当元素可编辑时，该属性值为 true，反之则为 false</p>
 <h4 id="contentmenu-右击菜单"><a href="#contentmenu-右击菜单" class="headerlink" title="contentmenu 右击菜单"></a>contentmenu 右击菜单</h4><p>用于定义 div 元素的上下文菜单，在用户右键单击元素时出现</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">contextmenu</span>=<span class="hljs-string">&quot;mymenu&quot;</span>&gt;</span><br>    上下文菜单<br>    <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;context&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mymenu&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">menuitem</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;微信分享&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">menuitem</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">menuitem</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;微博分享&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">menuitem</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">contextmenu</span>=<span class="hljs-string">&quot;mymenu&quot;</span>&gt;</span><br>  上下文菜单<br>  <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;context&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mymenu&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">menuitem</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;微信分享&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">menuitem</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">menuitem</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;微博分享&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">menuitem</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>目前只有 Firefox 支持 contentmenu 属性</p>
 <h4 id="data-自定义属性"><a href="#data-自定义属性" class="headerlink" title="data-* 自定义属性"></a>data-* 自定义属性</h4><p>使用 data-* 可以自定义用户数据</p>
@@ -1218,8 +1219,8 @@
 <ul>
 <li><p>多个单词使用：<code>-</code> 连接</p>
 </li>
-<li><p>脚本中获取或访问属性使用 <code>dataset.对应小驼峰式</code> </p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-animal-type</span>=<span class="hljs-string">&quot;bird&quot;</span>&gt;</span>鸟<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-animal-type</span>=<span class="hljs-string">&quot;fish&quot;</span>&gt;</span>鱼<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-animal-type</span>=<span class="hljs-string">&quot;piggy&quot;</span>&gt;</span>小猪<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">    <span class="hljs-keyword">var</span> lis = <span class="hljs-built_in">document</span>.getElementByTagName(<span class="hljs-string">&quot;li&quot;</span>);</span><br><span class="javascript">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; lis.length; i++) &#123;</span><br><span class="javascript">        <span class="hljs-built_in">console</span>.log(lis[i].dataset.animalType); <span class="hljs-comment">// &lt;--</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>脚本中获取或访问属性使用 <code>dataset.对应小驼峰式</code></p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-animal-type</span>=<span class="hljs-string">&quot;bird&quot;</span>&gt;</span>鸟<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-animal-type</span>=<span class="hljs-string">&quot;fish&quot;</span>&gt;</span>鱼<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-animal-type</span>=<span class="hljs-string">&quot;piggy&quot;</span>&gt;</span>小猪<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-keyword">var</span> lis = <span class="hljs-built_in">document</span>.getElementByTagName(<span class="hljs-string">&quot;li&quot;</span>);</span><br><span class="javascript">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; lis.length; i++) &#123;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(lis[i].dataset.animalType); <span class="hljs-comment">// &lt;--</span></span><br><span class="javascript">  &#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>属性值：可以是任意字符串</p>
@@ -1237,7 +1238,7 @@
 <li>link ：会产生执行原始数据的链接</li>
 </ul>
 <p>但是，目前主流浏览器都不支持 dropzone 属性</p>
-<h4 id="hidden-隐藏"><a href="#hidden-隐藏" class="headerlink" title="hidden 隐藏"></a>hidden 隐藏</h4><p>所有元素都包含一个 hidden 属性，设置元素的可见状态，true不可见，false可见</p>
+<h4 id="hidden-隐藏"><a href="#hidden-隐藏" class="headerlink" title="hidden 隐藏"></a>hidden 隐藏</h4><p>所有元素都包含一个 hidden 属性，设置元素的可见状态，true 不可见，false 可见</p>
 <figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;...&quot;</span> <span class="hljs-attr">hidden</span>&gt;</span>元素隐藏<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>除了 IE 所有主流浏览器都支持 hidden 属性</p>
@@ -1247,10 +1248,10 @@
 <li>textarea 元素中的文本</li>
 <li>可编辑元素中的文本</li>
 </ul>
-<p>布尔值属性，true检查，false不检查</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">spellcheck</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span> <span class="hljs-comment">&lt;!-- 必须写值，光写spellcheck错误 --&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>布尔值属性，true 检查，false 不检查</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">spellcheck</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 必须写值，光写spellcheck错误 --&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<h4 id="translate-翻译"><a href="#translate-翻译" class="headerlink" title="translate 翻译"></a>translate 翻译</h4><p>定义是否应该翻译元素内容，yes翻译，no不翻译</p>
+<h4 id="translate-翻译"><a href="#translate-翻译" class="headerlink" title="translate 翻译"></a>translate 翻译</h4><p>定义是否应该翻译元素内容，yes 翻译，no 不翻译</p>
 <p>但目前所有主流浏览器都无法正确支持 translate 属性</p>
 <p>HTML5 文档链接</p>
 <p><a target="_blank" rel="noopener" href="http://www.qianduankaifa.cn/exercise/html5_base/">http://www.qianduankaifa.cn/exercise/html5_base/</a></p>
@@ -1574,5 +1575,4 @@ setInterval("createtime()", 250);
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
 
-</body>
-</html>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

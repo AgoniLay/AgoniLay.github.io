@@ -269,29 +269,29 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月26日 下午
+                  本文最后更新于：2021年11月27日 下午
                 
               </p>
             
             <div class="markdown-body">
               <h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p>Browser Object Model</p>
 <p>定义了浏览器的接口</p>
-<p>BOM对象：Window，History，Navigator，Screen，Location</p>
+<p>BOM 对象：Window，History，Navigator，Screen，Location</p>
 <h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><h4 id="滚动条滚动距离"><a href="#滚动条滚动距离" class="headerlink" title="滚动条滚动距离"></a>滚动条滚动距离</h4><h5 id="pageXOffset-pageYOffset"><a href="#pageXOffset-pageYOffset" class="headerlink" title="pageXOffset / pageYOffset"></a>pageXOffset / pageYOffset</h5><p>求滚动条滚动距离，返回 number 类型的数值，单位是像素</p>
 <ul>
-<li>pageXOffset  –&gt;  横向</li>
-<li>pageYOffset  –&gt;  纵向</li>
+<li>pageXOffset –&gt; 横向</li>
+<li>pageYOffset –&gt; 纵向</li>
 </ul>
-<p>兼容性：IE9以下不兼容</p>
+<p>兼容性：IE9 以下不兼容</p>
 <ul>
-<li>document.body/documentElement.scorllLeft  –&gt;  求横向滚动条滚动距离</li>
-<li>document.body/documentElement.scorllTop  –&gt;  纵向</li>
+<li>document.body/documentElement.scorllLeft –&gt; 求横向滚动条滚动距离</li>
+<li>document.body/documentElement.scorllTop –&gt; 纵向</li>
 </ul>
-<p>有兼容性混乱，不同浏览器可用的方法不同，但只会有一种方法有值，另一个值为0，处理兼容性的话让这两种值相加即可。</p>
+<p>有兼容性混乱，不同浏览器可用的方法不同，但只会有一种方法有值，另一个值为 0，处理兼容性的话让这两种值相加即可。</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">document</span>.body.scrollLeft + <span class="hljs-built_in">document</span>.documentElement.scrollLeft;<br><span class="hljs-built_in">document</span>.body.scrollTop + <span class="hljs-built_in">document</span>.documentElement.scrollTop;<br></code></pre></div></td></tr></table></figure>
 
 <h4 id="查看视口的尺寸"><a href="#查看视口的尺寸" class="headerlink" title="查看视口的尺寸"></a>查看视口的尺寸</h4><h5 id="innerWidth-innerHeight"><a href="#innerWidth-innerHeight" class="headerlink" title="innerWidth / innerHeight"></a>innerWidth / innerHeight</h5><p>获取试图窗口的尺寸</p>
-<p>兼容性：IE9以下不兼容</p>
+<p>兼容性：IE9 以下不兼容</p>
 <p>浏览器标准模式下使用：</p>
 <ul>
 <li><p>document.documentElement.clientWidth</p>
@@ -320,7 +320,7 @@
 <h5 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent"></a>offsetParent</h5><p>返回最近的有定位的父级，若没有，则返回 body</p>
 <h4 id="让滚动条滚动"><a href="#让滚动条滚动" class="headerlink" title="让滚动条滚动"></a>让滚动条滚动</h4><h5 id="scroll-scrollTo-scrollBy"><a href="#scroll-scrollTo-scrollBy" class="headerlink" title="scroll(),scrollTo() / scrollBy()"></a>scroll(),scrollTo() / scrollBy()</h5><p><code>scroll(x, y)</code> &amp; <code>scrollTo(x, y)</code> 没有任何区别：使滚动条滚到指定位置</p>
 <p><code>scrollBy(x, y)</code> 累加滚动距离，有正负，多次调用多次执行</p>
-<h4 id="浏览器编译模式"><a href="#浏览器编译模式" class="headerlink" title="浏览器编译模式"></a>浏览器编译模式</h4><h5 id="标准模式"><a href="#标准模式" class="headerlink" title="标准模式"></a>标准模式</h5><p>html页面顶部添加下面一行开启</p>
+<h4 id="浏览器编译模式"><a href="#浏览器编译模式" class="headerlink" title="浏览器编译模式"></a>浏览器编译模式</h4><h5 id="标准模式"><a href="#标准模式" class="headerlink" title="标准模式"></a>标准模式</h5><p>html 页面顶部添加下面一行开启</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">&lt;!DOCTYPE html&gt;<br></code></pre></div></td></tr></table></figure>
 
 <h5 id="怪异模式"><a href="#怪异模式" class="headerlink" title="怪异模式"></a>怪异模式</h5><p>兼容之前的几个版本，向后兼容</p>
@@ -338,7 +338,7 @@
 </li>
 <li><p>行间写，不需要写 function</p>
 <figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;console.log(&#x27;a&#x27;);&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
-<li><p><code>obj.addEventListener(type, fn, false);</code> </p>
+<li><p><code>obj.addEventListener(type, fn, false);</code></p>
 <ul>
 <li>(事件类型, 事件处理函数, false)</li>
 <li>IE9 以下不兼容</li>
@@ -361,11 +361,11 @@
 <p>解决：</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.getElementByTagName(<span class="hljs-string">&#x27;div&#x27;</span>)[<span class="hljs-number">0</span>];<br>div.attachEvent(<span class="hljs-string">&#x27;onclick&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    handle.call(div);<br>&#125;);<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-comment">// 事件处理程序</span><br>    <span class="hljs-built_in">this</span>. ...<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
 </ul>
-<h4 id="兼容性解决"><a href="#兼容性解决" class="headerlink" title="兼容性解决"></a>兼容性解决</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addEvent</span>(<span class="hljs-params">elem, type, handle</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (elem.addEventListener) &#123;<br>        elem.addEventListener(type, handle, <span class="hljs-literal">false</span>);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (elem.attachEvent) &#123;<br>        elem.attachEvent(<span class="hljs-string">&#x27;on&#x27;</span> + type, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>            handle.call(elem);<br>        &#125;)<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        elem[<span class="hljs-string">&#x27;on&#x27;</span> + type] = handle;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h4 id="兼容性解决"><a href="#兼容性解决" class="headerlink" title="兼容性解决"></a>兼容性解决</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addEvent</span>(<span class="hljs-params">elem, type, handle</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (elem.addEventListener) &#123;<br>    elem.addEventListener(type, handle, <span class="hljs-literal">false</span>);<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (elem.attachEvent) &#123;<br>    elem.attachEvent(<span class="hljs-string">&quot;on&quot;</span> + type, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>      handle.call(elem);<br>    &#125;);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    elem[<span class="hljs-string">&quot;on&quot;</span> + type] = handle;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h4 id="解除事件处理程序"><a href="#解除事件处理程序" class="headerlink" title="解除事件处理程序"></a>解除事件处理程序</h4><ul>
 <li><code>ele.onclick = null;</code></li>
-<li><code>ele.removeListener(type, fn, false);</code> </li>
+<li><code>ele.removeListener(type, fn, false);</code></li>
 <li><code>ele.detachEvent(&#39;on&#39; + type, fn)</code><ul>
 <li>如果绑定的函数是匿名函数，则无法解除</li>
 </ul>
@@ -387,32 +387,32 @@
 <p>使用后，该元素会捕获页面上发生的所有时间</p>
 <p>releaseCapture()：取消上述捕获</p>
 <h5 id="取消冒泡"><a href="#取消冒泡" class="headerlink" title="取消冒泡"></a>取消冒泡</h5><ul>
-<li><code>e.stopPropagation();</code> W3C标准 –&gt; 但不支持 IE9 以下版本</li>
+<li><code>e.stopPropagation();</code> W3C 标准 –&gt; 但不支持 IE9 以下版本</li>
 <li><code>e.cancelBubble = true;</code> IE 使用</li>
 </ul>
-<h6 id="兼容性处理解决"><a href="#兼容性处理解决" class="headerlink" title="兼容性处理解决"></a>兼容性处理解决</h6><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">stopBubble</span>(<span class="hljs-params">event</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (event.stopPropagation) &#123;<br>        event.stopPropagation();<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        event.cancelBubble = <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h6 id="兼容性处理解决"><a href="#兼容性处理解决" class="headerlink" title="兼容性处理解决"></a>兼容性处理解决</h6><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">stopBubble</span>(<span class="hljs-params">event</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (event.stopPropagation) &#123;<br>    event.stopPropagation();<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    event.cancelBubble = <span class="hljs-literal">true</span>;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<h5 id="阻止默认事件"><a href="#阻止默认事件" class="headerlink" title="阻止默认事件"></a>阻止默认事件</h5><p>默认事件 – 表单提交，a标签跳转，右键菜单等。</p>
+<h5 id="阻止默认事件"><a href="#阻止默认事件" class="headerlink" title="阻止默认事件"></a>阻止默认事件</h5><p>默认事件 – 表单提交，a 标签跳转，右键菜单等。</p>
 <ul>
 <li>a 标签跳转</li>
-<li>右键菜单事件 <code>oncontextmenu</code> </li>
+<li>右键菜单事件 <code>oncontextmenu</code></li>
 </ul>
 <p>阻止方法：</p>
 <ol>
 <li><code>return false;</code> –&gt; 兼容性特别好，以对象属性的方式注册的事件才生效（onxxx）</li>
-<li><code>e.preventDefault();</code> –&gt; W3C标准</li>
+<li><code>e.preventDefault();</code> –&gt; W3C 标准</li>
 <li><code>e.returnValue = false;</code> –&gt; IE 使用</li>
 </ol>
-<h6 id="兼容性处理解决-1"><a href="#兼容性处理解决-1" class="headerlink" title="兼容性处理解决"></a>兼容性处理解决</h6><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cancelHandler</span>(<span class="hljs-params">event</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (event.preventDefault) &#123;<br>        event.preventDefault();<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        event.returnValue = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h6 id="兼容性处理解决-1"><a href="#兼容性处理解决-1" class="headerlink" title="兼容性处理解决"></a>兼容性处理解决</h6><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cancelHandler</span>(<span class="hljs-params">event</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (event.preventDefault) &#123;<br>    event.preventDefault();<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    event.returnValue = <span class="hljs-literal">false</span>;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><h5 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h5><p><code>var event = event || window.event</code> </p>
+<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><h5 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h5><p><code>var event = event || window.event</code></p>
 <h5 id="事件源对象"><a href="#事件源对象" class="headerlink" title="事件源对象"></a>事件源对象</h5><ul>
-<li><code>event.target</code>  –&gt;  火狐</li>
-<li><code>event.srcElement</code>  –&gt;  IE</li>
+<li><code>event.target</code> –&gt; 火狐</li>
+<li><code>event.srcElement</code> –&gt; IE</li>
 </ul>
 <p>以上两个 chorme 都有</p>
-<h6 id="兼容-1"><a href="#兼容-1" class="headerlink" title="兼容"></a>兼容</h6><p><code>var target = event.target || event.srcElement</code> </p>
-<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span><br><span class="javascript">    <span class="hljs-keyword">var</span> ul = <span class="hljs-built_in">document</span>.getElementsBytagName(<span class="hljs-string">&#x27;ul&#x27;</span>)[<span class="hljs-number">0</span>];</span><br><span class="javascript">    ul.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;</span><br><span class="javascript">        <span class="hljs-keyword">var</span> event = e || <span class="hljs-built_in">window</span>.event;</span><br><span class="javascript">        <span class="hljs-keyword">var</span> target = event.target || event.srcElement;</span><br><span class="javascript">        <span class="hljs-built_in">console</span>.log(target.innerText);</span><br><span class="javascript">    &#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<h6 id="兼容-1"><a href="#兼容-1" class="headerlink" title="兼容"></a>兼容</h6><p><code>var target = event.target || event.srcElement</code></p>
+<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-keyword">var</span> ul = <span class="hljs-built_in">document</span>.getElementsBytagName(<span class="hljs-string">&quot;ul&quot;</span>)[<span class="hljs-number">0</span>];</span><br><span class="javascript">  ul.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-keyword">var</span> event = e || <span class="hljs-built_in">window</span>.event;</span><br><span class="javascript">    <span class="hljs-keyword">var</span> target = event.target || event.srcElement;</span><br><span class="javascript">    <span class="hljs-built_in">console</span>.log(target.innerText);</span><br><span class="javascript">  &#125;;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <ol>
 <li>效率高：不需要循环所有的元素一个个绑定</li>
@@ -480,7 +480,7 @@
 </ul>
 <p>仅在 mousedown 和 mouseup 事件上可用，click 事件不可用</p>
 <h6 id="区分拖拽和点击"><a href="#区分拖拽和点击" class="headerlink" title="区分拖拽和点击"></a>区分拖拽和点击</h6><p>长时间按是长按，短时间按才触发 click 事件</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> firstTime = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> lastTime = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> key = <span class="hljs-literal">false</span>;<br><span class="hljs-built_in">document</span>.onmousedown = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    firstTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();<br>&#125;<br><span class="hljs-built_in">document</span>.onmouseup = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    lastTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();<br>    <span class="hljs-keyword">if</span> (lastTime - firstTime &lt; <span class="hljs-number">300</span>) &#123;<br>        key = <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-built_in">document</span>.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (key) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;click&#x27;</span>);<br>        key = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> firstTime = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> lastTime = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> key = <span class="hljs-literal">false</span>;<br><span class="hljs-built_in">document</span>.onmousedown = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  firstTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();<br>&#125;;<br><span class="hljs-built_in">document</span>.onmouseup = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  lastTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();<br>  <span class="hljs-keyword">if</span> (lastTime - firstTime &lt; <span class="hljs-number">300</span>) &#123;<br>    key = <span class="hljs-literal">true</span>;<br>  &#125;<br>&#125;;<br><br><span class="hljs-built_in">document</span>.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (key) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;click&quot;</span>);<br>    key = <span class="hljs-literal">false</span>;<br>  &#125;<br>&#125;;<br></code></pre></div></td></tr></table></figure>
 
 <h6 id="移动端事件"><a href="#移动端事件" class="headerlink" title="移动端事件"></a>移动端事件</h6><table>
 <thead>
@@ -529,12 +529,12 @@
 <li>没有 <code>e.charCode</code> 属性</li>
 </ul>
 </li>
-<li>keypress：只能检测到 ASCII表 中有的值（字符类按键）<ul>
+<li>keypress：只能检测到 ASCII 表 中有的值（字符类按键）<ul>
 <li>可以区分大小写</li>
 </ul>
 </li>
 </ul>
-<h6 id="转换字符方法"><a href="#转换字符方法" class="headerlink" title="转换字符方法"></a>转换字符方法</h6><p><code>String.fromCahrCode(e.charCode)</code> </p>
+<h6 id="转换字符方法"><a href="#转换字符方法" class="headerlink" title="转换字符方法"></a>转换字符方法</h6><p><code>String.fromCahrCode(e.charCode)</code></p>
 <h5 id="文本操作事件"><a href="#文本操作事件" class="headerlink" title="文本操作事件"></a>文本操作事件</h5><table>
 <thead>
 <tr>
@@ -575,7 +575,7 @@
 <td align="center">页面所有加载项均完成后触发</td>
 </tr>
 </tbody></table>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">	<span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">        <span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.getElementByTagName(<span class="hljs-string">&#x27;div&#x27;</span>)[<span class="hljs-number">0</span>];</span><br><span class="javascript">    &#125; <span class="hljs-comment">// 绑定 onload 后会等页面渲染、下载完后才会执行，就可以获取到之后的元素</span></span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-comment">&lt;!-- 正常上方 js 无法获取到这个div --&gt;</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">  <span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">    <span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.getElementByTagName(<span class="hljs-string">&quot;div&quot;</span>)[<span class="hljs-number">0</span>];</span><br><span class="javascript">  &#125;; <span class="hljs-comment">// 绑定 onload 后会等页面渲染、下载完后才会执行，就可以获取到之后的元素</span></span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 正常上方 js 无法获取到这个div --&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>缺点：</p>
 <ol>
@@ -583,10 +583,10 @@
 <li>没必要</li>
 </ol>
 <h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>前后端之间联系一种数据纽带，通常叫做接口，一种就是叫做 json 类型的数据</p>
-<h4 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h4><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;deng&quot;</span>,<br>    <span class="hljs-attr">&quot;age&quot;</span>: <span class="hljs-number">123</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h4 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h4><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;deng&quot;</span>,<br>  <span class="hljs-attr">&quot;age&quot;</span>: <span class="hljs-number">123</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<h4 id="类型转换方法"><a href="#类型转换方法" class="headerlink" title="类型转换方法 *"></a>类型转换方法 *</h4><p><code>JSON.stringify(obj)</code>  –&gt;  将对象类型转换为 json 格式的字符串</p>
-<p><code>JSON.parse(obj)</code>  –&gt;  将字符串转换为对象类型</p>
+<h4 id="类型转换方法"><a href="#类型转换方法" class="headerlink" title="类型转换方法 *"></a>类型转换方法 *</h4><p><code>JSON.stringify(obj)</code> –&gt; 将对象类型转换为 json 格式的字符串</p>
+<p><code>JSON.parse(obj)</code> –&gt; 将字符串转换为对象类型</p>
 <p>博客笔记地址（四）：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58163927/article/details/119077901">https://blog.csdn.net/qq_58163927/article/details/119077901</a></p>
 
             </div>
@@ -912,5 +912,4 @@ setInterval("createtime()", 250);
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
 
-</body>
-</html>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
