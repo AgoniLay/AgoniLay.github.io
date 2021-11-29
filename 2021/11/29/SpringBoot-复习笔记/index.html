@@ -269,7 +269,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月29日 下午
+                  本文最后更新于：2021年11月29日 晚上
                 
               </p>
             
@@ -377,7 +377,7 @@
 <li>执行视图解析和视图渲染；</li>
 <li>执行 <code>afterCompletion</code> 方法；</li>
 </ul>
-<h5 id="注册拦截器"><a href="#注册拦截器" class="headerlink" title="注册拦截器"></a>注册拦截器</h5><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">webMvcCongifurer</span> </span>&#123;<br>  <span class="hljs-meta">@override</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addInterceptors</span><span class="hljs-params">(InterceptorRegistry registry)</span> </span>&#123;<br>    InterceptorRegistration rs = registry.addInterceptor(<span class="hljs-keyword">new</span> MyInterceptor());<br>    rs.addPathPatterns(<span class="hljs-string">&quot;/**&quot;</span>);<br>    rs.excludePathPatterns(<span class="hljs-string">&quot;/排除项&quot;</span>);<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h5 id="注册拦截器"><a href="#注册拦截器" class="headerlink" title="注册拦截器"></a>注册拦截器</h5><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">webMvcConfigurer</span> </span>&#123;<br>  <span class="hljs-meta">@override</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addInterceptors</span><span class="hljs-params">(InterceptorRegistry registry)</span> </span>&#123;<br>    InterceptorRegistration rs = registry.addInterceptor(<span class="hljs-keyword">new</span> MyInterceptor());<br>    rs.addPathPatterns(<span class="hljs-string">&quot;/**&quot;</span>);<br>    rs.excludePathPatterns(<span class="hljs-string">&quot;/排除项&quot;</span>);<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li><code>addPathPatterns</code>：添加拦截的请求地址；</li>
