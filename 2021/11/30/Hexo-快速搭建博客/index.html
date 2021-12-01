@@ -224,7 +224,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      864 字
+      890 字
     </span>
   
 
@@ -269,20 +269,20 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月30日 晚上
+                  本文最后更新于：2021年12月1日 中午
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="从零开始搭建自己的博客"><a href="#从零开始搭建自己的博客" class="headerlink" title="从零开始搭建自己的博客"></a>从零开始搭建自己的博客</h1><p>大致流程：使用 Hexo 搭建博客，部署在 gitee 或 github 上。</p>
+              <p>大致流程：使用 Hexo 搭建博客，部署在 gitee 或 github 上。</p>
 <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h3><h4 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h4><p>NodeJS 中文官网下载：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">https://nodejs.org/zh-cn/download/</a> </p>
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130151612835.png" srcset="/img/loading2.gif" lazyload class title="image-20211130151612835">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130151612835.png" srcset="/img/loading2.gif" lazyload class title="node 安装">
 
 <p>一路傻瓜式安装即可。</p>
 <h4 id="二、验证"><a href="#二、验证" class="headerlink" title="二、验证"></a>二、验证</h4><p>安装完成后在命令行窗口（win + R =&gt; cmd）依次输入下列命令检查是否安装完成：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 检查 node 版本号</span><br>node -v<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> 检查 npm 版本号</span><br>npm -v<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130151748882.png" srcset="/img/loading2.gif" lazyload class title="image-20211130151748882">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130151748882.png" srcset="/img/loading2.gif" lazyload class title="node 检查版本">
 
 <h4 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h4><ol>
 <li><p>在 NodeJS 安装目录下，如 <code>C:\Program Files\nodejs</code> 目录，新建两个文件夹 <code>node_global</code>（全局包存放目录）和 <code>node_cache</code>（缓存目录）；</p>
@@ -306,7 +306,7 @@
 <p>安装后查看版本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git --version<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130191753849.png" srcset="/img/loading2.gif" lazyload class title="image-20211130191753849">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130191753849.png" srcset="/img/loading2.gif" lazyload class title="git 检查版本">
 
 <h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>使用 npm 安装 Hexo：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install -g hexo-cli<br></code></pre></div></td></tr></table></figure>
@@ -319,9 +319,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">hexo init &quot;博客文件夹名&quot;<br></code></pre></div></td></tr></table></figure>
 
 <p>建站完毕，目录下执行 <code>hexo s</code> 开启本地服务，浏览器输入 <code>localhost:4000</code> 就可以看到了：</p>
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130192021745.png" srcset="/img/loading2.gif" lazyload class title="image-20211130192021745">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130192021745.png" srcset="/img/loading2.gif" lazyload class title="本地预览">
 
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">hexo new &quot;我的第一篇博客&quot; # 创建新的文件<br>hexo clean              # 清理缓存<br>hexo g                  # 生成<br>hexo d                  # 部署<br><br>hexo s                  # 本机启动测试，默认端口为 4000<br></code></pre></div></td></tr></table></figure>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">hexo init &quot;博客文件夹名&quot;  # 初始化<br><br>hexo new &quot;我的第一篇博客&quot; # 创建新的文件<br>hexo clean              # 清理缓存<br>hexo g                  # 生成<br>hexo d                  # 部署<br><br>hexo s                  # 本机启动测试，默认端口为 4000<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="部署到仓库"><a href="#部署到仓库" class="headerlink" title="部署到仓库"></a>部署到仓库</h2><h3 id="部署到-github"><a href="#部署到-github" class="headerlink" title="部署到 github"></a>部署到 github</h3><h4 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h4><p>首先创建一个 github 账户：<a target="_blank" rel="noopener" href="http://www.github.com/">www.github.com</a> </p>
 <blockquote>
@@ -334,10 +334,10 @@
 </ol>
 </blockquote>
 <p>登入后点击 <code>New repository</code> 新建仓库：</p>
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130193125917.png" srcset="/img/loading2.gif" lazyload class title="image-20211130193125917">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130193125917.png" srcset="/img/loading2.gif" lazyload class title="新建仓库">
 
 <p>仓库名称起名为你的用户名 + github.io：</p>
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130194048399.png" srcset="/img/loading2.gif" lazyload class title="image-20211130194048399">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130194048399.png" srcset="/img/loading2.gif" lazyload class title="新建仓库-仓库命名">
 
 <p>点击 <code>Create repository</code> 新建。</p>
 <h4 id="生成-SSH-密钥"><a href="#生成-SSH-密钥" class="headerlink" title="生成 SSH 密钥"></a>生成 SSH 密钥</h4><p>在博客文件夹的命令行中执行：</p>
@@ -346,12 +346,12 @@
 <p>可以输入以下命令检查：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git config user.name<br>git config user.email<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130195001066.png" srcset="/img/loading2.gif" lazyload class title="image-20211130195001066">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130195001066.png" srcset="/img/loading2.gif" lazyload class title="设置用户名和邮箱">
 
 <p>创建 SSH，若没有配置过则一直回车即可：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">ssh-keygen -t rsa -C &quot;2500761049@qq.com&quot;<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130200548481.png" srcset="/img/loading2.gif" lazyload class title="image-20211130200548481">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130200548481.png" srcset="/img/loading2.gif" lazyload class title="生成 SSH 秘钥">
 
 <blockquote>
 <p>这里修改了路径，文件名，因为应该配置生成过，未生成过一路回车即可。</p>
@@ -361,37 +361,40 @@
 <li><code>id_rsa</code>：本机私人秘钥</li>
 <li><code>id_rsa.pub</code>：公共秘钥</li>
 </ul>
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130200731706.png" srcset="/img/loading2.gif" lazyload class title="image-20211130200731706">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130200731706.png" srcset="/img/loading2.gif" lazyload class title="秘钥所在目录">
 
 <p>去 Github 的 settings 中找到 SSH keys 设置选项，点击 <code>New SSH key</code> 新建：</p>
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130195812691.png" srcset="/img/loading2.gif" lazyload class title="image-20211130195812691">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130195812691.png" srcset="/img/loading2.gif" lazyload class title="github 添加 SSH 秘钥">
 
 <p>复制刚刚生成的 <code>id_rsa</code> 中的秘钥粘贴到其中，新建秘钥：</p>
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130200056689.png" srcset="/img/loading2.gif" lazyload class title="image-20211130200056689">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130200056689.png" srcset="/img/loading2.gif" lazyload class title="github 添加 SSH 秘钥">
 
 <p>命令行验证：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">ssh -T git@github.com<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130203620509.png" srcset="/img/loading2.gif" lazyload class title="image-20211130203620509">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130203620509.png" srcset="/img/loading2.gif" lazyload class title="测试连接">
 
 <p>绑定成功！</p>
 <h4 id="部署-Hexo"><a href="#部署-Hexo" class="headerlink" title="部署 Hexo"></a>部署 Hexo</h4><p>打开博客根目录下的 <code>_config.yml</code> 配置文件，拉到底，进行配置：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-comment"># Deployment</span><br><span class="hljs-comment">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/AgoniLi/AgoniLi.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130204251218.png" srcset="/img/loading2.gif" lazyload class title="image-20211130204251218">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130204251218.png" srcset="/img/loading2.gif" lazyload class title="hexo 配置部署">
 
 <p>安装 <code>deploy-git</code> 第三方包：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install hexo-deployer-git -S<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130204239704.png" srcset="/img/loading2.gif" lazyload class title="image-20211130204239704">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130204239704.png" srcset="/img/loading2.gif" lazyload class title="安装 hexo-deployer-git -S">
 
 <p>然后依次执行：<code>hexo clean</code>、<code>hexo g</code>、<code>hexo d</code> 进行部署，过程中输入用户名和密码，部署完成~</p>
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130210113283.png" srcset="/img/loading2.gif" lazyload class title="image-20211130210113283">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130210113283.png" srcset="/img/loading2.gif" lazyload class title="部署完成">
 
 <p>在浏览器中已经可以通过 <code>agonili.github.io</code> 访问到部署的博客。</p>
-<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130210159928.png" srcset="/img/loading2.gif" lazyload class title="image-20211130210159928">
+<img src="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/image-20211130210159928.png" srcset="/img/loading2.gif" lazyload class title="github 预览">
 
-<h3 id="部署到-gitee"><a href="#部署到-gitee" class="headerlink" title="部署到 gitee"></a>部署到 gitee</h3>
+<h3 id="部署到-gitee"><a href="#部署到-gitee" class="headerlink" title="部署到 gitee"></a>部署到 gitee</h3><blockquote>
+<p>再做讲解，部署到 gitee 无法实时更新，还需多次部署，暂不考虑。</p>
+</blockquote>
+
             </div>
             <hr>
             <div>
@@ -424,6 +427,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexo 相册实现</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

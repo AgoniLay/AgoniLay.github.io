@@ -18,9 +18,25 @@
   <meta name="author" content="AgoniLay">
   <meta name="keywords" content="">
   
-  <title>归档 - AgoniLay的博客</title>
+  <title>Hexo 相册实现 - AgoniLay的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/vs2015.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -54,7 +70,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -176,24 +192,58 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/zoro1.jpg') no-repeat center center;
+         style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01bc505823d336a84a0d304fc8ee85.jpg%403000w_1l_0o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640850811&t=2021d03655aec2677a295b1133007af8') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h3" id="subtitle" title="归档">
+            <span class="h3" id="subtitle" title="Hexo 相册实现">
               
             </span>
 
             
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      AgoniLay
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-01 12:31" pubdate>
+        2021年12月1日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      305 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
 			
-			
-				
-					<br>
-					<span class="h2" id="hitokoto">
-					
-					</span>
-				
 			
           </div>
 
@@ -205,100 +255,168 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 28 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hexo 相册实现</span>
-      <time style="float: right;">12-01</time>
-    </a>
-  
-    
-    <a href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hexo 快速搭建博客</span>
-      <time style="float: right;">11-30</time>
-    </a>
-  
-    
-    <a href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">闲谈</span>
-      <time style="float: right;">11-30</time>
-    </a>
-  
-    
-    <a href="/2021/11/29/SpringBoot-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">SpringBoot 复习笔记</span>
-      <time style="float: right;">11-29</time>
-    </a>
-  
-    
-    <a href="/2021/11/26/vue%20%E6%BA%90%E7%A0%81/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Vue 源码剖析</span>
-      <time style="float: right;">11-26</time>
-    </a>
-  
-    
-    <a href="/2021/11/26/React/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">React</span>
-      <time style="float: right;">11-26</time>
-    </a>
-  
-    
-    <a href="/2021/11/11/JS%E6%A8%A1%E5%9D%97%E5%8C%96/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JS模块化</span>
-      <time style="float: right;">11-11</time>
-    </a>
-  
-    
-    <a href="/2021/11/11/NodeJS%E9%BB%91%E9%A9%AC/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">NodeJS 黑马笔记</span>
-      <time style="float: right;">11-11</time>
-    </a>
-  
-    
-    <a href="/2021/10/08/axios%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">axios 源码实现</span>
-      <time style="float: right;">10-08</time>
-    </a>
-  
-    
-    <a href="/2021/08/28/%E5%89%8D%E7%AB%AF%E7%BB%BC%E5%90%88%E7%AC%94%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">前端综合笔记</span>
-      <time style="float: right;">08-28</time>
-    </a>
-  
-</div>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Hexo 相册实现</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年12月1日 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="图片存储"><a href="#图片存储" class="headerlink" title="图片存储"></a>图片存储</h2><p>使用七牛：访问速度快，用户体验良好</p>
+<h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><p>七牛云官网：<a target="_blank" rel="noopener" href="https://portal.qiniu.com/">https://portal.qiniu.com/</a> </p>
+<p>右侧找到 对象存储 空间管理 新建存储空间</p>
+<img src="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/image-20211201125934827.png" srcset="/img/loading2.gif" lazyload class title="image-20211201125934827">
+
+<p>按步骤往下即可创建完成。</p>
+<h4 id="阿里云添加-CDN-加速域名"><a href="#阿里云添加-CDN-加速域名" class="headerlink" title="阿里云添加 CDN 加速域名"></a>阿里云添加 CDN 加速域名</h4><p>在域名管理中添加对应的加速域名（推荐为 <code>cdn.你的域名</code>），然后复制 CNAME 一栏上的值，去到阿里云域名管理界面点击进入对应的域名后的解析：</p>
+<img src="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/image-20211201131027075.png" srcset="/img/loading2.gif" lazyload class title="阿里云域名解析">
+
+<p>点击添加记录：</p>
+<img src="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/image-20211201133223423.png" srcset="/img/loading2.gif" lazyload class title="添加记录">
+
+<ul>
+<li>记录类型选择 CNAME；</li>
+<li>主机记录要与 CDN 中加速域名一致；</li>
+<li>解析路线和 TTL 默认即可；</li>
+<li>记录值写入 刚刚复制的 CNAME。</li>
+</ul>
+<img src="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/image-20211201131258915.png" srcset="/img/loading2.gif" lazyload class title="添加成功">
+
+<blockquote>
+<p>当出现 CNAME 记录和 A 记录冲突时，则需要将 CDN 加速域名变为二级域名，也就是之前将加速域名设置为 <code>cdn.agonilay.top</code> 的好处。</p>
+</blockquote>
+<p>检查是否配置成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> windows</span><br>nslookup cdn.agonilay.top<br><span class="hljs-meta"></span><br><span class="hljs-meta">#</span><span class="bash"> linus/mac</span><br>dig cdn.agonilay.top<br></code></pre></div></td></tr></table></figure>
+
+<img src="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/image-20211201132714959.png" srcset="/img/loading2.gif" lazyload class title="image-20211201132714959">
+
+<p>出现你配置的 加速域名 和 CNAME 则为配置成功。</p>
+<h3 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h3><p>安装七牛依赖：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install -S qiniu<br></code></pre></div></td></tr></table></figure>
+
+<img src="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/image-20211201130549106.png" srcset="/img/loading2.gif" lazyload class title="image-20211201130549106">
+
+<blockquote>
+<p>此处若无法成功安装，可以尝试加上 <code>-f</code> 参数。</p>
+</blockquote>
+<p>在博客根目录下新建一个 <code>photo.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><br></code></pre></div></td></tr></table></figure>
 
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/#board">2</a><a class="page-number" href="/archives/2021/page/3/#board">3</a><a class="extend next" rel="next" href="/archives/2021/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%9B%B8%E5%86%8C/">相册</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均为本人原创，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+                        <span class="hidden-mobile">Hexo 快速搭建博客</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"fMlK1v2U3cjKJBIaYGEUd6iH-gzGzoHsz","appKey":"k49y92c0BEE6zL2mCA2AUHKu","placeholder":"说点什么","path":"window.location.pathname","avatar":"monsterid","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://fmlk1v2u.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/img/agoni.gif" srcset="/img/loading2.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;"> <h5 style="text-align: center; margin-top: 1rem;">谢谢您的光临噢！！！</h5> 
+    </div>
+  </div>
+
+
     
 
     
@@ -438,9 +556,15 @@ setInterval("createtime()", 250);
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
