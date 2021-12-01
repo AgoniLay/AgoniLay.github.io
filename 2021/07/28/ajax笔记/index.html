@@ -1,0 +1,721 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="http://cdn.agonilay.top/zoro3.jpg">
+  <link rel="icon" href="http://cdn.agonilay.top/zoro3.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#efb9b9">
+  <meta name="description" content="">
+  <meta name="author" content="AgoniLay">
+  <meta name="keywords" content="">
+  
+  <title>ajax笔记 - AgoniLay的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/vs2015.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scroller.css">
+<link rel="stylesheet" href="/css/bynode.css">
+<link rel="stylesheet" href="/css/mouse.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading2.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>AgoniLay</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark"></i>
+                索引
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/photos/">
+                <i class="iconfont icon-image"></i>
+                相册
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('http://cdn.agonilay.top/nuc.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h3" id="subtitle" title="ajax笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      AgoniLay
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-28 21:50" pubdate>
+        2021年7月28日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+			
+			
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">ajax笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年11月27日 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h3 id="零、基本概述"><a href="#零、基本概述" class="headerlink" title="零、基本概述"></a>零、基本概述</h3><h4 id="0-1-服务器"><a href="#0-1-服务器" class="headerlink" title="0.1 服务器"></a>0.1 服务器</h4><p>提供了某种服务的电脑，一般没有显示器，没有输入设备</p>
+<p>服务器主要提供的服务：</p>
+<ul>
+<li>文件服务器（提供文件下载任务）</li>
+<li>邮件服务器（提供邮件服务）</li>
+<li>游戏服务器</li>
+<li>web服务器</li>
+</ul>
+<h4 id="0-2-web服务器"><a href="#0-2-web服务器" class="headerlink" title="0.2 web服务器"></a>0.2 web服务器</h4><h5 id="如何成为web服务器："><a href="#如何成为web服务器：" class="headerlink" title="如何成为web服务器："></a>如何成为web服务器：</h5><p>装一个软件：</p>
+<ul>
+<li>apache – 阿帕奇：开源的web服务器软件，目前使用人数最多的 web服务器软件</li>
+<li>IIS – 微软的web服务器软件，不开源 –&gt; 开源</li>
+<li>tomcat – web服务器软件</li>
+<li>Nqinx – web服务器软件</li>
+</ul>
+<h3 id="一、原生Ajax"><a href="#一、原生Ajax" class="headerlink" title="一、原生Ajax"></a>一、原生Ajax</h3><h4 id="1-1-AJAX简介"><a href="#1-1-AJAX简介" class="headerlink" title="1.1 AJAX简介"></a>1.1 AJAX简介</h4><p>页面内加载数据，不进行刷新界面</p>
+<h4 id="1-2-XML简介"><a href="#1-2-XML简介" class="headerlink" title="1.2 XML简介"></a>1.2 XML简介</h4><p>XML 可扩展标记语言，被设计用来传输和存储数据</p>
+<p>比如说我有一个学生数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">name = <span class="hljs-string">&quot;孙悟空&quot;</span>; age = <span class="hljs-number">18</span>; gender=<span class="hljs-string">&quot;男&quot;</span>;<br></code></pre></div></td></tr></table></figure>
+
+<p>用XML表示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">student</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>孙悟空<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">age</span>&gt;</span>18<span class="hljs-tag">&lt;/<span class="hljs-name">age</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">gender</span>&gt;</span>男<span class="hljs-tag">&lt;/<span class="hljs-name">gender</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">student</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>现在已经被 JSON 取代了</p>
+<p>用JOSN表示：</p>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<span class="hljs-attr">&quot;name&quot;</span>:<span class="hljs-string">&quot;孙悟空&quot;</span>,<span class="hljs-attr">&quot;age&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-attr">&quot;gender&quot;</span>:<span class="hljs-string">&quot;男&quot;</span>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="1-3-AJAX的特点"><a href="#1-3-AJAX的特点" class="headerlink" title="1.3 AJAX的特点"></a>1.3 AJAX的特点</h4><h5 id="1-3-1-优点"><a href="#1-3-1-优点" class="headerlink" title="1.3.1 优点"></a>1.3.1 优点</h5><ol>
+<li>可以无需刷新页面而与服务器端进行通信</li>
+<li>允许你根据用户事件来更新部分页面内容</li>
+</ol>
+<h5 id="1-3-2-缺点"><a href="#1-3-2-缺点" class="headerlink" title="1.3.2 缺点"></a>1.3.2 缺点</h5><ol>
+<li>没有浏览历史，不能回退</li>
+<li>存在跨域问题（同源）</li>
+<li>SEO不友好</li>
+</ol>
+<h4 id="1-4-http协议"><a href="#1-4-http协议" class="headerlink" title="1.4 http协议"></a>1.4 http协议</h4><p>HTTP (hypertext transport protocol) 协议【超文本传输协议】</p>
+<p>详细规定了浏览器和万维网服务器之间互相通信的规则。</p>
+<p>以下报文可以在</p>
+<h5 id="1-4-1-请求报文"><a href="#1-4-1-请求报文" class="headerlink" title="1.4.1 请求报文"></a>1.4.1 请求报文</h5><p>格式与参数：</p>
+<figure class="highlight http"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs http">行		POST /s?ie=utf-8  HTTP/1.1<br>头		Host: atguigu.com<br>		 Cookie: name=guigu<br>		 Content-type: application/x-www-form-urlencoded<br>		 User-Agent: chrome 83<br>空行<br>体		GET(为空) POST(可以不为空) username=admin&amp;admin&amp;password=admin<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="1-4-2-响应报文"><a href="#1-4-2-响应报文" class="headerlink" title="1.4.2 响应报文"></a>1.4.2 响应报文</h5><figure class="highlight http"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs http">行		HTTP/1.1  200 (404,403,401,500,200)  OK<br>头		Content-Type: texy/html;charset=utf-8<br>		 Content-length: 2048<br>		 Content-encoding: gzip<br>空行		<br>体		&lt;html&gt;<br>			&lt;head&gt;<br>			&lt;/head&gt;<br>			&lt;body&gt;<br>				&lt;h1&gt;张艺兴&lt;/h1&gt;<br>			&lt;/body&gt;<br>		&lt;/html&gt;<br></code></pre></div></td></tr></table></figure>
+
+<p>安装 node.js</p>
+<p>安装 Express：基于 Node.js 的 web开发框架</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">// 初始化npm<br>npm init --yes<br>// 安装 express 框架<br>npm install express<br></code></pre></div></td></tr></table></figure>
+
+<p>设置服务端  server.js</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 1. 引入express</span><br><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express&#x27;</span>);<br><br><span class="hljs-comment">// 2. 创建应用对象</span><br><span class="hljs-keyword">const</span> app = express();<br><br><span class="hljs-comment">// 3. 创建路由规则</span><br><span class="hljs-comment">// request  对请求报文的封装</span><br><span class="hljs-comment">// response 对相应报文的封装</span><br>app.get(<span class="hljs-string">&#x27;/server&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">// 设置相应头 设置允许跨域</span><br>    response.setHeader(<span class="hljs-string">&#x27;Access-control-Allow-Origin&#x27;</span>,<span class="hljs-string">&#x27;*&#x27;</span>);<br>    <span class="hljs-comment">// 响应头 设置允许接受自定义相应头</span><br>    response.setHeader(<span class="hljs-string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>)<br>    <span class="hljs-comment">// 设置响应</span><br>    <span class="hljs-comment">// response.send(&#x27;HELLO EXPRESS&#x27;);</span><br>    <span class="hljs-keyword">const</span> data = &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张艺兴&#x27;</span>&#125;<br>  	response.send(<span class="hljs-built_in">JSON</span>.stringify(data));<br>&#125;);<br><br><span class="hljs-comment">// 4. 监听端口启动服务</span><br>app.listen(<span class="hljs-number">8000</span>, <span class="hljs-function">()=&gt;</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;服务已经启动， 8000 端口接听中....&quot;</span>);<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>启动 web服务端 cd到对应文件夹打开终端</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">node server<span class="hljs-selector-class">.js</span><br></code></pre></div></td></tr></table></figure>
+
+<p>nodemon 工具：帮助我们重启服务</p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/nodemon">https://www.npmjs.com/package/nodemon</a> 官网</p>
+<p>终端输入 安装</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">npm install -g nodemon<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="二、jQuery-AJAX"><a href="#二、jQuery-AJAX" class="headerlink" title="二、jQuery AJAX"></a>二、jQuery AJAX</h3><h4 id="2-1-导入jQuery"><a href="#2-1-导入jQuery" class="headerlink" title="2.1 导入jQuery"></a>2.1 导入jQuery</h4><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h4 id="2-2-jQuery发送AJAX"><a href="#2-2-jQuery发送AJAX" class="headerlink" title="2.2 jQuery发送AJAX"></a>2.2 jQuery发送AJAX</h4><h5 id="get"><a href="#get" class="headerlink" title="get"></a>get</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">$.get(<span class="hljs-string">&#x27;http://127.0.0.1:8000/jquery-serve&#x27;</span>, &#123;<span class="hljs-attr">a</span>:<span class="hljs-number">100</span>, <span class="hljs-attr">b</span>:<span class="hljs-number">200</span>&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(data);<br>&#125;, <span class="hljs-string">&#x27;json&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="post"><a href="#post" class="headerlink" title="post"></a>post</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">$.post(<span class="hljs-string">&#x27;http://127.0.0.1:8000/jquery-serve&#x27;</span>, &#123;<span class="hljs-attr">a</span>:<span class="hljs-number">100</span>, <span class="hljs-attr">b</span>:<span class="hljs-number">200</span>&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(data);<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">$.ajax(&#123;<br>    <span class="hljs-comment">// url</span><br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;http://127.0.0.1:8000/jquery-serve&#x27;</span>,<br>    <span class="hljs-comment">// 参数</span><br>    <span class="hljs-attr">data</span>: &#123;<span class="hljs-attr">a</span>:<span class="hljs-number">100</span>, <span class="hljs-attr">b</span>:<span class="hljs-number">200</span>&#125;,<br>    <span class="hljs-comment">// 请求类型</span><br>    <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;GET&#x27;</span>,<br>    <span class="hljs-comment">// 响应体结果</span><br>    <span class="hljs-attr">dataType</span>: <span class="hljs-string">&#x27;json&#x27;</span>,<br>    <span class="hljs-comment">// 成功的回调</span><br>    <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>        <span class="hljs-built_in">console</span>.log(data);<br>    &#125;,<br>    <span class="hljs-comment">// 超时时间</span><br>    <span class="hljs-attr">timeout</span>: <span class="hljs-number">2000</span>,<br>    <span class="hljs-comment">// 失败的回调</span><br>    <span class="hljs-attr">error</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;出错了！&#x27;</span>);<br>    &#125;,<br>    <span class="hljs-comment">// 头信息</span><br>    <span class="hljs-attr">headers</span>: &#123;<br>        <span class="hljs-attr">c</span>:<span class="hljs-number">300</span>,<br>        <span class="hljs-attr">d</span>:<span class="hljs-number">400</span><br>    &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// jQuery 服务</span><br>app.all(<span class="hljs-string">&#x27;/jquery-serve&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">// 设置相应头 设置允许跨域</span><br>    response.setHeader(<span class="hljs-string">&#x27;Access-control-Allow-Origin&#x27;</span>,<span class="hljs-string">&#x27;*&#x27;</span>);<br>    response.setHeader(<span class="hljs-string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>)<br>    <span class="hljs-comment">// response.send(&#x27;Hello jQuery AJAX&#x27;);</span><br>    <span class="hljs-keyword">const</span> data = &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张艺兴&#x27;</span>&#125;<br>    response.send(<span class="hljs-built_in">JSON</span>.stringify(data));<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="三、Axios"><a href="#三、Axios" class="headerlink" title="三、Axios"></a>三、Axios</h3><h4 id="3-1-引入Axios"><a href="#3-1-引入Axios" class="headerlink" title="3.1 引入Axios"></a>3.1 引入Axios</h4><h5 id="script标签引入Axios"><a href="#script标签引入Axios" class="headerlink" title="script标签引入Axios"></a>script标签引入Axios</h5><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html">// crossorigin=&quot;anonymous&quot; 页面报错可以加<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="npm-下载"><a href="#npm-下载" class="headerlink" title="npm 下载"></a>npm 下载</h5><figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">npm install axios<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="3-2-发送AJAX请求"><a href="#3-2-发送AJAX请求" class="headerlink" title="3.2 发送AJAX请求"></a>3.2 发送AJAX请求</h4><h5 id="get-1"><a href="#get-1" class="headerlink" title="get"></a>get</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios.get(<span class="hljs-string">&#x27;http://127.0.0.1:8000/axios-serve&#x27;</span>, &#123;<br>    <span class="hljs-comment">// url参数</span><br>    <span class="hljs-attr">params</span>: &#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-number">100</span>,<br>        <span class="hljs-attr">vip</span>: <span class="hljs-number">7</span><br>    &#125;,<br>    <span class="hljs-comment">// 请求头信息</span><br>    <span class="hljs-attr">headers</span>: &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;AgoniLay&#x27;</span>,<br>        <span class="hljs-attr">age</span>: <span class="hljs-number">20</span><br>    &#125;<br>&#125;).then(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(value);<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="post-1"><a href="#post-1" class="headerlink" title="post"></a>post</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">btns[<span class="hljs-number">1</span>].onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    axios.post(<span class="hljs-string">&#x27;/axios-serve&#x27;</span>, &#123;<br>        <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;admin&#x27;</span>,<br>        <span class="hljs-attr">password</span>: <span class="hljs-string">&#x27;admin&#x27;</span><br>    &#125;, &#123;<br>        <span class="hljs-comment">// url参数</span><br>        <span class="hljs-attr">params</span>: &#123;<br>            <span class="hljs-attr">id</span>: <span class="hljs-number">200</span>,<br>            <span class="hljs-attr">vip</span>: <span class="hljs-number">9</span><br>        &#125;,<br>        <span class="hljs-comment">// 请求头信息</span><br>        <span class="hljs-attr">headers</span>: &#123;<br>            <span class="hljs-attr">height</span>: <span class="hljs-number">180</span>,<br>            <span class="hljs-attr">weight</span>: <span class="hljs-number">180</span><br>        &#125;<br>    &#125;);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="ajax-1"><a href="#ajax-1" class="headerlink" title="ajax"></a>ajax</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">axios(&#123;<br>    <span class="hljs-comment">// 请求方法</span><br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>    <span class="hljs-comment">// url</span><br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;/axios-serve&#x27;</span>,<br>    <span class="hljs-comment">// url参数</span><br>    <span class="hljs-attr">params</span>: &#123;<br>        <span class="hljs-attr">vip</span>: <span class="hljs-number">10</span>,<br>        <span class="hljs-attr">leave</span>: <span class="hljs-number">30</span><br>    &#125;,<br>    <span class="hljs-comment">// 头信息</span><br>    <span class="hljs-attr">headers</span>: &#123;<br>        <span class="hljs-attr">a</span>: <span class="hljs-number">100</span>,<br>        <span class="hljs-attr">b</span>: <span class="hljs-number">200</span><br>    &#125;,<br>    <span class="hljs-comment">// 请求体参数</span><br>    <span class="hljs-attr">data</span>: &#123;<br>        <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;admin&#x27;</span>,<br>        <span class="hljs-attr">password</span>: <span class="hljs-string">&#x27;admin&#x27;</span><br>    &#125;<br>&#125;).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(response);<br>    <span class="hljs-comment">// 响应状态码</span><br>    <span class="hljs-built_in">console</span>.log(response.status);<br>    <span class="hljs-comment">// 响应状态字符串</span><br>    <span class="hljs-built_in">console</span>.log(response.statusText);<br>    <span class="hljs-comment">// 响应头信息</span><br>    <span class="hljs-built_in">console</span>.log(response.headers);<br>    <span class="hljs-comment">// 响应体</span><br>    <span class="hljs-built_in">console</span>.log(response.data);<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// Axios 服务</span><br>app.all(<span class="hljs-string">&#x27;/axios-serve&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>  <span class="hljs-comment">// 设置相应头 设置允许跨域</span><br>  response.setHeader(<span class="hljs-string">&#x27;Access-control-Allow-Origin&#x27;</span>,<span class="hljs-string">&#x27;*&#x27;</span>);<br>  response.setHeader(<span class="hljs-string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>)<br>  response.send(<span class="hljs-string">&#x27;Hello Axios AJAX&#x27;</span>);<br>  <span class="hljs-comment">// const data = &#123;name: &#x27;张艺兴&#x27;&#125;</span><br>  <span class="hljs-comment">// response.send(JSON.stringify(data));</span><br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="四、使用fetch函数"><a href="#四、使用fetch函数" class="headerlink" title="四、使用fetch函数"></a>四、使用fetch函数</h3><h4 id="使用-fetch-请求"><a href="#使用-fetch-请求" class="headerlink" title="使用 fetch 请求"></a>使用 fetch 请求</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">fetch(<span class="hljs-string">&#x27;http://127.0.0.1:8000/fetch-serve?vip=10&#x27;</span>, &#123;<br>    <span class="hljs-comment">// 请求方法</span><br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>    <span class="hljs-comment">// 请求头</span><br>    <span class="hljs-attr">headers</span>: &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;AgoniLay&#x27;</span><br>    &#125;,<br>    <span class="hljs-comment">// 请求体</span><br>    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;username=admin&amp;password=admin&#x27;</span><br>&#125;).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;<br>    <span class="hljs-comment">// return response.text();</span><br>    <span class="hljs-keyword">return</span> response.json();<br>&#125;).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(response);<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// fetch 服务</span><br>app.all(<span class="hljs-string">&#x27;/fetch-serve&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">// 设置相应头 设置允许跨域</span><br>    response.setHeader(<span class="hljs-string">&#x27;Access-control-Allow-Origin&#x27;</span>,<span class="hljs-string">&#x27;*&#x27;</span>);<br>    response.setHeader(<span class="hljs-string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>)<br>    <span class="hljs-comment">// response.send(&#x27;Hello Fetch AJAX&#x27;);</span><br>    <span class="hljs-keyword">const</span> data = &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张艺兴&#x27;</span>&#125;<br>    response.send(<span class="hljs-built_in">JSON</span>.stringify(data));<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="五、跨域"><a href="#五、跨域" class="headerlink" title="五、跨域"></a>五、跨域</h3><h4 id="5-1-同源策略-Same-Origin-Policy"><a href="#5-1-同源策略-Same-Origin-Policy" class="headerlink" title="5.1 同源策略 (Same-Origin Policy)"></a>5.1 同源策略 (Same-Origin Policy)</h4><p>最早由 Netscape 公司提出，是浏览器的一种安全策略。</p>
+<p>同源：协议、域名、端口号 必须完全相同。</p>
+<p>违背同源策略就是跨域。</p>
+<h4 id="5-2-如何解决跨域"><a href="#5-2-如何解决跨域" class="headerlink" title="5.2 如何解决跨域"></a>5.2 如何解决跨域</h4><h5 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h5><ol>
+<li><p>JSONP 是什么</p>
+<p>JSONP(JSONP with Padding)，是一个非官方的跨域解决方案，纯粹凭借程序员的聪明才智开发出来，只支持 get 请求。</p>
+</li>
+<li><p>JSONP 怎么工作的？</p>
+<p>在网页有一些标签天生具有跨域能力，比如：img link iframe script</p>
+<p>利用 script 标签的跨域能力来发送请求的。</p>
+</li>
+</ol>
+<h6 id="使用-jsonp-跨域"><a href="#使用-jsonp-跨域" class="headerlink" title="使用 jsonp 跨域"></a>使用 jsonp 跨域</h6><p>index.html：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">    <span class="hljs-comment">// 处理数据</span></span><br><span class="javascript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle</span>(<span class="hljs-params">data</span>) </span>&#123;</span><br><span class="javascript">        <span class="hljs-comment">// 获取 result 元素</span></span><br><span class="javascript">        <span class="hljs-keyword">const</span> result = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;result&#x27;</span>);</span><br><span class="javascript">        result.innerHTML = data.name;</span><br><span class="javascript">    &#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-comment">&lt;!-- &lt;script src=&quot;./js/app.js&quot;&gt;&lt;/script&gt; --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://127.0.0.1:8000/jsonp-serve&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>app.js：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> data = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张艺兴帅&#x27;</span><br>&#125;;<br><br>handle(data);<br></code></pre></div></td></tr></table></figure>
+
+<p>server.js：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// jsonp 服务</span><br>app.all(<span class="hljs-string">&#x27;/jsonp-serve&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">// response.send(&#x27;console.log(&quot;hello jsonp&quot;)&#x27;);</span><br>    <span class="hljs-keyword">const</span> data = &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张艺兴帅&#x27;</span><br>    &#125;;<br>    <span class="hljs-comment">// 见这个字符串转化为字符串</span><br>    <span class="hljs-keyword">let</span> str = <span class="hljs-built_in">JSON</span>.stringify(data);<br>    <span class="hljs-comment">// 返回结果</span><br>    response.end(<span class="hljs-string">`handle(<span class="hljs-subst">$&#123;str&#125;</span>)`</span>);<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+<h6 id="jQuery-发送-JSONP-请求"><a href="#jQuery-发送-JSONP-请求" class="headerlink" title="jQuery 发送 JSONP 请求"></a>jQuery 发送 JSONP 请求</h6><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">$.getJSON(<span class="hljs-string">&#x27;http://127.0.0.1:8000/jquery-jsonp-serve?callback=?&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>    $(<span class="hljs-string">&#x27;#result&#x27;</span>).html(<span class="hljs-string">`</span><br><span class="hljs-string">        名称：<span class="hljs-subst">$&#123;data.name&#125;</span>&lt;br&gt;</span><br><span class="hljs-string">        校区：<span class="hljs-subst">$&#123;data.city&#125;</span></span><br><span class="hljs-string">    `</span>)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">app.all(<span class="hljs-string">&#x27;/jquery-jsonp-serve&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">// response.send(&#x27;console.log(&quot;hello jsonp&quot;)&#x27;);</span><br>    <span class="hljs-keyword">const</span> data = &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张艺兴&#x27;</span>,<br>        <span class="hljs-attr">city</span>: [<span class="hljs-string">&#x27;LAY&#x27;</span>, <span class="hljs-string">&#x27;AGONI&#x27;</span>, <span class="hljs-string">&quot;AGONILAY&quot;</span>]<br>    &#125;;<br>    <span class="hljs-comment">// 见这个字符串转化为字符串</span><br>    <span class="hljs-keyword">let</span> str = <span class="hljs-built_in">JSON</span>.stringify(data);<br>    <span class="hljs-comment">// 接收 callback 参数</span><br>    <span class="hljs-keyword">let</span> cb = request.query.callback;<br>    <span class="hljs-comment">// 返回结果</span><br>    response.end(<span class="hljs-string">`<span class="hljs-subst">$&#123;cb&#125;</span>(<span class="hljs-subst">$&#123;str&#125;</span>)`</span>);<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h5><ol>
+<li><p>CORS 是什么</p>
+<p>CORS (Cross-Origin Resource Sharing)，跨域资源共享。是官方的跨域解决方案。</p>
+<p>特点：不需要再客户端做任何特殊的操作，完全在服务器中进行处理，支持 get  和 post 请求。</p>
+</li>
+<li><p>CORS 是怎么工作的</p>
+<p>通过设置一个响应头来告诉浏览器，该请求允许跨域，浏览器收到该响应以后就会对响应放行。</p>
+</li>
+<li><p>CORS 的使用</p>
+<p>主要是服务器端的设置：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">app.all(<span class="hljs-string">&#x27;/cors-serve&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">request, response</span>)=&gt;</span>&#123;<br>    <span class="hljs-comment">// 设置响应头</span><br>    response.setHeader(<span class="hljs-string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>)<br>    <span class="hljs-comment">// response.setHeader(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;http://127.0.0.1:5500&#x27;)</span><br><br>    response.send(<span class="hljs-string">&#x27;hello cors&#x27;</span>);<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+<p>一般还会设置：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 设置响应头部</span><br>response.setHeader(<span class="hljs-string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>)<br><span class="hljs-comment">// 设置响应方法</span><br>response.setHeader(<span class="hljs-string">&#x27;Access-Control-Allow-Method&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>)<br></code></pre></div></td></tr></table></figure></li>
+</ol>
+<p>笔记CSDN博客地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58163927/article/details/118693841">https://blog.csdn.net/qq_58163927/article/details/118693841</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Ajax/">Ajax</a>
+                    
+                      <a class="hover-with-bg" href="/tags/axios/">axios</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B7%A8%E5%9F%9F/">跨域</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均为本人原创，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/29/Express%E7%AC%94%E8%AE%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Express笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"fMlK1v2U3cjKJBIaYGEUd6iH-gzGzoHsz","appKey":"k49y92c0BEE6zL2mCA2AUHKu","placeholder":"说点什么","path":"window.location.pathname","avatar":"monsterid","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://fmlk1v2u.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="http://cdn.agonilay.top/agoni.gif" srcset="/img/loading2.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;"> <h5 style="text-align: center; margin-top: 1rem;">谢谢您的光临噢！！！</h5> 
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>张宝文</span> ❤ <span>郑佳丽</span>  
+	<!--《添加网站运行时间 -->
+<br/>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+var now = new Date(); 
+
+function createtime() {
+    //此处修改你的建站时间或者网站上线时间
+    var grt = new Date('07/28/2020 17:53:14');
+    now.setTime(now.getTime() + 250);
+    days = (now - grt) / 1000 / 60 / 60 / 24;
+
+    dnum = Math.floor(days);
+    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+        hnum = "0" + hnum;
+    }
+    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+        mnum = "0" + mnum;
+    }
+    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+        snum = "0" + snum;
+    }
+    document.getElementById("timeDate").innerHTML = " 本站已安全运行 " + dnum + " 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()", 250);
+</script>
+
+<!-- 添加网站运行时间》-->
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+  <script>
+    function typing(id, title){
+        var typed = new Typed('#' + id, {
+            strings: [
+              '  ',
+              title + "&nbsp;",
+            ],
+            cursorChar: "❤",
+            typeSpeed: 150,
+            loop: false,
+        });
+        typed.stop();
+        $(document).ready(function () {
+            $(".typed-cursor").addClass("h2");
+            typed.start();
+        });
+    }
+
+    
+        typing("subtitle", document.getElementById('subtitle').title)
+    
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

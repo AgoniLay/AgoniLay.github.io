@@ -1,0 +1,46 @@
+/* 打字机效果渐变 -bynote.cn*/
+#subtitle {
+    background: linear-gradient(172deg, #efb9b9, #00f, #efb9b9);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 10s ease infinite;
+    -moz-animation: Gradient 10s ease infinite;
+    animation: Gradient 10s ease infinite;
+    -o-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 2rem;
+}
+#hitokoto span {
+    color: #fff;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #fff, #fff, #fff);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 10s ease infinite;
+    -moz-animation: Gradient 10s ease infinite;
+    animation: Gradient 10s ease infinite;
+    -o-user-select: none;
+    -ms-user-select: none; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#hitokoto div {
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: right;
+    margin-top: 0.8rem;
+    color: #fff;
+}
+#subtitle:before, #hitokoto:before {
+    background-color: rgba(0, 0, 0, 0);
+}
