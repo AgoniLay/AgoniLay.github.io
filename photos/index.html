@@ -11,7 +11,7 @@
   <link rel="icon" href="http://cdn.agonilay.top/zoro3.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#efb9b9">
   <meta name="description" content="">
@@ -60,7 +60,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading2.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://cdn.agonilay.top/loading2.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -68,7 +68,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 66vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -190,7 +190,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('https://cdn.agonilay.top/zoro1.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -229,34 +229,137 @@
                 
 
 <article class="page-content">
-  <style>
-.ImageGrid {
-  width: 100%;
-  max-width: 1040px;
-  margin: 0 auto;
-  text-align: center;
-}
-.card {
-  overflow: hidden;
-  transition: .3s ease-in-out;
-  border-radius: 8px;
-  background-color: #efefef;
-  padding: 1.4px;
-}
-.ImageInCard img {
-  padding: 0;
-  border-radius: 8px;
-  width:100%;
-  height:100%;
-}
-@media (prefers-color-scheme: dark) {
-  .card {background-color: #333;}
-}
+  
+<style type="text/css">
+  .box {
+    visibility: visible;
+    overflow: auto; 
+    zoom: 1;
+  }
+  .waterfall {
+    width: 100%;
+    column-count: 4;
+    column-width: 20%;
+    column-gap: 0;
+  }
+  .imgbox {
+    margin-bottom: 2px;
+    padding: 1px 10px;
+    break-inside: avoid;
+  }
+  img.imgitem {
+    width: 100%;
+    vertical-align: middle;
+  }
+  img:hover {
+    opacity: 0.8; /* 透明度 */
+    filter: alpha(opacity = 100); /* For IE8 and earlier */
+  }
+  
+  .box span strong{
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+  }
+  
+  .title {
+    margin: 10px auto;
+    display: inline-block;
+    vertical-align: middle;
+    font: 85px/250px 'ChaletComprimeMilanSixty';
+    background-position: center center !important;
+    color: #fff;
+    background-size: 100% auto !important; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 100%;
+    text-align: center;
+    border: unset;
+    height: 240px;
+    cursor: unset !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 767px){
+    .box li {
+      width: 98%;
+    }
+    .title {
+      height: 200px;
+    }
+    .box span {
+      border-right: unset;
+      font-size: 17px;
+    }
+    .box p{
+      border-right: unset;
+      font-size: 12px;
+    }
+  }
+
 </style>
 
-<h4 style="text-align: center;">暂无内容，敬请期待！</h4>
-<div id="imageTab"></div>
-<div class="ImageGrid"></div>
+<div id="box" class="box"></div>
+
+<script>
+  const cdnPath = 'https://cdn.agonilay.top/'
+
+  function readTextFile (file, callback) {  
+    var rawFile = new XMLHttpRequest()
+    rawFile.overrideMimeType('application/json')
+    rawFile.open('GET', file, true)
+    rawFile.onreadystatechange = function() {
+      if (rawFile.readyState === 4 && rawFile.status == '200') {
+        callback(rawFile.responseText)
+      }
+    }
+    rawFile.send(null)
+  }
+
+  readTextFile('./output.json', function (text) {
+    var data = JSON.parse(text)
+    var box = document.getElementById('box')
+    for (let key in data) {
+      var conBox = document.createElement('div')
+      conBox.id = 'conBox' + new Date().getTime()
+      box.appendChild(conBox)
+      var item = document.createElement('div')
+      var title = key
+      var url = cdnPath + key + '.jpg'
+      item.innerHTML = `
+        <button class="title" style="background: url(${ url });">
+          <span style="display: inline;"><strong style="color: #f0f3f6;">${ title }</strong></span>
+        </button>`
+      conBox.appendChild(item)
+      
+      const waterfall = document.createElement('div')
+      waterfall.setAttribute('class', 'waterfall')
+      for (var i = 1; i < data[key].length ; i++) {
+        var _url = cdnPath + data[key][i].name
+        var item = document.createElement('div')
+        item.setAttribute('class', 'imgbox')
+        item.setAttribute('id', 'imgbox')
+        item.innerHTML=`<img class="imgitem" src="${ _url }" srcset="https://cdn.agonilay.top/loading2.gif" lazyload>`
+        waterfall.appendChild(item)
+      }
+      conBox.appendChild(waterfall)
+    }
+    watchWindowSize()
+  })
+
+  function watchWindowSize () {
+  // 获取窗口的宽度
+    var w = document.documentElement.clientWidth
+    var waterfalls = document.getElementsByClassName('waterfall')
+    let count = w > 1190 ? 4 : w > 982 ? 3 : w > 568 ? 2 : 1
+    Array.prototype.forEach.call(waterfalls, item => {
+      item.style.columnCount = count
+    })
+  }
+  // 将事件侦听器函数附加到窗口的 resize 事件
+  window.addEventListener("resize", watchWindowSize)
+</script>
 
 
   

@@ -11,7 +11,7 @@
   <link rel="icon" href="http://cdn.agonilay.top/zoro3.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#efb9b9">
   <meta name="description" content="">
@@ -62,7 +62,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading2.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://cdn.agonilay.top/loading2.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -192,7 +192,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('http://cdn.agonilay.top/nuc.jpg') no-repeat center center;
+         style="background: url('http://cdn.agonilay.top/中北大学操场.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -314,74 +314,74 @@
 <p>用户输入域名 localhost:端口 –&gt; DNS（localhost 127.0.0.1）–&gt; 服务器电脑 –&gt; 软件（服务）</p>
 <h2 id="Web-程序的访问流程"><a href="#Web-程序的访问流程" class="headerlink" title="Web 程序的访问流程"></a>Web 程序的访问流程</h2><p>Web 分为两类：静态网站和动态网站</p>
 <p>浏览器发起访问 –&gt; DNS 解析域名 –&gt; 服务器电脑 –&gt; 服务软件</p>
-<h4 id="静态网站的访问"><a href="#静态网站的访问" class="headerlink" title="静态网站的访问"></a>静态网站的访问</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627153514946.png" srcset="/img/loading2.gif" lazyload class>
+<h4 id="静态网站的访问"><a href="#静态网站的访问" class="headerlink" title="静态网站的访问"></a>静态网站的访问</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627153514946.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="动态网站的访问"><a href="#动态网站的访问" class="headerlink" title="动态网站的访问"></a>动态网站的访问</h4><p>动态网站访问流程与静态差不多，但是会多出几个内容：服务器端解析、数据库</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627154927756.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627154927756.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h2 id="安装-Apache"><a href="#安装-Apache" class="headerlink" title="安装 Apache"></a>安装 Apache</h2><h4 id="安装-Apache-软件"><a href="#安装-Apache-软件" class="headerlink" title="安装 Apache 软件"></a>安装 Apache 软件</h4><ol>
 <li><p>获取 Apache 软件</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160153744.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160153744.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>双击安装即可：指定对应路径</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160215862.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160215862.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>选择安装模式：使用自定义</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160314247.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160314247.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>选择安装位置</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160438991.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160438991.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
-<h4 id="Apache-的目录结构说明"><a href="#Apache-的目录结构说明" class="headerlink" title="Apache 的目录结构说明"></a>Apache 的目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160730828.png" srcset="/img/loading2.gif" lazyload class>
+<h4 id="Apache-的目录结构说明"><a href="#Apache-的目录结构说明" class="headerlink" title="Apache 的目录结构说明"></a>Apache 的目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160730828.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="Httpd-exe-的详细应用"><a href="#Httpd-exe-的详细应用" class="headerlink" title="Httpd.exe 的详细应用"></a>Httpd.exe 的详细应用</h4><ol>
 <li><p>服务器进程：运行之后才能够工作</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161153791.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161153791.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>用来查看 Apache 具有哪些功能以及配置文件是否有错：httpd 或者 httpd.exe（文件所在目录）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161416719.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161416719.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <ol>
 <li><p>查看使用的模块：httpd.exe -M</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161553233.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161553233.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>验证配置文件是否有效：httpd -t</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161837622.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161837622.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 </li>
 </ol>
 <h2 id="配置默认站点"><a href="#配置默认站点" class="headerlink" title="配置默认站点"></a>配置默认站点</h2><ol>
 <li><p>让 Apache 确定服务器上访问的位置：网站文件夹所在位置</p>
 <p>Httpd.conf： DocumentRoot</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627170307785.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627170307785.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>方便用户使用名字访问对应网站：给文件夹对应的起一个别名</p>
 <p>Httpd.conf： ServerName</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627162507164.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627162507164.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>端口可以单独实现：httpd.conf： listen</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627162551195.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627162551195.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p><strong>凡是涉及到 Apache 配置问价的修改，那么需要重启 Apache 才能生效</strong></p>
 </li>
 <li><p>实现 DNS 域名解析：通常默认站点都是本地 DNS：hosts 文件</p>
 <p>C:\Windows\System32\drivers\etc 下 hosts 文件</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627163009596.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627163009596.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <h2 id="安装与配置-PHP"><a href="#安装与配置-PHP" class="headerlink" title="安装与配置 PHP"></a>安装与配置 PHP</h2><h4 id="安装-PHP-语言"><a href="#安装-PHP-语言" class="headerlink" title="安装 PHP 语言"></a>安装 PHP 语言</h4><ol>
 <li><p>获取 PHP 安装文件：建议去官网</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627163637004.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627163637004.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>解压缩</p>
 </li>
 <li><p>安装：将压缩包放到 D:/server/ ，重命名 php5</p>
 </li>
 </ol>
-<h4 id="PHP-目录结构说明"><a href="#PHP-目录结构说明" class="headerlink" title="PHP 目录结构说明"></a>PHP 目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164042157.png" srcset="/img/loading2.gif" lazyload class>
+<h4 id="PHP-目录结构说明"><a href="#PHP-目录结构说明" class="headerlink" title="PHP 目录结构说明"></a>PHP 目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164042157.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="php-exe-的应用"><a href="#php-exe-的应用" class="headerlink" title="php.exe 的应用"></a>php.exe 的应用</h4><p>php.exe 就是可以解析 PHP 代码转变成 HTML 代码从而让浏览器可以解析的。</p>
 <ol>
 <li><p>通过 CMD 控制器进入到 php.exe 所在目录</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164214834.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164214834.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>通过 php.exe 运行命令来指定要解析的 PHP 脚本 就可以：<code>php.exe -f</code> PHP 文件所在路径</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164948370.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164948370.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <h2 id="配置-Apache-加载-PHP-模块"><a href="#配置-Apache-加载-PHP-模块" class="headerlink" title="配置 Apache 加载 PHP 模块"></a>配置 Apache 加载 PHP 模块</h2><ol>
 <li><p>Apache 加载 PHP 模块：在 Apache 的主配置文件（httpd.conf）中加载对应的 PHP 提供的模块</p>
 <p><code>LoadModule php5_module &#39;D:/server/php5/php5apache2_2.dll&#39;</code></p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627170739713.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627170739713.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>Apache 分配工作给 PHP 模块：如果是 PHP 代码就交给 PHP 处理：文件后缀判断 .php 结尾肯定是 PHP 代码</p>
 <p><code>AddType application/x-httpd-php .php</code></p>
 </li>
@@ -389,16 +389,16 @@
 <ol>
 <li><p>在 Apache 中指定 PHP 配置文件所在路径</p>
 <p>PHPIniDir php.ini 所在路径</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627172103347.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627172103347.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>php.ini 文件默认是不存在的，是以 development 和 production 格式存在，需要格式化</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627172829719.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627172829719.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <p>说明：PHP 的配置文件已经加入到 Apache 的配置项中，意味着 php.ini 的修改需要 Apache 重启才会生效。</p>
 </li>
 </ol>
-<h2 id="安装与配置-MySQL"><a href="#安装与配置-MySQL" class="headerlink" title="安装与配置 MySQL"></a>安装与配置 MySQL</h2><h4 id="安装-MySQL-软件"><a href="#安装-MySQL-软件" class="headerlink" title="安装 MySQL 软件"></a>安装 MySQL 软件</h4><h4 id="MySQL-目录结构说明"><a href="#MySQL-目录结构说明" class="headerlink" title="MySQL 目录结构说明"></a>MySQL 目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627231602204.png" srcset="/img/loading2.gif" lazyload class>
+<h2 id="安装与配置-MySQL"><a href="#安装与配置-MySQL" class="headerlink" title="安装与配置 MySQL"></a>安装与配置 MySQL</h2><h4 id="安装-MySQL-软件"><a href="#安装-MySQL-软件" class="headerlink" title="安装 MySQL 软件"></a>安装 MySQL 软件</h4><h4 id="MySQL-目录结构说明"><a href="#MySQL-目录结构说明" class="headerlink" title="MySQL 目录结构说明"></a>MySQL 目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627231602204.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
-<h4 id="Bin-目录的常用命令"><a href="#Bin-目录的常用命令" class="headerlink" title="Bin 目录的常用命令"></a>Bin 目录的常用命令</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627231701378.png" srcset="/img/loading2.gif" lazyload class>
+<h4 id="Bin-目录的常用命令"><a href="#Bin-目录的常用命令" class="headerlink" title="Bin 目录的常用命令"></a>Bin 目录的常用命令</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627231701378.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>软件设计结构：C/S 和 B/S</p>
 <p>C/S：Client 客户端/Server 服务端，用户需要安装客户端产品才能访问服务器，而且只能访问一种软件（当前自己）</p>
@@ -414,30 +414,30 @@
 <p>认证：通过用户名和密码进入服务器</p>
 <p>-u 用户名 –&gt; -uroot，不可以省略（匿名用户除外）</p>
 <p>-p 密码 –&gt; -proot</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234054183.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234054183.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>退出命令</p>
 <p><code>\q</code></p>
 </li>
 </ol>
 <p>注意：通常连接认证的时候密码不建议明文，可以再输入 -p 之后回车，系统会再次让输入密码，这个时候就是密文</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234340617.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234340617.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h2 id="PHP-连接-MySQL-数据库"><a href="#PHP-连接-MySQL-数据库" class="headerlink" title="PHP 连接 MySQL 数据库"></a>PHP 连接 MySQL 数据库</h2><p>PHP 本身不具备操作 MySQL 数据库的能力，需要借助 PHP 操作 MySQL 的扩展来实现</p>
 <ol>
 <li><p>PHP 加载 MySQL 扩展：php.ini 文件</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234726830.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234726830.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>PHP 所有的扩展都是在 ext 文件夹中，需要制定扩展所在路径： extension_dir</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627235322277.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627235322277.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>php.ini 已经被 Apache 加载，所以需要重启</p>
 </li>
 </ol>
 <p>如果出错，尝试设置：</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628002453049.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628002453049.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h2 id="设定-PHP-的系统时区"><a href="#设定-PHP-的系统时区" class="headerlink" title="设定 PHP 的系统时区"></a>设定 PHP 的系统时区</h2><p>通过 php.ini 中的 timezone 配置项来实现</p>
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">; 增加时区<br>date.timezone = PRC<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628002923832.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628002923832.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h2 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h2><p>一台服务器很贵，如果只能部署一个网站，那么非常浪费。所以需要通过其他渠道来实现一台主机上部署多个网站。</p>
 <h4 id="什么是虚拟主机"><a href="#什么是虚拟主机" class="headerlink" title="什么是虚拟主机"></a>什么是虚拟主机</h4><p>虚拟主机：Virtual machine，并不存在真实的主机，但是可以提供真实主机所实现的功能。</p>
@@ -458,22 +458,22 @@
 <li><p>在专门的虚拟主机配置文件中配置</p>
 <ol>
 <li><p>在主配置文件中加载虚拟主机配置文件(httpd.conf)：虚拟主机配置文件已经开启了虚拟主机 NameVirtualHost</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004217698.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004217698.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>虚拟主机从配置文件（extra/httpd-vhosts.conf）中配置虚拟主机</p>
 <ol>
 <li><p>增加一个对应的站点文件夹位置：</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004550155.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004550155.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>增加主机名字：文件夹的别名：ServerName</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004830659.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004830659.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>增加域名解析 DNS：(hosts 文件)</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628005736269.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628005736269.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>需要给当前设定的站点（目录）访问权限</p>
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">&lt;<span class="hljs-built_in">Directory</span> <span class="hljs-string">&#x27;站点目录&#x27;</span>&gt;<br>    Order Deny,Allow	<span class="hljs-comment">// 没有顺序关系：实际顺序有关系</span><br>    Deny <span class="hljs-keyword">from</span> 指定的范围<br>    Allow <span class="hljs-keyword">from</span> 指定范围<br>&lt;/<span class="hljs-built_in">Directory</span>&gt;<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628010552694.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628010552694.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>配置访问列表：当访问是一个目录时（没有指定具体要访问的文件）</p>
 <p>Options Indexes [FollowSymLinks]，如果访问目录，那么列表显示所有文件</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628011114358.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628011114358.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>当用户访问指定目录不指定文件的时候，通常需要系统指定一个默认文件</p>
 <p>DirectoryIndex 默认的文件列表，使用空格分离</p>
 <p>注意：如果网站中整个网站根目录允许访问，但是其中还有其他文件夹不允许访问：可以增加多个 Directory 标签，针对不同文件夹</p>
@@ -483,7 +483,7 @@
 <li><p>一旦启用虚拟主机配置文件，那么默认的主机地址 localhost 就不再生效，如果想要生效：为 localhost 增加单独的虚拟主机</p>
 </li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628011958112.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628011958112.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <h2 id="PHP-基础"><a href="#PHP-基础" class="headerlink" title="PHP 基础"></a>PHP 基础</h2><h3 id="PHP-语法初步"><a href="#PHP-语法初步" class="headerlink" title="PHP 语法初步"></a>PHP 语法初步</h3><p>PHP 是一种运行在服务器端的脚本语言，可以嵌入到 HTML 中。</p>
 <h4 id="PHP-代码标记"><a href="#PHP-代码标记" class="headerlink" title="PHP 代码标记"></a>PHP 代码标记</h4><p>在 PHP 历史发展中，可以使用多种标记来区分 PHP 脚本</p>
@@ -492,16 +492,16 @@
 <li>短标记： <code>&lt;? php代码 ?&gt;</code></li>
 </ul>
 <p>以上两种基本弃用，如果要使用那么需要在配置文件中开启</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628093541586.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628093541586.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <ul>
 <li>脚本标记： <code>&lt;script lang=&quot;php&quot;&gt; php代码 &lt;/script&gt;</code></li>
 </ul>
-<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628094015744.png" srcset="/img/loading2.gif" lazyload alt="image-20210628094015744"></p>
+<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628094015744.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload alt="image-20210628094015744"></p>
 <ul>
 <li>标准标记（常用）： <code>&lt;?php php代码 ?&gt;</code></li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628094749928.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628094749928.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="PHP-注释"><a href="#PHP-注释" class="headerlink" title="PHP 注释"></a>PHP 注释</h4><p>习惯：所有的代码在写的过程中都必须进行注释</p>
 <p>PHP 中注释分为两种</p>
@@ -511,7 +511,7 @@
 <li><p>块注释：一次注释多行</p>
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">/* : 直到下面出现之前中间全部都是注释</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628100126110.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628100126110.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ul>
 <h4 id="PHP-语句分隔符"><a href="#PHP-语句分隔符" class="headerlink" title="PHP 语句分隔符"></a>PHP 语句分隔符</h4><p>语句分隔符：在 PHP 中，代码是以行尾单位，系统需要通过判断行的解说，该结束通常都是一个符号：英文分号 <code>;</code></p>
 <p>特殊说明：</p>
@@ -532,7 +532,7 @@
 <li>可以通过变量名访问存储的数据</li>
 <li>可以将变量从内存中删除</li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628102030737.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628102030737.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h4><ol>
 <li>在 PHP 中变量名字必须以“$”符号开始；</li>
@@ -561,18 +561,18 @@
 </li>
 </ul>
 <h4 id="可变变量"><a href="#可变变量" class="headerlink" title="可变变量"></a>可变变量</h4><p>如果一个变量保存的值刚好是另外一个变量的名字，那么可以直接通过访问一个变量得到另外一个变量的值：在变量前面再多加一个$符号。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628104114494.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628104114494.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="变量传值"><a href="#变量传值" class="headerlink" title="变量传值"></a>变量传值</h4><p>将一个变量赋值给另外一个变量：变量传值</p>
 <p>变量传值一共有两种方式：值传递，引用传递</p>
 <ul>
 <li><p>值传递：将变量保存的值赋值一份，然后将新的值给另外一个变量保存（两个变量没有关系）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628105219725.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628105219725.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>引用传递：将变量保存的值所在的内存地址，传递给另外一个变量：两个变量指向同一块内存空间（两个变量是同一个值）</p>
 <p><code>$新变量 = &amp;$老变量;</code></p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628105345581.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628105345581.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628110156014.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628110156014.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>在内存中，通常有以下几个分区</p>
 <ul>
@@ -589,7 +589,7 @@
 <li>使用定义常量的函数：define(‘常量名’,常量值);</li>
 <li>php5.3 之后才有的：const 常量名 = 值;</li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628110809490.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628110809490.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="命名规则-1"><a href="#命名规则-1" class="headerlink" title="命名规则"></a>命名规则</h4><ol>
 <li><p>常量不需要使用“$”符号，一旦使用系统就会认为是变量；</p>
@@ -599,7 +599,7 @@
 <li><p>常量的名字通常是以 <strong>大写字母</strong> 为主（与变量以示区别）；</p>
 </li>
 <li><p>常量命名的规则比变量要松散，可以使用一些特殊字符，该方式只能使用 define 定义；</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628111008222.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628111008222.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <p>注意细节：</p>
 <ol>
@@ -608,7 +608,7 @@
 </ol>
 <h4 id="使用形式"><a href="#使用形式" class="headerlink" title="使用形式"></a>使用形式</h4><p>常量的使用与变量一样：但是不可改变值（在定义的时候必须赋值）</p>
 <p>有的时候还需要使用另外一种形式来访问（针对的是特殊名字的常量），需要用到另外一个访问常量的函数：constant(‘常量名’)</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628111559972.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628111559972.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>说明：常量和变量的使用</p>
 <ol>
@@ -626,7 +626,7 @@
 <li><p>PHP_INT_MAX： 整形能表示的最大值（PHP 中整形是允许出现负数：带符号）</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628112021974.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628112021974.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>在 PHP 中还有一些特殊的常量，他们有双下划线开始+长两名+双下划线结束，这种常量称之为系统 魔术常量：魔术常量的值通常会跟着环境变化，但是用户改变不了</p>
 <ul>
@@ -634,7 +634,7 @@
 <li><code>__FILE__</code>：当前被执行的脚本所在的电脑的绝对路径（带自己文件的名字）</li>
 <li><code>__LINE__</code>：当前所属的行数</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628112651317.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628112651317.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <ul>
 <li><code>__NAMESPACE__</code>：当前所属的命名空间</li>
@@ -676,7 +676,7 @@
 </ol>
 <p>在转换过程中用到比较多的就是转布尔类型（判断）和转数值类型（算数运算）</p>
 <p>其他类型转布尔类型：true 或者 false，在 PHP 中比较少类型换变成 false</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628113541600.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628113541600.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>其他类型转数值的说明：</p>
 <ol>
@@ -687,7 +687,7 @@
 <li><p>以字母开头的字符串，永远为 0；</p>
 </li>
 <li><p>以数字开头的字符串，取到碰到字符串为止（不会同时包含两个小数点）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628114334753.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628114334753.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 </li>
 </ol>
@@ -697,12 +697,12 @@
 <p>Bool 类型不能用 echo 来查看，可以使用 var_dump 结构查看：</p>
 <div class="hljs code-wrapper"><pre><code>`var_dump(变量1,变量2…)`
 </code></pre></div>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628124820018.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628124820018.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>还有一组函数可以用来获取以及设定数据（变量）的类型</p>
 <div class="hljs code-wrapper"><pre><code>gettype(变量名)：获取类型，得到的是该类型对应的字符串
 </code></pre></div>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628131733521.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628131733521.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <div class="hljs code-wrapper"><pre><code>settype(变量名,类型)：设定数据类型：与强制转换不同
 </code></pre></div>
@@ -710,7 +710,7 @@
 <li>强制转换(类型)变量名，是对数据值复制的内容进行处理（不会处理实际存储的内容）</li>
 <li>settype 会直接改变数据本身</li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628132058386.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628132058386.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="整数类型（int）"><a href="#整数类型（int）" class="headerlink" title="整数类型（int）"></a>整数类型（int）</h4><p>整数类型：保存整数数值（范围限制），4 个字节存储数据，最大就是 32 位：4,294,967,295。</p>
 <p>但是在 PHP 中默认是有符号类型（区分正负数）</p>
@@ -725,7 +725,7 @@
 <li><p>$a=0x120; //16 进制</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628134037488.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628134037488.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h5 id="PHP-进制转换"><a href="#PHP-进制转换" class="headerlink" title="PHP 进制转换"></a>PHP 进制转换</h5><ul>
 <li><p>decbin()：十进制转二进制</p>
@@ -739,18 +739,18 @@
 <li><p>bin2hex()：二进制转十六进制</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628140009412.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628140009412.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="浮点类型（float）"><a href="#浮点类型（float）" class="headerlink" title="浮点类型（float）"></a>浮点类型（float）</h4><p>浮点型：小数类型以及超过整型所能存储范围的整数（不保证精度），精度范围大概在 15 个有效数字左右</p>
 <h5 id="定义方式-1"><a href="#定义方式-1" class="headerlink" title="定义方式"></a>定义方式</h5><p>$f = 1.23;</p>
 <p>$f = 1.23e10; //科学计数法，其中 e 表示底 10</p>
-<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628140744653.png" srcset="/img/loading2.gif" lazyload alt="image-20210628140744653"></p>
+<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628140744653.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload alt="image-20210628140744653"></p>
 <p>简单说明浮点数为什么同样的字节数存储数据，但是却能表示更大的数据呢？</p>
 <p>00000000 00000000 00000000 00000000 -&gt; 11111111 11111111 11111111 1111111 （整形最大值：所有位都是有效数据）</p>
 <p>浮点数：加深 7 位算的结果是 10 的指数，后面三个字节存储表示具体数值</p>
 <p>00000000 00000000 00000000 00000000 -&gt; 1<strong>1111111</strong> 11111111 11111111 1111111</p>
 <p>注意：尽量不用用浮点数做精确判断：浮点数保存的数据不够精确，而且在计算机中凡是小数基本上存的都不准确</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141213736.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141213736.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="字符串类型（string）"><a href="#字符串类型（string）" class="headerlink" title="字符串类型（string）"></a>字符串类型（string）</h4><h5 id="字符串定义语法"><a href="#字符串定义语法" class="headerlink" title="字符串定义语法"></a>字符串定义语法</h5><ol>
 <li>单引号字符串：使用单引号包裹</li>
@@ -990,13 +990,13 @@
 <li>array_values()：获取一个数组的所有值，返回一个索引数组</li>
 </ol>
 <h4 id="布尔类型（boolean）"><a href="#布尔类型（boolean）" class="headerlink" title="布尔类型（boolean）"></a>布尔类型（boolean）</h4><p>布尔类型：两个值 true 和 false，通常是用于判断比较</p>
-<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141333016.png" srcset="/img/loading2.gif" lazyload alt="image-20210628141333016"></p>
+<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141333016.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload alt="image-20210628141333016"></p>
 <p>在进行某些数据判断的时候，需要特别注意类型转换</p>
 <div class="hljs code-wrapper"><pre><code>empty()：判断数据的值是否为“空”，不是NULL，如果为空返回true，不为空返回false
 
 isset()：判断数据存储的变量本身是否存在，存在变量返回true，不存在返回false
 </code></pre></div>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141717452.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141717452.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>运算符：operator，是一种将数据进行运算的特殊符号，在 PHP 中一共有十种运算符之多</p>
 <h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p>符号是“=”，表示将右边的结果（可以是变量、数据、常量和其它运算出来的结果），保存到内存的某个位置，然后将位置的内存地址赋值给左侧的变量（常量）。</p>
@@ -1042,7 +1042,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p><code>!</code> ：逻辑非，对已有条件进行取反，本身为 true，取反结果就是 false</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628142659903.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628142659903.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>逻辑与和逻辑或又称之为<strong>**短路运算**<strong>：如果第一个表达式结果已经满足条件了，那么就不会运行逻辑运算符后面的表达式：</strong>在书写代码的时候，尽量将出现概率最高的（能够直接判断出结果）的表达式放到第一位，提高运算效率</strong></p>
 <h4 id="连接运算符"><a href="#连接运算符" class="headerlink" title="连接运算符"></a>连接运算符</h4><p>是 PHP 中将多个字符串拼接的一种符号</p>
@@ -1051,12 +1051,12 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><code>.=</code> ： 复合运算，将左边的内容与右边的内容连接起来，然后重新赋值给左边变量</li>
 </ul>
 <p>A .= b ⇔ A = A . b</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628143257603.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628143257603.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="错误抑制符"><a href="#错误抑制符" class="headerlink" title="错误抑制符"></a>错误抑制符</h4><p>在 PHP 中有一些错误可以提前预知，但是这些错误可能无法避免，但是又不希望报错给用户看，可以使用错误抑制符处理。</p>
 <div class="hljs code-wrapper"><pre><code>`@` ：在可能出错的表达式前面使用@符号即可
 </code></pre></div>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628143553218.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628143553218.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>错误抑制符通常在生产环境（上线）会用到，在开发的时候不会用：系统本身最好没有任何错误。</p>
 <h4 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h4><p>三目运算：有三个表达式参与的运算（简单的的分支结构缩写）</p>
@@ -1121,7 +1121,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </ul>
 <ol>
 <li><p>|：按位或，两个有一个为 1，结果为 1</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628151029489.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628151029489.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>注意：</p>
 <ol>
@@ -1136,17 +1136,17 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </ol>
 <ul>
 <li><p>~：按位非，一个位如果为 1 则变成 0，否则反之</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628151449325.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628151449325.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>^：按位异或，两个相同则为 0，不同则为 1</p>
 </li>
 <li><p>&lt;&lt;：按位左移，整个位（32 位），向左移动一位，右边补 0</p>
 </li>
 <li><p>&gt;&gt;：按位右移，整个位向右移动一位，左边补符号位对应内容</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628152113926.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628152113926.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ul>
 <p>按位左移：乘以 2 的操作</p>
 <p>按位右移：除以 2 的操作（不完全正确）：整数除 2 会出现小数</p>
-<h4 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628152259662.png" srcset="/img/loading2.gif" lazyload class>
+<h4 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628152259662.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h4 id="控制分类"><a href="#控制分类" class="headerlink" title="控制分类"></a>控制分类</h4><ul>
 <li>顺序结构：代码从上往下，顺序执行。（代码执行的最基本结构）</li>
@@ -1217,14 +1217,14 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <p>例子： 九九乘法表</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php+HTML">&lt;table border=&quot;1&quot;&gt;<br>    &lt;?php for ($i = 1; $i &lt; 10; $i++) &#123; ?&gt;<br>    &lt;tr&gt;<br>        &lt;?php for ($j = 1; $j &lt;= $i; $j++) &#123; ?&gt;<br>        &lt;td&gt;<br>            &lt;?php echo $i . &#x27; * &#x27; . $j . &#x27; = &#x27; . $i * $j ?&gt;<br>        &lt;/td&gt;<br>        &lt;?php &#125; ?&gt;<br>    &lt;/tr&gt;<br>    &lt;?php &#125; ?&gt;<br>&lt;/table&gt;<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628160755681.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628160755681.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>在 PHP 书写到 HTML 中的这些大括号{}非常不美观，所以 PHP 提供了一种替代机制，让其可以不用书写大括号：</p>
 <ul>
 <li>For(;;){ –&gt; for(;;):</li>
 <li>} –&gt; endfor;</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628161032944.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628161032944.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>PHP 中具体有哪些替代语法呢？</p>
 <p>PHP 应该在 HTML 中只做数据输出，输出通常伴有条件判断和循环操作，因此 PHP 提供了对应分支结构和循环结构的替代语法：全部都是对应的一个模式：</p>
@@ -1295,10 +1295,10 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>Include(‘文件名字’); //文件名字：路径问题</p>
 </li>
 </ul>
-<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628163927572.png" srcset="/img/loading2.gif" lazyload alt="image-20210628163927572"></p>
+<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628163927572.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload alt="image-20210628163927572"></p>
 <p>以上方式：是先包含文件，后使用文件中的内容（向上包含）</p>
 <p>向下包含：先准备内容，然后包含另外的文件，在另外的文件中，使用当前的内容</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628164455678.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628164455678.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="文件加载原理"><a href="#文件加载原理" class="headerlink" title="文件加载原理"></a>文件加载原理</h4><p>PHP 代码的执行流程：</p>
 <ol>
@@ -1315,21 +1315,21 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </li>
 <li><p>在 PHP 中被包含的文件是单独进行编译的</p>
 <p>PHP 文件在编译的过程中如果出现了语法错误，那么会失败（不会执行）；但是如果被包含文件有错误的时候，系统会在执行到包含 include 这条语句的时候才会报错。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628165803659.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628165803659.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <h4 id="include-和-requist-的区别"><a href="#include-和-requist-的区别" class="headerlink" title="include 和 requist 的区别"></a>include 和 requist 的区别</h4><p>Include 和 include_once 的区别：</p>
 <ul>
 <li><p>Include 系统会碰到一次，执行一次；如果对统一个文件进行多次加载，那么系统会执行多次；</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170242685.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170242685.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>Include_once：系统碰到多次，也只会执行一次。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170333116.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170333116.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ul>
 <p>Require 和 include 的区别：本质都是包含文件，唯一的区别在于包含不到文件的时候，报错的形式不一样</p>
 <ul>
 <li><p>include 的错误级别比较轻：不会阻止代码执行</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170614796.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170614796.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>require 要求较高：如果包含出错代码不再执行（require 后面的代码）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170729389.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170729389.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ul>
 <h4 id="文件加载路径"><a href="#文件加载路径" class="headerlink" title="文件加载路径"></a>文件加载路径</h4><p>文件在加载的时候需要指定文件路径才能保证 PHP 正确的找到对应的文件。</p>
 <p>文件的加载路径包含两大类：</p>
@@ -1348,7 +1348,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <p>Localhost/index.php -&gt; E:/server/apache/htdocs/index.php</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628172146092.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628172146092.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 </li>
 <li><p>相对路径：从当前文件所在目录开始的路径</p>
@@ -1356,7 +1356,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><code>.</code> 或 <code>./</code> ：表示当前文件夹</li>
 <li><code>../</code> ：上级目录（当前文件夹的上一层文件夹）</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628172039596.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628172039596.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <p>绝对路径和相对路径的加载区别：</p>
 <ol>
@@ -1387,7 +1387,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <p><strong>形参</strong>：形式参数，不具有实际意义的参数，是在函数定义时使用的参数</p>
 <p><strong>实参</strong>：实际参数，具有实际数据意义的参数，是在函数调用时使用的参数</p>
 <p>形参是实参的载体：实参在调用时通常是需要传入到函数内部参与计算（运算），那么需要在函数内部去找到实际数据所在的位置才能找到数据本身：需要实际调用的时候，将数据以实参的形式传递给形参：给形参赋值，从而使得函数内部可以用到外部数据。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628173503789.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628173503789.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>注意：</p>
 <ol>
@@ -1396,7 +1396,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>在 PHP 中理论上形参个数没有限制（实际开发不会太多）</p>
 </li>
 <li><p>实参不能少于形参个数</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628173519627.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628173519627.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <h5 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h5><p>default value，指的是形参的默认值</p>
 <p>在函数定义的时候，就给形参进行一个初始赋值：如果实际调用传入的参数（实参）没有提供，那么形参就会使用定义时的值来进入函数内部参与运算。</p>
@@ -1423,7 +1423,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>return 在函数内部存在的价值：返回当前函数的结果、结束当前函数运行</p>
 </li>
 <li><p>return 还可以在文件中直接使用（不在函数里面）：代表文件将结果 return 后面跟的内容，转交给包含当前文件的位置。（通常在系统配置文件中使用较多），在文件中也代表中终止文件后面的代码：return 之后的内容不会执行。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628174307294.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628174307294.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>变量（常量）能够被访问的区域</p>
 <ol>
@@ -1445,7 +1445,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </li>
 </ol>
 <p>超全局变量会将全局变量自动纳入到 $GLOBALS 里面，而 $GLOBALS 没有作用域限制，所以能够帮助局部去访问全局变量：但是必须使用数组方式</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628174933758.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628174933758.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>除了$GLOBALS 之外，通过参数传值（如果要同步变化还可以使用引用传值）</p>
 <p>在 PHP 中，其实还有一种方式，能够实现全局访问局部，同时局部也可以访问全局：<strong>global 关键字</strong></p>
@@ -1464,7 +1464,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> 函数名(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-comment">//定义变量</span><br>    <span class="hljs-built_in">static</span> $变量名 = 值;	<span class="hljs-comment">//通常会在定义的时候就直接赋值</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>静态变量的作用是为了跨函数共享数据（同一个函数被多次调用）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628180343510.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628180343510.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>函数在调用的时候，会自动跳过 static 关键字这一行：(即不再执行重新赋值为 1)</p>
 <p>静态变量的使用：</p>
@@ -1476,18 +1476,18 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">$变量 = ‘display’;<br><span class="hljs-function"><span class="hljs-keyword">Function</span> <span class="hljs-title">display</span>(<span class="hljs-params"></span>)</span>&#123;<br>&#125;<br><span class="hljs-comment">//可变函数</span><br>$变量(); <span class="hljs-comment">// 等价于 display();</span><br></code></pre></div></td></tr></table></figure>
 
 <p>可变函数在系统使用的过程中还是比较多的，尤其是使用很多系统函数的时候：需要用户在外部定义一个自定义函数，但是是需要传入到系统函数内部使用。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628181551870.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628181551870.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><h5 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h5><p>匿名函数：没有名字的函数</p>
 <p>基本语法：</p>
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">变量名 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    函数体<br>&#125;;<br></code></pre></div></td></tr></table></figure>
 
 <p>变量保存匿名函数，本质得到的是一个对象（Closure）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628224942148.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628224942148.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><p>closure，一词来源于以下两者的结合：要执行的代码块（由于自由变量被包含在代码块中，这些自由变量以及它们引用的对象没有被释放）和为自由变量提供绑定的计算环境（作用域）</p>
 <p>简单理解：函数内部有一些局部变量（要执行的代码块）在函数执行之后没有被释放，是因为在函数内部还有对应的函数在引用（就是函数的内部函数：匿名函数）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628225513934.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628225513934.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>证明：函数的局部变量在函数使用完之后没有被释放？</p>
 <ol>
@@ -1495,7 +1495,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>匿名函数使用局部变量：use；</li>
 <li>匿名函数被返回给外部使用；</li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628225901656.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628225901656.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="伪类型"><a href="#伪类型" class="headerlink" title="伪类型"></a>伪类型</h4><p>假类型，实际上在 PHP 中不存在的类型。但是通过伪类型可以帮助程序员去更好的查看操作手册从而更方便学习。</p>
 <p>伪类型主要有两种：在三大类八小类之外</p>
@@ -1509,12 +1509,12 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>print_r()：类似于 var_dump，但是比 var_dump 简单，不会输出数据的类型，只会输出值（数组打印使用比较多）</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628231543632.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628231543632.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h5 id="有关时间的函数"><a href="#有关时间的函数" class="headerlink" title="有关时间的函数"></a>有关时间的函数</h5><ul>
 <li>date()：按照指定格式对对应的时间戳（从 1970 年格林威治时间开始计算的秒数）转换成对应的格式，如果没有指定特定的时间戳，那么就是默认解释当前时间戳</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628231813625.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628231813625.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <ul>
 <li><p>time()：获取当前时间对应的时间戳</p>
@@ -1522,12 +1522,12 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>microtime()：获取微秒级别的时间</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628234013522.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628234013522.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <ul>
 <li>strtotime()：按照规定格式的字符串转换成时间戳 (中文不行)</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628234426704.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628234426704.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h5 id="关于数学的函数"><a href="#关于数学的函数" class="headerlink" title="关于数学的函数"></a>关于数学的函数</h5><ul>
 <li><p>max()：指定参数中最大的值</p>
@@ -1561,7 +1561,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>func_num_args()：获取当前自定义函数的参数数量 – 实参数量</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629000146909.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629000146909.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>指的是系统（或者用户）在对某些代码进行执行的时候，发现有错误，就会通过错误处理的形式告知程序员。</p>
 <h5 id="错误分类"><a href="#错误分类" class="headerlink" title="错误分类"></a>错误分类</h5><ol>
@@ -1596,11 +1596,11 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>只要警告和通知：<code>E_WARNING | E_NOTICE</code></li>
 </ul>
 <h5 id="错误触发"><a href="#错误触发" class="headerlink" title="错误触发"></a>错误触发</h5><p>程序运行时触发：系统自动根据错误发生后，对比对应的错误信息，输出给用户：主要针对代码的语法错误和运行时错误。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629185803983.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629185803983.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>人为触发：知道某些逻辑可能会出错，从而使用对应的判断代码来触发响应的错误提示</p>
 <p><code>Trigger_error(错误提示)</code>：产生一个用户级别的 error/warning/notice 信息</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629190645937.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629190645937.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>可以通过第二个参数进行严格性控制</p>
 <ul>
@@ -1608,7 +1608,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>E_USER_WARNING</li>
 <li>E_USER_NOTICE</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629190943882.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629190943882.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <h5 id="错误显示设置"><a href="#错误显示设置" class="headerlink" title="错误显示设置"></a>错误显示设置</h5><p>错误显示设置：哪些错误该显示，以及该如何显示</p>
 <p>在 PHP 中，其实有两种方式来设置当前脚本的错误处理：</p>
@@ -1618,7 +1618,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>display_errors：是否显示错误</li>
 <li>error_reporting：显示什么级别的错误</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629192249764.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629192249764.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>可以在运行的 PHP 脚本中去设置：在脚本中定义的配置项级别比配置文件高（通常在开发当中都会在代码中去进行控制和配置）</p>
 <p>error_reporting()：设置对应的错误显示级别,没有参数表示获取当前系统错误处理对应的级别</p>
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">error_reporting(E_ERROR | E_WARNING | E_PARSE);<br></code></pre></div></td></tr></table></figure>
@@ -1636,25 +1636,25 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <p>所以在生产环境中，一般不显示错误（错误也比较少），但是不可能避免会出现错误（测试的时候不会发现所有的问题），这个时候不希望看到，但是又希望捕捉到可以让后台程序员去修改：需要保存到日志文件中，需要在 PHP 配置文件中或者代码中（ini_set）设置对应 error_log 配置项:</p>
 <ol>
 <li><p>开启日志功能</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193034111.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193034111.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>指定路径 (指定文件不会自动生成，必须手动创建)</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629192910558.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629192910558.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <h5 id="自定义错误处理"><a href="#自定义错误处理" class="headerlink" title="自定义错误处理"></a>自定义错误处理</h5><p>最简单的错误处理：<code>trigger_errors()</code> 函数，但是该函数不会阻止系统报错</p>
 <p>PHP 系统提供了一种用户处理错误的机制：用户自定义错误处理函数，然后将该函数增加操系统错误处理的句柄中，然后系统会在碰到错误之后，使用用户定义的错误函数。</p>
 <ol>
 <li><p>如何将用户自定义的函数放到系统中？</p>
 <p><code>set_error_handler()</code></p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193323858.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193323858.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>自定义错误处理函数，系统有要求</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193429192.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193429192.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 </ol>
 <p>代码实现：</p>
 <ol>
 <li><p>自定义错误处理函数：注意参数</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629194719236.png" srcset="/img/loading2.gif" lazyload class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629194719236.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class></li>
 <li><p>注册自定义函数：修改错误处理机制</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629195100688.png" srcset="/img/loading2.gif" lazyload class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629195100688.png" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class>
 
 <p>当前属于简单自定义模式，如果要复杂，可以在某些影响代码功能的错误发生后，让用户跳转到某个指定界面。</p>
 </li>
@@ -1766,7 +1766,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 
   <div class="col-lg-7 mx-auto nopadding-x-md">
     <div class="container custom post-custom mx-auto">
-      <img src="http://cdn.agonilay.top/agoni.gif" srcset="/img/loading2.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;"> <h5 style="text-align: center; margin-top: 1rem;">谢谢您的光临噢！！！</h5> 
+      <img src="http://cdn.agonilay.top/agoni.gif" srcset="https://cdn.agonilay.top/loading2.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;"> <h5 style="text-align: center; margin-top: 1rem;">谢谢您的光临噢！！！</h5> 
     </div>
   </div>
 
