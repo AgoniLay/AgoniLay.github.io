@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月27日 下午
+                  本文最后更新于：2021年12月13日 上午
                 
               </p>
             
@@ -812,7 +812,7 @@
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">Model.update(conditions, doc, [options], [callback]);<br></code></pre></div></td></tr></table></figure>
 
 <p>根据指定条件更新一个：</p>
-<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">Mode.findOneAndUpdate([conditions], [update], [options], [callback]);<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">Model.findOneAndUpdate([conditions], [update], [options], [callback]);<br></code></pre></div></td></tr></table></figure>
 
 <p>根据 id 更新一个：</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">User.findByIdAndUpdate(<br>  <span class="hljs-string">&quot;6188a8f90f972021946da51e&quot;</span>,<br>  &#123;<br>    <span class="hljs-attr">password</span>: <span class="hljs-string">&quot;020316&quot;</span>,<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;更新失败&quot;</span>);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;更新成功&quot;</span>);<br>      <span class="hljs-built_in">console</span>.log(data); <span class="hljs-comment">// 返回更改前数据</span><br>    &#125;<br>  &#125;<br>);<br></code></pre></div></td></tr></table></figure>
