@@ -211,7 +211,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      25.2k 字
+      39.2k 字
     </span>
   
 
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月20日 晚上
+                  本文最后更新于：2022年3月2日 凌晨
                 
               </p>
             
@@ -1848,7 +1848,160 @@
 <blockquote>
 <p>注意：p 标签中不能包含 div 标签。</p>
 </blockquote>
-<h3 id="跨页面通信"><a href="#跨页面通信" class="headerlink" title="跨页面通信"></a>跨页面通信</h3><h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ol>
+<h3 id="DOM-树"><a href="#DOM-树" class="headerlink" title="DOM 树"></a>DOM 树</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>从网络传给渲染引擎的 HTML 文件字节流是无法直接被渲染引擎理解的，所以需要将其转化为渲染引擎能够理解的内部结构，这个结构就是 DOM，DOM 提供了对 HTML 文档结构化的表述，DOM 有三个层面的作用：</p>
+<ul>
+<li>页面的视角：DOM 是生成页面的基础数据结构；</li>
+<li>从 JavaScript 脚本视角来看：DOM 提供给 JavaScript 脚本操作的接口，从而可以对 DOM 结构进行访问，进而改变文档的结构、样式和内容；</li>
+<li>从安全视角来看：DOM 是一道安全防护线，一些不安全的内容在 DOM 解析阶段就可以拦截。</li>
+</ul>
+<p>简言之，DOM 是表述 HTML 的内部数据结构，它会将 Web 页面和 JavaScript 脚本连接起来，并过滤掉部分不安全的内容。</p>
+<h4 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h4><p>在渲染引擎中，有一个叫 HTML 解析器（HTMLParser）的模块，其职责就是负责将 HTML 字节流转换为 DOM 结构。</p>
+<p>HTML 解析器并不是等整个文档加载完成之后再解析的，而是网络进程加载了多少数据，HTML 解析器便解析多少数据：</p>
+<ul>
+<li>网络进程接收到响应头后，会根据响应头中的 <code>content-type</code> 字段来判断文件的类型，然后为该请求选择或者创建一个渲染进程；</li>
+<li>然后网络进程和渲染进程之间就会建立一个共享数据的管道，网络进程将接收到的数据放在此管道中，而渲染进程则从管道的另一端不断地读取数据，并同时传给 HTML 解析器，将其动态实时解析为 DOM。</li>
+</ul>
+<p>DOM 生成流程：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220223232307492.png" srcset="/img/three2.gif" lazyload class title="字节流 -&gt; DOM">
+
+<p><strong>第一个阶段，通过分词器将字节流转换为 Token</strong>；</p>
+<p>V8 编译 JavaScript 过程中的第一步是做词法分析，将 JavaScript 先分解为一个一个 Token；解析 HTML 也同理，需要通过分词器将字节流转换成一个一个 Token，分为 <code>Tag Token</code> 和 <code>文本 Token</code>：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220223232646991.png" srcset="/img/three2.gif" lazyload class title="Token 示意图">
+
+<p>其中，Tag Token 又分为 StartTag 和 EndTag。</p>
+<p><strong>后续的二和三阶段是同步进行的，需要将 Token 解析为 DOM 阶段，并将 DOM 节点添加到 DOM 树中</strong>。</p>
+<p>HTML 解析器维护了一个 Token 栈结构，该 Token 栈主要用来计算节点之间的父子关系，在第一个阶段生成的 Token 会依次压到这个栈中，处理规则如下：</p>
+<ol>
+<li><p>HTML 解析器开始工作时，会默认创建了一个根为 document 的空 DOM 结构，同时将一个 StartTag document 压入栈中，并同时创建一个 html 的 DOM 节点，将其加入到 DOM 树中。</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220223233942311.png" srcset="/img/three2.gif" lazyload class title="初始化阶段"></li>
+<li><p>若压入的是 StartTag Token，HTML 解析器会为该 Token 创建一个 DOM 节点，然后将该节点加入到 DOM 树中，父节点就是栈中相邻的那个元素生成的节点；</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220223234022765.png" srcset="/img/three2.gif" lazyload class title="startTag Token"></li>
+<li><p>若分词器解析到的是 文本 Token，那么会生成一个文本节点，然后将该节点加入到 DOM 树中，文本 Token 无需压入到栈中，父节点就是当前栈顶 Token 所对应的 DOM 节点；</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220223234041536.png" srcset="/img/three2.gif" lazyload class title="文本 Token"></li>
+<li><p>若解析到的是 EndTag 标签，HTML 解析器会查看 Token 栈顶的元素是否与之对应，是，则将对应的 StartTag Token 从栈中弹出，表示该节点解析完成；</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220223234106295.png" srcset="/img/three2.gif" lazyload class title="EndTag"></li>
+<li><p>以此反复，直到分词器将所有字节流分词完成。</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220223234125004.png" srcset="/img/three2.gif" lazyload class title="解析完成"></li>
+</ol>
+<h4 id="JS-影响-DOM"><a href="#JS-影响-DOM" class="headerlink" title="JS 影响 DOM"></a>JS 影响 DOM</h4><p>内嵌式：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>agoni<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">      <span class="hljs-keyword">let</span> div1 = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&#x27;div&#x27;</span>)[<span class="hljs-number">0</span>]</span><br><span class="javascript">      div1.innerText = <span class="hljs-string">&#x27;AgoniLay&#x27;</span></span><br><span class="javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>lay<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>在遇到 <code>script</code> 标签之前，所有的解析流程不变，但是当解析到 <code>script</code> 标签时，渲染引擎会判断到这是一段内嵌脚本，此时 HTML 解析器就会暂停 DOM 的解析（因为 JS 中可能会修改当前已经生成的 DOM 结构），JavaScript 引擎介入，并执行 <code>script</code> 标签中的脚本，在执行脚本完成之后，脚本中所修改的 DOM 节点相关内容就已经改变，此时 HTML 解析器恢复解析过程，继续解析后续节点，直至生成最终的 DOM 树。</p>
+<p>引入式：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// demo.js</span><br><span class="hljs-keyword">let</span> div1 = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&#x27;div&#x27;</span>)[<span class="hljs-number">0</span>]<br>div1.innerText = <span class="hljs-string">&#x27;AgoniLay&#x27;</span><br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>agoni<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;demo.js&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>lay<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>整个执行流程和上面是一样的，但在执行 JavaScript 之前需要先下载这段 JavaScript 代码；</p>
+<blockquote>
+<p>下载过程会阻塞 DOM 解析，且通常会十分耗时，Chorme 浏览器做了许多优化，如预解析操作：当渲染引擎收到字节流后，会首先开启一个预解析线程，用来分析 HTML 文件中包含的 JavaScript、CSS 等相关文件，解析到相关文件之后，预解析线程会提前下载这些文件。</p>
+</blockquote>
+<p>可以采用一些相关的策略来规避：</p>
+<ul>
+<li><p>使用 CDN 来加速 JavaScript 文件的加载；</p>
+</li>
+<li><p>压缩 JavaScript 文件的体积；</p>
+</li>
+<li><p>若某 JavaScript 文件中未进行操作 DOM 相关代码，可以通过 <code>async</code> 或 <code>defer</code> 标记来将该 JavaScript 脚本设置为异步加载：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">async</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;demo.js&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>或<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;demo.js&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>async 和 defer 的差异：</p>
+<ul>
+<li>使用 async 标记的脚本文件一旦加载完成，会立即执行；</li>
+<li>而使用 defer 标记的脚本文件，需要在 <code>DOMContentLoaded</code> 事件之前执行。</li>
+</ul>
+</blockquote>
+<p>CSSOM 相关：</p>
+<p>JavaScript 脚本中出现了操作 CSSOM 的代码，在执行 JavaScript 之前需要先解析 JavaScript 语句之上所有的 CSS 样式，若代码引用了外部的 CSS 文件，那么还需再执行 JavaScript 代码之前等待外部的 CSS 文件下载完成，并解析生成 CSSOM 对象后，才能执行脚本。</p>
+<p>JavaScript 引擎再解析 JavaScript 之前是不知道其中是否操纵了 CSSOM 的，所以渲染引擎在遇到 JavaScript 脚本时不管是否操纵了 CSSOM，都会执行 CSS 文件下载、解析操作，再执行 JavaScript 脚本。</p>
+<blockquote>
+<p>CSSOM 有关文章：<a target="_blank" rel="noopener" href="https://blog.poetries.top/browser-working-principle/guide/part5/lesson23.html">https://blog.poetries.top/browser-working-principle/guide/part5/lesson23.html</a></p>
+</blockquote>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="跨页面通信"><a href="#跨页面通信" class="headerlink" title="跨页面通信"></a>跨页面通信</h3><h4 id="同源页面间通信"><a href="#同源页面间通信" class="headerlink" title="同源页面间通信"></a>同源页面间通信</h4><h5 id="Broadcast-Channel"><a href="#Broadcast-Channel" class="headerlink" title="Broadcast Channel"></a>Broadcast Channel</h5><p>Broadcast Channel 可以创建一个用于广播的通信频道。当所有的页面都监听同一频道的消息时，其中的某一个页面通过它发送的消息就会被其他所有页面收到。</p>
+<p>创建：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> bc = <span class="hljs-keyword">new</span> BroadcastChannel(<span class="hljs-string">&#x27;AgoniLay&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+
+<p>监听：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">bc.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> data = e.data<br>  <span class="hljs-keyword">const</span> text = <span class="hljs-string">&#x27;[receive] &#x27;</span> + data.msg + <span class="hljs-string">&#x27; -- tab &#x27;</span> + data.from<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;[Broadcast Channel] receive message:&#x27;</span>, text)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>广播：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">bc.postMessage(myData)<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="Service-Worker"><a href="#Service-Worker" class="headerlink" title="Service Worker"></a>Service Worker</h5><p>Service Worker 是一个可以长期运行在后台的 Worker，能够实现与页面的双向通信。多页面共享间的 Sercvice Worker 可以共享，将 Service Worker 作为消息的处理中心即可实现广播效果。</p>
+<blockquote>
+<p>Service Worker 是 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903588691443725">PWA</a> 中的核心技术之一。</p>
+</blockquote>
+<p>首先在页面中注册 Service Worker：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">navigator.serviceWorker.register(<span class="hljs-string">&#x27;../util.sw.js&#x27;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Service Worker 注册成功&#x27;</span>)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p><code>../util.sw.js</code> 是对应的 Service Worker 脚本，Service Worker 本身并不具备广播通信的功能，需要进行改造：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// ../util.sw.js Service Worker 逻辑</span><br>self.addEventListener(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;service worker receive message&#x27;</span>, e.data)<br>  e.waitUntil(<br>    self.clients.matchAll().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">clients</span>) </span>&#123;<br>      <span class="hljs-keyword">if</span> (!clients || clients.length === <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span><br>      &#125;<br>      clients.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">client</span>) </span>&#123;<br>        client.postMessage(e.data)<br>      &#125;)<br>    &#125;)<br>  )<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>在 Service Worker 中监听了 <code>message</code> 事件，获取页面发送的信息。然后通过 <code>self.clients.matchAll()</code> 获取当前注册了该 Service Worker 的所有页面，通过调用每个 Client 的 <code>postMessage</code> 方法，向页面发送信息，从而达到广播效果。</p>
+<p>然后再页面中监听 Service Worker 发送来的消息：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">navigator.serviceWorker.addEventListener(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> data = e.data<br>  <span class="hljs-keyword">const</span> text = <span class="hljs-string">&#x27;[receive] &#x27;</span> + data.msg + <span class="hljs-string">&#x27; -- tab &#x27;</span> + data.from<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;[Service Worker] receive message:&#x27;</span>, text)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>需要同步消息时，调用 Service Worker 的 <code>postMessage</code> 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">navigator.serviceWorker.controller.postMessage(mydata)<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h5><p>当 LocalStorage 变化时，会触发 <code>storage</code> 事件，利用这个特性，可以在发送消息时把消息写入到某个 LocalStorage 中，然后在各个页面内监听 storage 事件即可收到通知。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;storage&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (e.key === <span class="hljs-string">&#x27;AgoniLay&#x27;</span>) &#123;<br>    <span class="hljs-keyword">const</span> data = <span class="hljs-built_in">JSON</span>.parse(e.newValue)<br>    <span class="hljs-keyword">const</span> text = <span class="hljs-string">&#x27;[receive] &#x27;</span> + data.msg + <span class="hljs-string">&#x27; -- tab &#x27;</span> + data.from<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;[Storage I] receive message:&#x27;</span>, text)<br>  &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>发送消息使用 <code>setItem</code> 即可：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">mydata.st = +(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>)<br><span class="hljs-built_in">window</span>.localStorage.setItem(<span class="hljs-string">&#x27;AgoniLay&#x27;</span>, <span class="hljs-built_in">JSON</span>.stringify(mydata))<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>注意：此处在 <code>mydata</code> 上添加了一个取当前毫秒时间戳的 <code>st</code> 属性，这是因为 <code>storage</code> 事件只有在值真正发生改变时才会触发。设置 <code>st</code> 属性可以保证每次调用时一定会触发 <code>storage</code> 事件。</p>
+</blockquote>
+<h5 id="Shared-Worker"><a href="#Shared-Worker" class="headerlink" title="Shared Worker"></a>Shared Worker</h5><p>普通的 Worker 之间是独立运行、数据互不相通的；而多个 Tab 注册的 Shared Worker 则可以实现数据共享。</p>
+<p>首先，在页面中启动一个 Shared Worker：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> shareWorker = <span class="hljs-keyword">new</span> SharedWorker(<span class="hljs-string">&#x27;../util.shared.js&#x27;</span>, <span class="hljs-string">&#x27;AgoniLay&#x27;</span>)<br><span class="hljs-comment">// 第二个参数是名称，可以留空</span><br></code></pre></div></td></tr></table></figure>
+
+<p>然后在该 Shared Worker 中支持 get 与 post 形式的消息：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// ../util.shared.js: Shared Worker 代码</span><br><span class="hljs-keyword">let</span> data = <span class="hljs-literal">null</span><br>self.addEventListener(<span class="hljs-string">&#x27;connect&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> port = e.ports[<span class="hljs-number">0</span>]<br>  port.addEventListener(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;<br>    <span class="hljs-comment">// get 指令返回存储的消息数据</span><br>    <span class="hljs-keyword">if</span> (event.data.get) &#123;<br>      data &amp;&amp; port.postMessage(data)<br>    &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// 否则存储该消息数据</span><br>      data = event.data<br>    &#125;<br>  &#125;)<br>  port.start()<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>之后，页面定时发送 get 指令的消息给 Shared Worker，轮询最新的消息数据，并在页面监听时返回：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 定时轮询，发送 get 指令的消息</span><br><span class="hljs-built_in">setInterval</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  sharedWorker.port.postMessage(&#123; <span class="hljs-attr">get</span>: <span class="hljs-literal">true</span> &#125;)<br>&#125;, <span class="hljs-number">1000</span>)<br><br><span class="hljs-comment">// 监听 get 消息的返回数据</span><br>sharedWorker.port.addEventListener(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> data = e.data<br>  <span class="hljs-keyword">const</span> text = <span class="hljs-string">&#x27;[receive] &#x27;</span> + data.msg + <span class="hljs-string">&#x27; -- tab &#x27;</span> + data.from<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;[Shared Worker] receive message:&#x27;</span>, text)<br>&#125;, <span class="hljs-literal">false</span>)<br>sharedWorker.port.start()<br></code></pre></div></td></tr></table></figure>
+
+<p>需要跨页面通信时，给 Shared Worker <code>postMessage</code> 即可：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">sharedWorker.port.postMessage(mydata)<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="IndexedDB"><a href="#IndexedDB" class="headerlink" title="IndexedDB"></a>IndexedDB</h5><p>还可以使用一些“全局性”的存储方案，例如 IndexedDB 或 cookie，思路与 Shared Worker 类似：消息发送方将消息存至 IndexedDB 中，接收方则通过轮询去获取最新的消息。</p>
+<h5 id="window-open-window-opener"><a href="#window-open-window-opener" class="headerlink" title="window.open + window.opener"></a>window.open + window.opener</h5><p>当使用 <code>window.open</code> 打开页面时，方法会返回一个被打开页面 <code>window</code> 的引用，而在未指定 <code>noopener</code> 时，被打开的页面可以通过 <code>window.opener</code> 获取到打开它的页面的引用 —— 通过这种方式可以在页面之间建立联系（一种树形结构）。</p>
+<p>首先，把 <code>window.open</code> 打开的页面的 <code>window</code> 对象收集起来：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> childWins = []<br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;btn&#x27;</span>).addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> win = <span class="hljs-built_in">window</span>.open(<span class="hljs-string">&#x27;./some/sample&#x27;</span>)<br>  childWins.push(win)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>发送消息时，同时通知它打开的页面和打开它的页面：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 过滤掉已经关闭的窗口</span><br>childWins = childWins.filter(<span class="hljs-function"><span class="hljs-params">w</span> =&gt;</span> !w.closed)<br><span class="hljs-keyword">if</span> (childWins.length &gt; <span class="hljs-number">0</span>) &#123;<br>  mydata.fromOpenner = <span class="hljs-literal">false</span><br>  childWins.forEach(<span class="hljs-function"><span class="hljs-params">w</span> =&gt;</span> w.postMessage(mydata))<br>&#125;<br><span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.opener &amp;&amp; !<span class="hljs-built_in">window</span>.opener.closed) &#123;<br>  mydata.fromOpenner = <span class="hljs-literal">true</span><br>	<span class="hljs-built_in">window</span>.opener.postMessage(mydata)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>收到消息的页面再进行传递：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> data = e.data<br>  <span class="hljs-keyword">const</span> text = <span class="hljs-string">&#x27;[receive] &#x27;</span> + data.msg + <span class="hljs-string">&#x27; —— tab &#x27;</span> + data.from<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;[Cross-document Messaging] receive message:&#x27;</span>, text)<br>  <span class="hljs-comment">// 避免消息回传</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.opener &amp;&amp; !<span class="hljs-built_in">window</span>.opener.closed &amp;&amp; data.fromOpenner) &#123;<br>    <span class="hljs-built_in">window</span>.opener.postMessage(data)<br>  &#125;<br>  <span class="hljs-comment">// 过滤掉已经关闭的窗口</span><br>  childWins = childWins.filter(<span class="hljs-function"><span class="hljs-params">w</span> =&gt;</span> !w.closed)<br>  <span class="hljs-comment">// 避免消息回传</span><br>  <span class="hljs-keyword">if</span> (childWins &amp;&amp; !data.fromOpenner) &#123;<br>    childWins.forEach(<span class="hljs-function"><span class="hljs-params">w</span> =&gt;</span> w.postMessage(data))<br>  &#125;<br>&#125;)<br><br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>在这种 “口口相传” 模式下，如果页面不是通过在另一个页面内的 <code>window.open</code> 打开的（比如直接在地址栏输入，或从其他网站链接过来），就无法做到消息传递。</p>
+</blockquote>
+<h4 id="非同源页面之间的通信"><a href="#非同源页面之间的通信" class="headerlink" title="非同源页面之间的通信"></a>非同源页面之间的通信</h4><p>可以使用一个用户不可见的 iframe 作为桥。由于 iframe 与父页面间可以通过指定 <code>origin</code> 来忽略同源限制，因此可以在每个页面中嵌入一个 iframe，这些 iframe 由于使用的是同一个 url，因此属于同源页面，就可以使用同源页面间的通信方式。</p>
+<p>首先，在页面中监听 iframe 发来的消息，做相应的业务处理：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;<br>  <span class="hljs-comment">// ... do something</span><br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>当页面要与其他同源或非同源页面通信时，会先给 iframe 发送消息：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.frame[<span class="hljs-number">0</span>].window.postMessage(mydata, <span class="hljs-string">&#x27;...&#x27;</span>) <span class="hljs-comment">// ... 可以设为 ifrmae 的 URL</span><br></code></pre></div></td></tr></table></figure>
+
+<p>iframe 收到消息后，使用某种同源跨页面通信技术在所有 iframe 间同步消息，其他 iframe 收到通知后，则会将该消息同步给所属的页面：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">bc.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;<br>  <span class="hljs-built_in">window</span>.parent.postMessage(e.data, <span class="hljs-string">&#x27;*&#x27;</span>)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>同源跨页面通信的方式：</p>
+<ul>
+<li>前三种都是 “广播模式”，一个页面将消息通知给一个“中央站”，在由“中央站”通知给各个页面，中央站可以是一个 Broadcast Cannel 实例，一个 Service Worker 或是 LocalStorage；</li>
+<li>Shared Worker 和 IndexedDB、cookie 等是 “共享存储+长轮询” 模式，但有时不一定非要长轮询；</li>
+<li>最后 window.open + window.opener 是 “口口相传” 模式。</li>
+<li>还有一种做法是通过 WebSocket 这类的 “<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903618043183111">服务器推</a>” 技术来进行同步，好比将 “中央站” 从前端移动到了后端，还有：Comet / SSE 等。</li>
+</ul>
+<p>非同源页面则可以通过嵌入同源 iframe 作为 “桥”，将非同源页面通信转化为同源页面通信。</p>
+<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ol>
 <li>当浏览器地址变化时，切换页面；</li>
 <li>当点击前进后退时，网页内容跟随变化；</li>
 <li>刷新浏览器，网页加载当前路由对应内容。</li>
@@ -1877,7 +2030,7 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 设置 URL 的 hash，会在当前 url 后加上 #abc</span><br><span class="hljs-built_in">window</span>.location.hash = <span class="hljs-string">&#x27;abc&#x27;</span><br><span class="hljs-keyword">let</span> hash = <span class="hljs-built_in">window</span>.location.hash <span class="hljs-comment">// &#x27;#abc&#x27;</span><br><br><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;hashchange&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-comment">// 监听 hash 变化，点击浏览器的前进后退会触发</span><br>&#125;)<br></code></pre></div></td></tr></table></figure>
 
-<h4 id="history-模式"><a href="#history-模式" class="headerlink" title="history 模式"></a>history 模式</h4><h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><ul>
+<h4 id="history-模式"><a href="#history-模式" class="headerlink" title="history 模式"></a>history 模式</h4><h5 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h5><ul>
 <li><code>window.history</code> 属性指向 History 对象，表示当前窗口的浏览历史。发生改变时只会改变页面的路径，不会刷新页面；</li>
 <li>History 对象保存了当前窗口访问过的所有页面地址。通过 <code>history.length</code> 可以得到当前窗口一共访问过几个网址；</li>
 <li>浏览器不允许脚本读取这些地址，但是允许在地址之间导航；</li>
@@ -1911,9 +2064,504 @@
 <li>调用 pushState() 或 replaceState() 方法，并不会触发该事件；</li>
 <li>只有用户点击浏览器倒退按钮和前进按钮，或者使用 JavaScript 调用 <code>History.back()</code>、<code>History.forward()</code>、<code>History.go()</code> 方法时才会触发；</li>
 <li>该事件只针对同一个文档，如果浏览器历史的切换导致加载不同的文档，也不会触发</li>
-<li>页面第一次加载的时候，浏览器不会触发 <code>popstate</code> 事件。</li>
+<li>页面第一次加载的时候，浏览器不会触发 <code>popstate</code> 事件</li>
 </ul>
-<h3 id="DOM-树"><a href="#DOM-树" class="headerlink" title="DOM 树"></a>DOM 树</h3><h3 id="事件模型-1"><a href="#事件模型-1" class="headerlink" title="事件模型"></a>事件模型</h3><h3 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h3><h3 id="浏览器架构"><a href="#浏览器架构" class="headerlink" title="浏览器架构"></a>浏览器架构</h3><h3 id="浏览器工作原理"><a href="#浏览器工作原理" class="headerlink" title="浏览器工作原理"></a>浏览器工作原理</h3><h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><h1 id="代码练习"><a href="#代码练习" class="headerlink" title="代码练习"></a>代码练习</h1><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><br></code></pre></div></td></tr></table></figure>
+<h3 id="事件模型-1"><a href="#事件模型-1" class="headerlink" title="事件模型"></a>事件模型</h3><p>事件的本质是程序各个组成之间的一种通信方式，也是异步编程的一种体现。</p>
+<h4 id="EventTarget-接口"><a href="#EventTarget-接口" class="headerlink" title="EventTarget 接口"></a>EventTarget 接口</h4><p>DOM 的事件操作（监听和触发）都定义在 <code>EventTarget</code> 接口，所有的节点对象都部署了这个接口，其他一些需要事件通信的了浏览器内置对象（如：<code>XMLHttpRequest</code>、<code>AudioNode</code>、<code>AudioContext</code>）也部署了这个接口。</p>
+<p><code>EventTarget</code> 接口主要提供三个实例方法：</p>
+<ul>
+<li><code>addEventListener</code>：绑定事件的监听函数；</li>
+<li><code>removeEventListener</code>：移除事件的监听函数；</li>
+<li><code>dispatchEvent</code>：触发事件</li>
+</ul>
+<h5 id="addEventListener"><a href="#addEventListener" class="headerlink" title="addEventListener()"></a>addEventListener()</h5><p><code>EventTarget.addEventListener()</code> 用于在当前节点或对象上，定义一个特定事件的监听函数，一旦事件发生就会执行监听函数，无返回值。</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">target.addEventListener(type, listener[, useCapture])<br><span class="hljs-comment">// 例子：</span><br><span class="hljs-keyword">var</span> button = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;btn&#x27;</span>)<br>button.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;hello AgoniLay!&#x27;</span>)<br>&#125;, <span class="hljs-literal">false</span>)<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li><code>type</code>：事件名称，大小写敏感；</li>
+<li><code>listener</code>：监听函数，也可以是一个具有 <code>handleEvent</code> 方法的对象；</li>
+<li><code>useCapture</code>：布尔值，表示监听函数是否在捕获阶段（capture）触发，默认为 <code>false</code>，参数可选；第三个参数也可以是一个属性配置对象：<ul>
+<li>capture：布尔值，表示该事件是否在捕获阶段触发监听函数；</li>
+<li>once：布尔值，表示监听函数是否只触发一次，随后就自动移除；</li>
+<li>passive：布尔值，表示监听函数不会调用事件的 preventDefault 方法，若监听函数调用了浏览器将会忽略并在控制台输出警告</li>
+</ul>
+</li>
+</ul>
+<p>注意：</p>
+<ol>
+<li><p><code>addEventListener</code> 方法可以为针对当前对象的同一个事件添加多个不同的监听函数，并按顺序触发（先添加先触发）；</p>
+</li>
+<li><p>如果为同一个事件多次添加同一个监听函数，则该函数只会执行一次，其余的将会自动被去除；</p>
+</li>
+<li><p>可以用匿名函数包装监听函数达到向监听函数传参的目的：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">print</span>(<span class="hljs-params">x</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(x)<br>&#125;<br><span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div1&#x27;</span>)<br>el.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; print(<span class="hljs-string">&#x27;Hello AgoniLay!&#x27;</span>) &#125;, <span class="hljs-literal">false</span>)<br></code></pre></div></td></tr></table></figure></li>
+<li><p>监听函数内部的 <code>this</code> 指向当前事件所在的对象。</p>
+</li>
+</ol>
+<h5 id="removeEventListener"><a href="#removeEventListener" class="headerlink" title="removeEventListener()"></a>removeEventListener()</h5><p><code>EventTarget.removeEventListener()</code> 方法用来移除 <code>addEventListener</code> 方法添加的事件监听函数，无返回值。</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">div.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, listener, <span class="hljs-literal">false</span>)<br>div.removeEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, listener, <span class="hljs-literal">false</span>)<br></code></pre></div></td></tr></table></figure>
+
+<p>参数和 <code>addEventListener</code> 方法的参数完全一致，<code>removeEventListener</code> 方法移除的监听函数必须是 <code>addEventListener</code> 方法添加的那个监听函数，且在同一个元素节点，且第三个参数也必须完全相同，例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">div.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;&#125;, <span class="hljs-literal">false</span>)<br>div.removeEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;&#125;, <span class="hljs-literal">false</span>)<br></code></pre></div></td></tr></table></figure>
+
+<p>上面代码中，<code>removeEventListener</code> 方法无效，因为监听函数不是同一个函数</p>
+<h5 id="dispatchEvent"><a href="#dispatchEvent" class="headerlink" title="dispatchEvent()"></a>dispatchEvent()</h5><p><code>EventTarget.dispatchEvent()</code> 方法在当前节点上触发指定事件，从而触发监听函数的执行。返回值为一个布尔值：只要有一个监听函数调用了 <code>Event.preventDefault()</code>，则返回值为 <code>false</code>，反而为 <code>true</code>。</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">target.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, hello, <span class="hljs-literal">false</span>)<br><span class="hljs-keyword">var</span> event = <span class="hljs-keyword">new</span> Event(<span class="hljs-string">&#x27;click&#x27;</span>)<br>target.dispatchEvent(event)<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>参数是一个 <code>Event</code> 对象的实例。</li>
+</ul>
+<h4 id="监听函数"><a href="#监听函数" class="headerlink" title="监听函数"></a>监听函数</h4><h5 id="HTML-on-属性"><a href="#HTML-on-属性" class="headerlink" title="HTML on 属性"></a>HTML on 属性</h5><p>HTML 语言允许在元素的属性中直接定义某些事件的监听代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">onload</span>=<span class="hljs-string">&quot;doSomething()&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;console.log(&#x27;触发点击事件&#x27;)&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>元素的事件监听属性，都是 <code>on + 事件名</code>，这些属性的值时将会执行的代码，而不是一个函数，且只会在冒泡阶段触发：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 正确 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">onload</span>=<span class="hljs-string">&quot;doSomething()&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- 错误 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">onload</span>=<span class="hljs-string">&quot;doSomething&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>直接设置 on 属性与通过元素节点的 <code>setAttribute</code> 方法设置 on 属性的效果是一样的：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">el.setAttribute(<span class="hljs-string">&#x27;onclick&#x27;</span>, <span class="hljs-string">&#x27;doSomething()&#x27;</span>)<br><span class="hljs-comment">// 等同于</span><br><span class="hljs-comment">// &lt;Element onclick=&quot;doSomething()&quot; /&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="元素节点的事件属性"><a href="#元素节点的事件属性" class="headerlink" title="元素节点的事件属性"></a>元素节点的事件属性</h5><p>元素节点对象的事件属性，同样可以指定监听函数，也是只在冒泡阶段触发：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">window</span>.onload = doSomething<br><br>div.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;触发点击事件&#x27;</span>)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>与 HTML on 属性的区别在于，此方式的值是函数本身或函数名，而不是可执行代码。</p>
+<h5 id="addEventListener-1"><a href="#addEventListener-1" class="headerlink" title="addEventListener()"></a>addEventListener()</h5><p>所有 DOM 节点实例都有 <code>addEventListener</code> 方法，用来为该节点定义事件的监听函数。</p>
+<h5 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h5><p>第一种 HTML 的 on 属性：违反了 HTML 与 JavaScript 代码相分离的原则，不利于代码分工，不推荐使用；</p>
+<p>第二种 元素节点的事件属性缺点在于同一个事件只能定义一个监听函数，因此也不推荐使用；</p>
+<p>故推荐使用第三种 <code>EventTarget.addEventListener</code> 方法：</p>
+<ol>
+<li>同一个事件可以添加多个监听函数；</li>
+<li>能够指定在那个阶段（冒泡或捕获）触发监听函数；</li>
+<li>除了 DOM 节点，其他一些对象也有此接口。</li>
+</ol>
+<h4 id="事件传播"><a href="#事件传播" class="headerlink" title="事件传播"></a>事件传播</h4><p>当一个事件发生后，会在子元素和父元素之间传播，分为三个阶段：</p>
+<ol>
+<li>从 window 对象传导到目标节点（从上层传到底层），称为 “捕获阶段”（capture phase）；</li>
+<li>在目标节点上触发，称为 “目标阶段”（target phase）；</li>
+<li>从目标节点传导回 window 对象（从底层传回上层），称为 “冒泡阶段”（bubbling phase）</li>
+</ol>
+<p>事件传播的最上层对象是 <code>window</code>，接着依次是 <code>document</code>、<code>html</code>（<code>document.documentElement</code>）和 <code>body</code>（<code>document.body</code>）。</p>
+<h4 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h4><p>由于事件会在冒泡阶段向上传播到父节点，所以可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件，也就是事件的代理（delegation）。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> ul = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;ul&#x27;</span>)<br>ul.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (event.target.tagName.toLowerCase() === <span class="hljs-string">&#x27;li&#x27;</span>) &#123;<br>    <span class="hljs-comment">// do something</span><br>  &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>如果希望事件到某个节点为止不在传播，可以使用事件对象的 <code>stopPropagation</code> 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 事件传播到 p 元素后，就不再向下传播</span><br>p.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;<br>  event.stopPropagation()<br>&#125;, <span class="hljs-literal">true</span>)<br><span class="hljs-comment">// 事件冒泡到 p 元素后，就不再向上冒泡</span><br>p.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;<br>  event.stopPropagation()<br>&#125;, <span class="hljs-literal">false</span>)<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>注意：<code>stopPropagation</code> 方法只会阻止事件的传播，不会阻止该事件触发已到达节点的其他监听函数，若需要彻底阻止事件传播，包括不再触发后面所有的监听函数，可以使用 <code>stopImmediatePropagation</code> 方法。</p>
+</blockquote>
+<h4 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h4><p>事件发生后会产生一个事件对象作为参数传给监听函数。</p>
+<p>浏览器原生提供一个 <code>Event</code> 对象，所有的事件都继承了 <code>Event.prototype</code> 对象。</p>
+<p><code>Event</code> 对象本身就是一个构造函数，可以用来生成新的实例：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> ev = <span class="hljs-keyword">new</span> Event(<br>  <span class="hljs-string">&#x27;look&#x27;</span>,<br>  &#123;<br>    <span class="hljs-string">&#x27;bubbles&#x27;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 如若不显式指定为 true，则默认捕获</span><br>    <span class="hljs-string">&#x27;cancelable&#x27;</span>: <span class="hljs-literal">false</span><br>  &#125;<br>)<br><span class="hljs-built_in">document</span>.dispatchEvent(ev) <span class="hljs-comment">//触发该事件</span><br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li><code>type</code>：字符串，表示事件的名称；</li>
+<li><code>options</code>：对象，表示事件对象的配置：<ul>
+<li>bubbles：布尔值，可选，默认为 false，表示事件对象是否冒泡；</li>
+<li>cancelable：布尔值，可选，默认为 false，表示事件是否可以被取消（<code>Event.parentDefault()</code>）</li>
+</ul>
+</li>
+</ul>
+<p><strong>实例属性</strong>：</p>
+<ul>
+<li><code>Event.bubbles</code>属性返回一个布尔值，表示当前事件是否会冒泡，只读，默认不冒泡；</li>
+<li><code>Event.eventPhase</code> 属性返回一个整数变量，表示事件当前所处的阶段，只读：<ul>
+<li>0：事件当前未发生</li>
+<li>1：事件目前处于捕获阶段，从祖先节点向目标节点的传播过程中</li>
+<li>2：事件到达目标节点，即 Event.target 指向的节点</li>
+<li>3：事件处于冒泡阶段，从目标节点向祖先节点的反向传播过程中</li>
+</ul>
+</li>
+<li><code>Event.cancelable</code> 属性返回一个布尔值，表示事件是否可以取消，只读：<ul>
+<li>大多数浏览器的原生事件是可以取消的；</li>
+<li>除非显式声明，<code>Event</code> 构造函数生成的事件，默认是不可以取消的；</li>
+<li>此属性为 true 时，调用 <code>Event.preventDefault()</code> 就可以取消这个使劲按，阻止浏览器对该事件的默认行为；为 false 则没有效果；</li>
+</ul>
+</li>
+<li><code>Event.cancelBubble</code> 属性返回一个布尔值，若设为 <code>true</code>，则相当于执行 <code>Event.stopPropagation()</code>，可以阻止事件的传播；</li>
+<li><code>Event.defaultPrevented</code> 属性返回一个布尔值，表示该事件是否调用过 <code>Event.preventDefault</code> 方法，只读；</li>
+<li><code>Event.currentTarget</code> 属性返回事件当前所在的节点，即当前执行的监听函数所绑定的节点；</li>
+<li><code>Event.target</code> 属性返回原始触发事件的那个节点，即事件最初发生的节点；</li>
+<li><code>Event.type</code> 属性返回一个字符串，表示事件类型，只读；</li>
+<li><code>Event.timeStamp</code> 属性返回一个毫秒时间戳，表示事件发生的时间，相对于网页加载成功开始计算的：<ul>
+<li>可能是整数，也可能是小数（高精度时间戳），取决于浏览器的设置；</li>
+</ul>
+</li>
+<li><code>Event.isTrusted</code> 属性返回一个布尔值，表示该事件是否由真实的用户行为产生；</li>
+<li><code>Event.detail</code> 属性只有浏览器的 UI 事件才有，返回一个数值，表示事件的某种信息：<ul>
+<li>比如 <code>click</code> 和 <code>dbclick</code> 事件中，指鼠标按下的次数；</li>
+<li>鼠标滚轮事件中，表示滚轮滚动的距离（正向和负向，总为 3 的倍数）；</li>
+</ul>
+</li>
+</ul>
+<p><strong>实例方法</strong>：</p>
+<ul>
+<li><code>Event.preventDefault()</code> 方法取消浏览器对当前事件的默认行为，前提是事件对象的 <code>cancelable</code> 属性为 <code>true</code>；</li>
+<li><code>Event.stopPropagation()</code> 方法阻止事件再 DOM 中的继续传播，不包括在当前节点上的其他事件监听函数；</li>
+<li><code>Event.stopImmediatePropagation()</code> 方法阻止同一个事件的其他监听函数继续调用，阻止事件的传播，比 <code>Event.stopPropagation()</code> 更彻底；</li>
+<li><code>Event.composedPath()</code> 方法返回一个数组，成员是事件的最底层节点和一次冒泡经过的所有上层节点；</li>
+</ul>
+<h4 id="CustomEvent-接口"><a href="#CustomEvent-接口" class="headerlink" title="CustomEvent 接口"></a>CustomEvent 接口</h4><p><code>CustomEvent</code> 接口用于生成自定义的事件实例。如果需要在触发事件的同时，传入指定的数据，可以使用 CustomEvent 接口生成的自定义事件对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">new</span> CustomEvent(type, options)<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li><code>type</code>：字符串，表示事件的名字，必须；</li>
+<li><code>options</code>：事件的配置对象，可选：<ul>
+<li>除了接受 Event 事件的配置属性，只有一个 detail 属性表示事件的附带数据，默认为 <code>null</code>；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> myEvent = <span class="hljs-keyword">new</span> CustomEvent(<span class="hljs-string">&#x27;myevent&#x27;</span>, &#123;<br>  <span class="hljs-attr">detail</span>: &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;AgoniLay&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">bubbles</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">cancelable</span>: <span class="hljs-literal">false</span><br>&#125;)<br><br>el.addEventListener(<span class="hljs-string">&#x27;myevent&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Hello &#x27;</span> + event.detail.name)<br>&#125;)<br><br>el.dispatchEvent(myEvent)<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h3><p>浏览器的缓存机制就是 HTTP 缓存机制，是根据 HTTP 报文的缓存标识进行的。</p>
+<h4 id="HTTP-报文"><a href="#HTTP-报文" class="headerlink" title="HTTP 报文"></a>HTTP 报文</h4><p>HTTP 报文分为两种：</p>
+<ul>
+<li><p>HTTP 请求(Request)报文，报文格式为：<code>请求行 - HTTP头(通用信息头、请求头、实体头) - 请求报文主体(POST才有)</code>；</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220301000219031.png" srcset="/img/three2.gif" lazyload class title="HTTP请求报文"></li>
+<li><p>HTTP 响应(Response)报文，报文格式为：<code>状态行 - HTTP头(通用信息头、响应头、实体头) - 响应报文主体</code>；</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220301000341773.png" srcset="/img/three2.gif" lazyload class title="HTTP响应报文"></li>
+</ul>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>通用信息头指的是请求和响应报文都支持的头域，包括：<ul>
+<li>Cache-Control、Connection、Date、Pragma、Transfer-Encoding、Upgrade、Via；</li>
+</ul>
+</li>
+<li>实体头则是实体信息的实体头域，分别为：<ul>
+<li>Allow、Content-Base、Content-Encoding、Content-Language、Content-Length、Content-Location、Content-MD5、Content-Range、Content-Type、Etag、Expires、Last-Modified、extension-header.</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h4 id="缓存过程分析"><a href="#缓存过程分析" class="headerlink" title="缓存过程分析"></a>缓存过程分析</h4><p>浏览器与服务器通信的方式为应答模式：浏览器发起 HTTP 请求 - 服务器响应该请求。浏览器第一次向服务器发起该请求后拿到请求结果，会根据请求报文中 HTTP 头中的缓存标识决定是否缓存结果，是则将请求结果和缓存标识存入浏览器缓存中：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220301001224385.png" srcset="/img/three2.gif" lazyload class title="浏览器第一次发起HTTP请求">
+
+<ul>
+<li>浏览器每次发起请求都会先在浏览器缓存中查找该请求的结果以及缓存标识；</li>
+<li>浏览器每次拿到返回的请求结果都会将该结果和缓存标识存入浏览器缓存中。</li>
+</ul>
+<h4 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h4><p>强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程，强制缓存的情况主要有三种：</p>
+<ol>
+<li>不存在缓存结果和缓存标识，强制缓存失败，直接向服务器发起请求（与首次一致）；</li>
+<li>存在该缓存结果和缓存标识，但结果已失效，强制缓存失败，使用协商缓存；</li>
+<li>存在该缓存结果和缓存标识，且尚未失效，强制缓存生效，直接返回该结果。</li>
+</ol>
+<p>当浏览器向服务器发起请求时，服务器会将缓存规则放入 HTTP 响应报文的 HTTP 头中和请求结果一起返回给浏览器，控制强制缓存的字段分别是 <code>Expires</code> 和 <code>Cache-Control</code>，其中 <code>Cache-Control</code> 的优先级更高。</p>
+<h5 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h5><p><code>Expires</code> 是 HTTP/1.0 控制网页缓存的字段，其值为服务器返回该请求结果缓存的到期时间，再次请求时间小于该缓存值，直接使用缓存结果。</p>
+<blockquote>
+<p>到了 HTTP/1.1，<code>Expires</code> 已经被 <code>Cache-Control</code> 替代，原因：Expires 控制缓存的原理是使用客户端的时间与服务端返回的时间做对比，但如果两者因某些原因发生误差，那么强制缓存则会直接失效。</p>
+</blockquote>
+<h5 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h5><p>在 HTTP/1.1 中，<code>Cache-Control</code> 是最重要的规则，主要用于控制网页缓存，主要取值为：</p>
+<ul>
+<li><code>public</code>：所有内容都将被缓存（客户端和代理服务器都可缓存）</li>
+<li><code>private</code>：所有内容只有客户端可以缓存，默认为此值</li>
+<li><code>no-cache</code>：客户端缓存内容，但是是否使用缓存则需要经过协商缓存来验证决定</li>
+<li><code>no-store</code>：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</li>
+<li><code>max-age=xxx (xxx is numeric)</code>：缓存内容将在 xxx 秒后失效</li>
+</ul>
+<p>例如：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220301003329024.png" srcset="/img/three2.gif" lazyload class title="expires 和 cache-control">
+
+<ul>
+<li>HTTP 响应报文中 expires 的时间值是一个绝对值，而 cache-control 的值是相对值；</li>
+<li>无法确定客户端是否与服务端的时间同步的情况下，cache-control 比 expires 是更好的选择。</li>
+</ul>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/162db635afa6f7f7tplv-t2oaga2asx-watermark.awebp" srcset="/img/three2.gif" lazyload class title="img">
+
+<p>上图中，状态码为灰色的请求代表使用了强制缓存，对应的 Size 值代表了则代表该缓存存放的位置，分别为：</p>
+<ul>
+<li><code>from memory cache</code>：内存缓存，代表使用内存中的缓存，先读取此项；</li>
+<li><code>from disk cache</code>：硬盘缓存，代表使用硬盘中的缓存。</li>
+</ul>
+<p>硬盘缓存与内存缓存：</p>
+<ol>
+<li>内存缓存具有快速读取和时效性（进程关闭则内存清空）两个特点；</li>
+<li>硬盘缓存是直接将缓存写入硬盘文件中，读取时需进行 I/O 操作，读取复杂，速度比内存缓存慢。</li>
+</ol>
+<p>在浏览器中，会在 js 和图片等文件解析执行后直接存入内存缓存中，当刷新页面时只需直接从内存中读取（from memory cache）；而 css 文件则会存入硬盘文件中，所以每次渲染页面都需要从硬盘读取缓存（from disk cache）。</p>
+<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程，主要由两种情况：</p>
+<ol>
+<li><p>协商缓存生效，返回 304：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220301005038564.png" srcset="/img/three2.gif" lazyload class width="304"></li>
+<li><p>协商缓存失效，返回 200 和请求结果：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220301005110494.png" srcset="/img/three2.gif" lazyload class title="协商缓存"></li>
+</ol>
+<p>同样，协商缓存的标识也是字啊响应报文的 HTTP 头中和请求结果一起返回给浏览器的，控制协商缓存的字段分别有：<code>Last-Modified</code> / <code>If-Modified-Since</code> 和 <code>Etag</code> / <code>If-None-Match</code>，后者优先级更高。</p>
+<h5 id="Last-Modified-If-Modified-Since"><a href="#Last-Modified-If-Modified-Since" class="headerlink" title="Last-Modified/If-Modified-Since"></a>Last-Modified/If-Modified-Since</h5><p><code>Last-Modified</code> 是服务器响应请求时，返回该资源文件在服务器最后被修改的时间；</p>
+<p><code>If-Modified-Since</code> 是客户端再次发起该请求时，携带上次请求返回的 <code>Last-Modified</code> 值，以此做对比决定是 200 还是 304；</p>
+<h5 id="Etag-If-None-Match"><a href="#Etag-If-None-Match" class="headerlink" title="Etag/If-None-Match"></a>Etag/If-None-Match</h5><p><code>Etag</code> 是服务器响应请求时，返回当前资源文件的一个唯一标识（由服务器生成）；</p>
+<p><code>If-None-Match</code> 是客户端再次发起该请求时，携带上次请求返回的唯一标识 <code>Etag</code> 值，以此做判断。</p>
+<h4 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h4><p>强制缓存优先于协商缓存进行，若协商缓存生效则直接使用缓存，若不生效则进行协商缓存（<code>Last-Modified/If-Modified-Since</code> 和 <code>Etag/If-None-Match</code>），协商缓存由服务器决定是否使用缓存，若协商缓存失效，代表该请求的缓存失效，则重新获取请求结果再存入浏览器缓存中；生效则返回 304，继续使用缓存：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220301010337843.png" srcset="/img/three2.gif" lazyload class title="浏览器缓存策略">
+
+<h3 id="浏览器架构"><a href="#浏览器架构" class="headerlink" title="浏览器架构"></a>浏览器架构</h3><h4 id="CPU-与-GPU"><a href="#CPU-与-GPU" class="headerlink" title="CPU 与 GPU"></a>CPU 与 GPU</h4><p>CPU 与 GPU 作为计算机中最重要的两个计算单元直接决定了计算性能。</p>
+<ul>
+<li>CPU（Center Processing Unit）：CPU 是计算机的大脑，负责处理各种不同的任务，过去大多数 CPU 是单芯片的，核心被安置再同一个芯片上，较新的 CPU 可以支持多核心，运算能力大大加强；</li>
+<li>GPU（Graphics Processing Unit）：GPU 更擅长利用多核心同时处理单一的任务，最初被用来处理图像，这也是 GPU 可以更快、更流畅的渲染页面内容。</li>
+</ul>
+<h4 id="计算机架构"><a href="#计算机架构" class="headerlink" title="计算机架构"></a>计算机架构</h4><p>可以把计算机自下而上分为三层：硬件（Machine Hardware）、操作系统（Operating System）和应用（Application），有了操作系统的存在，上层应用可以使用操作系统提供的能力使用硬件资源而不是直接访问硬件资源。</p>
+<h4 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h4><p>一个进程（Process）是应用正在运行的程序，而线程（Thread）是进程中更小的一部分；</p>
+<ul>
+<li>当应用被启动，进程就被创建出来。程序可以创建线程来帮助其工作；</li>
+<li>操作系统会为进程分配私有的内存空间以供使用，当关闭程序时，私有内存就会被释放；</li>
+<li>还有比进程更小的存在：协程，是运行再线程中更小的单位。</li>
+</ul>
+<h4 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h4><p>一个进程可以让操作系统开启另一个进程处理不同的任务。当两个进程需要通信时，可以使用 IPC（Inter Process Communcation），好处在于当一个进程给另一个进程发消息而并没有回应时，并不影响当前进程继续工作。</p>
+<h4 id="浏览器架构-1"><a href="#浏览器架构-1" class="headerlink" title="浏览器架构"></a>浏览器架构</h4><p>借助进程和线程，浏览器可以被设计成但 单进程-多线程架构，或者利用 IPC 实现 多进程-多线程架构。</p>
+<p>Chrome 就是采用了多进程架构，浏览器进程作为 Chrome 最核心的进程管理这其他进程，而 Renderer 则负责渲染不同的站点：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220301160300551.png" srcset="/img/three2.gif" lazyload class title="Chorme 多进程">
+
+<h5 id="进程工作内容"><a href="#进程工作内容" class="headerlink" title="进程工作内容"></a>进程工作内容</h5><ul>
+<li><strong>浏览器进程（Browser process）</strong>：负责管理 Chrome 应用本身，包括地址栏、书签、前进和后退按钮。同时也负责不可见的功能，如网络请求、文件访问等，也负责其他进程的调度；</li>
+<li><strong>渲染进程（Renderer process）</strong>：负责站点的渲染，其中也包括 JavaScript 代码的运行，web worker 的管理；</li>
+<li><strong>插件进程（Plugin process）</strong>：负责为浏览器提供各种额外的插件功能，如 flash；</li>
+<li><strong>GPU 进程（GPU process）</strong>：负责提供成像的功能；</li>
+<li>还有负责扩展进程、工具进程等的其他进程</li>
+</ul>
+<h5 id="多进程架构好处"><a href="#多进程架构好处" class="headerlink" title="多进程架构好处"></a>多进程架构好处</h5><p>当访问一个站点时，渲染进程会负责运行站点的代码，渲染站点的页面，同时响应用户的交互动作，当在 Chrome 中打开多个页签同时访问三个站点时，如果其中一个无响应，同样可以正常使用其他的页签：</p>
+<p>因为 Chrome 为每个站点均创建了独立的渲染进程，专门负责当前站点的渲染工作；若所有页面运行在同一个进程中，当有一个页面无响应时，则其他页面均无法使用。</p>
+<p>借助操作系统对进程安全的控制，浏览器可以将页面放置在沙箱中，站点的代码可以运行在隔离的环境中，保证核心进程的安全。</p>
+<p>但同样由于进程独享自己的私有内存，为了节省内存，Chrome 限制了最大进程数，取决于硬件的能力，且使用多个页签访问相同的站点时浏览器不会创建新的渲染进程。</p>
+<h5 id="面向服务架构"><a href="#面向服务架构" class="headerlink" title="面向服务架构"></a>面向服务架构</h5><p>Chrome 将架构从多进程模型转变成面向服务。浏览器将功能以服务的方式实现，以解决多进程架构中的问题。</p>
+<p>当 Chrome 运行在硬件强大的计算机上时，会将一个服务以多个进程的方式实现，提供稳定性，当计算机硬件资源紧张时，则可以将多个服务放在一个进程中节省资源。</p>
+<h5 id="浏览器进程"><a href="#浏览器进程" class="headerlink" title="浏览器进程"></a>浏览器进程</h5><p>浏览器进程负责处理除了渲染外的大部分工作，包括以下线程：</p>
+<ul>
+<li>UI 线程负责绘制工具栏中的按钮、地址栏等；</li>
+<li>网络线程负责从网络中获取数据；</li>
+<li>存储线程负责文件等功能。</li>
+</ul>
+<h4 id="访问过程"><a href="#访问过程" class="headerlink" title="访问过程"></a>访问过程</h4><ol>
+<li><p>输入处理：当在地址栏输入时，UI 线程会先判断输入的内容是要搜索的内容还是要访问一个站点；</p>
+</li>
+<li><p>访问开始：按下回车或开始访问时，UI 线程将借助网络线程访问站点资源，浏览器页签的标题会出现加载中的图标，同时网络线程会根据适当的网络协议，如 DNS lookup 和 TLS 为此次请求建立连接，当服务器返回给浏览器重定向请求时，网络线程会通知 UI 线程需要重定向，然后会以新的地址开始请求资源；</p>
+</li>
+<li><p>处理响应数据：当网络线程收到来自服务器的数据时，会试图从数据中的前面一些字节得到数据的类型（<code>Content-Type</code>），以试图了解数据的格式：</p>
+<ul>
+<li>当返回的数据类型时 HTML 时，会将数据传递给渲染进程做进一步的渲染工作；</li>
+<li>数据类型时 zip 文件或者其他文件格式时，会将数据传递给下载管理器做进一步的文件预览或下载工作；</li>
+</ul>
+<blockquote>
+<p>注意：在开始渲染之前，网络进程会先检查数据的安全性，这也是浏览器保证安全的地方，如果返回的数据来自一些恶意的站点，网络进程会显示警告的页面；与此同时，Cross Origin Read Blocking（CORB）策略也会确保跨域的敏感数据不会被传递给渲染进程。</p>
+</blockquote>
+</li>
+<li><p>渲染过程：当所有的检查结束后，网络进程确信浏览器可以访问该站点时，网络进程通知 UI 线程数据准备完毕，UI 线程根据当前站点找到一个渲染进程完成接下来的渲染工作；</p>
+<blockquote>
+<p>在访问开始时，UI 线程将请求地址传递给网络线程时，UI 线程就已经知道了要访问的站点，就会开始查找或启动一个渲染进程，这与网络进程下载数据是同时的，会减少渲染所需要的时间，提高效率。</p>
+</blockquote>
+</li>
+<li><p>提交访问：浏览器进程会通过 IPC 向渲染进程提交这次访问，同时也会保证渲染进程可以通过为了进程继续获取数据；此时地址栏显示出表明安全的图标，同时显示出站点的信息，访问历史中也会加入当前的站点信息；</p>
+</li>
+<li><p>加载完毕：当访问被提交给渲染进程，渲染进程会继续加载页面资源并且渲染页面；当渲染进程结束渲染工作（页面及其中所有子页面结束加载，也就是 onLoad 事件触发后发送），会给浏览器进程发送消息，UI 线程则会隐藏页签标题上的加载图标，表明页面加载完毕。</p>
+</li>
+</ol>
+<p>当输入另外一个地址时，浏览器进程会重复上面的过程，但在开始新的访问前，会确认当前站点是否关心 <code>beforeunload</code> 事件：可以提醒用户是否要访问新的站点或者关闭此页签，若用户拒绝则新的访问或关闭会被阻止。</p>
+<p>如果一次访问是从一个渲染进程中发起的，如用户点击一个链接或者运行 JavaScript 代码 <code>location = &#39;xxx&#39;</code> 时，渲染进程会首先检查 <code>beforeunload</code>，然后再执行和浏览器进程初始化访问同样的操作。</p>
+<h4 id="Service-worker"><a href="#Service-worker" class="headerlink" title="Service worker"></a>Service worker</h4><p><code>Service worker</code> 是一种可以 web 开发者控制缓存的技术，它的代码是运行在渲染进程中的。</p>
+<p>当访问开始时，网络线程会根据域名检查是否有 Service worker 会处理当前地址的请求，若有，则 UI 线程会找到对应的渲染进程去执行 Service worker 的代码，而 Service worker 可以让开发者决定此请求从本地缓存还是从网络中获取数据。</p>
+<h4 id="渲染进程"><a href="#渲染进程" class="headerlink" title="渲染进程"></a>渲染进程</h4><p>渲染进程负责所有发生在浏览器页签中的事情，在一个渲染进程中，主线程负责解析、编译或运行代码等工作，当使用 Worker 时，Worker 线程会负责运行一部分代码。合成线程和关栅线程也是运行在渲染进程中的，负责更高效和顺畅的渲染页面。</p>
+<p>渲染进程最重要的工作就是将 HTML、CSS 和 JavaScript 代码转换为一个可以与用户产生交互的页面。</p>
+<h4 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h4><h5 id="DOM-的创建"><a href="#DOM-的创建" class="headerlink" title="DOM 的创建"></a>DOM 的创建</h5><p>当渲染进程接收到来自浏览器进程提交访问的消息后就开始接受 HTML 数据，主线程开始解析 HTML 文本字符串，并将其转化成 <strong>Document Object Model（DOM）</strong>。</p>
+<p>当预加载扫描（Preload Scanner）在分析器分析 HTML 的过程中发现了类似 img 或 link 这样的标签时，就会发送请求给浏览器进程的网络线程，而主线程会根据这些额外资源是否会阻塞转化过程而决定是否等待资源加载完毕。</p>
+<p>当 HTML 分析器发现 <code>script</code> 标签时，会暂停接下来的 HTML 转化工作，然后加载、解析并且运行 JavaScript 代码（因为其中可能会操作 DOM 或 CSSOM）。</p>
+<blockquote>
+<p>如果 JavaScript 代码并不需要改变 DOM，可以为 <code>script</code> 标签添加 <code>async</code> 或 <code>defer</code> 属性从而达到异步加载这些资源而不阻塞 HTML 转化过程的目的。</p>
+</blockquote>
+<h5 id="样式计算"><a href="#样式计算" class="headerlink" title="样式计算"></a>样式计算</h5><p>主线程会解析样式并决定每个 DOM 元素的样式（Style calculation）。</p>
+<h5 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h5><p>完成样式计算后，渲染进程已经知道了 DOM 的结构和每个节点的样式，还需要确定节点在页面上的位置。</p>
+<p>布局（layout）时为元素指定几何信息的过程，主线程遍历 DOM 结构中的元素及其样式，同时创建出带有坐标和元素尺寸信息的<strong>布局树（Layout tree）</strong>：</p>
+<ul>
+<li>布局树的结构与 DOM 树的结构非常类似，但只包含将会在页面中显示的元素；</li>
+<li>元素样式设置为 <code>display: none</code> 时，不会出现在布局树中，但样式设置为 <code>visibility: hidden</code> 的元素会出现在布局树中；</li>
+<li>一个包含内容的伪元素不会出现在 DOM 树中，但会出现在布局树中。</li>
+</ul>
+<h5 id="绘制"><a href="#绘制" class="headerlink" title="绘制"></a>绘制</h5><p>有了 DOM、样式和布局之后，还需要知道 <strong>绘制（Paint）</strong>的顺序（层叠上下文相关）。</p>
+<p>在这个阶段，主线程遍历布局树并创建绘制记录：一系列由绘制步骤组成的流程。</p>
+<h5 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h5><p>完成了上述的步骤，浏览器已经知道了文档结构、每一个元素的样式、几何信息以及绘制的顺序，将这些信息转化成屏幕上像素的过程叫做 <strong>光栅化</strong>，光栅化时图形学的范畴。</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/9ed512afc63c664458faf1bd42247cc0.gif" srcset="/img/three2.gif" lazyload class title="传统做法">
+
+<p>传统的做法是将可视区域的内容进行光栅化，随着用户滚动页面，不断的光栅化更多的区域；现代的浏览器有着更为复杂的过程：<strong>合成</strong>：</p>
+<p>合成是一种将页面拆分成多层的技术，合成线程可以将各个层在不同线程中光栅化，再组成一个页面。当滚动时，如果层已经被光栅化，则会使用已经存在的层来合成新的帧，动画则可以通过移动层来实现：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/ae1b6d19e8aeb45841f04bbfa72760dd.gif" srcset="/img/three2.gif" lazyload class title="合成">
+
+<p><strong>层（Layer）</strong>：</p>
+<p>为了决定层包含哪些元素，主线程需要遍历布局树以找到需要生成的部分。对于开发者来说，当某一部分需要使用独立的层来渲染，可以使用 <code>will-change</code> 让浏览器创建层。</p>
+<p><strong>栅格线程</strong>和<strong>合成线程</strong>：</p>
+<p>当布局树和绘制顺序确定后，主线程会将这些信息提交给合成线程，合成线程会光栅化每个层。一个层包含的内容可能是一个完整的页面，也可能只是页面的一部分，所以合成线程将层拆分成许多块，并发送给栅格线程，栅格线程光栅化这些块并将它们存储再 GPU 缓存中。</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/371b5fa654d59f0c8ccb2f4f0658c20a.png" srcset="/img/three2.gif" lazyload class title="栅格化">
+
+<p>合成线程可以决定栅格线程光栅化的优先级，以此来确保用户能看到的部分优先光栅化；一个层也会包含多种块以支持类似缩放这样的功能，当块被光栅化后，合成线程会使用 <code>draw quads</code> 收集这些信息并创建合成帧（Compositor frame）。</p>
+<ul>
+<li><strong>Draw quads</strong>：存储在缓存中，包换类似块位置的信息，用于描述如何使用块合成页面；</li>
+<li><strong>Compositor frame</strong>：用于存储表现页面一帧中包含哪些 Draw quads 的集合。</li>
+</ul>
+<p>然后一个合成帧被提交给浏览器进程，这时如果浏览器 UI 有变化，或者插件的 UI 有变化时，另一个合成帧就会被创建出来。每当有交互发生时，合成线程就会创建更多的合成帧然后通过 GPU 将新的部分渲染出来。</p>
+<p>好处在于：其独立于主线程，合成线程不需要等待样式计算和 JavaScript 代码的运行。</p>
+<h4 id="事件相关"><a href="#事件相关" class="headerlink" title="事件相关"></a>事件相关</h4><p>对于浏览器来说，输入事件意味着所有用户动作（如鼠标滚轮滚动或屏幕触摸等）。</p>
+<p>当用户与页面发生交互时，浏览器进程首先接受到事件，但只关心事件发生位置，将事件类型和位置信息等发送给负责当前页签的渲染进程，渲染进程会找到事件发生的元素并触发事件监听器。</p>
+<p><strong>合成线程对事件的处理</strong>：</p>
+<p>当页面被合成线程合成过，合成线程会标记那些有事件监听的区域，当事件发生在响应的区域时，合成线程就会将事件发送给主线程处理；如果在非事件监听区域，则渲染进程直接创建新的帧而不关心主线程。</p>
+<p><strong>事件代理引发的问题</strong>：</p>
+<p>在事件代理中，利用事件冒泡，可以在目标元素的上层元素中监听事件，可以更高效的监听事件：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">&#x27;touchstart&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (event.target === area) &#123;<br>    event.preventDefault()<br>  &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>但从浏览器角度来看，此时整个页面都会标记成 “慢滚动” 区域，意味着页面中某些部分并不需要事件监听，但合成线程依然需要在每次交互发生后等待主线程处理事件，造成效率降低。</p>
+<p>解决：可以在事件代理时传入 <code>passive: true</code> 选项参数，告诉渲染进程，依然需要将事件发送给主线程处理，但不需要等待：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">&#x27;touchstart&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (event.target === area) &#123;<br>    event.preventDefault()<br>  &#125;<br>&#125;, &#123; <span class="hljs-attr">passive</span>: <span class="hljs-literal">true</span> &#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>浏览器动画事件优化</strong>：</p>
+<p>类似 <code>touchmove</code> 这样的事件每秒向主线程发送 120 次可能会造成主程序执行时间过长而影响性能：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/6101cc07df5e744efb2a88208f1d1e52.png" srcset="/img/three2.gif" lazyload class title="img">
+
+<p>为了减少发送给主线程的事件数量，Chrome 合并了连续的事件，类似：<code>wheel</code>、<code>mousewheel</code>、<code>mousemove</code>、<code>pointermove</code>、<code>touchmove</code> 等这样的事件会被延迟到下一次 <code>requestAnimationFrame</code> 前触发：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/53005a8114a736ca071a333946664ffd.png" srcset="/img/three2.gif" lazyload class title="img">
+
+<p>而其他任何的离散时间，类似：<code>keydown</code>、<code>keyup</code>、<code>mouseup</code>、<code>touchstart</code>、<code>touchend</code> 等都会立即被发送给主线程处理。</p>
+<h3 id="浏览器工作原理"><a href="#浏览器工作原理" class="headerlink" title="浏览器工作原理"></a>浏览器工作原理</h3><p>目前主流的浏览器有五个：Internet Explorer、FireFox、Safari、Chrome 和 Opera。</p>
+<h4 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h4><p>浏览器的主要功能就是向服务器发出请求，在浏览器窗口中展示请求的网络资源，一般为 HTML 文档，也可以是 PDF、图片或其他的类型，资源的位置由用户使用 UPI（统一资源标示符）指定。</p>
+<h4 id="高层结构"><a href="#高层结构" class="headerlink" title="高层结构"></a>高层结构</h4><p>浏览器的主要组件为：</p>
+<ul>
+<li>用户界面：包括地址栏、前进/后退按钮、书签菜单等，除了浏览器主窗口显示的页面外，其他显示的各个部分都属于用户界面；</li>
+<li>浏览器引擎：在用户界面和呈现引擎之间传送指令；</li>
+<li>呈现引擎：负责显示请求的内容；</li>
+<li>网络：用于网络调用，比如 HTTP 请求；</li>
+<li>用户界面后端：用于绘制基本的窗口小部件，不如组合框和窗口；</li>
+<li>JavaScript 解释器：用于解析和执行 JavaScript 代码；</li>
+<li>数据存储：持久层</li>
+</ul>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/layers.png" srcset="/img/three2.gif" lazyload class title="浏览器的主要组件">
+
+
+
+<p>呈现引擎主流程（webkit 引擎）：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/webkitflow.png" srcset="/img/three2.gif" lazyload class title="webkit 引擎">
+
+<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><h4 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h4><p>在硬件级别上，计算机内存由大量触发器组成，每个触发器包含几个晶导管，能够存储一个位；单个触发器可以通过唯一标识符寻址，可与进行读取与覆盖操作（可以把整个计算机内存看作是一个巨大的可读写的位数组）</p>
+<h5 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h5><ul>
+<li>分配器：分配所需要的内存；</li>
+<li>使用期：使用分配到的内存（读写）；</li>
+<li>释放期：不需要时将其释放并归还</li>
+</ul>
+<p>内存分配 -&gt; 内存使用 -&gt; 内存释放</p>
+<h5 id="内存泄漏-1"><a href="#内存泄漏-1" class="headerlink" title="内存泄漏"></a>内存泄漏</h5><blockquote>
+<p>在计算机科学中，内存泄漏指由于疏忽或错误造成程序未能释放已经不再使用的内存；内存泄漏并非物理上的消失，而是应用程序分配某段内存后，由于设计错误，导致在释放该内存之前就失去了对该段内存的控制，从而造成了内存的浪费。</p>
+</blockquote>
+<p>如果内存不再需要时，没有经过生命周期的释放期，那么就存在内存泄漏。</p>
+<p>简单来说：无用的内存还在占用，得不到释放和归还。</p>
+<h4 id="JS-内存管理机制"><a href="#JS-内存管理机制" class="headerlink" title="JS 内存管理机制"></a>JS 内存管理机制</h4><p>JavaScript 是在创建变量时自动进行了分配内存，并在不使用它们时自动释放（垃圾回收）。</p>
+<p>JS 不需要程序员手动分配内存，绝大部分情况下也不需要手动释放内存，只需要直接使用内存即可</p>
+<ul>
+<li>内存分配：JS 定义变量就会自动分配内存，无需了解过深；</li>
+<li>内存使用：使用值的过程实际上是对分配内存进行读取和写入的操作；</li>
+<li>内存回收：一般称为垃圾内存回收（Garbage Collection）。</li>
+</ul>
+<p>内存泄漏一般都是发生在这一步，JavaScript 的内存回收机制虽然能回收绝大部分的垃圾内存，但是还是存在回收不了的情况，那么就需要手动清理内存。</p>
+<h5 id="引用计数垃圾收集"><a href="#引用计数垃圾收集" class="headerlink" title="引用计数垃圾收集"></a>引用计数垃圾收集</h5><p>最初级的垃圾收集算法，把 “对象是否不在需要” 简化定义为 “对象有没有其他对象引用到它”；如果没有引用指向该对象，对象将被垃圾回收机制回收。</p>
+<p>ES6 中把引用分为强引用和弱引用：</p>
+<ul>
+<li>强引用才会有引用计数叠加，只有引用计数为 0 的对象的内存才会被回收，所以一般需要手动回收内存（前提是标记清除还没有执行）；</li>
+<li>弱引用没有触发引用计数叠加，只要引用计数为 0，弱引用就会自动消失，无需手动回收内存。</li>
+</ul>
+<h5 id="标记清除法"><a href="#标记清除法" class="headerlink" title="标记清除法"></a>标记清除法</h5><p>当变量进入执行环境时标记为 “进入环境”，当变量离开执行环境时则标记为 “离开环境”；被标记为 “进入环境” 的变量不能被回收，因为正在被使用；标记为 “离开环境” 的变量则可以被回收。</p>
+<p>环境可以理解为作用域，但全局作用域的变量只有在页面关闭时才会销毁。</p>
+<h4 id="泄漏场景"><a href="#泄漏场景" class="headerlink" title="泄漏场景"></a>泄漏场景</h4><p><strong>意外的全局变量</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 在全局作用域下定义</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">number</span>) </span>&#123;<br>  <span class="hljs-comment">// count 相当于 window.count = 2</span><br>  count = <span class="hljs-number">2</span><br>  <span class="hljs-keyword">return</span> count + number<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>被遗忘的计时器</strong>：</p>
+<p>组件销毁时，<code>setInterval</code> 还是在运行的，里面涉及的内存都是无法回收的，需要在组件销毁时清除计时器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vue">&lt;template&gt;<br>	&lt;div /&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br>  export default &#123;<br>    mounted () &#123;<br>      this.refreshInterval = setInterval(() =&gt; &#123;<br>        // 轮询获取数据<br>        this.refresh()<br>      &#125;, 2000)<br>    &#125;,<br>    beforeDestroy () &#123;<br>      clearInterval(this.refreshInterval)<br>    &#125;,<br>    methods: &#123;<br>      refresh () &#123;<br>        // 获取一些数据<br>      &#125;<br>    &#125;<br>  &#125;<br>&lt;/script&gt;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>被遗忘的事件监听器</strong>：</p>
+<p>组件销毁时，一些事件（如 resize）依然会在监听中，其涉及的内存无法回收，需要在组件销毁时移除相关的事件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vue">&lt;template&gt;<br>	&lt;div /&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br>  export default &#123;<br>    mounted () &#123;<br>      this.resize = () =&gt; &#123;<br>        // 这里做一些操作<br>      &#125;<br>      window.addEventListener(&#x27;resize&#x27;, this.resize)<br>    &#125;,<br>    beforeDestroy () &#123;<br>      window.removeEventListener(&#x27;resize&#x27;, this.resize)<br>    &#125;<br>  &#125;<br>&lt;/script&gt;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>被遗忘的 ES6 Set</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>()<br><span class="hljs-keyword">let</span> obj = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;AgoniLay&#x27;</span> &#125;<br>map.add(obj)<br><br><span class="hljs-comment">// 若不进行 delete 操作，则 obj 相关内存无法清除</span><br>map.delete(obj)<br>obj = <span class="hljs-literal">null</span><br></code></pre></div></td></tr></table></figure>
+
+<p>也可以使用 WeakSet，WeakSet 的成员是弱引用，内存回收不会考虑此引用是否存在。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakSet</span>()<br><span class="hljs-keyword">let</span> obj = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;AgoniLay&#x27;</span> &#125;<br>map.add(obj)<br><br>obj = <span class="hljs-literal">null</span><br></code></pre></div></td></tr></table></figure>
+
+<p><strong>被遗忘的 ES6 Map 键名</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>()<br><span class="hljs-keyword">let</span> key = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">5</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>)<br>map.set(key, <span class="hljs-number">1</span>)<br><br><span class="hljs-comment">// 与 Set 同理，不进行 delete 操作则无法进行回收</span><br>map.delete(key)<br>key = <span class="hljs-literal">null</span><br></code></pre></div></td></tr></table></figure>
+
+<p>也可以使用 WeakMap，与 WeakSet 同理。</p>
+<p><strong>被遗忘的订阅发布事件监听器</strong>：</p>
+<p>当组件销毁时，自定义事件依然在监听中，其涉及到的内存无法回收，需要在组件销毁时移除相关的事件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vue">&lt;template&gt;<br>	&lt;div @click=&quot;onClick&quot; /&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br>  import customEvent from &#x27;event&#x27;<br><br>  export default &#123;<br>    mounted () &#123;<br>      customEvent.on(&#x27;test&#x27;, data =&gt; &#123;<br>        // 一些逻辑<br>        console.log(data)<br>      &#125;)<br>    &#125;,<br>    beforeDestroy () &#123;<br>      customEvent.off(&#x27;test&#x27;)<br>    &#125;,<br>    methods: &#123;<br>      onClick () &#123;<br>        customEvent.emit(&#x27;test&#x27;, &#123; type: &#x27;click&#x27; &#125;)<br>      &#125;<br>    &#125;<br>  &#125;<br>&lt;/script&gt;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>被遗忘的闭包</strong>：</p>
+<p>闭包在带来便利的同时，有可能会带来内存的泄漏：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">closure</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> name = <span class="hljs-string">&#x27;AgoniLay&#x27;</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> name<br>      .split(<span class="hljs-string">&#x27;&#x27;</span>)<br>      .reverse()<br>      .join(<span class="hljs-string">&#x27;&#x27;</span>)<br>  &#125;<br>&#125;<br><span class="hljs-keyword">const</span> reverseName = closure()<br><span class="hljs-comment">// name 不是必须的，但还是占用了内存，也无法被回收</span><br></code></pre></div></td></tr></table></figure>
+
+<p><strong>脱离 DOM 的引用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>&#123;<br>  <span class="hljs-title">constructor</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-built_in">this</span>.elements = &#123;<br>      <span class="hljs-attr">button</span>: <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#button&#x27;</span>),<br>      <span class="hljs-attr">div</span>: <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#div&#x27;</span>),<br>      <span class="hljs-attr">span</span>: <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#span&#x27;</span>)<br>    &#125;<br>  &#125;<br>  removeButton () &#123;<br>    <span class="hljs-built_in">document</span>.body.removeChild(<span class="hljs-built_in">this</span>.elements.button)<br>    <span class="hljs-comment">// 需要手动释放内存</span><br>    <span class="hljs-comment">// this.elements.button = null</span><br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> a = <span class="hljs-keyword">new</span> Test()<br>a.removeButton()<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><h3 id="性能指标-RAIL"><a href="#性能指标-RAIL" class="headerlink" title="性能指标 RAIL"></a>性能指标 RAIL</h3><p>RAIL 是一个以用户为中心的性能模型，把用户的体验拆分成几个关键点，并制定了每一个的性能指标：</p>
+<ul>
+<li>Response</li>
+<li>Animation</li>
+<li>Idle</li>
+<li>Load</li>
+</ul>
+<h4 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h4><p>用户的输入到响应的时间不超过 100ms，事件处理最好在 50ms 内完成。</p>
+<p>优化方案：</p>
+<ul>
+<li>考虑到 idle task 的情况，事件会排队，等待时间大概在50ms。适用于click，toggle，starting animations 等，不适用于 drag 和 scroll；</li>
+<li>复杂的 js 计算尽可能放在后台，如 web worker，避免对用户输入造成阻塞；</li>
+<li>超过 50ms 的响应，一定要提供反馈，比如倒计时、进度百分比等。</li>
+</ul>
+<blockquote>
+<p>idle task：除了要处理输入事件，浏览器还有其它任务要做，这些任务会占用部分时间，一般情况会花费50ms的时间，输入事件的响应则排在其后。</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/173489db13875e5btplv-t2oaga2asx-watermark.awebp" srcset="/img/three2.gif" lazyload class title="Idle Task示意图">
+</blockquote>
+<h4 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h4><p>产生每一帧的时间不要超过 10ms，旨在视觉上的平滑，用户对于帧率变化感知很敏感。</p>
+<p>优化方案：</p>
+<ul>
+<li>在一些高压节点上，比如动画，不要去挑战 CPU，尽可能的少做事；</li>
+<li>在渲染性能上，针对不同的动画做一些特定优化。</li>
+</ul>
+<blockquote>
+<p>动画不只是 UI 的视觉效果，以下行为都属于：</p>
+<ul>
+<li>视觉动画：如渐隐渐显，tweens，loading 等；</li>
+<li>滚动，包含弹性滚动，松开手指后，滚动会持续一段距离；</li>
+<li>拖拽，缩放等等。</li>
+</ul>
+</blockquote>
+<h4 id="Idle"><a href="#Idle" class="headerlink" title="Idle"></a>Idle</h4><p>最大化空闲时间，以增大 50ms 内响应用户输入的几率。</p>
+<p>优化方案：</p>
+<ul>
+<li>用空闲时间来完成一些延后的工作：<ul>
+<li>比如先加载页面可见的部分，然后利用空闲时间加载剩余部分（可以使用 <code>requestIdleCallback API</code>）；</li>
+</ul>
+</li>
+<li>在空闲时间内执行的任务尽量控制在 50ms 以内，如果更长的话，会影响 input handle 的 pending 时间；</li>
+<li>如果用户在空闲时间任务进行时进行交互，必须以此为最高优先级，并暂停空闲时间的任务。</li>
+</ul>
+<h4 id="Load"><a href="#Load" class="headerlink" title="Load"></a>Load</h4><p>根据设备网络等条件优化加载速度，在一个中配 3G 网络手机打开时间不超过 5s，对于第二次打开不超过 2s。</p>
+<p>优化方案：</p>
+<ul>
+<li>在手机设备上测试加载性能，选用中配的3G网络（400kb/s，400ms RTT），可以使用 <a href="https://link.juejin.cn/?target=https://www.webpagetest.org/easy">WebPageTest</a> 来测试；</li>
+<li>要考虑到丢包或者网络波动等情况导致比预期加载慢；</li>
+<li>禁用渲染阻塞的资源，延后加载；</li>
+<li>可以采用 lazy load，code-splitting 等其他优化手段，是第一次加载的资源更少</li>
+</ul>
+<h4 id="分析工具使用"><a href="#分析工具使用" class="headerlink" title="分析工具使用"></a>分析工具使用</h4><ul>
+<li><a href="https://link.juejin.cn/?target=https://developers.google.com/web/tools/chrome-devtools">Chrome DevTools</a></li>
+<li><a href="https://link.juejin.cn/?target=https://web.dev/measure/">Lighthouse</a></li>
+<li><a href="https://link.juejin.cn/?target=https://webpagetest.org/easy">WebPageTest</a></li>
+</ul>
+<h4 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>聚焦用户</li>
+<li>100ms 内响应用户的输入</li>
+<li>10ms 内产生 1 帧，在滚动或者动画执行时</li>
+<li>最大化主线程的空闲时间</li>
+<li>5s 内让网页变得可交互</li>
+</ul>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><h3 id="重绘重排"><a href="#重绘重排" class="headerlink" title="重绘重排"></a>重绘重排</h3><h3 id="白屏"><a href="#白屏" class="headerlink" title="白屏"></a>白屏</h3><h3 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h3><h3 id="动画性能"><a href="#动画性能" class="headerlink" title="动画性能"></a>动画性能</h3><h3 id="渲染合成层"><a href="#渲染合成层" class="headerlink" title="渲染合成层"></a>渲染合成层</h3><h1 id="代码练习"><a href="#代码练习" class="headerlink" title="代码练习"></a>代码练习</h1><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><br></code></pre></div></td></tr></table></figure>
 
 
             </div>
