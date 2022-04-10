@@ -211,7 +211,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      59k 字
+      59.4k 字
     </span>
   
 
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年4月10日 晚上
+                  本文最后更新于：2022年4月11日 凌晨
                 
               </p>
             
@@ -3488,8 +3488,29 @@
 <h4 id="JS-运行机制"><a href="#JS-运行机制" class="headerlink" title="JS 运行机制"></a>JS 运行机制</h4><p>JS 是单线程，JS 里的任务分为两种：</p>
 <ul>
 <li>同步任务（synchronous）：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务，阻塞；</li>
-<li>异步任务（asynchronous）：不进入主线程，而进入”任务队列”（task queue）的任务</li>
+<li>异步任务（asynchronous）：不进入主线程，而进入”任务队列”（task queue）的任务，只有任务队列通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。</li>
 </ul>
+<p>JS 任务又分为宏任务和微任务：</p>
+<ul>
+<li>宏任务（macrotask）：setTimeout、setInterval、setImmediate、I/O、UI rendering</li>
+<li>微任务（microtask）：promise.then、process.nextTick、MutationObserver、queueMicrotask（开启一个微任务）</li>
+</ul>
+<p>宏任务按顺序执行，且浏览器在每个宏任务之间渲染页面，浏览器为了能够使得 JS 内部 task 与 DOM 任务能够有序的执行，会在一个 task 执行结束后，在下一个 task 执行开始前对页面进行重新渲染（task -&gt; 渲染 -&gt; task -&gt; …）</p>
+<p>微任务通常来说就是需要在当前 task 执行结束后立即执行的任务，只要执行栈中没有其他的 JS 代码正在执行且每个宏任务执行完毕，微任务队列就会立即执行。</p>
+<p>在微任务执行期间微任务队列加入了新的微任务，会将新的微任务加入队列尾部，之后也会被执行。</p>
+<blockquote>
+<p>使用微任务的时机：晚于当前本轮事件循环的 Call Stack（调用栈）中的代码（宏任务），遭遇事件处理函数和定时器的回调函数。</p>
+<p>原因：</p>
+<ul>
+<li>减少操作中用户可感知到的延迟</li>
+<li>确保任务顺序的一致性</li>
+<li>批量操作的优化</li>
+</ul>
+</blockquote>
+<p>执行流程：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220411013615619.png" srcset="/img/three2.gif" lazyload class title="JS 执行流程">
+
+<p>故 nextTick 要优先调用 <code>Promise</code> 和 <code>MutationObserver</code> 等微任务，会在执行栈空闲时立即执行，响应速度会比 setTimeout 等更快，无需等渲染。</p>
 <h1 id="代码练习"><a href="#代码练习" class="headerlink" title="代码练习"></a>代码练习</h1><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><br></code></pre></div></td></tr></table></figure>
 
 
