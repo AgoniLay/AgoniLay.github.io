@@ -17,7 +17,7 @@
   <meta name="author" content="AgoniLay">
   <meta name="keywords" content="">
   
-  <title>前端面试复习 - AgoniLay的博客</title>
+  <title>AgoniLay的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -184,7 +184,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h3" id="subtitle" title="前端面试复习">
+            <span class="h3" id="subtitle" title="">
               
             </span>
 
@@ -211,7 +211,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      39.2k 字
+      59k 字
     </span>
   
 
@@ -252,11 +252,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">前端面试复习</h1>
+            <h1 style="display: none"></h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月2日 凌晨
+                  本文最后更新于：2022年4月10日 晚上
                 
               </p>
             
@@ -717,8 +717,8 @@
 </blockquote>
 <p>也就是 <code>1111111100</code> </p>
 <hr>
+0.75 用二进制表示：
 
-<p>0.75 用二进制表示：</p>
 <blockquote>
 <p>0.75 = a * 2^-1 + b * 2^-2 + c * 2^-3 + d * 2^-4 + …</p>
 </blockquote>
@@ -733,8 +733,8 @@
 </blockquote>
 <p>所以 0.75 就是 <code>0.11</code></p>
 <hr>
+但一些小数计算会一直循环，如 0.1 用二进制表示就是 `0.00011001100110011......` 
 
-<p>但一些小数计算会一直循环，如 0.1 用二进制表示就是 <code>0.00011001100110011......</code> </p>
 <h4 id="浮点数的存储"><a href="#浮点数的存储" class="headerlink" title="浮点数的存储"></a>浮点数的存储</h4><p>IEEE 754 认为，一个浮点数（Value）可以这样表示：</p>
 <figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">Value = sign * exponent * fraction<br></code></pre></div></td></tr></table></figure>
 
@@ -2270,7 +2270,7 @@
 <li>HTTP 响应报文中 expires 的时间值是一个绝对值，而 cache-control 的值是相对值；</li>
 <li>无法确定客户端是否与服务端的时间同步的情况下，cache-control 比 expires 是更好的选择。</li>
 </ul>
-<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/162db635afa6f7f7tplv-t2oaga2asx-watermark.awebp" srcset="/img/three2.gif" lazyload class title="img">
+
 
 <p>上图中，状态码为灰色的请求代表使用了强制缓存，对应的 Size 值代表了则代表该缓存存放的位置，分别为：</p>
 <ul>
@@ -2515,7 +2515,7 @@
 </ul>
 <blockquote>
 <p>idle task：除了要处理输入事件，浏览器还有其它任务要做，这些任务会占用部分时间，一般情况会花费50ms的时间，输入事件的响应则排在其后。</p>
-<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/173489db13875e5btplv-t2oaga2asx-watermark.awebp" srcset="/img/three2.gif" lazyload class title="Idle Task示意图">
+
 </blockquote>
 <h4 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h4><p>产生每一帧的时间不要超过 10ms，旨在视觉上的平滑，用户对于帧率变化感知很敏感。</p>
 <p>优化方案：</p>
@@ -2561,7 +2561,936 @@
 <li>最大化主线程的空闲时间</li>
 <li>5s 内让网页变得可交互</li>
 </ul>
-<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><h3 id="重绘重排"><a href="#重绘重排" class="headerlink" title="重绘重排"></a>重绘重排</h3><h3 id="白屏"><a href="#白屏" class="headerlink" title="白屏"></a>白屏</h3><h3 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h3><h3 id="动画性能"><a href="#动画性能" class="headerlink" title="动画性能"></a>动画性能</h3><h3 id="渲染合成层"><a href="#渲染合成层" class="headerlink" title="渲染合成层"></a>渲染合成层</h3><h1 id="代码练习"><a href="#代码练习" class="headerlink" title="代码练习"></a>代码练习</h1><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><br></code></pre></div></td></tr></table></figure>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><blockquote>
+<p>资源来自文档：<a target="_blank" rel="noopener" href="https://alienzhou.com/projects/fe-performance-journey/">https://alienzhou.com/projects/fe-performance-journey/</a></p>
+<p>雅虎性能优化35条规则：<a target="_blank" rel="noopener" href="https://github.com/creeperyang/blog/issues/1">https://github.com/creeperyang/blog/issues/1</a></p>
+</blockquote>
+<p>性能优化广义上包含前端优化和后端优化。后端优化的关注点更多是在增加资源利用率、降低资源成本以及提高稳定性上；前端性能优化会更直接与用户的体验相关。</p>
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><h5 id="本地数据存储"><a href="#本地数据存储" class="headerlink" title="本地数据存储"></a>本地数据存储</h5><p>对于一些请求，可以直接在业务代码侧进行缓存处理，缓存方式包括：<code>localStorage</code>、<code>sessionStorage</code>、<code>indexedDB</code>；从前端视角看，这是一种本地存储，但从整个系统的维度来看，其实也是缓存链条上重要的一环，对于一些特殊的、轻量级的业务数据，可以考虑使用本次存储作为缓存。</p>
+<h5 id="内存缓存-Memory"><a href="#内存缓存-Memory" class="headerlink" title="内存缓存(Memory)"></a>内存缓存(Memory)</h5><p>当访问一个页面及其子资源时，又是会出现一个资源被使用多次，如图标。由于该资源已经在内存中，再次请求没有必要，浏览器内存则是最近、最快的响应场所。</p>
+<h5 id="Cache-API"><a href="#Cache-API" class="headerlink" title="Cache API"></a>Cache API</h5><p>在未命中内存缓存后，发送请求前会来到 Cache API 中，通常是和 Service Worker 配合使用的。</p>
+<p>Service Worker 是一个后台运行的独立线程，可以在代码中启用：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;serviceWorker&#x27;</span> <span class="hljs-keyword">in</span> navigator) &#123;<br>  navigator.serviceWorker.register(<span class="hljs-string">&#x27;./sw.js&#x27;</span>).then(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-comment">// 注册成功</span><br>  &#125;)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>之后处理一些 Service Worker 的生命周期时间，在其中设置请求拦截：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// sw.js</span><br>self.addEventListener(<span class="hljs-string">&#x27;fetch&#x27;</span>, <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> &#123;<br>  <span class="hljs-comment">// 如果有 cache 则直接返回，否则通过 fetch 请求</span><br>  e.respondWith(<br>    caches.match(e.request).then(<span class="hljs-function"><span class="hljs-params">cache</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> cache || fetch(e.request)<br>    &#125;).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>      <span class="hljs-built_in">console</span>.log(err)<br>      <span class="hljs-keyword">return</span> fetch(e.request)<br>    &#125;)<br>  )<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>以上会拦截所有的网络请求，查看是否有缓存的请求内容，如果有则返回缓存，否则会继续发送请求。</p>
+<p>与内存缓存不同，Cache API 的缓存可认为是 “永久性” 的。关闭浏览器或离开页面之后，下次访问仍可以使用。</p>
+<blockquote>
+<p>Service Worker 相关文章：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903588691443725">https://juejin.cn/post/6844903588691443725</a></p>
+</blockquote>
+<h5 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP 缓存"></a>HTTP 缓存</h5><p>如果 Service Worker 中也没有缓存的请求信息，那么就会真正到 HTTP request 的阶段了，HTTP 缓存大致可以分为强缓存与协商缓存：</p>
+<p>在强缓存的情况下，浏览器不会向服务器发送请求，而是直接从本地缓存中读取内容，一般就是来源于硬盘，也就是在 Chrome Devtools 上经常看到的 <code>disk cache</code>。</p>
+<p>相关的响应头是 <code>Expires</code> 和 <code>Cache-Control</code>，具体可以查看之前的浏览器缓存策略。</p>
+<h5 id="Push-Cache"><a href="#Push-Cache" class="headerlink" title="Push Cache"></a>Push Cache</h5><p>这是最后一个缓存检查，是 HTTP/2 的 Push 功能带来的，在你请求一个资源的同时，服务器可以为你推送一些其他相关的资源，以此来避免浏览器收到响应、解析到相应位置是才会请求所带来的延后。</p>
+<p>HTTP/2 Push Cache 是比较底层的网络特性，与其他的缓存有很多不同：</p>
+<ul>
+<li>在匹配上时，并不会再额外检查资源是否过期；</li>
+<li>存活时间很短（Chrome 中约为 5min 左右）；</li>
+<li>只会被使用一次；</li>
+<li>HTTP/2 链接断开将直接失效。</li>
+</ul>
+<h4 id="发送请求"><a href="#发送请求" class="headerlink" title="发送请求"></a>发送请求</h4><h5 id="避免多余重定向"><a href="#避免多余重定向" class="headerlink" title="避免多余重定向"></a>避免多余重定向</h5><p>重定向是一个比较常用的技术手段，分为 301 永久重定向和 302 临时重定向，需要贴合语义使用。</p>
+<p>每次重定向都是由请求耗时的，要避免多余的重定向。</p>
+<h5 id="DNS-预解析"><a href="#DNS-预解析" class="headerlink" title="DNS 预解析"></a>DNS 预解析</h5><p>访问远程服务时，不会直接使用服务的出口 IP，而是使用域名，所以请求需要进行域名解析。</p>
+<p>DNS 服务本省是一个树状层级结构，其解析是一个递归与迭代的过程（github.com）：</p>
+<ol>
+<li>先检查本地 hosts 文件中是否有映射，有则使用；</li>
+<li>查找本地 DNS 缓存，有则返回；</li>
+<li>根据配置在 TCP/IP 参数中设置 DNS 查询服务器，并向其进行查询，这里先称为本地 DNS；</li>
+<li>如果该服务器无法解析域名（没有缓存），且不需要转发，则会向根服务器请求；</li>
+<li>根服务器根据域名类型判断对应的顶级域名服务器（.com），返回给本地 DNS，然后重复该过程，直到找到该域名；</li>
+<li>当然，如果设置了转发，本地 DNS 会将请求逐级转发，直到转发服务器返回或者也不能解析。</li>
+</ol>
+<p>要知道：</p>
+<ul>
+<li>DNS 解析流程可能会很长，耗时很高，所以整个 DNS 服务，包括客户端都会有缓存机制，这个作为前端不好涉入；</li>
+<li>在 DNS 解析上，前端还是可以通过浏览器提供的其他手段来“加速”的：</li>
+</ul>
+<p>DNS Prefetch 就是浏览器提供的一个 API，是 Resource Hint 的一部分，会预解析网页中可能之后会访问的域名。</p>
+<h5 id="预先建立连接"><a href="#预先建立连接" class="headerlink" title="预先建立连接"></a>预先建立连接</h5><p>建立连接不仅需要 DNS 查询，还需要进行 TCP 协议握手，有些还会有 TLS/SSL 协议，都将会导致连接的耗时。</p>
+<p>可以使用 Preconnect 告诉浏览器：之后有些资源会用到某个源（origin），然后预先建立连接。</p>
+<p>根据规范，使用 Preconnect 时，浏览器做了如下处理：</p>
+<ol>
+<li>解析 Preconnect 的 url；</li>
+<li>根据当前 link 元素中的属性进行 cors 的设置；</li>
+<li>默认先将 credential 设为 true，如果 cors 位 Anonymous 并且存在跨域，则将 credential 设置为 false，随后进行连接。</li>
+</ol>
+<p>使用 preconnect 只需要将 <code>rel</code> 属性设为 <code>preconnect</code> 即可：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;preconnect&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//agonilay.top&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!-- 也可以设置 crossorigin --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;preconnect&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//agonilay.top&quot;</span> <span class="hljs-attr">corssorigin</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="使用-CDN"><a href="#使用-CDN" class="headerlink" title="使用 CDN"></a>使用 CDN</h5><p>当实际把网络包发向我们的目标地址时，肯定希望越快到达目的地越好（对应的，也会希望越快获得响应）。而网络传输是有极限的，同样一个北京的用户，访问北京的服务器显然要比广州快很多。同时，服务的负载也会影响响应的速度。</p>
+<p>对于静态资源，可以考虑通过 CDN 来降低时延。</p>
+<blockquote>
+<p>对于使用 CDN 的资源，DNS 解析会将 CDN 资源的域名解析到 CDN 服务的负载均衡器上，负载均衡器可以通过请求的信息获取用户对应的地理区域，从而通过负载均衡算法，在背后的诸多服务器中，综合选择一台地理位置近、负载低的机器来提供服务。例如为北京联通用户解析北京的服务器 IP。这样，用户在之后访问 CDN 资源时都是访问北京服务器，距离近，速度快。</p>
+</blockquote>
+<p>发送请求的流程：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220302172517397.png" srcset="/img/three2.gif" lazyload class title="发送请求流程">
+
+<h4 id="服务器响应"><a href="#服务器响应" class="headerlink" title="服务器响应"></a>服务器响应</h4><p>主要针对于 NodeJS 讨论</p>
+<h5 id="使用流进行响应"><a href="#使用流进行响应" class="headerlink" title="使用流进行响应"></a>使用流进行响应</h5><p>目前，现代浏览器都支持根据流的返回形式来逐步进行页面内容的解析、处理。这就意味着，即使请求的响应没有完全结束，浏览器也可以从手里已有的响应结果中进行页面的解析与渲染。</p>
+<h5 id="业务聚合"><a href="#业务聚合" class="headerlink" title="业务聚合"></a>业务聚合</h5><p>使用 NodeJS 的 BFF 层来进行后端服务的聚合。</p>
+<h5 id="避免代码问题"><a href="#避免代码问题" class="headerlink" title="避免代码问题"></a>避免代码问题</h5><ul>
+<li><code>async</code> <code>await</code> 的不当使用导致并行请求被串行化了；</li>
+<li>频繁地 <code>JSON.parse</code> 和 <code>JSON.stringify</code> 大对象；</li>
+<li>正则表达式的灾难性回溯；</li>
+<li>闭包导致的内存泄漏；</li>
+<li>CPU 密集型任务导致事件循环 delay 严重；</li>
+<li>未捕获的异常导致进程频繁退出，守护进程（pm2/supervisor）又将进程重启，这种频繁的启停也会比较消耗资源。</li>
+</ul>
+<h4 id="页面解析与处理"><a href="#页面解析与处理" class="headerlink" title="页面解析与处理"></a>页面解析与处理</h4><p>此阶段浏览器需要处理的包括：</p>
+<ul>
+<li>页面 DOM 的解析；</li>
+<li>页面静态资源的加载，包括了页面引用的 JavaScript/CSS/图片/字体等；</li>
+<li>静态资源的解析与处理，像是 JavaScript 的执行、CSSOM 的构建与样式合成等；</li>
+</ul>
+<h5 id="注意资源在页面文档中的位置"><a href="#注意资源在页面文档中的位置" class="headerlink" title="注意资源在页面文档中的位置"></a>注意资源在页面文档中的位置</h5><p>HTML 解析为 DOM Tree，CSS 解析为 CSSOM，两者再合成 Render Tree，JavaScript 会阻塞 DOM 构建，而 CSSOM 的构建又会阻塞 JavaScript 的执行。</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220302173153721.png" srcset="/img/three2.gif" lazyload class title="image-20220302173153721">
+
+<p>所以这就是推荐把 CSS 样式表放在 <code>&lt;head&gt;</code> 之中（即页面的头部），把 JavaScript 脚本放在 <code>&lt;body&gt;</code> 的最后（即页面的尾部）的原因。</p>
+<h5 id="使用-defer-和-async"><a href="#使用-defer-和-async" class="headerlink" title="使用 defer 和 async"></a>使用 defer 和 async</h5><p>可以使用 <code>defer</code> 或 <code>async</code> 属性。两者都会防止 JavaScript 脚本的下载阻塞 DOM 构建。但是两者也有区别，最直观的表现如下：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220302173717303.png" srcset="/img/three2.gif" lazyload class title="image-20220302173717303">
+
+<p>根据它们的特点，推荐在一些与主业务无关的 JavaScript 脚本上使用 <code>async</code>，例如统计脚本、监控脚本、广告脚本等，这些脚本一般都是一份独立的文件，没有外部依赖，不需要访问 DOM，也不需要有严格的执行时机限制。在这些脚本上使用 <code>async</code> 可以有效避免这些非核心功能的加载影响页面解析速度。</p>
+<h5 id="页面文档压缩"><a href="#页面文档压缩" class="headerlink" title="页面文档压缩"></a>页面文档压缩</h5><p>HTML 的文档大小也会极大影响响应体下载的时间，一般会进行 HTML 内容压缩（uglify）的同时，使用文本压缩算法（例如 gzip）进行文本的压缩。</p>
+<h4 id="页面静态资源"><a href="#页面静态资源" class="headerlink" title="页面静态资源"></a>页面静态资源</h4><h5 id="总体"><a href="#总体" class="headerlink" title="总体"></a>总体</h5><ol>
+<li>减少不必要的请求：</li>
+</ol>
+<p>核心是尽量减少请求的数量，因为浏览器对同源请求有并发上限的限制（例如 Chrome 是6），所以在 HTTP/1.1 下，请求过多可能会导致请求被排队了。</p>
+<p>同时，TCP/IP 的拥塞控制也使其传输有慢启动（slow start）的特点，连接刚建立时包体传输速率较低，后续会渐渐提速。</p>
+<p>所以要减少不必要的请求：</p>
+<ul>
+<li>对于不需要使用的内容，不要请求；</li>
+<li>对于可以延迟加载的内容，在需要使用之前再加载；</li>
+<li>对于可以合并的资源，可以进行资源合并。</li>
+</ul>
+<ol start="2">
+<li>减少包体大小</li>
+</ol>
+<p>包体大小对性能也是有直接影响的。显然同样速率下，包体越小，传输耗时越低，整体页面加载与渲染的性能也会更好：</p>
+<ul>
+<li>使用适合当前资源的压缩技术；</li>
+<li>删除响应包体中无关紧要的内容。</li>
+</ul>
+<ol start="3">
+<li>降低应用资源时的消耗</li>
+</ol>
+<p>在 JavaScript 执行了一段 CPU 密集的计算，或者进行频繁的 DOM 操作，这些都会让 JavaScript 的执行变成影响性能的一大问题；另外像是 CSS 选择器匹配、图片的解析与处理等，都是要消耗 CPU 和内存的。</p>
+<ol start="4">
+<li>利用缓存</li>
+</ol>
+<h5 id="JavaScript-1"><a href="#JavaScript-1" class="headerlink" title="JavaScript"></a>JavaScript</h5><ol>
+<li>代码拆分与按需加载：</li>
+</ol>
+<p>在访问一个页面时，并不需要把其他页面的组件也全部加载过来，完全可以等到访问其他页面时，再按需去动态加载；</p>
+<p>代码拆分一般会配合构建工具一起使用。以 webpack 为例，在日常使用时，最常见的方式就是通过 <a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-dynamic-import">dynamic import</a> 来告诉 webpack 去做代码拆分；如果不使用 webpack 之类的构建工具，也可以选择一个 AMD 模块加载器（例如 <a target="_blank" rel="noopener" href="https://requirejs.org/">RequireJS</a>）来实现前端运行时上的异步依赖加载。</p>
+<ol start="2">
+<li>代码合并</li>
+</ol>
+<p>在很多流行的构建工具中（webpack/Rollup/Parcel），是默认会把依赖打包到一起的；但当使用其他一些工具时，就要注意打包。例如使用 <a target="_blank" rel="noopener" href="https://fis.baidu.com/fis3/docs/pack.html">FIS3</a> 时，就需要通过配置声明，将一些 common 库或 npm 依赖进行打包合并；又或者使用 Gulp 这样的工具，也需要注意进行打包。</p>
+<ol start="3">
+<li>代码压缩</li>
+</ol>
+<p>JavaScript 代码压缩比较常见的做法就是使用 <a target="_blank" rel="noopener" href="http://lisperator.net/uglifyjs/">UglifyJS</a> 做源码级别的压缩。它会通过将变量替换为短命名、去掉多余的换行符等方式，在尽量不改变源码逻辑的情况下，做到代码体积的压缩。基本已经成为了前端开发的标配。</p>
+<p>在 webpack 的 production 模式下是默认开启的；而在 Gulp 这样的任务流管理工具上也有 <a target="_blank" rel="noopener" href="https://github.com/terinjokes/gulp-uglify">gulp-uglify</a> 这样的功能插件。</p>
+<p>另一个代码压缩的常用手段是使用一些文本压缩算法，gzip 就是常用的一种方式。</p>
+<ol start="4">
+<li>Tree Shaking</li>
+</ol>
+<p>其本质是通过检测源码中不会被使用到的部分，将其删除，从而减小代码的体积。</p>
+<ol start="5">
+<li>优化 polyfill 的使用</li>
+</ol>
+<p>前端技术的一大特点就是需要考虑兼容性，而 polyfill 用于在非兼容浏览器上也能使用新特性的 API。</p>
+<p>但 polyfill 的使用也增加了代码体积，可以通过 <a target="_blank" rel="noopener" href="https://github.com/browserslist/browserslist">browserslist</a> 来帮忙；</p>
+<p>其次，在 Chrome Dev Summit 2018 上还介绍了一种 <a target="_blank" rel="noopener" href="https://youtu.be/reztLS3vomE?t=1254">Differential Serving</a> 的技术，通过浏览器原生模块化 API 来尽量避免加载无用 polyfill：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;main.mjs&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">nomodule</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;legacy.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>这样，在能够处理 <code>module</code> 属性的浏览器（具有很多新特性）上就只需加载 <code>main.mjs</code>（不包含 polyfill）；而在老式浏览器下，则会加载 <code>legacy.js</code>（包含 polyfill）。</p>
+<ol start="6">
+<li>webpack</li>
+</ol>
+<p>webpack 现在已经成为很多前端应用的构建工具，但其中的无用包也不容小觑。</p>
+<ol start="7">
+<li>JS 的解析耗时</li>
+</ol>
+<p>一个 JavaScript 文件，即使内部没有所谓的“立即执行函数”，JavaScript 引擎也是需要对其进行解析和编译的；删除不必要的代码，对于降低 Parse 与 Compile 的负载也是很有帮助的。</p>
+<ol start="8">
+<li>避免 Long Task</li>
+</ol>
+<p>对于一些单页应用，在加载完核心的 JavaScript 资源后，可能会需要执行大量的逻辑，如果处理不好，可能会出现 JavaScript 线程长时间执行而阻塞主线程的情况。</p>
+<ol start="9">
+<li>框架的使用与否</li>
+</ol>
+<p>并不是说不要使用框架/类库，只是希望不要拘泥于某个思维定式</p>
+<h5 id="CSS-1"><a href="#CSS-1" class="headerlink" title="CSS"></a>CSS</h5><ol>
+<li><p>关键 CSS：CRP（Critical Rendering Path，关键渲染路径） 是指优先显示与当前用户操作有关的内容。由于 CSS 会“间接”阻塞页面的解析，所以在这个过程中的 CSS 也被称为关键 CSS，识别出当前业务中的关键 CSS，优先下载与解析它，将会更好地降低延迟：将关键 CSS 的内容通过 <code>&lt;style&gt;</code> 标签内联到 <code>&lt;head&gt;</code> 中，然后异步加载其他非关键 CSS（骨架屏就是此思路的一个延展）</p>
+</li>
+<li><p>按需加载</p>
+</li>
+<li><p>合并文件</p>
+</li>
+<li><p>慎用 <code>@import</code>：CSS 提供了一个 <code>@import</code> 语法来加载外部的样式文件。然而，这会把你的请求变得串行化。</p>
+</li>
+<li><p>压缩文件以及选择合适的兼容性</p>
+</li>
+<li><p>简化选择器</p>
+</li>
+<li><p>避免使用昂贵的属性：</p>
+<ul>
+<li>border-radius</li>
+<li>box-shadow</li>
+<li>opacity</li>
+<li>transform</li>
+<li>filter</li>
+<li>position: fixed</li>
+</ul>
+</li>
+<li><p>使用先进的布局方式：使用新版的 flex 进行布局比我们用的一些“老式”方法性能更好（例如基于 float 的浮动布局）。 flex 在移动端具有不错的兼容性，很多移动场景下已经大规模使用 flex 进行页面布局，但 flex 有兼容性的要求（对于 IE）</p>
+</li>
+<li><p>利用缓存</p>
+</li>
+</ol>
+<h5 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h5><ol>
+<li>优化请求数：<ul>
+<li>雪碧图（Sprite）；</li>
+<li>懒加载（尽量只加载用户正在浏览或者即将要浏览到的图片）：<ul>
+<li>首屏可以不需要懒加载，对首屏图片也使用懒加载会延迟图片的展示。</li>
+<li>设置合理的占位图，避免图片加载后的页面“抖动”。</li>
+<li>虽然目前基本所有用户都不会禁用 JavaScript，但还是建议做一些 JavaScript 不可用时的 backup</li>
+</ul>
+</li>
+<li>CSS 中图片懒加载：使用 <code>background-url</code> 属性设置，如果未使用到具体的元素，浏览器并不会去下载；</li>
+<li>内联 base64：将将图片转为 base64 字符串，并将其内联到页面中返回，缺点在于相比使用二进制体积会增大 33% 且会在页面请求中串行进行（常用于首屏加载 CRP 或者骨架图上的一些小图标）</li>
+</ul>
+</li>
+<li>减少图片大小：<ul>
+<li>使用合适的图片格式：<ol>
+<li>WebP 格式：在有损与无损压缩上，它的表现都会优于传统（JPEG/PNG）格式；</li>
+<li>SVG 应对矢量图：在一些需要缩放与高保真的情况，或者用作图标的场景下，使用 SVG 这种矢量图非常不错；</li>
+<li>使用 video 替代 GIF：通过静音(muted)的 video 来代替 GIF，相同的效果下，GIF 比视频(MPEG-4)大 5~20 倍；</li>
+<li>渐进式 JPEG：基线 JPEG (baseline JPEG) 会从上往下逐步呈现，而 <a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2013/01/progressive-jpeg-image-and-so-on/">渐进式 JPEG (progressive JPEG)</a> 则会从模糊到逐渐清晰，使人的感受上会更加平滑，但渐进式的解码速度会稍慢；</li>
+</ol>
+</li>
+<li>图片质量的权衡：图片的压缩一般可以分为有损压缩（lossy compression）和无损压缩（lossless compression），处理图片压缩可以使用 <a target="_blank" rel="noopener" href="https://github.com/imagemin/imagemin">imagemin</a> 这样的工具；</li>
+<li>使用合适的大小和分辨率；</li>
+<li>删除冗余的图片信息：可以使用像 <a target="_blank" rel="noopener" href="https://imageoptim.com/versions">imageOptim</a> 这样的工具来移除隐私与非关键的元信息；</li>
+<li>SVG 压缩：<a target="_blank" rel="noopener" href="https://github.com/svg/svgo">SVGGO</a> 是一个可以集成到构建流中的 NodeJS 工具，可以进行 SVG 的优化；</li>
+</ul>
+</li>
+<li>缓存</li>
+</ol>
+<h5 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h5><p>有些时候，内置的字体并不能满足需求，一般会使用 <code>@font-face</code> 来加载字体文件：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-keyword">@font-face</span> &#123;<br>  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&#x27;Samplefont&#x27;</span>;<br>  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">/static/samplefont.woff2</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;woff2&#x27;</span>),<br>    	 <span class="hljs-built_in">url</span>(<span class="hljs-string">/static/samplefont.woff</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;woff&#x27;</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>问题在于：在字体加载期间，浏览器页面是默认不展示文本内容的，也就是 FOIT（Flash of Invisible），会带来糟糕的用户体验。</p>
+<ol>
+<li><p>font-display：可以在 <code>@font-face</code> 中设置 <code>font-display: swap</code>，让 FOIT 的默认行为变为 FOUT (Flash of Unstyled Text)，先会使用默认的字体样式展示文本，加载完毕后再将文本的字体样式进行替换：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-keyword">@font-face</span> &#123;<br>  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&#x27;Samplefont&#x27;</span>;<br>  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">/static/samplefont.woff2</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;woff2&#x27;</span>),<br>    	 <span class="hljs-built_in">url</span>(<span class="hljs-string">/static/samplefont.woff</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;woff&#x27;</span>);<br>  <span class="hljs-attribute">font-display</span>: swap;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>font-display 的取值包括 <code>auto|block|swap|fallback|optional</code>，不过有兼容性问题</p>
+</li>
+<li><p>内联字体：将字体文件转为 base64 的字符串，设置到 <code>@font-face</code> 里的 <code>src</code> 属性上，避免异步加载字体时的 FOIT 或 FOUT：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-keyword">@font-face</span> &#123;<br>  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&#x27;Samplefont&#x27;</span>;<br>  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;data:application/x-font-woff;charset=utf-8;base64...&#x27;</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;woff2&#x27;</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>局限性：在一个 <code>@font-face</code> 中只能加载一种字体类型，也会将本可以并行请求的数据量变为串行；</p>
+</li>
+<li><p>使用 CSS Font Loading API：兼容性欠佳，可以使用 <a target="_blank" rel="noopener" href="https://github.com/bramstein/fontfaceobserver">Font Face Observer</a> 库；</p>
+</li>
+<li><p>FOFT：在需要加载同一字体的粗体、斜体时，FOFT (Flash of Faux Text) 方法会非常有效。</p>
+</li>
+</ol>
+<h5 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h5><ol>
+<li><p>使用合适的视频格式：不同的视频编码格式，其数据大小也大都不同。目前在 HTML5 Video 中常用的格式为 MPEG-4，除了 MPEG-4 之外，还支持一种叫 WebM 的新的视频格式。<br>WebM(VP9) 相较于 MPEG-4(x264) 来说会更小，但兼容性也较差；</p>
+</li>
+<li><p>视频压缩：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://handbrake.fr/">HandBrake</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.freemake.com/free_video_converter/">Freemake</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.selur.de/">Hybrid</a></li>
+<li><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/megui/">MeGUI</a></li>
+</ul>
+</li>
+<li><p>移除不必要的音轨信息：在不需要声音的情况下，将 <code>&lt;video&gt;</code> 设置为 <code>muted</code>；</p>
+</li>
+<li><p>使用流：尝试让浏览器使用“流”或者小分片的方式来播放你的视频，例如常用的 HLS (HTTP Live Streaming) 技术；</p>
+<blockquote>
+<p>使用 HLS 技术，会包含一个 <code>.m3u8</code> 的索引文件和一系列包含播放内容的 <code>.ts</code> 分片。浏览器通过不断下载一小段的分片来进行视频播放，避免了完整视频下载的流量消耗。</p>
+</blockquote>
+</li>
+<li><p>移除不必要的视频：比如在小屏幕上，可以通过媒体查询来避免下载视频：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">650px</span>) &#123;<br>  <span class="hljs-selector-id">#hero-video</span> &#123;<br>    <span class="hljs-attribute">display</span>: none;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+</ol>
+<h4 id="运行时"><a href="#运行时" class="headerlink" title="运行时"></a>运行时</h4><h5 id="强制同步布局"><a href="#强制同步布局" class="headerlink" title="强制同步布局"></a>强制同步布局</h5><ul>
+<li>尝试使用 RAF（<code>requestAnimationFrame API</code>） 避免强制同步布局，将布局查询的操作放在 <code>requestAnimationFrame</code> 中；</li>
+<li>批量化操作：批量化是计算机程序优化中的重要手段之一，对于元素布局的查询操作，可以将这些操作批量化存储下来，等到下一次 <code>requestAnimationFrame</code> 触发时一起执行</li>
+</ul>
+<h5 id="长列表优化"><a href="#长列表优化" class="headerlink" title="长列表优化"></a>长列表优化</h5><ol>
+<li>实现 Virtual List：Virtual List 是一种用来优化长列表的技术。它可以保证在列表元素不断增加，或者列表元素很多的情况下，依然拥有很好的滚动、浏览性能；</li>
+<li>原生的 Virtual Scroller：不建议在生产环境使用；</li>
+</ol>
+<h5 id="避免-JS-运行时间过长"><a href="#避免-JS-运行时间过长" class="headerlink" title="避免 JS 运行时间过长"></a>避免 JS 运行时间过长</h5><p>屏幕的刷新频率决定了每帧之间留给 JavaScript 执行的时间“并不多”。也正是由于渲染线程和 JavaScript 线程之间互斥，所以 JavaScript 执行占用时间过长会导致无法及时渲染，即出现所谓的“掉帧”。</p>
+<ol>
+<li>任务分解：长时间的运行会导致渲染阻塞，那么把任务拆成一个个持续时间更短的小任务，分散到各个帧中执行；也可以使用浏览器 API <code>requestIdleCallback</code> 在浏览器空闲时间执行注册的回调函数；</li>
+<li>延迟执行：<ol>
+<li>懒执行，当需要时才去计算；</li>
+<li>延后执行，即利用 <code>setTimeout</code>、<code>requestIdleCallback</code> 这样的方法把计算放到后续的事件循环或空闲时刻。</li>
+</ol>
+</li>
+<li>并行计算：可以使用 Web Worker 启用并行程序；</li>
+</ol>
+<h5 id="善用-Composite"><a href="#善用-Composite" class="headerlink" title="善用 Composite"></a>善用 Composite</h5><p>当合成层更新时，浏览器会将布局调整限制在该层中，做到尽可能小的布局变动。</p>
+<p>合成层在性能优化上的优点在于：</p>
+<ul>
+<li>合成层的位图，会交由 GPU 合成，比 CPU 处理要快；</li>
+<li>当需要 repaint 时，只需要 repaint 本身，不会影响到其他的层；</li>
+<li>对于 transform 和 opacity 效果，不会触发 layout 和 paint。</li>
+</ul>
+<h5 id="滚动事件的性能优化"><a href="#滚动事件的性能优化" class="headerlink" title="滚动事件的性能优化"></a>滚动事件的性能优化</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/lessfish/underscore-analysis/issues/22">节流(underscore)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/lessfish/underscore-analysis/issues/21">防抖(debounce)</a></li>
+</ul>
+<h5 id="Passive-event-listeners"><a href="#Passive-event-listeners" class="headerlink" title="Passive event listeners"></a>Passive event listeners</h5><p>浏览器不执行完监听回调里的代码，就不会知道开发者有没有禁止默认事件，当添加触摸、滚轮的事件监听后，每次触发该事件，浏览器都会先花费时间执行完你的回调，然后根据结果来判断是否需要滚动页面，就会导致性能问题。</p>
+<p>所以需要告诉浏览器默认行为没有被禁用，而不用确认监听函数，就需要使用 <a target="_blank" rel="noopener" href="https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md">Passive event listeners</a>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&#x27;touchstart&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;<br>    <span class="hljs-comment">// do something</span><br>&#125;, &#123;<span class="hljs-attr">passive</span>: <span class="hljs-literal">true</span>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>在监听函数的第三个参数中传入 <code>&#123; passive: true &#125;</code> 即可。</p>
+<h4 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h4><p>预加载相当于是快用户一步，在空闲的时候就把用户即将用到的资源加载完，等用户实际需要使用时，资源已经存在在本地，自然就跳过了整个加载的等待时间。</p>
+<h5 id="预加载技术"><a href="#预加载技术" class="headerlink" title="预加载技术"></a>预加载技术</h5><h6 id="Resource-Hints"><a href="#Resource-Hints" class="headerlink" title="Resource Hints"></a>Resource Hints</h6><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/resource-hints/">Resource Hints</a> 是一种预加载相关的标准，它告诉浏览器哪些源下的资源 Web 应用需要获取，哪些资源在之后的操作或浏览时需要被使用，从而让浏览器能够进行一些预先连接或预先加载操作。</p>
+<p>Resource Hints 标准包括 DNS Prefetch、Preconnect、Prefetch 与 Prerender，此外，还有一个与 Resource Hints 类似的 Preload：</p>
+<ul>
+<li><p>Prefetch：资源预获取，as 属性用于制定资源的类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;prefetch&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/prefetch.js&quot;</span> <span class="hljs-attr">as</span>=<span class="hljs-string">&quot;script&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>Prerender：预获取并预执行：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;prerender&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//sample.com/nextpage.html&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+<li><p>Preload：立刻进行预获取并将结果放在内存里，不会影响页面 parse 与 load 事件的触发，直到再次遇到该资源的使用标签时，才会执行：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;preload&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;./nextpage.js&quot;</span> <span class="hljs-attr">as</span>=<span class="hljs-string">&quot;script&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
+</ul>
+<h6 id="基于-JS-的预加载"><a href="#基于-JS-的预加载" class="headerlink" title="基于 JS 的预加载"></a>基于 JS 的预加载</h6><p>可以使用一些 JavaScript 中的功能来“巧妙”地进行预加载。</p>
+<p>例如图片：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> img = <span class="hljs-keyword">new</span> Image()<br>img.src = <span class="hljs-string">&#x27;/static/img/prefetch.jpg&#x27;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>上述代码会触发浏览器加载图片，然后等到用户需要浏览时，再将其插入到页面即可。</p>
+<p>对于 JavaScript 和 CSS 可以动态添加 <code>&lt;script&gt;</code> 和 <code>&lt;link&gt;</code> 标签，不过要注意它们只有在添加到页面时浏览器才会加载（少数老式浏览器上这块表现会不太一样），由于添加到页面后加载完会执行该资源，所以要避免产生不需要的副作用（否则就不是预加载了）</p>
+<h5 id="视频预加载"><a href="#视频预加载" class="headerlink" title="视频预加载"></a>视频预加载</h5><h6 id="为视频添加-preload-属性"><a href="#为视频添加-preload-属性" class="headerlink" title="为视频添加 preload 属性"></a>为视频添加 preload 属性</h6><p>使用 <code>preload</code> 属性可以让浏览器预加载相应的内容：</p>
+<ul>
+<li>none：不预加载视频</li>
+<li>meta：载入元数据（时长、尺寸、文字轨道）</li>
+<li>auto：预加载整个视频</li>
+</ul>
+<p>还可以设置 <code>poster</code> 属性来规定视频下载时或用户点击播放按钮前播放器上显示的图像。</p>
+<p>推荐的方式是设置 <code>poster</code> 与 <code>preload: meta</code>，为用户提供一定的播放预览信息的同时避免过多的预加载流量；</p>
+<h6 id="使用-Preload-Link"><a href="#使用-Preload-Link" class="headerlink" title="使用 Preload Link"></a>使用 Preload Link</h6><p>可以使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;preload&quot;</span> <span class="hljs-attr">as</span>=<span class="hljs-string">&quot;video&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/static/sample.mp4&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>进行资源的预加载</p>
+<h6 id="使用-JS-进行自定义的-Buffer-操作"><a href="#使用-JS-进行自定义的-Buffer-操作" class="headerlink" title="使用 JS 进行自定义的 Buffer 操作"></a>使用 JS 进行自定义的 Buffer 操作</h6><p>可以通过 HTTP <code>Range</code> 请求头来获取开始的一小段视频数据，然后使用 <code>MediaSource</code> API 来进行视频媒体数据的暂存与播放（具体代码查看：<a target="_blank" rel="noopener" href="https://alienzhou.com/projects/fe-performance-journey/7-preload/#_2-%E8%A7%86%E9%A2%91%E9%A2%84%E5%8A%A0%E8%BD%BD%EF%BC%89">https://alienzhou.com/projects/fe-performance-journey/7-preload/#_2-%E8%A7%86%E9%A2%91%E9%A2%84%E5%8A%A0%E8%BD%BD）</a></p>
+<h5 id="预加载的策略"><a href="#预加载的策略" class="headerlink" title="预加载的策略"></a>预加载的策略</h5><p>预加载一般都会面临一些矛盾：</p>
+<ul>
+<li>预加载资源过多，可能导致流量消耗过大，占用正常请求的通道；</li>
+<li>预加载资源过少，可能导致覆盖率太低，对于大部分资源用户无法享受到预加载效果。</li>
+</ul>
+<h6 id="quicklink"><a href="#quicklink" class="headerlink" title="quicklink"></a>quicklink</h6><p><a target="_blank" rel="noopener" href="https://github.com/GoogleChromeLabs/quicklink">quicklink</a> 是 GoogleChromeLabs 推出的轻量级库，使用 Resource Hints 进行预加载，对于不支持的浏览器会回退到 XHR 模式；核心就是：当链接进入到视口后，会对其进行预加载。</p>
+<h6 id="Guess-js"><a href="#Guess-js" class="headerlink" title="Guess.js"></a>Guess.js</h6><p><a target="_blank" rel="noopener" href="https://github.com/guess-js/guess">Guess.js</a> 则是一个更为完备的工具包。它会结合前端访问与打点的数据进行统计，甚至应用一些机器学习的模型，来提供一个更精细化、更准确的预加载策略。</p>
+<h3 id="重绘重排"><a href="#重绘重排" class="headerlink" title="重绘重排"></a>重绘重排</h3><h4 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h4><p>在页面的生命周期中，网页生成时至少会 <strong>渲染</strong> 一次，在用户访问的过程中，还会不断触发 <strong>重排(reflow)</strong> 和 **重绘(repaint)**，而重绘和重排都会影响性能。</p>
+<p><strong>重绘不一定导致重排，但重排一定会导致重绘</strong>。</p>
+<h4 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h4><p>当 DOM 的变化影响了元素的集合信息（位置、尺寸和大小），浏览器需要重新计算元素的几何属性，以安放在页面的正确位置，此过程叫重排（也叫回流），也就是重新生成布局，重新排列元素。</p>
+<p>触发条件：</p>
+<ul>
+<li>页面初始渲染，开销最大的一次渲染</li>
+<li>添加删除可见的 DOM 元素</li>
+<li>改变元素位置</li>
+<li>改变元素尺寸，如：边距、填充、边框、宽度和高度等</li>
+<li>改变元素内容，如：文字数量、图片大小等</li>
+<li>改变元素字体大小</li>
+<li>改变浏览器窗口尺寸，如：resize 事件发生时</li>
+<li>激活 CSS 伪类</li>
+<li>设置 style 属性的值</li>
+<li>查询某些属性或调用某些方法，如：offsetWidth、offsetHeight、getComputedStyle()、currentStyle() 等</li>
+</ul>
+<p>常见的引起重排的属性和方法：</p>
+<ul>
+<li>width、height、margin、padding</li>
+<li>display、border-width、border、position</li>
+<li>overflow、font-size、vertical-align、min-height</li>
+<li>clientWidth、clientWidth、clientTop、clientLeft</li>
+<li>offsetWidth、offsetHeight、offsetTop、offsetLeft</li>
+<li>scrollWidth、scrollHeight、scrollTop、scrollLeft</li>
+<li>scrollIntoView()、scrollTo()、getComputedStyle()、getBoundingClientRect()、scrollIntoViewIfNeeded()</li>
+</ul>
+<p>影响范围：</p>
+<p>由于浏览器渲染界面是基于流式布局模型的，所以触发重排时会对周围 DOM 重新排列：</p>
+<ul>
+<li>全局范围：从根节点 html 开始对整个渲染树进行重新布局</li>
+<li>局部范围：对渲染树的某一部分或某一个渲染对象进行重新布局</li>
+</ul>
+<h4 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h4><p>当一个元素的外观发生改变，但没有改变布局，重新把元素外观绘制出来的过程，叫做重绘。</p>
+<p>常见的引起重绘的属性：</p>
+<ul>
+<li>color、border-style、visibility、background</li>
+<li>background-size、background-image、background-position、background-reqeat</li>
+<li>outline-color、outline、outline-style、outline-width</li>
+<li>text-decoration、border-radius、box-shadow</li>
+</ul>
+<h4 id="优化建议"><a href="#优化建议" class="headerlink" title="优化建议"></a>优化建议</h4><p>减小重排范围：</p>
+<ul>
+<li>尽可能在低层级的 DOM 节点上触发重排，而不是全局范围；</li>
+<li>尽量不要使用 table 布局，很小的改动都会造成整个 table 的重新布局，在必须要使用的情况下可以设置 <code>table-layout: auto</code> 或者 <code>table-layout: fixed</code> 使 table 一行一行的渲染来限制 reflow 的影响范围；</li>
+</ul>
+<p>减少重排次数：</p>
+<ul>
+<li>不要频繁的操作样式，要修改类名而不是修改样式；</li>
+<li>DOM 的多个读操作（或者写操作）应该放在一起，不要混杂着使用；</li>
+<li>使 DOM 离线，也就是不在当前的 DOM 树上做修改：<ul>
+<li>使用 <code>display: none</code>，元素将不在 DOM 树中，在其中的操作也不会触发重绘重排，之后通过 <code>display</code> 属性显示，可以达到减少重绘重排次数的目的；另外，<code>visibility: hidden</code> 的元素只会触发重绘；</li>
+<li>通过 <code>documentFragment</code> 创建一个 DOM 碎片进行批量操作，再添加到文档中，这样只会触发一次重排；</li>
+<li>复制节点在副本上进行操作；</li>
+</ul>
+</li>
+<li>使用 absolute 或 fixed 脱离文档流：使用绝对对位会使改元素单独成为渲染树中 body 的一个子元素，重排开销较小，不会给其他节点造成较大影响；</li>
+<li>优化动画：<ul>
+<li>可以将动画效果应用到 <code>position</code> 属性为 <code>absolute</code> 或 <code>fixed</code> 的元素上来减少对其他元素的影响；</li>
+<li>启用 GPU 加速：包括 Canvas2D、布局合成、CSS3 转换(transitions)、CSS3 3D变换(transforms)、WebGL 和 视频(video)；</li>
+</ul>
+</li>
+</ul>
+<h4 id="查看页面渲染时间"><a href="#查看页面渲染时间" class="headerlink" title="查看页面渲染时间"></a>查看页面渲染时间</h4><p>打开开发者工具，点击 Performance 选项卡中左上角的小圆点，点击刷新页面会录制整个页面加载的时间的分配情况：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220303220841426.png" srcset="/img/three2.gif" lazyload class title="页面渲染时间">
+
+<ul>
+<li>蓝色：网络通信和HTML解析</li>
+<li>黄色：JavaScript执行</li>
+<li>紫色：样式计算和布局，即重排</li>
+<li>绿色：重绘</li>
+</ul>
+<p>点击 Event Log：单独勾选 Loading 项会显示 html 和 css 的加载时间：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220303221208169.png" srcset="/img/three2.gif" lazyload class title="Event Log">
+
+<h3 id="白屏时间"><a href="#白屏时间" class="headerlink" title="白屏时间"></a>白屏时间</h3><p>白屏时间指用户点击一个链接或打开浏览器输入 URL 地址后，从屏幕空白到显示第一个画面的时间。</p>
+<blockquote>
+<p>白屏时间的长短将会直接影响用户对该网站的第一印象。</p>
+</blockquote>
+<h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><ol>
+<li>DNS Lookup：即浏览器从 DNS 服务器中进行域名查询；浏览器会先对页面进行域名解析，获取到服务器的 IP 地址后，进而和服务器进行通信；</li>
+<li>建立 TCP 请求连接：基于 TCP/IP 协议，通过三次握手建立连接，并提供可靠的数据传输服务；</li>
+<li>服务器端请求处理响应；</li>
+<li>客户端下载解析渲染显示页面；</li>
+</ol>
+<h4 id="白屏性能优化"><a href="#白屏性能优化" class="headerlink" title="白屏性能优化"></a>白屏性能优化</h4><p>其实就是针对白屏过程，在每一个步骤做相应的性能优化措施</p>
+<h3 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h3><p>图片加载面临的问题：</p>
+<ol>
+<li>启动页面时加载过多图片；</li>
+<li>部分图片体积过大；</li>
+</ol>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><ol>
+<li>判断图片是否是首屏内图片</li>
+</ol>
+<p>可以通过 getBoundingClientRect 方法，获取到图片的位置信息，判断其是否在 viewport 内部：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> inViewport = <span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> rect = el.getBoundingClientRect()<br>  <span class="hljs-keyword">return</span> rect.top &gt; <span class="hljs-number">0</span><br>  	&amp;&amp; rect.bottom &lt; <span class="hljs-built_in">window</span>.innerHeight<br>	  &amp;&amp; rect.left &gt; <span class="hljs-number">0</span><br>  	&amp;&amp; rect.right &lt; <span class="hljs-built_in">window</span>.innerWidth<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>但上述方法的前提是元素插入到了 DOM 树中才可以进行判断，另一种方式：</p>
+<p>使用 Vue 中的自定义指令 <code>v-img</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> promises = [] <span class="hljs-comment">// 用来存储优先加载的图片  </span><br>Vue.directive(<span class="hljs-string">&#x27;img&#x27;</span>, &#123;<br>  <span class="hljs-function"><span class="hljs-title">bind</span>(<span class="hljs-params">el, binding, vnode</span>)</span> &#123;<br>    <span class="hljs-comment">// ...</span><br>    <span class="hljs-keyword">const</span> &#123; defer &#125; = binding.value<br>    <span class="hljs-comment">// ...</span><br>    <span class="hljs-keyword">if</span> (!defer) &#123;<br>      promises.push(update(el, binding, vnode))<br>    &#125;<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-title">inserted</span>(<span class="hljs-params">el, binding, vnode</span>)</span> &#123;<br>    <span class="hljs-keyword">const</span> &#123; defer &#125; = binding.value<br>    <span class="hljs-keyword">if</span> (!defer) <span class="hljs-keyword">return</span><br>    <span class="hljs-keyword">if</span> (inViewport(el)) &#123;<br>      promises.push(update(el, binding, vnode))<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      Vue.nextTick(<span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-built_in">Promise</span>.all(promises)<br>          .then(<span class="hljs-function">() =&gt;</span> &#123;<br>          promises.length = <span class="hljs-number">0</span><br>          update(el, binding, vnode)<br>        &#125;).catch(<span class="hljs-function">() =&gt;</span> &#123;&#125;)<br>      &#125;)<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<ol start="2">
+<li><p>图片体积过大，导致下载时间过长，可以在保证一定清晰度的情况下尽量使用体积较小的图片：</p>
+<blockquote>
+<p>一张 <code>100px * 100px</code> 像素的图片，其包含该 <code>100 * 100 = 10000</code> 个像素点，而每个像素点通过 <code>RGBA</code> 颜色值进行存储，<code>R\G\B\A</code> 每个色道都有 0~255 个取值，也就是 2^8 = 256。正好是 8 位 1byte。而每个像素点有四个色道，每个像素点需要 4bytes。因此该图片体积为：<code>10000 * 4bytes = 40000bytes = 39KB</code>。</p>
+</blockquote>
+<ul>
+<li>减少单位像素所需要的字节数</li>
+<li>减少一张图片的总像素个数</li>
+</ul>
+</li>
+</ol>
+<h4 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h4><ol>
+<li>首屏图片优先加载，等首屏图片加载完全后再去加载非首屏图片；</li>
+<li>对大部分图片，特别是轮播广告中的图片进行按设备尺寸裁剪，减少图片体积，减少网络开销，加快下载速率。</li>
+</ol>
+<h3 id="动画性能"><a href="#动画性能" class="headerlink" title="动画性能"></a>动画性能</h3><h4 id="使用-CSS3-tranform"><a href="#使用-CSS3-tranform" class="headerlink" title="使用 CSS3 tranform"></a>使用 CSS3 tranform</h4><p>CSS3 的 tranform 可以旋转、缩放、倾斜，或者上传给定的元素，若属性的值不是 none，则会创建一个堆叠上下文。</p>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/* 对应图1 */</span><br><span class="hljs-selector-tag">div</span> &#123; <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>; <span class="hljs-attribute">transition</span>: height <span class="hljs-number">1s</span> linear; &#125;<br><span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">:hover</span> &#123; <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>; &#125; <br><br><span class="hljs-comment">/* 对应图2 */</span><br><span class="hljs-selector-tag">div</span> &#123; <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0.5</span>); <span class="hljs-attribute">transition</span>: transform <span class="hljs-number">1s</span> linear; &#125;<br><span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">:hover</span> &#123; <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1.0</span>); &#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>一个 height 从 100px 到 200px 的动画按如下流程图执行各种操作（橙色的比较耗时，绿色的比价快速）：</p>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/webp.webp" srcset="/img/three2.gif" lazyload class title="图1">
+
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/webp-16463188358882.webp" srcset="/img/three2.gif" lazyload class title="图2">
+
+<p>因为每一帧的变化浏览器都在进行布局、绘制、把新的位图交给 GPU 内存，而将位图加载到 GPU 内存中是相对耗时的操作，GPU 在如下方面很快：</p>
+<ul>
+<li>绘制位图到屏幕上</li>
+<li>可不断的绘制相同的位图</li>
+<li>将同一位图进行位移、旋转、缩放</li>
+</ul>
+<h4 id="层的引入"><a href="#层的引入" class="headerlink" title="层的引入"></a>层的引入</h4><p>以下会引起 Chrome 创建层：</p>
+<ul>
+<li>进行 3D 或者透视变换的 CSS 属性</li>
+<li>使用硬件加速视频解码的 <code>&lt;video&gt;</code> 元素</li>
+<li>具有 3D（WebGL）上下文或者硬件加速的 2D 上下文的 <code>&lt;canvas&gt;</code> 元素</li>
+<li>组合型插件（即 Flash）</li>
+<li>具有有 CSS 透明度动画或者使用动画式 Webkit 变换的元素</li>
+<li>具有硬件加速的 CSS 滤镜的元素</li>
+<li>子元素中存在具有组合层的元素的元素（就是存在具有自己的层的子元素的元素）</li>
+<li>同级元素中有 Z 索引比其小的元素，而且该 Z 索引比较小的元素具有组合层（就是在组合层之上进行渲染的元素）</li>
+</ul>
+<p>提升为合成层的好处：</p>
+<ol>
+<li>合成层的位图，会交由 GPU 合成，比 CPU 处理要快</li>
+<li>当需要 repaint 时，只需要 repaint 本身，不会影响到其他的层</li>
+<li>对于 transform 和 opacity 效果，不会触发 layout 和 paint</li>
+</ol>
+<p>提升合成层的方式：</p>
+<ol>
+<li>使用 CSS 的 will-change 属性；</li>
+<li>使用一个 3D transform 属性：<code>transofrm: translateZ(0)</code>；</li>
+</ol>
+<h4 id="网页动画的渲染"><a href="#网页动画的渲染" class="headerlink" title="网页动画的渲染"></a>网页动画的渲染</h4><p>有一些 JavaScript 方法可以调节重新渲染，大幅提高网页性能：</p>
+<ol>
+<li><code>window.requestAnimationFrame()</code>：可以将某些代码放到下一次重新渲染时执行；</li>
+<li><code>window.requestIdleCallback()</code>：也可以用来调节重新渲染，指定只有在下一帧的末尾有空闲时间才会执行回调函数，否则就继续向下一个空闲时间推迟，第二个参数可以用来在设定的毫秒内未执行后强制执行。</li>
+</ol>
+<h3 id="渲染合成层"><a href="#渲染合成层" class="headerlink" title="渲染合成层"></a>渲染合成层</h3><h4 id="形成条件"><a href="#形成条件" class="headerlink" title="形成条件"></a>形成条件</h4><ul>
+<li>3D 或透视变换(perspective transform) CSS 属性</li>
+<li>使用加速视频解码的 <code>&lt;video&gt;</code> 元素 拥有 3D</li>
+<li>(WebGL) 上下文或加速的 2D 上下文的 <code>&lt;canvas&gt;</code> 元素</li>
+<li>混合插件(如 Flash)</li>
+<li>对自己的 opacity 做 CSS动画或使用一个动画变换的元素</li>
+<li>拥有加速 CSS 过滤器的元素</li>
+<li>元素有一个包含复合层的后代节点(换句话说，就是一个元素拥有一个子元素，该子元素在自己的层里)</li>
+<li>元素有一个z-index较低且包含一个复合层的兄弟元素(换句话说就是该元素在复合层上面渲染)</li>
+</ul>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>合成层的位图，会交由 GPU 合成，比 CPU 处理要快<ul>
+<li>仅仅只是合成的处理（把绘图上下文的位图输出进行组合）需要用到GPU，生成合成层的位图处理（绘图上下文的工作）是需要CPU</li>
+</ul>
+</li>
+<li>当需要 repaint 时，只需要 repaint 本身，不会影响到其他的层</li>
+<li>对于 transform 和 opacity 效果，不会触发 layout 和 paint</li>
+</ul>
+<blockquote>
+<p>一般一个元素开启硬件加速后会变成合成层，可以独立于普通文档流中，改动后可以避免整个页面重绘，提升性能</p>
+</blockquote>
+<h4 id="引发问题"><a href="#引发问题" class="headerlink" title="引发问题"></a>引发问题</h4><ol>
+<li>合成层占用内存问题</li>
+<li>层爆炸</li>
+</ol>
+<p>解决：让一些不需要成为合成层的元素回归到普通渲染层，也就是取消上面的形成条件。</p>
+<h2 id="工程化"><a href="#工程化" class="headerlink" title="工程化"></a>工程化</h2><h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><p>模块：将一个复杂的程序依据一定的规则（规范）封装成几个块（文件），并进行组合在一起，块的内部数据与实现是私有的，只是向外部暴露一些接口（方法）与外部其他模块通信</p>
+<p>进化过程：</p>
+<ul>
+<li>全局 function 模式：将不同的功能封装成不同的全局函数；<ul>
+<li>缺点：污染全局命名空间，容易引起命名冲突或数据不安全；</li>
+</ul>
+</li>
+<li>namespace 模式：在 function 模式下进行简单的对象封装，减少了全局变量，解决命名冲突；<ul>
+<li>缺点：会暴露所有模块成员，内部状态可以被外部改写；</li>
+</ul>
+</li>
+<li>IIFE 模式：匿名函数子调用（闭包），使数据私有化，只能通过暴露的方法操作其中的数据；</li>
+<li>IIFE 模式增强：引入依赖，保证了模块的独立性且使得模块之间的依赖关系变得明显。</li>
+</ul>
+<p>好处：</p>
+<ul>
+<li>避免命名冲突（减少命名空间污染）</li>
+<li>更好的分离，按需加载</li>
+<li>高复用性和高维护性</li>
+</ul>
+<p>多个模块出现的问题：</p>
+<ol>
+<li>请求过多</li>
+<li>依赖模糊</li>
+<li>难以维护</li>
+</ol>
+<h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><p>Node 应用有模块构成，采用 CommonJS 模块规范，每个文件就是一个模块，在一个文件里面定义的变量、函数、类都是私有的，对其他文件不可见。</p>
+<p>在服务器端，模块的加载时运行时同步加载的；在浏览器端，模块需要提前编译打包处理。</p>
+<h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><ul>
+<li>所有代码都运行在模块作用域，不会污染全局作用域；</li>
+<li>模块可以多次加载，但只会在第一次加载时运行一次，之后在加载会直接读取缓存结果；</li>
+<li>模块加载的顺序，按照其在代码中出现的顺序</li>
+</ul>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 暴露模块</span><br><span class="hljs-built_in">module</span>.exports = &#123;&#125;<br><span class="hljs-built_in">exports</span>.xxx = value<br><br><span class="hljs-comment">// 引入模块</span><br><span class="hljs-built_in">require</span>(xxx)<br><span class="hljs-comment">// xxx：第三方模块则为模块名，自定义模块则为文件路径</span><br></code></pre></div></td></tr></table></figure>
+
+<p>CommonJS 规范规定，每个模块内部，module 变量代表当前模块（值为一个对象），它的 exports 属性（即 module.exports）是对外的接口。<strong>加载某个模块，其实是加载该模块的 module.exports 属性</strong>。</p>
+<p><code>require</code> 命令用于加载模块，读入并执行一个 JavaScript 文件，然后返回该模块的 exports 对象。</p>
+<h5 id="加载机制"><a href="#加载机制" class="headerlink" title="加载机制"></a>加载机制</h5><p>输入的是被输出值的拷贝，一旦输出一个值，模块内部的变化就不会影响到这个值：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// lib.js</span><br><span class="hljs-keyword">var</span> counter = <span class="hljs-number">3</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">incCounter</span> (<span class="hljs-params"></span>) </span>&#123;<br>  counter++<br>&#125;<br><span class="hljs-built_in">module</span>.exports = &#123;<br>  <span class="hljs-attr">counter</span>: counter,<br>  <span class="hljs-attr">incCounter</span>: incCounter<br>&#125;<br><br><span class="hljs-comment">// main.js</span><br><span class="hljs-keyword">var</span> counter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./lib&#x27;</span>).counter<br><span class="hljs-keyword">var</span> incCounter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./lib&#x27;</span>).incCounter<br><span class="hljs-built_in">console</span>.log(counter) <span class="hljs-comment">// 3</span><br>incCounter()<br><span class="hljs-built_in">console</span>.log(counter) <span class="hljs-comment">// 3</span><br></code></pre></div></td></tr></table></figure>
+
+<h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><p>CommonJS 规范加载模块是同步的，只有加载完成才可以执行后面的操作。AMD 规范则是非同步加载模块，允许指定回调函数。</p>
+<p>AMD模块定义的方法非常清晰，不会污染全局环境，能够清楚地显示依赖关系，通常使用第三方库 <code>require.js</code>。</p>
+<h5 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 定义没有依赖的模块</span><br>define(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> 模块<br>&#125;)<br><span class="hljs-comment">// 定义有依赖的模块</span><br>define([module1, module2], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">m1, m2</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> 模块<br>&#125;)<br><br><span class="hljs-comment">// 引入模块</span><br><span class="hljs-built_in">require</span>([module1, module2], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">m1, m2</span>) </span>&#123;<br>  使用模块<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><p>CMD 规范专门用于浏览器端，模块的加载是异步的，模块使用时才会加载，CMD 规范整合了 CommonJS 和 AMD 的特点，通常使用第三方库 <code>sea.js</code>。</p>
+<h5 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 定义没有依赖的模块</span><br>define(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-built_in">require</span>, <span class="hljs-built_in">exports</span>, <span class="hljs-built_in">module</span></span>) </span>&#123;<br>  <span class="hljs-built_in">exports</span>.xxx = value<br>  <span class="hljs-built_in">module</span>.exports = value<br>&#125;)<br><span class="hljs-comment">// 定义有依赖的模块</span><br>define(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-built_in">require</span>, <span class="hljs-built_in">exports</span>, <span class="hljs-built_in">module</span></span>) </span>&#123;<br>  <span class="hljs-comment">// 引入依赖的模块（同步）</span><br>  <span class="hljs-keyword">var</span> module2 = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./module2&#x27;</span>)<br>  <span class="hljs-comment">// 引入依赖的模块（异步）</span><br>  <span class="hljs-built_in">require</span>.async(<span class="hljs-string">&#x27;./module3&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">m3</span>) </span>&#123;&#125;)<br>  <span class="hljs-comment">// 暴露模块</span><br>  <span class="hljs-built_in">exports</span>.xxx = value<br>&#125;)<br><br><span class="hljs-comment">// 引入模块</span><br>define(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-built_in">require</span></span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> m1 = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./module1&#x27;</span>)<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><p>ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量，通常依赖第三方库：<code>babel</code>、<code>browserify</code>、<code>babel-preser-es2015</code>。</p>
+<h5 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 定义模块 math.js</span><br><span class="hljs-keyword">var</span> basicNum = <span class="hljs-number">0</span><br><span class="hljs-keyword">var</span> add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> a + b<br>&#125;<br><span class="hljs-keyword">export</span> &#123; basicNum, add &#125;<br><br><span class="hljs-comment">// 引用模块</span><br><span class="hljs-keyword">import</span> &#123; basicNum, add &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./math&#x27;</span><br><span class="hljs-comment">// ...</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h5><p>ES6 与 CommonJS 模块化的差异：</p>
+<ol>
+<li>CommonJS 输出的是一个值的拷贝，ES6 输出的是值的引用；</li>
+<li>CommonJS 是运行时加载，ES6 是编译时输出接口；</li>
+<li>ES6 模块是动态引用，不会缓存值；</li>
+</ol>
+<h3 id="tree-shaking"><a href="#tree-shaking" class="headerlink" title="tree-shaking"></a>tree-shaking</h3><p>可以理解为通过工具“摇”JS 文件，将其中用不到的代码“摇”掉，属于性能优化的范畴。</p>
+<p>支持 tree-shaking 的构建工具有：Rollup、Webpack2、Closure compiler</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>Tree-shaking 的本质是消除无用的 JS 代码，无用代码消除广泛存在于传统的编程语言编译器中，编译器可以判断出哪些代码根部不影响输出，然后消除这些代码，即为 DCE（dead code elmination）。</p>
+<p>Tree-shaking 是 DCE 的一种新的实现，JavaScript 同传统的编程语言不同的是，JavaScript 绝大多数情况需要通过网络进行加载，然后执行，加载的文件越小，整体执行时间更短，所以去除无用代码来减少文件体积，对 JavaScript 来说更有意义。</p>
+<h5 id="DCE"><a href="#DCE" class="headerlink" title="DCE"></a>DCE</h5><p>Dead Code 的特征：</p>
+<ol>
+<li>代码不会被执行，不可到达</li>
+<li>代码执行的结果不会被用到</li>
+<li>代码只会影响死变量（只写不读）</li>
+</ol>
+<p>传统编译型的语言中，都是由编译器将 Dead Code 从 AST（抽象语法树）中删除，JS 中是由代码压缩优化工具 uglify 完成。</p>
+<h4 id="总结-6"><a href="#总结-6" class="headerlink" title="总结"></a>总结</h4><p>三大工具的 Tree-shaking 对于无用代码，无用模块的消除，都是有限的，有条件的。</p>
+<p>其中 closure compiler 是效果最好的，但与日常的基于 node 的开发流很难兼容。</p>
+<h3 id="Uglify-压缩-JS"><a href="#Uglify-压缩-JS" class="headerlink" title="Uglify 压缩 JS"></a>Uglify 压缩 JS</h3><h4 id="AST"><a href="#AST" class="headerlink" title="AST"></a>AST</h4><p>抽象语法树，AST（Abstract Syntax Tree），是源代码的抽象语法结构的树状表现形式，这里特指编程语言的源代码。树上的每个节点都并表示源代码中的一种结构，抽象的原因是因为语法并不会表示出真实语法中出现的每个细节。</p>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">foo = <span class="hljs-string">&#x27;hello AgoniLay&#x27;</span><br><span class="hljs-comment">/* AST：</span><br><span class="hljs-comment">		+------------+</span><br><span class="hljs-comment">		|  assign(=) |</span><br><span class="hljs-comment">		+------------+</span><br><span class="hljs-comment">			 /			\</span><br><span class="hljs-comment">  +-----+		 +----------------+</span><br><span class="hljs-comment">  | foo |		 | Hello AgoniLay |</span><br><span class="hljs-comment">  +-----+    +----------------+</span><br><span class="hljs-comment">*/</span><br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (foo === <span class="hljs-literal">true</span>) &#123;<br>  bar = <span class="hljs-string">&#x27;Hello AgoniLay&#x27;</span><br>  alert(bar)<br>&#125;<br><span class="hljs-comment">/* AST：</span><br><span class="hljs-comment">									+------+</span><br><span class="hljs-comment">									|  if  |</span><br><span class="hljs-comment">									+------+</span><br><span class="hljs-comment">								   / 	  \</span><br><span class="hljs-comment">			+------------+		+-----------+</span><br><span class="hljs-comment">  		| equal(===) |		|  if_body  |</span><br><span class="hljs-comment">			+------------+    +-----------+</span><br><span class="hljs-comment">				/      /					/				  \</span><br><span class="hljs-comment">  +-----+	 +------+ 	+-----------+  +---------+</span><br><span class="hljs-comment">  | foo |	 | true |		| assign(=) |	 | alert() |</span><br><span class="hljs-comment">  +-----+  +------+		+-----------+  +---------+</span><br><span class="hljs-comment">  										/				\							  \</span><br><span class="hljs-comment">  						  +-----+	 +----------------+   +-----+</span><br><span class="hljs-comment">  							| foo |	 | Hello AgoniLay |		| bar |</span><br><span class="hljs-comment">  							+-----+  +----------------+		+-----+</span><br><span class="hljs-comment">*/</span><br></code></pre></div></td></tr></table></figure>
+
+<p>AST是源代码根据其语法结构，省略一些细节，抽象成树形表达。抽象语法树在计算机科学中有很多应用，比如编译器、IDE、压缩代码、格式化代码等。</p>
+<h4 id="代码压缩原理"><a href="#代码压缩原理" class="headerlink" title="代码压缩原理"></a>代码压缩原理</h4><ol>
+<li>将 code 转换成 AST；</li>
+<li>将 AST 进行优化；</li>
+<li>将优化后的 AST 再转化成 code。</li>
+</ol>
+<img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220322145325311.png" srcset="/img/three2.gif" lazyload class title="代码压缩图解">
+
+<p>使用 <code>uglify-js@2.x</code>  版本进行代码压缩示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// npm install uglify-js@2.x</span><br><span class="hljs-keyword">var</span> UglifyJS = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;uglify-js&#x27;</span>)<br><span class="hljs-comment">// 原始代码</span><br><span class="hljs-keyword">var</span> code = <span class="hljs-string">`</span><br><span class="hljs-string">var a</span><br><span class="hljs-string">var x = &#123; b: 123 &#125;</span><br><span class="hljs-string">a = 123</span><br><span class="hljs-string">delete x`</span><br><span class="hljs-comment">// 通过 UglifyJS 把代码解析为 AST</span><br><span class="hljs-keyword">var</span> ast = UglifyJS.parse(code)<br>ast.figure_out_scope()<br><span class="hljs-comment">// 转化为一颗更小的 AST 树</span><br><span class="hljs-keyword">var</span> compressor = UglifyJS.Compressor()<br>ast = ast.transform(compressor)<br><span class="hljs-comment">// 再把 AST 转化为代码</span><br>code = ast.print_to_string()<br><br><span class="hljs-built_in">console</span>.log(code) <span class="hljs-comment">// var a,x=&#123;b:123&#125;;a=123,delete x;</span><br></code></pre></div></td></tr></table></figure>
+
+<h4 id="代码压缩规则"><a href="#代码压缩规则" class="headerlink" title="代码压缩规则"></a>代码压缩规则</h4><h5 id="表达式压缩"><a href="#表达式压缩" class="headerlink" title="表达式压缩"></a>表达式压缩</h5><p><strong>表达式预计算</strong>：</p>
+<p>将可预先计算的表达式替换成其计算结果，同时要比较原来表达式以及生成后的结果的大小，取短值：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">var</span> val1 = <span class="hljs-number">1</span> + <span class="hljs-number">1</span><br><span class="hljs-keyword">var</span> val2 = <span class="hljs-number">1</span> / <span class="hljs-number">3</span><br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">var</span> val1 = <span class="hljs-number">2</span><br><span class="hljs-keyword">var</span> val2 = <span class="hljs-number">1</span> / <span class="hljs-number">3</span> <span class="hljs-comment">// 计算出来的值 0.333333333333~ 比 1/3 要长，所以不取预计算的结果</span><br></code></pre></div></td></tr></table></figure>
+
+<p><strong>优化 true 和 false</strong>：</p>
+<p>正常情况下会把：</p>
+<ul>
+<li><code>true</code> 变为 <code>!0</code>，节省 2 个字符；</li>
+<li><code>false</code> 变为 <code>!1</code>，节省 3 个字符。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">var</span> val1 = <span class="hljs-literal">true</span><br><span class="hljs-keyword">var</span> val2 = <span class="hljs-literal">false</span><br><span class="hljs-literal">true</span> == A<br><span class="hljs-literal">false</span> == A<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">var</span> val1 = !<span class="hljs-number">0</span><br><span class="hljs-keyword">var</span> val2 = !<span class="hljs-number">1</span><br><span class="hljs-number">1</span> == A<br><span class="hljs-number">0</span> == A<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>在参与 <code>==</code> 或者 <code>!=</code> 计算时，可以把 <code>true</code> 变为 1，<code>false</code> 变为 0.</p>
+</blockquote>
+<p><strong>根据 &amp;&amp; || 短路特性压缩</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-literal">true</span> &amp;&amp; A()<br><span class="hljs-literal">false</span> &amp;&amp; A()<br><span class="hljs-literal">true</span> || A()<br><span class="hljs-literal">false</span> || A()<br><br><span class="hljs-comment">// 压缩后</span><br>A()	<span class="hljs-comment">// 返回 &amp;&amp; 后的值</span><br>!<span class="hljs-number">1</span>	<span class="hljs-comment">// 返回 &amp;&amp; 前的值</span><br>!<span class="hljs-number">0</span>	<span class="hljs-comment">// 返回 || 前的值</span><br>A()	<span class="hljs-comment">// 返回 &amp;&amp; 后的值</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="运算符缩短"><a href="#运算符缩短" class="headerlink" title="运算符缩短"></a>运算符缩短</h5><p><strong>!== === 缩短</strong>：</p>
+<p>对于二元运算符 <code>===</code> 以及 <code>!==</code>，其两个操作数都是 string 类型或者布尔类型的，可以缩短成 <code>==</code> 以及 <code>!=</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-string">&#x27;object&#x27;</span> === <span class="hljs-keyword">typeof</span> A<br>(a, b, <span class="hljs-literal">true</span>) !== b <span class="hljs-keyword">instanceof</span> B<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-string">&#x27;object&#x27;</span> == <span class="hljs-keyword">typeof</span> A<br>(a, b, <span class="hljs-literal">true</span>) != b <span class="hljs-keyword">instanceof</span> B<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>赋值表达式缩短</strong>：</p>
+<p>详细规则：</p>
+<ol>
+<li>必须是 <code>=</code> 赋值语句</li>
+<li><code>=</code> 左侧只能是变量，不能是表达式等</li>
+<li><code>=</code> 右侧必须为二元操作表达式，并且符号是 <code>[&#39;+&#39;, &#39;-&#39;, &#39;*&#39;, &#39;/&#39;, &#39;%&#39;, &#39;&gt;&gt;&#39;, &#39;&lt;&lt;&#39;, &#39;&gt;&gt;&gt;&#39;, &#39;|&#39;, &#39;^&#39;, &#39;&amp;&#39;]</code> 中的元素</li>
+<li><code>=</code> 右侧的二元表达式的第一个操作数必须跟 <code>=</code> 号左侧的变量一致</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br>a = a + b<br>c = c &gt;&gt;&gt; d<br>a = b + c<br><br><span class="hljs-comment">// 压缩后</span><br>a += b<br>c &gt;&gt;&gt;= d<br>a + b + c <span class="hljs-comment">// 无法进行赋值表达式压缩</span><br></code></pre></div></td></tr></table></figure>
+
+<p><strong>! 的压缩</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br>!(a &gt;= b)<br>!!!a<br><br><span class="hljs-comment">// 压缩后</span><br>a &lt; b<br>!a<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="去除无用声明"><a href="#去除无用声明" class="headerlink" title="去除无用声明"></a>去除无用声明</h5><p><strong>去除重复的指示性字符串</strong>：</p>
+<p>对于嵌套的作用域使用了同样的指示性字符串，子作用域可以省略：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span> (<span class="hljs-params"></span>) </span>&#123;<br><span class="hljs-meta">  &#x27;use strict&#x27;</span><br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-comment">// &#x27;use strict&#x27; 可省略</span><br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>去除未使用的函数参数</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span> (<span class="hljs-params">a, b<span class="hljs-comment">/*, c */</span></span>) </span>&#123; <span class="hljs-comment">// 此处 c 并未用到，可以去除</span><br>  b++<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>去除函数表达式冗余的函数名</strong>：</p>
+<p>对于一个函数表达式，如果其函数体没有引用自身名字递归调用，那么此函数名可以去除，使之变为匿名函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span> (<span class="hljs-params"></span>) </span>&#123;<br>  A() <span class="hljs-comment">// 此处递归调用，无法省略函数名</span><br>&#125;)<br>(<span class="hljs-function"><span class="hljs-keyword">function</span> /* <span class="hljs-title">B</span> */ (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">// 此处 B 函数名可以省略</span><br>  c++<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>去除没用的块</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">while</span> (f) &#123;<br>  &#123; A() &#125;<br>&#125;<br><span class="hljs-keyword">while</span> (f) &#123;<br>  &#123;&#125;<br>&#125;<br><span class="hljs-keyword">if</span> (A) &#123;<br>  B()<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">while</span> (f)<br>  A()<br><span class="hljs-keyword">while</span> (f)<br>  ;<br><span class="hljs-keyword">if</span> (A)<br>  B()<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>去除未使用的 break</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">switch</span> (A) &#123;<br>  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>    <span class="hljs-keyword">break</span><br>  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>    <span class="hljs-comment">/* break */</span> <span class="hljs-comment">// 最后一项的 break 可以忽略，但如果带标签则不可忽略</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>去除没有引用的 label</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-attr">label1</span>: <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span><br><span class="hljs-attr">label2</span>: <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br>  <span class="hljs-keyword">break</span> label2<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span><br><span class="hljs-attr">label2</span>: <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)<br>  <span class="hljs-keyword">break</span> label2<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>去除无用的 toString 函数调用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br>(<span class="hljs-keyword">typeof</span> A).toString()<br>(<span class="hljs-string">&#x27;A&#x27;</span> + <span class="hljs-string">&#x27;B&#x27;</span>).toString()<br><span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;str&#x27;</span>.toString()<br><br><span class="hljs-comment">// 压缩后</span><br>(<span class="hljs-keyword">typeof</span> A)<br><span class="hljs-string">&#x27;AB&#x27;</span><br><span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;str&#x27;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="while-压缩"><a href="#while-压缩" class="headerlink" title="while 压缩"></a>while 压缩</h5><ul>
+<li>去除根本不会执行的 while 循环；</li>
+<li><code>while(true)</code> 变为 <code>for(;;)</code>，可以缩短 4 个字符</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">while</span> (<span class="hljs-literal">false</span>) &#123;<br>  A()<br>&#125;<br><span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br>  B()<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">for</span> (;;)<br>  B()<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="条件表达式"><a href="#条件表达式" class="headerlink" title="条件表达式"></a>条件表达式</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br>!cond ? yes() : no()<br><span class="hljs-literal">true</span> ? yes() : no()<br><br><span class="hljs-comment">// 压缩后</span><br>cond ? no() : yes()<br>yes()<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="语句块压缩"><a href="#语句块压缩" class="headerlink" title="语句块压缩"></a>语句块压缩</h5><p><strong>连续的表达式语句可以合并成一个逗号表达式</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>) </span>&#123;<br>  B()<br>  C()<br>  d = <span class="hljs-number">1</span><br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>) </span>&#123;<br>  B(), C(), d = <span class="hljs-number">1</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>多个 var 声明可以压缩成一个</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">var</span> a<br><span class="hljs-keyword">var</span> b<br><span class="hljs-keyword">var</span> c<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">var</span> a, b, c<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>return 语句之后的非常量声明以及非函数声明语句可以去除</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span><br>  <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span><br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span>(<span class="hljs-params"></span>) </span>&#123;&#125;<br>  expr += <span class="hljs-number">1</span><br>  a = <span class="hljs-number">3</span><br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span>(<span class="hljs-params"></span>) </span>&#123;&#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span><br>  <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>throw、break、continue 之后的语句也适用于此规则。</p>
+</blockquote>
+<p><strong>合并块末尾的 return 语句及其前面的多条表达式语句</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>) </span>&#123;<br>  B()<br>  C()<br>  <span class="hljs-keyword">return</span> D()<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> B(), C(), D()<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="if-分支优化"><a href="#if-分支优化" class="headerlink" title="if 分支优化"></a>if 分支优化</h5><p><strong>去除没用的 if/else 分支</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) &#123;<br>  A()<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  B()<br>&#125;<br><span class="hljs-keyword">if</span> (<span class="hljs-literal">false</span>) &#123;<br>  C()<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  D()<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br>A()<br>D()<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>去除空的 if/else 分支</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">if</span> (A) &#123;<br>  B()<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>&#125;<br><span class="hljs-keyword">if</span> (C) &#123;<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  D()<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">if</span> (A)<br>  B()<br><span class="hljs-keyword">if</span> (!C)<br>  D()<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>尝试反转 if/else 分支</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (!C) &#123;<br>  A()<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  B()<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">if</span> (C)<br>  B()<br><span class="hljs-keyword">else</span><br>  A()<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>可合并情况</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">if</span> (A) &#123;<br>  <span class="hljs-keyword">if</span> (B) &#123;<br>    C()<br>  &#125;<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">if</span> (A &amp;&amp; B)<br>  C()<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>如果 if 最后一个语句是跳出控制语句，则可以将 else 块的内容提到 else 外</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">if</span> (A) &#123;<br>  B()<br>  <span class="hljs-keyword">return</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  C()<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">if</span> (A) &#123;<br>  B()<br>  <span class="hljs-keyword">return</span><br>&#125;<br>C()<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>如果 if/else 中都是只有一句 return 语句，可以进行合并</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">if</span> (A) &#123;<br>  <span class="hljs-keyword">return</span> B()<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-keyword">return</span> C()<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br><span class="hljs-keyword">return</span> A ? B() : C()<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>如果if/else其中一个块为空，另一个块只有一条语句，则可以化成 || 或者 &amp;&amp; 的表达式</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 压缩前</span><br><span class="hljs-keyword">if</span> (A) &#123;<br>  B()<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>&#125;<br><span class="hljs-keyword">if</span> (C) &#123;<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  D()<br>&#125;<br><br><span class="hljs-comment">// 压缩后</span><br>A &amp;&amp; B()<br>C || D()<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>源码可以参考此处：<a target="_blank" rel="noopener" href="http://rapheal.sinaapp.com/2014/05/22/uglifyjs-squeeze/">http://rapheal.sinaapp.com/2014/05/22/uglifyjs-squeeze/</a></p>
+</blockquote>
+<h3 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h3><h4 id="Babel-的处理流程"><a href="#Babel-的处理流程" class="headerlink" title="Babel 的处理流程"></a>Babel 的处理流程</h4><img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/image-20220322164012132.png" srcset="/img/three2.gif" lazyload class title="Babel 处理流程">
+
+<p>源码解析（Parsing），包含两个步骤：</p>
+<ul>
+<li>词法解析（Lexical Analysis）：将字符串形式的代码转换为 Tokens（令牌，可以视作是一些词法片段组成的数组）；</li>
+<li>语法解析（Syntactic Analysis）：解析器将 Tokens 转换为 AST。</li>
+</ul>
+<blockquote>
+<p>AST 是 Babel 转译的核心数据结构，后续的操作都依赖于 AST。</p>
+</blockquote>
+<p>接着进行转换（Transform），转换阶段会对 AST 进行遍历，在这个过程中对节点进行增删改查，如语法转换、代码压缩。</p>
+<p>最后阶段还是要把 AST 转换回字符串形式的 JavaScript，同时生成 Source Map</p>
+<h4 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h4><p>Babel 的核心非常小，大部分功能都是通过插件扩展实现的。</p>
+<h5 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h5><p><code>@babel/core</code> 就是微内核架构中的内核，对于 Babel 来说，此内核的任务是：</p>
+<ul>
+<li>加载和处理配置</li>
+<li>加载插件</li>
+<li>调用 <code>Parser</code> 进行语法解析，生成 AST</li>
+<li>调用 <code>Traverser</code> 遍历 AST，并使用访问者模式应用插件对 AST 进行转换</li>
+<li>生成代码，包括 SourceMap 转换和源代码生成</li>
+</ul>
+<h5 id="核心周边支撑"><a href="#核心周边支撑" class="headerlink" title="核心周边支撑"></a>核心周边支撑</h5><ul>
+<li>Parser（<code>@babel/parser</code>）：将源代码解析为 AST；</li>
+<li>Traverser（<code>@babel/traverse</code>）：实现了访问者模式；</li>
+<li>Generator（<code>@babel/generator</code>）：将 AST 转换为源代码，支持 SourceMap</li>
+</ul>
+<h3 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h3><h4 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h4><ul>
+<li>loader：能转换各类资源，并处理成对应模块的加载器，loader 间可以串行使用；</li>
+<li>chunk：code splitting  后的产物，也就是按需加载的分块，装载了不同的 module。</li>
+</ul>
+<h4 id="流程总览"><a href="#流程总览" class="headerlink" title="流程总览"></a>流程总览</h4><img src="/2022/01/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/TB1GVGFNXXXXXaTapXXXXXXXXXX-4436-4244.jpg" srcset="/img/three2.gif" lazyload class title="webpack 流程总览"> 
+
+<h4 id="Tapable"><a href="#Tapable" class="headerlink" title="Tapable"></a>Tapable</h4><p>Webpack 的插件机制依赖于一个核心的库，<strong>Tapable</strong>：是一个类似于 nodejs 的 EventEmitter 的库，主要是控制钩子函数的发布于订阅；Tapable 提供的 hook 机制比较全面，分为哦同步和异步两个大类（异步中又分为异步并行和异步单行），根据事件执行的终止条件，衍生出 Bail/Waterfall/Loop 类型。</p>
+<h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h1><h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h3 id="数据绑定原理"><a href="#数据绑定原理" class="headerlink" title="数据绑定原理"></a>数据绑定原理</h3><h4 id="数据初始化"><a href="#数据初始化" class="headerlink" title="数据初始化"></a>数据初始化</h4><p>Vue 源码是从 <code>_init</code> 初始化开始的，这个过程包括配置选项的合并，数据的检测代理，最后进行示例的挂载。</p>
+<p>在示例挂载前还有一个重要的过程——数据的初始化（<code>initState(vm)</code>）：是对数据进行响应式设计的过程，针对 <code>props, nethods, data, computed, watch</code> 做数据的初始化处理，并将他们转换成响应式对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initState</span> (<span class="hljs-params">vm</span>) </span>&#123;<br>  vm._watchers = []<br>  <span class="hljs-keyword">var</span> opts = vm.$options<br>  <span class="hljs-comment">// 初始化 props</span><br>  <span class="hljs-keyword">if</span> (opts.props) &#123; initProps(vm, opts.props) &#125;<br>  <span class="hljs-comment">// 初始化 methods</span><br>  <span class="hljs-keyword">if</span> (opts.methods) &#123; initMethods(vm, opts.method) &#125;<br>  <span class="hljs-comment">// 初始化 data</span><br>  <span class="hljs-keyword">if</span> (opts.data) &#123;<br>    initData(vm)<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// 如果没有定义 data，则创建一个空对象，并设置为响应式</span><br>    observe(vm._data = &#123;&#125;, <span class="hljs-literal">true</span> <span class="hljs-comment">/* asROotData */</span>)<br>  &#125;<br>  <span class="hljs-comment">// 初始化 computed</span><br>  <span class="hljs-keyword">if</span> (opts.computed) &#123; initComputed(vm, opts.computed) &#125;<br>  <span class="hljs-comment">// 初始化 watch</span><br>  <span class="hljs-keyword">if</span> (opts.watch &amp;&amp; opts.watch !== nativeWatch) &#123;<br>    initWatch(vm, opts.watch)<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="initProps"><a href="#initProps" class="headerlink" title="initProps"></a>initProps</h4><p>父组件通过属性的形式将数据传递给子组件，紫钻见通过 <code>props</code> 属性接收父组件传递的值：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 父组件</span><br><span class="hljs-comment">// &lt;child :test=&quot;test&quot;&gt;&lt;/child&gt;</span><br><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  data () &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">test</span>: <span class="hljs-string">&#x27;child&#x27;</span><br>    &#125;<br>  &#125;<br>&#125;)<br><br><span class="hljs-comment">// 子组件</span><br>Vue.component(<span class="hljs-string">&#x27;child&#x27;</span>, &#123;<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;div&gt;&#123;&#123; test &#125;&#125;&lt;/div&gt;&#x27;</span>,<br>  <span class="hljs-attr">props</span>: [<span class="hljs-string">&#x27;test&#x27;</span>]<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>父组件优先进行模板编译得到一个 <code>render</code> 函数，在解析过程中遇到子组件的属性，<code>:test=&quot;test&quot;</code> 会被解析成 <code>&#123; attrs: &#123;test: test&#125; &#125;</code> 并作为子组件的 <code>render</code> 函数岑在：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">with</span> () &#123; ...c_(<span class="hljs-string">&#x27;child&#x27;</span>, &#123; <span class="hljs-attr">attr</span>: &#123; <span class="hljs-string">&#x27;test&#x27;</span>: test &#125; &#125;) &#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>render 解析 VNode 的过程遇到 child 这个子占位符节点，进入创建子组件 VNode 的过程：调用 <code>createComponent</code>，最终调用 <code>new Vnode</code> 去创建子 VNode，而对于 <code>props</code> 的处理，<code>extractPropsFromVNodeData</code> 会对 <code>attrs</code> 属性进行规范校验后，最后会把校验的结果以 <code>propsData</code> 属性的形式传入 VNode 构造器中。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 创建子组件过程</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createComponent</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-comment">// props 校验</span><br>  <span class="hljs-keyword">var</span> propsData = extractPropsFromVNodeData(data, Ctor, tag)<br>  ...<br>  <span class="hljs-comment">// 创建子组件 vnode</span><br>  <span class="hljs-keyword">var</span> vnode = <span class="hljs-keyword">new</span> VNode(<br>    (<span class="hljs-string">&#x27;vue-component-&#x27;</span> + (Ctor.cid) + (name ? (<span class="hljs-string">&#x27;-&#x27;</span> + name) : <span class="hljs-string">&#x27;&#x27;</span>)),<br>    data, <span class="hljs-literal">undefined</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-literal">undefined</span>, context,<br>    &#123; <span class="hljs-attr">Ctor</span>: Ctor, <span class="hljs-attr">propsData</span>: propsData, <span class="hljs-attr">listeners</span>: listeners, <span class="hljs-attr">tag</span>: tag, chilren, children &#125;,<br>    asyncFactory<br>  )<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="props-的命名规范"><a href="#props-的命名规范" class="headerlink" title="props 的命名规范"></a>props 的命名规范</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">extractPropsFromVNodeData</span> (<span class="hljs-params">data, Ctor, tag</span>) </span>&#123;<br>  <span class="hljs-comment">// Ctor 为子类构造器</span><br>  ...<br>  <span class="hljs-keyword">var</span> res = &#123;&#125;<br>  <span class="hljs-comment">// 子组件 props 选项</span><br>  <span class="hljs-keyword">var</span> propOptions = Ctor.options.props<br>  <span class="hljs-comment">// data.attrs 针对编译生成的 render 函数，data.props 针对用户自定义的 render 函数</span><br>  <span class="hljs-keyword">var</span> attrs = data.attrs<br>  <span class="hljs-keyword">var</span> props = data.props<br>  <span class="hljs-keyword">if</span> (isDef(attrs) || isDef(props)) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> propOptions) &#123;<br>      <span class="hljs-comment">// aB 形式转成 a-b</span><br>      <span class="hljs-keyword">var</span> altKey = <span class="hljs-function"><span class="hljs-title">hyphenate</span>(<span class="hljs-params">key</span>)</span><br>      &#123;<br>        <span class="hljs-keyword">var</span> keyInLowerCase = key.toLowerCase()<br>        <span class="hljs-keyword">if</span> (<br>          key !== keyInLowerCase &amp;&amp;<br>          attrs &amp;&amp; hasOwn(attrs, keyInLowerCase)<br>        ) &#123;<br>          <span class="hljs-comment">// 警告</span><br>          ...<br>        &#125;<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>HTML对大小写是不敏感的，所有的浏览器会把大写字符解释为小写字符，因此在使用 DOM 中的模板时，cameCase（驼峰命名法）的 <code>props</code> 名需要使用其等价的 <code>kebab-case</code>（短横线分隔命名）代替。</p>
+<h5 id="响应式数据-props"><a href="#响应式数据-props" class="headerlink" title="响应式数据 props"></a>响应式数据 props</h5><p>子组件处理 <code>props</code> 的过程，是发生在父组件 <code>_update</code> 阶段，这个阶段是 <code>Vnode</code> 生成真实节点的过程，期间会遇到子 Vnode，调用 <code>createComponent</code> 去实例化子组件。实例化子组件的过程又回到了 <code>_init</code> 初始化，经历选项的合并，针对 <code>props</code> 选项，最终会统一成 <code>&#123; props: &#123; test: &#123; type:null &#125;&#125;&#125;</code> 的写法，接着会调用 <code>initProps</code>：将组件的 <code>props</code> 数据设置为响应式数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initProps</span> (<span class="hljs-params">vm, propsOptions</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> propsData = vm.$options.propsData || &#123;&#125;<br>  <span class="hljs-keyword">var</span> loop = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key</span>) </span>&#123;<br>    ...<br>    definePeactive(props, key, value, cb)<br>    <span class="hljs-keyword">if</span> (!(key <span class="hljs-keyword">in</span> vm)) &#123;<br>      proxy(vm, <span class="hljs-string">&#x27;_props&#x27;</span>, key)<br>    &#125;<br>  &#125;<br>  <span class="hljs-comment">// 遍历 props，执行 loop 设置为响应式数据</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> propsOptions) loop(key)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>其中 <code>proxy(vm, &#39;_props&#39;, key)</code> 为 <code>props</code> 做了一层代理，用户通过 <code>vm.XXX</code> 可以代理访问到 <code>vm._props</code> 上的值。</p>
+<h4 id="initMethods"><a href="#initMethods" class="headerlink" title="initMethods"></a>initMethods</h4><p><code>initMethod</code> 方法和响应式没有任何的关系，实现也相对简单，主要是保证 <code>methods</code> 方法定义必须是函数，且命名不能和 <code>props</code> 重复，最终会将定义的方法都挂载到根实例上:</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initMethods</span> (<span class="hljs-params">vm, methods</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> props = vm.$options.props<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> methods) &#123;<br>    &#123;<br>      <span class="hljs-comment">// method 必须为函数形式</span><br>      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> methods[key] !== <span class="hljs-string">&#x27;function&#x27;</span>) &#123;<br>        <span class="hljs-comment">// ...</span><br>      &#125;<br>      <span class="hljs-comment">// methods 方法名 不能和 props 重复</span><br>      <span class="hljs-keyword">if</span> (props &amp;&amp; hasOwn(props, key)) &#123;<br>        <span class="hljs-comment">// ...</span><br>      &#125;<br>      <span class="hljs-comment">// 不能以 _ or $. 这些 Vue 保留标志开头</span><br>      <span class="hljs-keyword">if</span> ((key <span class="hljs-keyword">in</span> vm) &amp;&amp; isReserved(key)) &#123;<br>        <span class="hljs-comment">// ...</span><br>      &#125;<br>    &#125;<br>    <span class="hljs-comment">// 直接挂载到示例的属性上，可以通过 vm[method] 访问</span><br>    vm[key] = <span class="hljs-keyword">typeof</span> methods[key] !== <span class="hljs-string">&#x27;function&#x27;</span> ? noop : bing(methods[key], vm)<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="initData"><a href="#initData" class="headerlink" title="initData"></a>initData</h4><p>data 在初始化选项合并时会生成一个函数，只有在执行函数时才会返回真正的数据，所以 <code>initData</code> 方法会先执行拿到组件的 <code>data</code> 数据，并且会对对象每个属性的命名进行校验，保证不能和 <code>props, methods</code> 重复。</p>
+<p>最后的核心方法是 <code>observe</code>，将数据对象标记为响应式对象，并对对象的每个属性进行响应式处理，同时 <code>proxy</code> 会对 data 做一层代理，直接通过 <code>vm.XXX</code> 可以failing访问到 <code>vm._data</code> 上挂载的对象属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initData</span> (<span class="hljs-params">vm</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> data = vm.$options.data<br>  <span class="hljs-comment">// 根实例时，data 是一个对象，子组件的 data 是一个函数，其中 getData 会调用函数返回 data 对象</span><br>  data = vm._data = <span class="hljs-keyword">typeof</span> data === <span class="hljs-string">&#x27;function&#x27;</span> ? getData(data, vm) : data || &#123;&#125;<br>  <span class="hljs-keyword">var</span> keys = <span class="hljs-built_in">Object</span>.keys(data)<br>  <span class="hljs-keyword">var</span> props = vm.$options.props<br>  <span class="hljs-keyword">var</span> methods = vm.$options.methods<br>  <span class="hljs-keyword">var</span> i = keys.length<br>  <span class="hljs-keyword">while</span> (i--) &#123;<br>    <span class="hljs-keyword">var</span> key = keys[i]<br>    &#123;<br>      <span class="hljs-comment">// 命名不能和方法重复</span><br>      <span class="hljs-keyword">if</span> (methods &amp;&amp; hasOwn(methods, key)) &#123;<br>        warn()<br>      &#125;<br>    &#125;<br>    <span class="hljs-comment">// 命名不能与 props 重复</span><br>    <span class="hljs-keyword">if</span> (props &amp;&amp; hasOwn(props, key)) &#123;<br>      warn()<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!isReserved(key)) &#123;<br>      <span class="hljs-comment">// 数据代理，用户可直接通过 vm 实例返回 data 数据</span><br>      proxy(vm, <span class="hljs-string">&#x27;_data&#x27;</span>, key)<br>    &#125;<br>  &#125;<br>  <span class="hljs-comment">// observe data</span><br>  observe(data, <span class="hljs-literal">true</span> <span class="hljs-comment">/* asRootData */</span>)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><code>observe</code> 具体的行为是将数据对象添加一个不可枚举的属性 <code>__ob__</code>，标志对象是一个响应式对象，并且拿到每个对象的属性值，重写 <code>getter, setter</code> 方法，使得每个属性值都是响应式数据。</p>
+<h4 id="initComputed"><a href="#initComputed" class="headerlink" title="initComputed"></a>initComputed</h4><p><code>initComputed</code> 是 <code>computed</code> 数据的初始化，不同之处在于：</p>
+<ol>
+<li><code>computed</code> 可以是对象，也可以是函数，对象必须有 <code>getter</code> 方法，所以需要进行验证；</li>
+<li>针对 <code>computed</code> 每个属性，要创建一个监听的依赖，也就是需要实例化一个 watcher。</li>
+</ol>
+<p><code>initComputed</code> 也会将每个属性设置设置成响应式的数据，同样的，也会对 <code>computed</code> 的命名做检测，防止与 <code>props, data</code> 冲突。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initComputed</span> (<span class="hljs-params">vm, computed</span>) </span>&#123;<br>  ...<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> computed) &#123;<br>    <span class="hljs-keyword">var</span> userDef = computed[key]<br>    <span class="hljs-keyword">var</span> getter = <span class="hljs-keyword">typeof</span> userDef === <span class="hljs-string">&#x27;function&#x27;</span> ? userDef : userDef.get<br>    <span class="hljs-comment">// computed 属性为对象时，要保证有 getter 方法</span><br>    <span class="hljs-keyword">if</span> (getter === <span class="hljs-literal">null</span>) &#123;<br>      warn()<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!isSSR) &#123;<br>      <span class="hljs-comment">// 创建 computed watcher</span><br>      watchers[key] = <span class="hljs-keyword">new</span> Watcher(vm, getter || noop, noop, computedWatcherOptions)<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!(key <span class="hljs-keyword">in</span> vm)) &#123;<br>      <span class="hljs-comment">// 设置为响应式数据</span><br>      defineComputed(vm, key, userDef)<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// 不能和 props, data 命名冲突</span><br>      <span class="hljs-keyword">if</span> (key <span class="hljs-keyword">in</span> vm.$data) &#123;<br>        warn()<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (vm.$options.props &amp;&amp; key <span class="hljs-keyword">in</span> vm.$options.props) &#123;<br>        warn()<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="极简响应式系统"><a href="#极简响应式系统" class="headerlink" title="极简响应式系统"></a>极简响应式系统</h4><h5 id="框架搭建"><a href="#框架搭建" class="headerlink" title="框架搭建"></a>框架搭建</h5><p>以 <code>MyVue</code> 作为类响应式框架。模拟 Vue 源码的实现思路，实例化 <code>MyVue</code> 时会传递一个选项配置，精简的代码只有一个 id 挂载元素和一个数据对象 data。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> MyVue(&#123;<br>  <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">test</span>: <span class="hljs-string">&#x27;AgoniLay&#x27;</span><br>  &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>myVue.js：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyVue</span> </span>&#123;<br>  <span class="hljs-title">constructor</span> (<span class="hljs-params">options</span>) &#123;<br>    <span class="hljs-built_in">this</span>.options = options<br>    <span class="hljs-comment">// 数据的初始化</span><br>    <span class="hljs-built_in">this</span>.initData(options)<br>    <span class="hljs-keyword">let</span> el = <span class="hljs-built_in">this</span>.options.id<br>    <span class="hljs-comment">// 挂载实例</span><br>    <span class="hljs-built_in">this</span>.$mount(el)<br>  &#125;<br>  initData (options) &#123;<br>  &#125;<br>  $mount (el) &#123;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="设置响应式对象-Observer"><a href="#设置响应式对象-Observer" class="headerlink" title="设置响应式对象 - Observer"></a>设置响应式对象 - Observer</h5><p>引入一个 <code>Observer</code> 类，目的是将数据变成响应式对象，利用 <code>Object.defineProperty</code> 对数据的 <code>getter, setter</code> 方法进行改写。在数据读取 <code>getter</code> 阶段进行<strong>依赖的收集</strong>；在数据的修改 <code>setter</code> 阶段，进行<strong>依赖的更新</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyVue</span> </span>&#123;<br>  initData (options) &#123;<br>    <span class="hljs-keyword">if</span> (!options.data) <span class="hljs-keyword">return</span><br>    <span class="hljs-built_in">this</span>.data = options.data<br>    <span class="hljs-comment">// 将数据重置 getter, setter 方法</span><br>    <span class="hljs-keyword">new</span> Observer(options.data)<br>  &#125;<br>&#125;<br><span class="hljs-comment">// Observer 类的定义</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Observer</span> </span>&#123;<br>  <span class="hljs-title">constructor</span> (<span class="hljs-params">data</span>) &#123;<br>    <span class="hljs-built_in">this</span>.walk(data)<br>  &#125;<br>  walk (obj) &#123;<br>    <span class="hljs-keyword">const</span> keys = <span class="hljs-built_in">Object</span>.keys(obj)<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; keys.length; i++) &#123;<br>      <span class="hljs-comment">// Object.definedProperty 的处理逻辑</span><br>      defineReactive(obj, keys[i])<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="依赖本身-Watcher"><a href="#依赖本身-Watcher" class="headerlink" title="依赖本身 - Watcher"></a>依赖本身 - Watcher</h5><p>一个 <code>Watcher</code> 实例就是一个依赖，数据不管是在渲染模板时使用还是在用户计算时使用，都可以算作一个炫耀监听的依赖，<code>watcher</code> 中记录着这个依赖监听的状态，以及如何让更新操作的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 监听的依赖</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Watcher</span> </span>&#123;<br>  contructor (expOrFn, isRenderWatcher) &#123;<br>    <span class="hljs-built_in">this</span>.getter = expOrFn<br>    <span class="hljs-comment">// Watcher.property.get 的调用会进行状态的更新</span><br>    <span class="hljs-built_in">this</span>.get()<br>  &#125;<br>  get () &#123;&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>在渲染数据到真实 <code>DOM</code> 时可以创建 <code>watcher</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyVue</span> </span>&#123;<br>  $mount (el) &#123;<br>    <span class="hljs-comment">// 直接改写 innerHTML</span><br>    <span class="hljs-keyword">const</span> updateView = <span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">let</span> innerHtml = <span class="hljs-built_in">document</span>.querySelector(el).innerHTML<br>      <span class="hljs-keyword">let</span> key = innerHtml.match(<span class="hljs-regexp">/&#123;(\w+)&#125;/</span>)[<span class="hljs-number">1</span>]<br>      <span class="hljs-built_in">document</span>.querySelecter(el).innerHTML = <span class="hljs-built_in">this</span>.options.data[key]<br>    &#125;<br>    <span class="hljs-keyword">new</span> Watcher(updateView, <span class="hljs-literal">true</span>)<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="依赖管理-Dep"><a href="#依赖管理-Dep" class="headerlink" title="依赖管理 - Dep"></a>依赖管理 - Dep</h5><p><code>watcher</code> 理解为每个数据需要监听的依赖，那么 <code>Dep</code> 可以理解为对依赖的一种管理：将依赖进行收集，派发依赖进行更新：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> uid = <span class="hljs-number">0</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dep</span> </span>&#123;<br>  <span class="hljs-title">constructor</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-built_in">this</span>.id = uid++<br>    <span class="hljs-built_in">this</span>.subs = []<br>  &#125;<br>  <span class="hljs-comment">// 依赖收集</span><br>  depend () &#123;<br>    <span class="hljs-keyword">if</span> (dep.target) &#123;<br>      <span class="hljs-comment">// Deptarget 是当前的 watcher，将当前的依赖推到 subs 中</span><br>      <span class="hljs-built_in">this</span>.subs.push(Dep.target)<br>    &#125;<br>  &#125;<br>  <span class="hljs-comment">// 派发更新</span><br>  notify () &#123;<br>    <span class="hljs-keyword">const</span> subs = <span class="hljs-built_in">this</span>.subs.slice()<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>, l = subs.lenght; i &lt; l; i++) &#123;<br>      <span class="hljs-comment">// 遍历 dep 中的依赖，对每个依赖执行更新操作</span><br>      subs[i].update()<br>    &#125;<br>  &#125;<br>&#125;<br><br>Dep.target = <span class="hljs-literal">null</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="依赖管理过程-definedReactive"><a href="#依赖管理过程-definedReactive" class="headerlink" title="依赖管理过程 - definedReactive"></a>依赖管理过程 - definedReactive</h5><p><code>Observer</code> 实例化最终会调用 <code>definedReactive</code> 重写 <code>getter, setter</code> 方法。开始会实例化一个 <code>Dep</code>，也就是创建一个数据的依赖管理。在重写的 <code>getter</code> 方法中会进行依赖的收集，即调用 <code>dep.depend</code> 方法，在 <code>setter</code> 阶段，比较两个数不同后，会调用依赖的派发更新，即 <code>dep.notify</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> defineReactive = <span class="hljs-function">(<span class="hljs-params">obj, key</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> dep = <span class="hljs-keyword">new</span> Dep()<br>  <span class="hljs-keyword">const</span> property = <span class="hljs-built_in">Object</span>.getOwnPropertyDescriptor(obj)<br>  <span class="hljs-keyword">let</span> val = obj[key]<br>  <span class="hljs-keyword">if</span> (property &amp;&amp; property.configurable === <span class="hljs-literal">false</span>) <span class="hljs-keyword">return</span><br>  <span class="hljs-built_in">Object</span>.defineProperty(obj, key, &#123;<br>    <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">true</span>,<br>    get () &#123;<br>      <span class="hljs-comment">// 做依赖的收集</span><br>      <span class="hljs-keyword">if</span> (Dep.target) &#123;<br>        dep.depend()<br>      &#125;<br>      <span class="hljs-keyword">return</span> val<br>    &#125;,<br>    set (newVal) &#123;<br>      <span class="hljs-keyword">if</span> (newVal === val) <span class="hljs-keyword">return</span><br>      <span class="hljs-comment">// 派发更新</span><br>      val = newVal<br>      dep.notify()<br>    &#125;<br>  &#125;)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>实例化 <code>Watcher</code> 时会将 <code>Dep.target</code> 设置为当前的 watcher，执行完状态更新函数之后，在将 <code>Dep.target</code> 置空：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Watcher</span> </span>&#123;<br>  <span class="hljs-title">constructor</span> (<span class="hljs-params">expOrFn, isRenderWatcher</span>) &#123;<br>    <span class="hljs-built_in">this</span>.getter = expOrFn<br>    <span class="hljs-built_in">this</span>.get()<br>  &#125;<br>  get () &#123;<br>    <span class="hljs-comment">// 当前执行的 watcher</span><br>    Dep.target = <span class="hljs-built_in">this</span><br>    <span class="hljs-built_in">this</span>.getter()<br>    Dep.target = <span class="hljs-literal">null</span><br>  &#125;<br>  update () &#123;<br>    <span class="hljs-built_in">this</span>.get()<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="computed-和-watch"><a href="#computed-和-watch" class="headerlink" title="computed 和 watch"></a>computed 和 watch</h3><h4 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h4><p>计算属性 computed，会根据所依赖的数据动态显示新的计算结果，且计算结果在 getter 执行后会被缓存起来，当所依赖的数据发生改变的时候，就会重新调用 getter 来计算最新的结果</p>
+<p>computed 设计的初衷是为了使模板中的逻辑运算更简单，应用场景：</p>
+<ul>
+<li>重复使用数据或复杂及费时的运算；</li>
+<li>需要的数据依赖于其他的数据。</li>
+</ul>
+<h5 id="computed-和-methods-的区别"><a href="#computed-和-methods-的区别" class="headerlink" title="computed 和 methods 的区别"></a>computed 和 methods 的区别</h5><ol>
+<li>computed 是基于响应性依赖来进行缓存的，只有当响应式依赖发生改变时才会重新求值；methods 方法中是每次调用，都会执行函数，且 methods 不是响应式的；</li>
+<li>computed 中的成员可以指定一个函数作为只读属性，也可以定义 get/set 变成可读写属性，但是 methods 中不可行。</li>
+</ol>
+<p>缓存的存在避免了一些无谓的计算，提高了访问速度，优化了用户体验。</p>
+<h4 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h4><p>watch 是对 data 的数据监听回调，当依赖的 data 的数据变化时，会执行回调。</p>
+<p>使用场景：当在 data 中的某个数据发生变化时，需要进行一些操作，或者当需要在数据变化时执行异步或开销较大的操作时，使用 watch 来监听。</p>
+<h5 id="普通监听和深度监听"><a href="#普通监听和深度监听" class="headerlink" title="普通监听和深度监听"></a>普通监听和深度监听</h5><p>watch 中有一个属性为 <code>deep</code>，含义是：是否深度监听某个对象的值，默认为 false。</p>
+<blockquote>
+<p>页面第一次加载默认不会触发 watch，可以添加 immediate 属性为 true 来使页面加载时先执行一次。</p>
+</blockquote>
+<h5 id="watch-和-computed-的区别"><a href="#watch-和-computed-的区别" class="headerlink" title="watch 和 computed 的区别"></a>watch 和 computed 的区别</h5><p>同：都是监听页面数据变化的；</p>
+<p>异：</p>
+<ul>
+<li>computed 只有当依赖的数据变化时才会计算，当数据没有变化时，会读取缓存</li>
+<li>watch 每次都需要执行函数，watch 更适合于数据变化的异步操作</li>
+</ul>
+<h4 id="computed-的基本原理及源码实现"><a href="#computed-的基本原理及源码实现" class="headerlink" title="computed 的基本原理及源码实现"></a>computed 的基本原理及源码实现</h4><p>// TODO:</p>
+<h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><p>插槽允许以一种不同于严格的父子关系的方式组合组件，有普通插槽、具名插槽和作用域插槽。</p>
+<h4 id="普通插槽"><a href="#普通插槽" class="headerlink" title="普通插槽"></a>普通插槽</h4><p>插槽将 <code>&lt;slot&gt;&lt;/slot&gt;</code> 作为子组件承载分发的载体。</p>
+<h5 id="简单用法"><a href="#简单用法" class="headerlink" title="简单用法"></a>简单用法</h5><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> child = &#123;<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;div class=&quot;child&quot;&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;`</span><br>&#125;<br><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">components</span>: &#123;<br>    child<br>  &#125;,<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;div id=&quot;app&quot;&gt;&lt;child&gt;test&lt;/child&gt;&lt;/div&gt;`</span><br>&#125;)<br><span class="hljs-comment">// 最终渲染结果</span><br><span class="hljs-comment">// &lt;div class=&quot;child&quot;&gt;test&lt;/div&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="组件挂载原理"><a href="#组件挂载原理" class="headerlink" title="组件挂载原理"></a>组件挂载原理</h5><p>组件渲染流程：</p>
+<ol>
+<li>从根实例入手进行实例的挂载，如果有手写的 <code>render</code> 函数，则直接进入 <code>$mount</code> 挂载流程；</li>
+<li>只有 <code>template</code> 模板则需要对模板进行解析，分为将模板解析为 <code>AST</code> 树，以及根据不同平台生成执行代码；</li>
+<li><code>$mount</code> 流程也分为两步：第一步是将 <code>render</code> 函数生成 <code>Vnode</code> 树，子组件会以 <code>vue-component-</code>  为 <code>tag</code> 标记，另一步是把 <code>Vnode</code> 渲染成真正的 DOM 节点；</li>
+<li>创建真实节点过程中，如果遇到子的占位符组件会进行子组件的实例化过程，然后回到流程的第一步</li>
+</ol>
+<h5 id="父组件处理"><a href="#父组件处理" class="headerlink" title="父组件处理"></a>父组件处理</h5><p>父组件会优先于子组件进行实例的挂载，<code>createComponent</code> 执行了创建子占位节点 <code>Vnode</code> 的过程：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 创建子 Vnode 过程</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createComponent</span> (<span class="hljs-params"></span></span><br><span class="hljs-params"><span class="hljs-function"> Ctor, <span class="hljs-comment">// 子类构造器</span></span></span><br><span class="hljs-params"><span class="hljs-function"> data,</span></span><br><span class="hljs-params"><span class="hljs-function"> context, <span class="hljs-comment">// vm 实例</span></span></span><br><span class="hljs-params"><span class="hljs-function"> children, <span class="hljs-comment">// 父组件需要分发的内容</span></span></span><br><span class="hljs-params"><span class="hljs-function"> tag <span class="hljs-comment">// 子组件占位符</span></span></span><br><span class="hljs-params"><span class="hljs-function"></span>) </span>&#123;<br>	...<br>  <span class="hljs-comment">// 创建子 vnode，其中父保留的 children 属性会以选项的形式传递给 Vnode</span><br>  <span class="hljs-keyword">var</span> vnode = <span class="hljs-keyword">new</span> VNode(<br>    (<span class="hljs-string">&#x27;vue-component-&#x27;</span> + (Ctor.cid) + (name ? (<span class="hljs-string">&#x27;-&#x27;</span> + name) : <span class="hljs-string">&#x27;&#x27;</span>)),<br>    data, <span class="hljs-literal">undefined</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-literal">undefined</span>, context,<br>    &#123; Ctor, propsData, listeners, tag, chilren &#125;,<br>    asyncFactory<br>  )<br>&#125;<br><span class="hljs-comment">// Vnode 构造器</span><br><span class="hljs-keyword">var</span> VNode = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">VNode</span> (<span class="hljs-params">tag, data, children, text, elm, context, componentOptions, asyncFactory</span>) </span>&#123;<br>  ...<br>  <span class="hljs-built_in">this</span>.coomponentOptions = componentOptions <span class="hljs-comment">// 子组件的选项相关</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><code>createComponent</code> 函数接收的第四个参数 <code>children</code> 就是父组件需要分发的内容。在创建 <code>Vnode</code> 的过程中，会将 <code>componentOptions</code> 配置传入 <code>Vnode</code> 构造器中。<strong>最终 <code>Vnode</code> 中父组件需要分发的内容以 <code>componentOptions</code> 属性的形式存在</strong>。</p>
+<h5 id="子组件流程"><a href="#子组件流程" class="headerlink" title="子组件流程"></a>子组件流程</h5><p>父组件的最后一个阶段是将 <code>Vnode</code> 渲染为真正的 DOM 节点，在这个过程中遇到子 <code>Vnode</code> 会优先实例化子组件并进行一系列子组件的渲染流程。</p>
+<p>子组件初始化会先调用 <code>init</code> 方法，子组件会嗲用 <code>initInternalComponent</code> 方法拿到父组件拥有的相关配置信息，并赋值给子组件自身的配置选项。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 子组件的初始化</span><br>Vue.prototype._init = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (options &amp;&amp; options._isComponents) &#123;<br>    initInternalComponent(vm, options)<br>  &#125;<br>  initRender(vm)<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initInternalComponent</span> (<span class="hljs-params">vm, options</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> opts = vm.$options = <span class="hljs-built_in">Object</span>.create(vm.constructor.options)<br>  <span class="hljs-keyword">var</span> parentVnode = options._parentVnode<br>  opts.parent = options.parent<br>  opts._parentVnode = parentVnode<br>  <span class="hljs-comment">// componentOptions 为子 vnode 记录的相关信息</span><br>  <span class="hljs-keyword">var</span> vnodeComponentOptions = parentVnode.componentOptions<br>  opts.propsData = vnodeComponentOptions.propsData<br>  opts._parentListeners = vnodeComponentOptions.listeners<br>  <span class="hljs-comment">// 父组件需要分发的内容赋值给子选项配置的 _renderChildren</span><br>  opts._renderChildren = vnodeComponentOptions.children<br>  opts._componentTag = vnodeComponentOptions.tag<br>  <span class="hljs-keyword">if</span> (options.render) &#123;<br>    opts.render = options.render<br>    opts.staticRenderFns = options.staticRenderFns<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>最终<strong>在子组件实例的配置中拿到了父组件保存的分发内容，记录在组件实例 <code>$options._renderChildren</code> 中</strong>。</p>
+<p>然后是 <code>initRender</code> 阶段，在这个过程会<strong>将配置的 <code>_renderChildren</code> 属性做规范化处理，并将他赋值给子实例上的 <code>$slot</code> 属性</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initRender</span> (<span class="hljs-params">vm</span>) </span>&#123;<br>  ...<br>  vm.$solts = resolveSlots(options._renderChildren, renderContext) <span class="hljs-comment">// $slots 拿到了子占位符节点的 _renderChildren（即需要分发的内容），保留作为子实例的属性</span><br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resolveSlots</span> (<span class="hljs-params">children, context</span>) </span>&#123;<br>  <span class="hljs-comment">// children 是父组件需要分发到子组件的 Vnode 节点，如果不存在，则没有分发内容</span><br>  <span class="hljs-keyword">if</span> (!children || !children.length) &#123;<br>    <span class="hljs-keyword">return</span> &#123;&#125;<br>  &#125;<br>  <span class="hljs-keyword">var</span> slots = &#123;&#125;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, l = children.length; i &lt; l; i++) &#123;<br>    <span class="hljs-keyword">var</span> child = children[i]<br>    <span class="hljs-keyword">var</span> data = child.data<br>    <span class="hljs-comment">// remove slot attribute if the node is resolved as a Vue slot node</span><br>    <span class="hljs-keyword">if</span> (data &amp;&amp; data.attrs &amp;&amp; data.attrs.slot) &#123;<br>      <span class="hljs-keyword">delete</span> data.attrs.slot<br>    &#125;<br>    <span class="hljs-comment">// named slots should only be respected if the vnode was rendered in the</span><br>    <span class="hljs-comment">// same context.</span><br>    <span class="hljs-comment">// 分支1为具名插槽的逻辑，放后分析</span><br>    <span class="hljs-keyword">if</span> ((child.context === context || child.fnContext === context) &amp;&amp; data &amp;&amp; data.slot != <span class="hljs-literal">null</span>) &#123;<br>      <span class="hljs-keyword">var</span> name = data.slot<br>      <span class="hljs-keyword">var</span> slot = (slots[name] || (slots[name] = []))<br>      <span class="hljs-keyword">if</span> (child.tag === <span class="hljs-string">&#x27;template&#x27;</span>) &#123;<br>        slot.push.apply(slot, child.children || [])<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        slot.push(child)<br>      &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// 普通插槽的重点，核心逻辑是构造 &#123; default: [children] &#125; 对象返回</span><br>      (slots.default || (slots.default = [])).push(child)<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> slots<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>普通插槽的核心在 <code>(slots.default || (slots.default = [])).push(child)</code>，即以数组的形式赋值给 <code>default</code> 属性，并以 <code>$slot</code> 属性的形式保存在子组件的实例中。</p>
+<p>随后子组件也会走挂载的流程，同样会经历 <code>template</code> 模板到 <code>render</code> 函数，再到 <code>Vnode</code>，最后渲染真实 <code>DOM</code> 的过程。解析 <code>AST</code> 阶段，<code>slot</code> 标签和其他普通标签处理相同，<strong>不同之处在于 <code>AST</code> 生成 <code>render</code> 函数阶段，对 <code>slot</code> 标签的处理，会使用 <code>_t函数</code> 进行包裹</strong>。</p>
+<p>子组件渲染的大致流程：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// ast 生成 render 函数</span><br><span class="hljs-keyword">var</span> code = geterate(ast, options)<br><span class="hljs-comment">// generate 实现</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generate</span>(<span class="hljs-params">ast, options</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> state = <span class="hljs-keyword">new</span> CodegenState(options)<br>  <span class="hljs-keyword">var</span> code = ast ? genElement(ast, state) : <span class="hljs-string">&#x27;c_(&quot;div&quot;)&#x27;</span><br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">render</span>: (<span class="hljs-string">&#x27;with (this) &#123; return &#x27;</span> + code <span class="hljs-string">&#x27;&#125;&#x27;</span>),<br>    <span class="hljs-attr">staticRenderFns</span>: state.staticRenderFnc<br>  &#125;<br>&#125;<br><span class="hljs-comment">// genElement 实现</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">genElement</span> (<span class="hljs-params">el, state</span>) </span>&#123;<br>  <span class="hljs-comment">// 针对 slot 标签的处理走 ```genSlot``` 分支</span><br>  <span class="hljs-keyword">if</span> (el.tag === <span class="hljs-string">&#x27;slot&#x27;</span>) &#123;<br>    <span class="hljs-keyword">return</span> genSlot(el, state)<br>  &#125;<br>&#125;<br><span class="hljs-comment">// 核心 genSlot 原理</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">genSlot</span> (<span class="hljs-params">el, state</span>) </span>&#123;<br>  <span class="hljs-comment">// slotName 记录着插槽的唯一标志名，默认为 default</span><br>  <span class="hljs-keyword">var</span> slotName = el.slotName || <span class="hljs-string">&#x27;&quot;default&quot;&#x27;</span><br>  <span class="hljs-comment">// 如果子组件的插槽还有子元素，则会递归调执行子元素的创建过程</span><br>  <span class="hljs-keyword">var</span> children = genChildren(el, state)<br>  <span class="hljs-comment">// 通过 _t 函数包裹</span><br>  <span class="hljs-keyword">var</span> res = <span class="hljs-string">&#x27;_t(&#x27;</span> + slotName + (children ? <span class="hljs-string">&#x27;,&#x27;</span> + children : <span class="hljs-string">&#x27;&#x27;</span>)<br>  <span class="hljs-comment">// 具名插槽的其他处理</span><br>  ...<br>  <span class="hljs-keyword">return</span> res + <span class="hljs-string">&#x27;)&#x27;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>最终子组件的 render 函数为 <code>&quot;with (this) &#123; return _c(&#39;div&#39;, &#123; staticClass: &quot;child&quot; &#125;, [_t(&quot;defailt&quot;)], 2)&#125;&quot;</code>；</p>
+<p>接下来是<strong>将子组件渲染为 <code>Vnode</code> 的过程，render 函数执行阶段会执行 <code>_t()</code> 函数，<code>_t</code> 函数是 <code>renderSlot</code> 函数简写，它会在 Vnode 树中进行分发内容的替换</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// target._t = renderSlot</span><br><br><span class="hljs-comment">// render 函数渲染 Vnode 函数</span><br>Vue.prototype._render = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> _parentVnode = ref._parentVnode<br>  <span class="hljs-keyword">if</span> (_parentVnode) &#123;<br>    <span class="hljs-comment">// slot 的规范化处理并赋值给 $scopedSlots 属性</span><br>    vm.$scopedSlots = normalizeScopeSlots(<br>      _parentVnode.data.scopedSlots,<br>      vm.$slots, <span class="hljs-comment">//记录父组件的插槽内容</span><br>      vm.$scopedSlots<br>    )<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>拿到 <code>$scopedSlots</code> 属性后会执行真正的 <code>render</code> 函数，其中 <code>_t</code> 代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 渲染 slot 组件内容</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">renderSlot</span> (<span class="hljs-params"></span></span><br><span class="hljs-params"><span class="hljs-function">name,</span></span><br><span class="hljs-params"><span class="hljs-function"> fallback, <span class="hljs-comment">// slot 插槽后备内容</span></span></span><br><span class="hljs-params"><span class="hljs-function"> props, <span class="hljs-comment">// 子传给父的值(作用域插槽)</span></span></span><br><span class="hljs-params"><span class="hljs-function"> bindObject</span></span><br><span class="hljs-params"><span class="hljs-function"></span>) </span>&#123;<br>  <span class="hljs-comment">// scopedSlotFn 拿到父组件插槽的执行函数，默认 slotName 为 default</span><br>  <span class="hljs-keyword">var</span> scopedSlotFn = <span class="hljs-built_in">this</span>.$scopedSlots[name]<br>  <span class="hljs-keyword">var</span> nodes<br>  <span class="hljs-comment">// 具名插槽分支</span><br>  <span class="hljs-keyword">if</span> (scopedSlotFn) &#123;<br>    <span class="hljs-comment">// ...</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-comment">// 如果父占位符组件没有插槽内容，this.$slots 不会有值，此时 vnode 节点为后备内容节点</span><br>    nodes = <span class="hljs-built_in">this</span>.$slots[name] || fallback<br>  &#125;<br>  <br>  <span class="hljs-keyword">var</span> target = props &amp;&amp; props.slot<br>  <span class="hljs-keyword">if</span> (target) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.$createElement(<span class="hljs-string">&#x27;template&#x27;</span>, &#123; <span class="hljs-attr">slot</span>: target &#125;, nodes)<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">return</span> nodes<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><code>renderSlot</code> 执行过程会拿到父组件需要分发的内容，最终 <code>Vnode</code> 树将父元素的插槽替换掉子组件的 <code>slot</code> 组件，最后进行<strong>子组件真实节点的渲染</strong>。</p>
+<h4 id="具有后备内容的插槽"><a href="#具有后备内容的插槽" class="headerlink" title="具有后备内容的插槽"></a>具有后备内容的插槽</h4><p>为一个插槽设置具体的后备内容，会在没有提供内容的时候被渲染：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> child = &#123;<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;div class=&quot;child&quot;&gt;&lt;slot&gt;后备内容&lt;/slot&gt;&lt;/div&gt;`</span><br>&#125;<br><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">components</span>: &#123;<br>    child<br>  &#125;,<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;div id=&quot;app&quot;&gt;&lt;child&gt;&lt;/child&gt;&lt;/div&gt;`</span><br>&#125;)<br><span class="hljs-comment">// 父组件没有插槽内容，子的 slot 会渲染后备内容</span><br><span class="hljs-comment">// &lt;div class=&quot;child&quot;&gt;后备内容&lt;/div&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>与普通插槽渲染流程的不同：</p>
+<ol>
+<li>父组件渲染该过程中没有需要分发的子节点，所以不再需要 <code>componentOptions.children</code> 属性来标记内容；</li>
+<li>子组件也拿不到 <code>$slot</code> 属性的内容；</li>
+<li>子组件的 <code>render</code> 函数最后在 <code>_t</code> 函数参数会携带第二个参数，该参数以数组的形式传入 <code>slot</code> 插槽的后备内容；</li>
+<li>渲染子 <code>Vnode</code> 执行 <code>renderSlot(_t)</code> 函数时，第二个参数 fallback 有值，且 <code>this.$slots</code> 没值，<code>vnode</code> 会直接返回后备内容作为渲染对象。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">renderSlot</span> (<span class="hljs-params"></span></span><br><span class="hljs-params"><span class="hljs-function">name,</span></span><br><span class="hljs-params"><span class="hljs-function"> fallback, <span class="hljs-comment">// slot 插槽的后备内容</span></span></span><br><span class="hljs-params"><span class="hljs-function"> props, <span class="hljs-comment">// 子传给父的值(作用域插槽)</span></span></span><br><span class="hljs-params"><span class="hljs-function"> bindObject</span></span><br><span class="hljs-params"><span class="hljs-function"></span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> () &#123;<br>    <span class="hljs-comment">// ...</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// fallback 为后备内容</span><br>    <span class="hljs-comment">// 如果父占位符组件没有插槽内容，this.$slots 不会有值，此时 vnode 节点为后备内容节点</span><br>    nodes = <span class="hljs-built_in">this</span>.$slots[name] || fallback<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<blockquote>
+<p>父级模板里的所有内容都是在父级作用域中编译的；子模版的所有内容都是在子作用中编译的。</p>
+</blockquote>
+<h4 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h4><p>可以使用 <code>&lt;slot&gt;</code> 的 <code>name</code> 属性来灵活的使用插槽进行组件的开发：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> child = &#123;<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">`</span><br><span class="hljs-string">  &lt;div class=&quot;child&quot;&gt;</span><br><span class="hljs-string">  	&lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;</span><br><span class="hljs-string">  	&lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;</span><br><span class="hljs-string">  &lt;/div&gt;`</span><br>&#125;<br><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">components</span>: &#123;<br>    child<br>  &#125;,<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">`</span><br><span class="hljs-string">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="hljs-string">  	&lt;child&gt;</span><br><span class="hljs-string">  		&lt;template v-slot:header&gt;</span><br><span class="hljs-string">  			&lt;span&gt;头部&lt;/span&gt;</span><br><span class="hljs-string">  		&lt;/template&gt;</span><br><span class="hljs-string">  		&lt;template v-slot:footer&gt;</span><br><span class="hljs-string">  			&lt;span&gt;底部&lt;/span&gt;</span><br><span class="hljs-string">  		&lt;/template&gt;</span><br><span class="hljs-string">  	&lt;/child&gt;</span><br><span class="hljs-string">  &lt;/div&gt;`</span><br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<p>最终渲染结果：</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;child&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>头部<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>底部<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<h5 id="模板编译的差别"><a href="#模板编译的差别" class="headerlink" title="模板编译的差别"></a>模板编译的差别</h5><p>父组件在编译 <code>AST</code> 阶段和普通节点的过程不同，具名插槽一般会在 <code>template</code> 模板中使用 <code>v-slot:</code> 来标注指定插槽，这一阶段会在编译阶段特殊处理，最终的 <code>AST</code> 树会写道 <code>scopedSlots</code> 用来记录具名插槽的内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">&#123;<br>  scopedSlots: &#123;<br>    footer: &#123; ... &#125;,<br>    header: &#123; ... &#125;<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">with</span> (<span class="hljs-built_in">this</span>) &#123;<br>  <span class="hljs-keyword">return</span> _c(<br>    <span class="hljs-string">&#x27;div&#x27;</span>,<br>    &#123; <span class="hljs-attr">attrs</span>: &#123; <span class="hljs-string">&#x27;id&#x27;</span>: <span class="hljs-string">&#x27;app&#x27;</span> &#125; &#125;,<br>    [_c(<span class="hljs-string">&#x27;child&#x27;</span>, &#123; <span class="hljs-attr">scopedSlots</span>: _u([<br>      &#123; <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;header&#x27;</span>, <span class="hljs-attr">fn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> [_c(<span class="hljs-string">&#x27;span&#x27;</span>, [_v(<span class="hljs-string">&#x27;头部&#x27;</span>)])]<br>      &#125;, <span class="hljs-attr">proxy</span>: <span class="hljs-literal">true</span> &#125;,<br>      &#123; <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;footer&#x27;</span>, <span class="hljs-attr">fn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> [_c(<span class="hljs-string">&#x27;span&#x27;</span>, [_v(<span class="hljs-string">&#x27;底部&#x27;</span>)])]<br>      &#125;, <span class="hljs-attr">proxy</span>: <span class="hljs-literal">true</span> &#125;<br>    ])&#125;)],<br>    <span class="hljs-number">1</span><br>  )<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>父组件的插槽内容用 <code>_u</code> 函数封装成数组的形式，并赋值到 <code>scopedSlots</code> 属性中，而每一个插槽以对象形式描述，<code>key</code> 代表插槽名，<code>fn</code> 是一个返回执行结果的函数。</p>
+<h5 id="父组件-vnode-生成阶段"><a href="#父组件-vnode-生成阶段" class="headerlink" title="父组件 vnode 生成阶段"></a>父组件 vnode 生成阶段</h5><p>照例进入父组件生成 <code>Vnode</code> 阶段，其中 <code>_u</code> 函数的原形是 <code>resolveScopedSlots</code>，其中一个参数就是插槽数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// vnode 生成阶段针对具名插槽的处理 _u (target._u = resolveScopedSlots)</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resolveScopedSlots</span> (<span class="hljs-params">fns, res, hasDynamicKeys, contentHashKey</span>) </span>&#123;<br>  res = res || &#123; <span class="hljs-attr">$stable</span>: !hasDynamicKeys &#125;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; fns.length; i++) &#123;<br>    <span class="hljs-keyword">var</span> slot = fns[i]<br>    <span class="hljs-comment">// fn 是数组需要递归处理</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Array</span>.isArray(slot)) &#123;<br>      resolveScopedSlots(slot, res, hasDynamicKeys)<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (slot) &#123;<br>      <span class="hljs-comment">// marker for reverse proxying v-slot without scope on this.$slots</span><br>      <span class="hljs-keyword">if</span> (slot.proxy) &#123; <span class="hljs-comment">// 针对 proxy 的处理</span><br>        slot.fn.proxy = <span class="hljs-literal">true</span><br>      &#125;<br>      <span class="hljs-comment">// 最终返回一个对象，对象以 slotname 作为属性，以 fn 作为值</span><br>      res[slot.key] = slot.fn<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (contentHashKey) &#123;<br>    (res).$key = contentHashKey<br>  &#125;<br>  <span class="hljs-keyword">return</span> res<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>最终父组件的 <code>vnode</code> 节点的 <code>data</code> 属性上多了 <code>scopedSlots</code> 数组。具名插槽和普通插槽实现上有明显的不同：</p>
+<ul>
+<li>普通插槽是以 <code>componentOptions.child</code> 的形式保留在父组件中；</li>
+<li>具名插槽是以 <code>scopedSlots</code> 属性的形式存储到 <code>data</code> 属性中</li>
+</ul>
+<h5 id="子组件渲染-Vnode-过程"><a href="#子组件渲染-Vnode-过程" class="headerlink" title="子组件渲染 Vnode 过程"></a>子组件渲染 Vnode 过程</h5><p>子组件在解析成 <code>AST</code> 树阶段的不同，在于对 <code>slot</code> 标签的 <code>name</code> 属性的解析，而在 <code>render</code> 生成 <code>Vnode</code> 过程中，<code>slot</code> 的规范化处理针对具名插槽会进行特殊的处理：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">vm.$scopedSlots = normalizeScopedSlots(<br>  _parentVnode.data.scopedSlots, <span class="hljs-comment">// 此时的第一个参数会拿到父组件插槽相关的数据</span><br>  vm.$slots, <span class="hljs-comment">// 记录父组件的插槽内容</span><br>  vm.$scopedSlots<br>)<br></code></pre></div></td></tr></table></figure>
+
+<p>最终子组件实例上的 <code>$scopedSlots</code> 属性会携带父组件插槽相关的内容。</p>
+<h5 id="子组件渲染真实-DOM"><a href="#子组件渲染真实-DOM" class="headerlink" title="子组件渲染真实 DOM"></a>子组件渲染真实 DOM</h5><p>执行子 <code>render</code> 函数中的 <code>_t</code> 方法，最终的核心是执行 <code>nodes = scopedSlotFn(props)</code>，也就是执行 <code>function () &#123; return [_c(&#39;span&#39;, [_v(&#39;头部&#39;)])] &#125;</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 渲染 slot 组件内容</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">renderSlot</span> (<span class="hljs-params"></span></span><br><span class="hljs-params"><span class="hljs-function">name,</span></span><br><span class="hljs-params"><span class="hljs-function"> fallback, <span class="hljs-comment">// slot 插槽后备内容</span></span></span><br><span class="hljs-params"><span class="hljs-function"> props, <span class="hljs-comment">// 子传给父的值(作用域插槽)</span></span></span><br><span class="hljs-params"><span class="hljs-function"> bindObject</span></span><br><span class="hljs-params"><span class="hljs-function"></span>) </span>&#123;<br>  <span class="hljs-comment">// scopedSlotFn 拿到父组件插槽的执行函数，默认 slotName 为 default</span><br>  <span class="hljs-keyword">var</span> scopedSlotFn = <span class="hljs-built_in">this</span>.$scopedSlots[name]<br>  <span class="hljs-keyword">var</span> nodes<br>  <span class="hljs-comment">// 针对具名插槽，特点是 $scopedSlots 有值</span><br>  <span class="hljs-keyword">if</span> (scopedSlotFn) &#123;<br>    props = props || &#123;&#125;<br>    <span class="hljs-keyword">if</span> (bindObject) &#123;<br>			<span class="hljs-keyword">if</span> (!isObject(bindObject)) &#123;<br>        warn()<br>      &#125;<br>      props = extend(extend(&#123;&#125;, bindObject), props)<br>    &#125;<br>    <span class="hljs-comment">// 执行时将子组件传递给父组件的值传入 fn</span><br>    nodes = scopedSlotFn(props) || fallback<br>  &#125;<br>  ...<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>至此子组件通过 <code>slotName</code> 找到了对应父组件的插槽内容。</p>
+<h4 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h4><p>可以利用作用域插槽让父组件的插槽内容访问到子组件的数据，具体就是在子组件中以属性的方式记录在子组件中父组件通过 <code>v-slot:[name]=[props]</code> 的形式拿到子组件传递的值，子组件元素上的特性称为 <strong>插槽 Props</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> child = &#123;<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">`</span><br><span class="hljs-string">  &lt;div&gt;</span><br><span class="hljs-string">  	&lt;slot :user=&quot;user&quot;&gt;</span><br><span class="hljs-string">  	&lt;/slot&gt;</span><br><span class="hljs-string">  &lt;/div&gt;`</span>,<br>  data () &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">user</span>: &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;AgoniLay&#x27;</span><br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">components</span>: &#123;<br>    child<br>  &#125;,<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">`</span><br><span class="hljs-string">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="hljs-string">  	&lt;child&gt;</span><br><span class="hljs-string">  		&lt;template v-slot:default=&quot;slotProps&quot;&gt;</span><br><span class="hljs-string">  			&#123;&#123; slotProps.user.name &#125;&#125;</span><br><span class="hljs-string">  		&lt;/template&gt;</span><br><span class="hljs-string">  	&lt;/child&gt;</span><br><span class="hljs-string">  &lt;/div&gt;`</span><br>&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<h5 id="父组件编译阶段"><a href="#父组件编译阶段" class="headerlink" title="父组件编译阶段"></a>父组件编译阶段</h5><p>与具名插槽的用法基本相同，区别在于 <code>v-slot</code> 定义了一个 <code>插槽Props</code> 的名字，生成 <code>render</code> 函数阶段 <code>fn</code> 函数会携带 <code>props</code> 参数传入。</p>
+<h5 id="子组件渲染"><a href="#子组件渲染" class="headerlink" title="子组件渲染"></a>子组件渲染</h5><p>在子组件编译阶段，<code>:user=&quot;user&quot;</code> 会以属性的形式解析，最终在 <code>render</code> 函数生成阶段以对象参数的形式传递 <code>_t</code> 函数。</p>
+<p>子组件渲染 Vnode 阶段，会执行 <code>renderSlot</code> 函数，对于作用域插槽的处理，集中体现在函数传入的第三个参数 <code>props</code>。</p>
+<h5 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h5><p>子父组件之间的通信完全可以通过事件 <code>$emit, $on</code> 的形式来完成，而增加一个 <code>插槽Props</code> 的原因：</p>
+<blockquote>
+<p>插槽 Props 允许将插槽转换为可复用的模板，这些模板可以基于输入的 prop 渲染出不同的结果。</p>
+</blockquote>
+<h3 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h3><h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后立即使用这个方法，获取更新后的 DOM。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 修改数据</span><br>vm.msg = <span class="hljs-string">&#x27;Hello&#x27;</span><br><span class="hljs-comment">// DOM 还没有更新</span><br>Vue.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-comment">// DOM 更新了</span><br>&#125;)<br><br><span class="hljs-comment">// 作为一个 Promise 使用 (2.1.0 起新增)</span><br>Vue.nextTick()<br>  .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>	  <span class="hljs-comment">// DOM 更新了</span><br>	&#125;)<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="源码实现"><a href="#源码实现" class="headerlink" title="源码实现"></a>源码实现</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Promise</span> !== <span class="hljs-string">&#x27;undefined&#x27;</span> &amp;&amp; inNative(<span class="hljs-built_in">Promise</span>)) &#123;<br>  <span class="hljs-keyword">const</span> p = <span class="hljs-built_in">Promise</span>.resolve()<br>  timerFunc = <span class="hljs-function">() =&gt;</span> &#123;<br>    p.then(flushCallbacks)<br>    <span class="hljs-keyword">if</span> (isIOS) <span class="hljs-built_in">setTimeout</span>(noop)<br>  &#125;<br>  isUsingMicroTask = <span class="hljs-literal">true</span><br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!isIE &amp;&amp; <span class="hljs-keyword">typeof</span> MutationObserver !== <span class="hljs-string">&#x27;undefined&#x27;</span> &amp;&amp; (<br>  isNative(MutationObserver) ||<br>  MutationObserver.toString() === <span class="hljs-string">&#x27;[Object MutationObserverConstructor]&#x27;</span><br>)) &#123;<br>	<span class="hljs-keyword">let</span> counter = <span class="hljs-number">1</span><br>  <span class="hljs-keyword">const</span> observer = <span class="hljs-keyword">new</span> MutationObserver(flushCallbacks)<br>  <span class="hljs-keyword">const</span> textNode = <span class="hljs-built_in">document</span>.createTextNode(Stirng(counter))<br>  observer.observe(textNode, &#123;<br>    <span class="hljs-attr">characterData</span>: <span class="hljs-literal">true</span><br>  &#125;)<br>  timerFunc = <span class="hljs-function">() =&gt;</span> &#123;<br>    counter = (counter + <span class="hljs-number">1</span>) % <span class="hljs-number">2</span><br>    textNode.data = Stirng(counter)<br>  &#125;<br>  isUsingMicroTask = <span class="hljs-literal">true</span><br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> setImmediate !== <span class="hljs-string">&#x27;undefined&#x27;</span> &amp;&amp; isNative(setImmediate)) &#123;<br>  timerFunc = <span class="hljs-function">() =&gt;</span> &#123;<br>    setImmediate(flushCallbacks)<br>  &#125;<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  timerFun = <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">setTimeout</span>(flushCallbacks, <span class="hljs-number">0</span>)<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>首先进行条件判断:</p>
+<ul>
+<li>如果支持 Promise 就使用 <code>Promise</code>;</li>
+<li>如果不支持则使用 <code>MutationObserver</code>，会在指定的 DOM 发生变化时被调用；</li>
+<li>如果不支持则使用 <code>setImmediate</code>，但只有最新版 IE 和 node 支持；</li>
+<li>均不支持则使用 <code>setTimeout</code>。</li>
+</ul>
+<h4 id="JS-运行机制"><a href="#JS-运行机制" class="headerlink" title="JS 运行机制"></a>JS 运行机制</h4><p>JS 是单线程，JS 里的任务分为两种：</p>
+<ul>
+<li>同步任务（synchronous）：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务，阻塞；</li>
+<li>异步任务（asynchronous）：不进入主线程，而进入”任务队列”（task queue）的任务</li>
+</ul>
+<h1 id="代码练习"><a href="#代码练习" class="headerlink" title="代码练习"></a>代码练习</h1><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><br></code></pre></div></td></tr></table></figure>
 
 
             </div>
@@ -2569,20 +3498,6 @@
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-                    
-                  </div>
                 
               </div>
               
