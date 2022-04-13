@@ -211,7 +211,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      7.7k 字
+      9.2k 字
     </span>
   
 
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年4月13日 凌晨
+                  本文最后更新于：2022年4月13日 下午
                 
               </p>
             
@@ -644,7 +644,105 @@
 <li><p>建立伪类选择器清除浮动：</p>
 <figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/* 在 css 中添加 :after 伪元素 */</span><br><span class="hljs-selector-class">.parent</span>:after &#123;<br>  content: <span class="hljs-string">&#x27;&#x27;</span>;<br>  <span class="hljs-attribute">display</span>: block;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">visibility</span>: hidden;<br>  <span class="hljs-attribute">clear</span>: both;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
 </ol>
-<h2 id="JS-TS-ES6"><a href="#JS-TS-ES6" class="headerlink" title="JS TS ES6"></a>JS TS ES6</h2>
+<h2 id="JS-TS-ES6"><a href="#JS-TS-ES6" class="headerlink" title="JS TS ES6"></a>JS TS ES6</h2><h3 id="JS-的-8-种数据类型"><a href="#JS-的-8-种数据类型" class="headerlink" title="JS 的 8 种数据类型"></a>JS 的 8 种数据类型</h3><p>包含值类型(基本对象类型)和引用类型(复杂对象类型)</p>
+<p>基本类型：在内存中占据固定大小，保存在栈内存中</p>
+<ul>
+<li>Number（数字类型）</li>
+<li>String（字符串类型）</li>
+<li>Boolean（布尔类型）</li>
+<li>null（空）</li>
+<li>undefined（未定义）</li>
+<li>Symbol（符号类型，ES6）</li>
+<li>bigInt（ES10）</li>
+</ul>
+<p>引用类型：引用类型的值是对象，保存在堆内存中，栈内存存储的是对象的变量标识符以及对象在堆内存中的存储地址</p>
+<ul>
+<li>Object（对象）</li>
+<li>Function（函数）</li>
+<li>Array（数组）</li>
+<li>Date（日期）</li>
+<li>RegExp（正则表达式）</li>
+<li>特殊的包装类型：String、Number、Boolean</li>
+<li>单体内置对象：Global、Math 等</li>
+</ul>
+<h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><p>Symbol 指的是独一无二的值，每个通过 <code>Symbol()</code> 生成的值都是唯一的。</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> var_symbol = <span class="hljs-built_in">Symbol</span>()<br><span class="hljs-keyword">let</span> other_symbol = <span class="hljs-built_in">Symbol</span>()<br><span class="hljs-built_in">console</span>.log(var_symbol === other_symbol) <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> var_symbol) <span class="hljs-comment">// symbol</span><br><span class="hljs-built_in">console</span>.log(var_symbol.constructor === <span class="hljs-built_in">Symbol</span>) <span class="hljs-comment">// true</span><br></code></pre></div></td></tr></table></figure>
+
+<p>可以用 <code>Symbol.for(key)</code> 创建相等的变量：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">let</span> var_symbol = <span class="hljs-built_in">Symbol</span>.for(<span class="hljs-string">&#x27;symbol&#x27;</span>)<br><span class="hljs-keyword">let</span> other_symbol = <span class="hljs-built_in">Symbol</span>.for(<span class="hljs-string">&#x27;symbol&#x27;</span>)<br><span class="hljs-built_in">console</span>.log(var_symbol === other_symbol) <span class="hljs-comment">// true</span><br></code></pre></div></td></tr></table></figure>
+
+<p><code>Symbol.for(key)</code> 会根据给定的建 key(字符串)，来存运行时的 symbol 注册表中找到对应的 symbol，如找到则返回，未找到则新建一个与该键相关联的 symbol 返回，并放入全局 symbol 注册表中。</p>
+<p>应用场景：</p>
+<ol>
+<li>使用 Symbol 来作为对象属性名（key）</li>
+<li>使用 Symbol 来替代常量</li>
+<li>使用 Symbol 定义类的私有属性/方法</li>
+</ol>
+<h4 id="BigInt"><a href="#BigInt" class="headerlink" title="BigInt"></a>BigInt</h4><p>BigInt 是一种数字类型的数据，可以表示任意精度格式的整数。</p>
+<p>JavaScript 所有数字都保存成 64 位浮点数，这给数值的表示带来了两大限制。一是数值的精度只能到 53 个二进制位（相当于 16 个十进制位），大于这个范围的整数，JavaScript 是无法精确表示的，这使得 JavaScript 不适合进行科学和金融方面的精确计算。二是大于或等于 2 的 1024 次方的数值，JavaScript 无法表示，会返回 <code>Infinity/-Infinity</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 超过 53 个二进制位的数值，无法保持精度</span><br><span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) === <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) + <span class="hljs-number">1</span> <span class="hljs-comment">// true</span><br><br><span class="hljs-comment">// 超过 2 的 1024 次方的数值，无法表示</span><br><span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">1024</span>) <span class="hljs-comment">// Infinity</span><br></code></pre></div></td></tr></table></figure>
+
+<p>ES10 引入了一种新的数据类型 BigInt 来解决这个问题，只用来表示整数，没有位数的限制，任何位数的整数都可以精确表示，为了与 Number 进行区分，BigInt 类型的数据必须添加后缀 <code>n</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-number">12</span> <span class="hljs-comment">// 普通 Number</span><br><span class="hljs-number">12n</span> <span class="hljs-comment">// BigInt</span><br><br><span class="hljs-comment">// BigInt 的运算</span><br><span class="hljs-number">1n</span> + <span class="hljs-number">2n</span> <span class="hljs-comment">// 3n</span><br><br><span class="hljs-comment">// 与 Number 类型进行运算</span><br><span class="hljs-number">1</span> + <span class="hljs-number">1n</span> <span class="hljs-comment">// Uncaught TypeError</span><br></code></pre></div></td></tr></table></figure>
+
+<p>BigInt 与普通整数时两种值，它们之间并不相等：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-number">12n</span> === <span class="hljs-number">12</span> <span class="hljs-comment">// false</span><br></code></pre></div></td></tr></table></figure>
+
+<p>由于 BigInt 与 Number 完全属于两种类型，并且不会进行隐式转换，所以没有办法进行混合运算。想要运算的话，必须将两种数据类型转换为同一种后，方可进行计算：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">BigInt</span>(number)<br><span class="hljs-built_in">Number</span>(bigint)<br></code></pre></div></td></tr></table></figure>
+
+<p>typeof 运算符对于 BigInt 类型的数据返回 <code>bigint</code> 字符串；BigInt 并不是一个构造函数，不能使用 new 来创建实例；创建一个 BigInt 时，参数必须为整数，否则会报错：</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">typeof</span> <span class="hljs-number">12n</span> <span class="hljs-comment">// &#x27;bigint&#x27;</span><br><span class="hljs-keyword">new</span> <span class="hljs-built_in">BigInt</span>() <span class="hljs-comment">// Uncaught TypeError</span><br><span class="hljs-built_in">BigInt</span>(<span class="hljs-number">1.2</span>) <span class="hljs-comment">// Uncaught RangeError</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="数据类型检测方案"><a href="#数据类型检测方案" class="headerlink" title="数据类型检测方案"></a>数据类型检测方案</h3><h4 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">typeof</span> <span class="hljs-number">1</span>              <span class="hljs-comment">// number</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-literal">true</span>           <span class="hljs-comment">// boolean</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-string">&#x27;mc&#x27;</span>           <span class="hljs-comment">// string</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Symbol</span>         <span class="hljs-comment">// function</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125; <span class="hljs-comment">// function</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-built_in">console</span>.log()  <span class="hljs-comment">// function</span><br><span class="hljs-keyword">typeof</span> []             <span class="hljs-comment">// object </span><br><span class="hljs-keyword">typeof</span> &#123;&#125;             <span class="hljs-comment">// object</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span>           <span class="hljs-comment">// object</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span>      <span class="hljs-comment">// undefined</span><br></code></pre></div></td></tr></table></figure>
+
+<p>优点：可以快速区分基本数据类型</p>
+<p>缺点：无法区分 Object、Array 和 null，均返回 object</p>
+<h4 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-number">1</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Number</span>                <span class="hljs-comment">// false</span><br><span class="hljs-literal">true</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Boolean</span>            <span class="hljs-comment">// false </span><br><span class="hljs-string">&#x27;str&#x27;</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">String</span>            <span class="hljs-comment">// false  </span><br>[] <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>                <span class="hljs-comment">// true</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125; <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span> <span class="hljs-comment">// true</span><br>&#123;&#125; <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>               <span class="hljs-comment">// true</span><br></code></pre></div></td></tr></table></figure>
+
+<p>优点：能够区分 Array、Object 和 Function，适用于判断自定义的类实例对象</p>
+<p>缺点：不能判断 NUmber、Boolean、String 基本数据类型</p>
+<h4 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call()"></a>Object.prototype.toString.call()</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> toString = <span class="hljs-built_in">Object</span>.prototype.toString<br>toString.call(<span class="hljs-number">1</span>)              <span class="hljs-comment">// [object Number]</span><br>toString.call(<span class="hljs-literal">true</span>)           <span class="hljs-comment">// [object Boolean]</span><br>toString.call(<span class="hljs-string">&#x27;mc&#x27;</span>)           <span class="hljs-comment">// [object String]</span><br>toString.call([])             <span class="hljs-comment">// [object Array]</span><br>toString.call(&#123;&#125;)             <span class="hljs-comment">// [object Object]</span><br>toString.call(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125;) <span class="hljs-comment">// [object Function]</span><br>toString.call(<span class="hljs-literal">undefined</span>)      <span class="hljs-comment">// [object Undefined]</span><br>toString.call(<span class="hljs-literal">null</span>)           <span class="hljs-comment">// [object Null]</span><br></code></pre></div></td></tr></table></figure>
+
+<p>优点：精准判断数据类型</p>
+<p>缺点：较前两种方法写法较为繁琐不易于记忆，可以进行封装后使用</p>
+<h4 id="var-let-const"><a href="#var-let-const" class="headerlink" title="var let const"></a>var let const</h4><p>ES6 之前创建变量使用 var，之后创建变量用的是 let/const</p>
+<p>区别：</p>
+<ol>
+<li><p>var 定义的变量，没有块的概念，可以跨块访问，不能跨函数访问；<br>let 定义的变量，只能在块作用域里访问，不能跨块访问，也不能跨函数访问；<br>const 用来定义常量，使用时必须初始化（即创建时必须赋值），只能在块作用域里访问，且不能修改；</p>
+</li>
+<li><p>var 可以先使用，后声明，因为存在变量提升，let/const 必须先声明后使用；</p>
+</li>
+<li><p>var 允许在相同作用域内重复声明同一个变量，但 let/const 不允许；</p>
+</li>
+<li><p>在全局上下文中，基于 let 声明的全局变量与全局对象（window）没有任何关系，var 声明的会有映射关系；</p>
+</li>
+<li><p>会产生暂时性死区：</p>
+<p>暂时性死区是浏览器的 bug：检测一个未被声明的变量类型时，不会报错，而会返回 undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> a) <span class="hljs-comment">// undefined</span><br><span class="hljs-keyword">var</span> a<br><span class="hljs-comment">// ---------------</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> b) <span class="hljs-comment">// Uncaught SyntaxError: Identifier &#x27;b&#x27; has already been declared</span><br><span class="hljs-keyword">let</span> b<br></code></pre></div></td></tr></table></figure></li>
+<li><p>let/const/function 会把当前所在的大括号（除函数之外）作为一个全新的块级上下文。</p>
+</li>
+</ol>
+<h3 id="JS-垃圾回收机制"><a href="#JS-垃圾回收机制" class="headerlink" title="JS 垃圾回收机制"></a>JS 垃圾回收机制</h3><p>如果存在大量不被释放的内存（堆/栈/上下文），页面性能会变得很慢；当某些代码操作不能被合理释放，就会造成内存泄漏。</p>
+<p>浏览器垃圾回收机制/内存回收机制：</p>
+<ol>
+<li>标记清除</li>
+<li>谷歌浏览器：查找引用</li>
+<li>IE 浏览器：引用计数法</li>
+</ol>
+<p>优化手段：</p>
+<ol>
+<li>堆内存：fn = null【null：空指针对象】</li>
+<li>栈内存：将上下文中被外部占用的堆取消掉即可</li>
+</ol>
+<p>内存泄漏：</p>
+<ul>
+<li>全局变量</li>
+<li>闭包</li>
+<li>DOM 元素的引用</li>
+<li>定时器</li>
+</ul>
+
             </div>
             <hr>
             <div>
@@ -853,14 +951,14 @@ setInterval("createtime()", 250);
   <div class="beian">
     <span>
       <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        京ICP证123456号
+        QQ 1394310259
       </a>
     </span>
     
       
         <span>
           <a
-            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=2021016698"
             rel="nofollow noopener"
             class="beian-police"
             target="_blank"
@@ -869,7 +967,7 @@ setInterval("createtime()", 250);
               <span style="visibility: hidden; width: 0">|</span>
               <img src="/img/police_beian.png" alt="police-icon"/>
             
-            <span>京公网安备12345678号</span>
+            <span>晋ICP备2021016698号</span>
           </a>
         </span>
       
