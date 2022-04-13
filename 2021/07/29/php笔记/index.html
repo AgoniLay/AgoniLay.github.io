@@ -1,151 +1,268 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>php笔记 | AgoniLay的博客</title><meta name="keywords" content="php,Apache,mysql"><meta name="author" content="AgoniLay"><meta name="copyright" content="AgoniLay"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="错误解决中文乱码开头添加： 1header(&quot;Content-Type: text&#x2F;html; charset&#x3D;utf-8&quot;);  PHP 简介什么是 PHP定义一种服务器端的 HTML 脚本&#x2F;编程语言,是一种简单的、面向对象的、解释型的、健壮的、安全的、性能非常之高的、独立于架构的、可移植的、动态的脚本语言。是一种广泛用于 Open Source（开放源代码）的尤其适合 We">
-<meta property="og:type" content="article">
-<meta property="og:title" content="php笔记">
-<meta property="og:url" content="https://agonilay.github.io/2021/07/29/php%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="AgoniLay的博客">
-<meta property="og:description" content="错误解决中文乱码开头添加： 1header(&quot;Content-Type: text&#x2F;html; charset&#x3D;utf-8&quot;);  PHP 简介什么是 PHP定义一种服务器端的 HTML 脚本&#x2F;编程语言,是一种简单的、面向对象的、解释型的、健壮的、安全的、性能非常之高的、独立于架构的、可移植的、动态的脚本语言。是一种广泛用于 Open Source（开放源代码）的尤其适合 We">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
-<meta property="article:published_time" content="2021-07-29T15:32:27.000Z">
-<meta property="article:modified_time" content="2021-11-27T10:03:21.252Z">
-<meta property="article:author" content="AgoniLay">
-<meta property="article:tag" content="php">
-<meta property="article:tag" content="Apache">
-<meta property="article:tag" content="mysql">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/zoro3.jpg"><link rel="canonical" href="https://agonilay.github.io/2021/07/29/php%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'php笔记',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2021-11-27 18:03:21'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/zoro3.jpg">
+  <link rel="icon" href="/img/zoro3.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
+  <meta name="theme-color" content="#efb9b9">
+  <meta name="description" content="">
+  <meta name="author" content="AgoniLay">
+  <meta name="keywords" content="">
   
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+  <title>php笔记 - AgoniLay的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/vs2015.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/scroller.css">
+<link rel="stylesheet" href="/css/bynode.css">
+<link rel="stylesheet" href="/css/mouse.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/three2.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>AgoniLay</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-bookmark"></i>
+                索引
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/%E8%83%8C%E6%99%AF%E5%9B%BE.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h3" id="subtitle" title="php笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      AgoniLay
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-29 23:32" pubdate>
+        2021年7月29日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">AgoniLay的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">php笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-07-29T15:32:27.000Z" title="发表于 2021-07-29 23:32:27">2021-07-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-27T10:03:21.252Z" title="更新于 2021-11-27 18:03:21">2021-11-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="php笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h2><h4 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h4><p>开头添加：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">&quot;Content-Type: text/html; charset=utf-8&quot;</span>);</span><br></pre></td></tr></table></figure>
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      16.8k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+			
+			
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">php笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年11月27日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h2><h4 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h4><p>开头添加：</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">header(<span class="hljs-string">&quot;Content-Type: text/html; charset=utf-8&quot;</span>);<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="PHP-简介"><a href="#PHP-简介" class="headerlink" title="PHP 简介"></a>PHP 简介</h2><h4 id="什么是-PHP"><a href="#什么是-PHP" class="headerlink" title="什么是 PHP"></a>什么是 PHP</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>一种服务器端的 HTML 脚本/编程语言,是一种简单的、面向对象的、解释型的、健壮的、安全的、性能非常之高的、独立于架构的、可移植的、动态的脚本语言。是一种广泛用于 Open Source（开放源代码）的尤其适合 Web 开发并可以嵌入 HTML 的多用途脚本语言。它的语法接近 C，Java 和 Perl，而且容易学习。</p>
 <p>该语言让 Web 开发人员快速的书写动态生成的网页</p>
@@ -184,74 +301,74 @@
 <p>用户输入域名 localhost:端口 –&gt; DNS（localhost 127.0.0.1）–&gt; 服务器电脑 –&gt; 软件（服务）</p>
 <h2 id="Web-程序的访问流程"><a href="#Web-程序的访问流程" class="headerlink" title="Web 程序的访问流程"></a>Web 程序的访问流程</h2><p>Web 分为两类：静态网站和动态网站</p>
 <p>浏览器发起访问 –&gt; DNS 解析域名 –&gt; 服务器电脑 –&gt; 服务软件</p>
-<h4 id="静态网站的访问"><a href="#静态网站的访问" class="headerlink" title="静态网站的访问"></a>静态网站的访问</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627153514946.png" class>
+<h4 id="静态网站的访问"><a href="#静态网站的访问" class="headerlink" title="静态网站的访问"></a>静态网站的访问</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627153514946.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="动态网站的访问"><a href="#动态网站的访问" class="headerlink" title="动态网站的访问"></a>动态网站的访问</h4><p>动态网站访问流程与静态差不多，但是会多出几个内容：服务器端解析、数据库</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627154927756.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627154927756.png" srcset="/img/three2.gif" lazyload class>
 
 <h2 id="安装-Apache"><a href="#安装-Apache" class="headerlink" title="安装 Apache"></a>安装 Apache</h2><h4 id="安装-Apache-软件"><a href="#安装-Apache-软件" class="headerlink" title="安装 Apache 软件"></a>安装 Apache 软件</h4><ol>
 <li><p>获取 Apache 软件</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160153744.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160153744.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>双击安装即可：指定对应路径</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160215862.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160215862.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>选择安装模式：使用自定义</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160314247.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160314247.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>选择安装位置</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160438991.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160438991.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
-<h4 id="Apache-的目录结构说明"><a href="#Apache-的目录结构说明" class="headerlink" title="Apache 的目录结构说明"></a>Apache 的目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160730828.png" class>
+<h4 id="Apache-的目录结构说明"><a href="#Apache-的目录结构说明" class="headerlink" title="Apache 的目录结构说明"></a>Apache 的目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627160730828.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="Httpd-exe-的详细应用"><a href="#Httpd-exe-的详细应用" class="headerlink" title="Httpd.exe 的详细应用"></a>Httpd.exe 的详细应用</h4><ol>
 <li><p>服务器进程：运行之后才能够工作</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161153791.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161153791.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>用来查看 Apache 具有哪些功能以及配置文件是否有错：httpd 或者 httpd.exe（文件所在目录）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161416719.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161416719.png" srcset="/img/three2.gif" lazyload class>
 
 <ol>
 <li><p>查看使用的模块：httpd.exe -M</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161553233.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161553233.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>验证配置文件是否有效：httpd -t</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161837622.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627161837622.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 </li>
 </ol>
 <h2 id="配置默认站点"><a href="#配置默认站点" class="headerlink" title="配置默认站点"></a>配置默认站点</h2><ol>
 <li><p>让 Apache 确定服务器上访问的位置：网站文件夹所在位置</p>
 <p>Httpd.conf： DocumentRoot</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627170307785.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627170307785.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>方便用户使用名字访问对应网站：给文件夹对应的起一个别名</p>
 <p>Httpd.conf： ServerName</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627162507164.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627162507164.png" srcset="/img/three2.gif" lazyload class>
 
 <p>端口可以单独实现：httpd.conf： listen</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627162551195.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627162551195.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p><strong>凡是涉及到 Apache 配置问价的修改，那么需要重启 Apache 才能生效</strong></p>
 </li>
 <li><p>实现 DNS 域名解析：通常默认站点都是本地 DNS：hosts 文件</p>
 <p>C:\Windows\System32\drivers\etc 下 hosts 文件</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627163009596.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627163009596.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <h2 id="安装与配置-PHP"><a href="#安装与配置-PHP" class="headerlink" title="安装与配置 PHP"></a>安装与配置 PHP</h2><h4 id="安装-PHP-语言"><a href="#安装-PHP-语言" class="headerlink" title="安装 PHP 语言"></a>安装 PHP 语言</h4><ol>
 <li><p>获取 PHP 安装文件：建议去官网</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627163637004.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627163637004.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>解压缩</p>
 </li>
 <li><p>安装：将压缩包放到 D:/server/ ，重命名 php5</p>
 </li>
 </ol>
-<h4 id="PHP-目录结构说明"><a href="#PHP-目录结构说明" class="headerlink" title="PHP 目录结构说明"></a>PHP 目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164042157.png" class>
+<h4 id="PHP-目录结构说明"><a href="#PHP-目录结构说明" class="headerlink" title="PHP 目录结构说明"></a>PHP 目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164042157.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="php-exe-的应用"><a href="#php-exe-的应用" class="headerlink" title="php.exe 的应用"></a>php.exe 的应用</h4><p>php.exe 就是可以解析 PHP 代码转变成 HTML 代码从而让浏览器可以解析的。</p>
 <ol>
 <li><p>通过 CMD 控制器进入到 php.exe 所在目录</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164214834.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164214834.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>通过 php.exe 运行命令来指定要解析的 PHP 脚本 就可以：<code>php.exe -f</code> PHP 文件所在路径</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164948370.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627164948370.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <h2 id="配置-Apache-加载-PHP-模块"><a href="#配置-Apache-加载-PHP-模块" class="headerlink" title="配置 Apache 加载 PHP 模块"></a>配置 Apache 加载 PHP 模块</h2><ol>
 <li><p>Apache 加载 PHP 模块：在 Apache 的主配置文件（httpd.conf）中加载对应的 PHP 提供的模块</p>
 <p><code>LoadModule php5_module &#39;D:/server/php5/php5apache2_2.dll&#39;</code></p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627170739713.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627170739713.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>Apache 分配工作给 PHP 模块：如果是 PHP 代码就交给 PHP 处理：文件后缀判断 .php 结尾肯定是 PHP 代码</p>
 <p><code>AddType application/x-httpd-php .php</code></p>
 </li>
@@ -259,16 +376,16 @@
 <ol>
 <li><p>在 Apache 中指定 PHP 配置文件所在路径</p>
 <p>PHPIniDir php.ini 所在路径</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627172103347.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627172103347.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>php.ini 文件默认是不存在的，是以 development 和 production 格式存在，需要格式化</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627172829719.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627172829719.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <p>说明：PHP 的配置文件已经加入到 Apache 的配置项中，意味着 php.ini 的修改需要 Apache 重启才会生效。</p>
 </li>
 </ol>
-<h2 id="安装与配置-MySQL"><a href="#安装与配置-MySQL" class="headerlink" title="安装与配置 MySQL"></a>安装与配置 MySQL</h2><h4 id="安装-MySQL-软件"><a href="#安装-MySQL-软件" class="headerlink" title="安装 MySQL 软件"></a>安装 MySQL 软件</h4><h4 id="MySQL-目录结构说明"><a href="#MySQL-目录结构说明" class="headerlink" title="MySQL 目录结构说明"></a>MySQL 目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627231602204.png" class>
+<h2 id="安装与配置-MySQL"><a href="#安装与配置-MySQL" class="headerlink" title="安装与配置 MySQL"></a>安装与配置 MySQL</h2><h4 id="安装-MySQL-软件"><a href="#安装-MySQL-软件" class="headerlink" title="安装 MySQL 软件"></a>安装 MySQL 软件</h4><h4 id="MySQL-目录结构说明"><a href="#MySQL-目录结构说明" class="headerlink" title="MySQL 目录结构说明"></a>MySQL 目录结构说明</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627231602204.png" srcset="/img/three2.gif" lazyload class>
 
-<h4 id="Bin-目录的常用命令"><a href="#Bin-目录的常用命令" class="headerlink" title="Bin 目录的常用命令"></a>Bin 目录的常用命令</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627231701378.png" class>
+<h4 id="Bin-目录的常用命令"><a href="#Bin-目录的常用命令" class="headerlink" title="Bin 目录的常用命令"></a>Bin 目录的常用命令</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627231701378.png" srcset="/img/three2.gif" lazyload class>
 
 <p>软件设计结构：C/S 和 B/S</p>
 <p>C/S：Client 客户端/Server 服务端，用户需要安装客户端产品才能访问服务器，而且只能访问一种软件（当前自己）</p>
@@ -284,30 +401,30 @@
 <p>认证：通过用户名和密码进入服务器</p>
 <p>-u 用户名 –&gt; -uroot，不可以省略（匿名用户除外）</p>
 <p>-p 密码 –&gt; -proot</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234054183.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234054183.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>退出命令</p>
 <p><code>\q</code></p>
 </li>
 </ol>
 <p>注意：通常连接认证的时候密码不建议明文，可以再输入 -p 之后回车，系统会再次让输入密码，这个时候就是密文</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234340617.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234340617.png" srcset="/img/three2.gif" lazyload class>
 
 <h2 id="PHP-连接-MySQL-数据库"><a href="#PHP-连接-MySQL-数据库" class="headerlink" title="PHP 连接 MySQL 数据库"></a>PHP 连接 MySQL 数据库</h2><p>PHP 本身不具备操作 MySQL 数据库的能力，需要借助 PHP 操作 MySQL 的扩展来实现</p>
 <ol>
 <li><p>PHP 加载 MySQL 扩展：php.ini 文件</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234726830.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627234726830.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>PHP 所有的扩展都是在 ext 文件夹中，需要制定扩展所在路径： extension_dir</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627235322277.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210627235322277.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>php.ini 已经被 Apache 加载，所以需要重启</p>
 </li>
 </ol>
 <p>如果出错，尝试设置：</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628002453049.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628002453049.png" srcset="/img/three2.gif" lazyload class>
 
 <h2 id="设定-PHP-的系统时区"><a href="#设定-PHP-的系统时区" class="headerlink" title="设定 PHP 的系统时区"></a>设定 PHP 的系统时区</h2><p>通过 php.ini 中的 timezone 配置项来实现</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">; 增加时区</span><br><span class="line">date.timezone = PRC</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">; 增加时区<br>date.timezone = PRC<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628002923832.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628002923832.png" srcset="/img/three2.gif" lazyload class>
 
 <h2 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h2><p>一台服务器很贵，如果只能部署一个网站，那么非常浪费。所以需要通过其他渠道来实现一台主机上部署多个网站。</p>
 <h4 id="什么是虚拟主机"><a href="#什么是虚拟主机" class="headerlink" title="什么是虚拟主机"></a>什么是虚拟主机</h4><p>虚拟主机：Virtual machine，并不存在真实的主机，但是可以提供真实主机所实现的功能。</p>
@@ -328,22 +445,22 @@
 <li><p>在专门的虚拟主机配置文件中配置</p>
 <ol>
 <li><p>在主配置文件中加载虚拟主机配置文件(httpd.conf)：虚拟主机配置文件已经开启了虚拟主机 NameVirtualHost</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004217698.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004217698.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>虚拟主机从配置文件（extra/httpd-vhosts.conf）中配置虚拟主机</p>
 <ol>
 <li><p>增加一个对应的站点文件夹位置：</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004550155.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004550155.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>增加主机名字：文件夹的别名：ServerName</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004830659.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628004830659.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>增加域名解析 DNS：(hosts 文件)</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628005736269.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628005736269.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>需要给当前设定的站点（目录）访问权限</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="built_in">Directory</span> <span class="string">&#x27;站点目录&#x27;</span>&gt;</span><br><span class="line">    Order Deny,Allow	<span class="comment">// 没有顺序关系：实际顺序有关系</span></span><br><span class="line">    Deny <span class="keyword">from</span> 指定的范围</span><br><span class="line">    Allow <span class="keyword">from</span> 指定范围</span><br><span class="line">&lt;/<span class="built_in">Directory</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">&lt;<span class="hljs-built_in">Directory</span> <span class="hljs-string">&#x27;站点目录&#x27;</span>&gt;<br>    Order Deny,Allow	<span class="hljs-comment">// 没有顺序关系：实际顺序有关系</span><br>    Deny <span class="hljs-keyword">from</span> 指定的范围<br>    Allow <span class="hljs-keyword">from</span> 指定范围<br>&lt;/<span class="hljs-built_in">Directory</span>&gt;<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628010552694.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628010552694.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>配置访问列表：当访问是一个目录时（没有指定具体要访问的文件）</p>
 <p>Options Indexes [FollowSymLinks]，如果访问目录，那么列表显示所有文件</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628011114358.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628011114358.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>当用户访问指定目录不指定文件的时候，通常需要系统指定一个默认文件</p>
 <p>DirectoryIndex 默认的文件列表，使用空格分离</p>
 <p>注意：如果网站中整个网站根目录允许访问，但是其中还有其他文件夹不允许访问：可以增加多个 Directory 标签，针对不同文件夹</p>
@@ -353,7 +470,7 @@
 <li><p>一旦启用虚拟主机配置文件，那么默认的主机地址 localhost 就不再生效，如果想要生效：为 localhost 增加单独的虚拟主机</p>
 </li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628011958112.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628011958112.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <h2 id="PHP-基础"><a href="#PHP-基础" class="headerlink" title="PHP 基础"></a>PHP 基础</h2><h3 id="PHP-语法初步"><a href="#PHP-语法初步" class="headerlink" title="PHP 语法初步"></a>PHP 语法初步</h3><p>PHP 是一种运行在服务器端的脚本语言，可以嵌入到 HTML 中。</p>
 <h4 id="PHP-代码标记"><a href="#PHP-代码标记" class="headerlink" title="PHP 代码标记"></a>PHP 代码标记</h4><p>在 PHP 历史发展中，可以使用多种标记来区分 PHP 脚本</p>
@@ -362,26 +479,26 @@
 <li>短标记： <code>&lt;? php代码 ?&gt;</code></li>
 </ul>
 <p>以上两种基本弃用，如果要使用那么需要在配置文件中开启</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628093541586.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628093541586.png" srcset="/img/three2.gif" lazyload class>
 
 <ul>
 <li>脚本标记： <code>&lt;script lang=&quot;php&quot;&gt; php代码 &lt;/script&gt;</code></li>
 </ul>
-<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628094015744.png" alt="image-20210628094015744"></p>
+<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628094015744.png" srcset="/img/three2.gif" lazyload alt="image-20210628094015744"></p>
 <ul>
 <li>标准标记（常用）： <code>&lt;?php php代码 ?&gt;</code></li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628094749928.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628094749928.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="PHP-注释"><a href="#PHP-注释" class="headerlink" title="PHP 注释"></a>PHP 注释</h4><p>习惯：所有的代码在写的过程中都必须进行注释</p>
 <p>PHP 中注释分为两种</p>
 <ul>
 <li><p>行注释：一次注释一行</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ：后面跟的所有内容都是注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ：与 // 一样</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">// ：后面跟的所有内容都是注释</span><br><br><span class="hljs-comment"># ：与 // 一样</span><br></code></pre></div></td></tr></table></figure></li>
 <li><p>块注释：一次注释多行</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* : 直到下面出现之前中间全部都是注释</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">/* : 直到下面出现之前中间全部都是注释</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628100126110.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628100126110.png" srcset="/img/three2.gif" lazyload class></li>
 </ul>
 <h4 id="PHP-语句分隔符"><a href="#PHP-语句分隔符" class="headerlink" title="PHP 语句分隔符"></a>PHP 语句分隔符</h4><p>语句分隔符：在 PHP 中，代码是以行尾单位，系统需要通过判断行的解说，该结束通常都是一个符号：英文分号 <code>;</code></p>
 <p>特殊说明：</p>
@@ -402,7 +519,7 @@
 <li>可以通过变量名访问存储的数据</li>
 <li>可以将变量从内存中删除</li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628102030737.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628102030737.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h4><ol>
 <li>在 PHP 中变量名字必须以“$”符号开始；</li>
@@ -431,18 +548,18 @@
 </li>
 </ul>
 <h4 id="可变变量"><a href="#可变变量" class="headerlink" title="可变变量"></a>可变变量</h4><p>如果一个变量保存的值刚好是另外一个变量的名字，那么可以直接通过访问一个变量得到另外一个变量的值：在变量前面再多加一个$符号。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628104114494.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628104114494.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="变量传值"><a href="#变量传值" class="headerlink" title="变量传值"></a>变量传值</h4><p>将一个变量赋值给另外一个变量：变量传值</p>
 <p>变量传值一共有两种方式：值传递，引用传递</p>
 <ul>
 <li><p>值传递：将变量保存的值赋值一份，然后将新的值给另外一个变量保存（两个变量没有关系）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628105219725.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628105219725.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>引用传递：将变量保存的值所在的内存地址，传递给另外一个变量：两个变量指向同一块内存空间（两个变量是同一个值）</p>
 <p><code>$新变量 = &amp;$老变量;</code></p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628105345581.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628105345581.png" srcset="/img/three2.gif" lazyload class></li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628110156014.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628110156014.png" srcset="/img/three2.gif" lazyload class>
 
 <p>在内存中，通常有以下几个分区</p>
 <ul>
@@ -459,7 +576,7 @@
 <li>使用定义常量的函数：define(‘常量名’,常量值);</li>
 <li>php5.3 之后才有的：const 常量名 = 值;</li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628110809490.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628110809490.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="命名规则-1"><a href="#命名规则-1" class="headerlink" title="命名规则"></a>命名规则</h4><ol>
 <li><p>常量不需要使用“$”符号，一旦使用系统就会认为是变量；</p>
@@ -469,7 +586,7 @@
 <li><p>常量的名字通常是以 <strong>大写字母</strong> 为主（与变量以示区别）；</p>
 </li>
 <li><p>常量命名的规则比变量要松散，可以使用一些特殊字符，该方式只能使用 define 定义；</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628111008222.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628111008222.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <p>注意细节：</p>
 <ol>
@@ -478,7 +595,7 @@
 </ol>
 <h4 id="使用形式"><a href="#使用形式" class="headerlink" title="使用形式"></a>使用形式</h4><p>常量的使用与变量一样：但是不可改变值（在定义的时候必须赋值）</p>
 <p>有的时候还需要使用另外一种形式来访问（针对的是特殊名字的常量），需要用到另外一个访问常量的函数：constant(‘常量名’)</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628111559972.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628111559972.png" srcset="/img/three2.gif" lazyload class>
 
 <p>说明：常量和变量的使用</p>
 <ol>
@@ -496,7 +613,7 @@
 <li><p>PHP_INT_MAX： 整形能表示的最大值（PHP 中整形是允许出现负数：带符号）</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628112021974.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628112021974.png" srcset="/img/three2.gif" lazyload class>
 
 <p>在 PHP 中还有一些特殊的常量，他们有双下划线开始+长两名+双下划线结束，这种常量称之为系统 魔术常量：魔术常量的值通常会跟着环境变化，但是用户改变不了</p>
 <ul>
@@ -504,7 +621,7 @@
 <li><code>__FILE__</code>：当前被执行的脚本所在的电脑的绝对路径（带自己文件的名字）</li>
 <li><code>__LINE__</code>：当前所属的行数</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628112651317.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628112651317.png" srcset="/img/three2.gif" lazyload class>
 
 <ul>
 <li><code>__NAMESPACE__</code>：当前所属的命名空间</li>
@@ -546,7 +663,7 @@
 </ol>
 <p>在转换过程中用到比较多的就是转布尔类型（判断）和转数值类型（算数运算）</p>
 <p>其他类型转布尔类型：true 或者 false，在 PHP 中比较少类型换变成 false</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628113541600.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628113541600.png" srcset="/img/three2.gif" lazyload class>
 
 <p>其他类型转数值的说明：</p>
 <ol>
@@ -557,30 +674,30 @@
 <li><p>以字母开头的字符串，永远为 0；</p>
 </li>
 <li><p>以数字开头的字符串，取到碰到字符串为止（不会同时包含两个小数点）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628114334753.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628114334753.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 </li>
 </ol>
 <h4 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h4><p>通过一组类型判断函数，来判断变量，最终返回这个变量所保存数据的数据类型（相同结果为 true，失败为 false）：是一组以 is_开头后面跟类型名字的函数：</p>
-<pre><code>`is_xxx(变量名)`
-</code></pre>
+<div class="hljs code-wrapper"><pre><code>`is_xxx(变量名)`
+</code></pre></div>
 <p>Bool 类型不能用 echo 来查看，可以使用 var_dump 结构查看：</p>
-<pre><code>`var_dump(变量1,变量2…)`
-</code></pre>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628124820018.png" class>
+<div class="hljs code-wrapper"><pre><code>`var_dump(变量1,变量2…)`
+</code></pre></div>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628124820018.png" srcset="/img/three2.gif" lazyload class>
 
 <p>还有一组函数可以用来获取以及设定数据（变量）的类型</p>
-<pre><code>gettype(变量名)：获取类型，得到的是该类型对应的字符串
-</code></pre>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628131733521.png" class>
+<div class="hljs code-wrapper"><pre><code>gettype(变量名)：获取类型，得到的是该类型对应的字符串
+</code></pre></div>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628131733521.png" srcset="/img/three2.gif" lazyload class>
 
-<pre><code>settype(变量名,类型)：设定数据类型：与强制转换不同
-</code></pre>
+<div class="hljs code-wrapper"><pre><code>settype(变量名,类型)：设定数据类型：与强制转换不同
+</code></pre></div>
 <ol>
 <li>强制转换(类型)变量名，是对数据值复制的内容进行处理（不会处理实际存储的内容）</li>
 <li>settype 会直接改变数据本身</li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628132058386.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628132058386.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="整数类型（int）"><a href="#整数类型（int）" class="headerlink" title="整数类型（int）"></a>整数类型（int）</h4><p>整数类型：保存整数数值（范围限制），4 个字节存储数据，最大就是 32 位：4,294,967,295。</p>
 <p>但是在 PHP 中默认是有符号类型（区分正负数）</p>
@@ -595,7 +712,7 @@
 <li><p>$a=0x120; //16 进制</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628134037488.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628134037488.png" srcset="/img/three2.gif" lazyload class>
 
 <h5 id="PHP-进制转换"><a href="#PHP-进制转换" class="headerlink" title="PHP 进制转换"></a>PHP 进制转换</h5><ul>
 <li><p>decbin()：十进制转二进制</p>
@@ -609,18 +726,18 @@
 <li><p>bin2hex()：二进制转十六进制</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628140009412.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628140009412.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="浮点类型（float）"><a href="#浮点类型（float）" class="headerlink" title="浮点类型（float）"></a>浮点类型（float）</h4><p>浮点型：小数类型以及超过整型所能存储范围的整数（不保证精度），精度范围大概在 15 个有效数字左右</p>
 <h5 id="定义方式-1"><a href="#定义方式-1" class="headerlink" title="定义方式"></a>定义方式</h5><p>$f = 1.23;</p>
 <p>$f = 1.23e10; //科学计数法，其中 e 表示底 10</p>
-<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628140744653.png" alt="image-20210628140744653"></p>
+<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628140744653.png" srcset="/img/three2.gif" lazyload alt="image-20210628140744653"></p>
 <p>简单说明浮点数为什么同样的字节数存储数据，但是却能表示更大的数据呢？</p>
 <p>00000000 00000000 00000000 00000000 -&gt; 11111111 11111111 11111111 1111111 （整形最大值：所有位都是有效数据）</p>
 <p>浮点数：加深 7 位算的结果是 10 的指数，后面三个字节存储表示具体数值</p>
 <p>00000000 00000000 00000000 00000000 -&gt; 1<strong>1111111</strong> 11111111 11111111 1111111</p>
 <p>注意：尽量不用用浮点数做精确判断：浮点数保存的数据不够精确，而且在计算机中凡是小数基本上存的都不准确</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141213736.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141213736.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="字符串类型（string）"><a href="#字符串类型（string）" class="headerlink" title="字符串类型（string）"></a>字符串类型（string）</h4><h5 id="字符串定义语法"><a href="#字符串定义语法" class="headerlink" title="字符串定义语法"></a>字符串定义语法</h5><ol>
 <li>单引号字符串：使用单引号包裹</li>
@@ -632,9 +749,9 @@
 <p>如果有结构要求，或者内容超过一行，可以使用以下两种结构定义</p>
 <ol>
 <li><p>nowdoc 字符串：没有单引号的单引号字符串</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$str</span> = &lt;&lt;&lt; <span class="string">&#x27;边界符&#x27;</span></span><br><span class="line">    字符串内容</span><br><span class="line">边界符;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-variable">$str</span> = &lt;&lt;&lt; <span class="hljs-string">&#x27;边界符&#x27;</span><br>    字符串内容<br>边界符;<br></code></pre></div></td></tr></table></figure></li>
 <li><p>heredoc 字符串：没有双引号的双引号字符串</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$str</span> = &lt;&lt;&lt; 边界符</span><br><span class="line">    字符串内容</span><br><span class="line">边界符;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-variable">$str</span> = &lt;&lt;&lt; 边界符<br>    字符串内容<br>边界符;<br><br></code></pre></div></td></tr></table></figure></li>
 </ol>
 
 
@@ -673,8 +790,8 @@
 </ol>
 <p>结构化定义字符串变量的规则：</p>
 <ol>
-<li><pre><code> 结构化定义字符串对应的边界符有条件：    1.  上边界符后面不能跟任何内容(包括空格)；    2.  下边界符必须顶格：最左边；    3.  下边界符同样后面只能跟分号，不能跟任何内容；
-</code></pre>
+<li><div class="hljs code-wrapper"><pre><code> 结构化定义字符串对应的边界符有条件：    1.  上边界符后面不能跟任何内容(包括空格)；    2.  下边界符必须顶格：最左边；    3.  下边界符同样后面只能跟分号，不能跟任何内容；
+</code></pre></div>
 </li>
 <li> 结构化定义字符串的内部（边界符之间）的所有内容都是字符串本身</li>
 </ol>
@@ -690,10 +807,10 @@
 
 <p> 可以使用 mb 扩展带来很多函数</p>
 <p> mbstring 扩展针对的是一些关于字符统计：</p>
-<pre><code> strlen只是针对标准交换码ASCII
+<div class="hljs code-wrapper"><pre><code> strlen只是针对标准交换码ASCII
 
  mbstring会针对不同的字符集 (php7默认字符集为utf-8)
-</code></pre>
+</code></pre></div>
  </li>
 </ol>
 <h5 id="字符集相关函数"><a href="#字符集相关函数" class="headerlink" title="字符集相关函数"></a>字符集相关函数</h5><ol>
@@ -702,8 +819,8 @@
 <li><p>implode(连接方式,数组)：将数组中的元素按照某个规则连接成一个字符串</p>
 </li>
 <li><p>explode(分割字符,目标字符串)：将字符串按照某个格式进行分割，变成数组</p>
-<pre><code>中国|北京|顺义 == array(‘中国’,‘北京’,’顺义’);
-</code></pre>
+<div class="hljs code-wrapper"><pre><code>中国|北京|顺义 == array(‘中国’,‘北京’,’顺义’);
+</code></pre></div>
 </li>
 <li><p>str_split(字符串,字符长度)：按照指定长度拆分字符串得到数组</p>
 </li>
@@ -755,11 +872,11 @@
 <h4 id="数组（array）"><a href="#数组（array）" class="headerlink" title="数组（array）"></a>数组（array）</h4><h5 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h5><p>数组：array，数据的组合，指将一组数据（多个）存储到一个指定的容器中，用变量指向该容器，然后可以通过变量一次性得到该容器中的所有数据。</p>
 <h5 id="数组定义语法"><a href="#数组定义语法" class="headerlink" title="数组定义语法"></a>数组定义语法</h5><ol>
 <li><p>使用 array 关键字：最常用的</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$变量 = <span class="keyword">array</span>(元素<span class="number">1</span>,元素<span class="number">2</span>,元素<span class="number">3</span>..);</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">$变量 = <span class="hljs-keyword">array</span>(元素<span class="hljs-number">1</span>,元素<span class="hljs-number">2</span>,元素<span class="hljs-number">3</span>..);<br></code></pre></div></td></tr></table></figure></li>
 <li><p>可以使用中括号来包裹数据：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$变量 = [元素<span class="number">1</span>,元素<span class="number">2</span>…];</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">$变量 = [元素<span class="hljs-number">1</span>,元素<span class="hljs-number">2</span>…];<br></code></pre></div></td></tr></table></figure></li>
 <li><p>隐形定义数组：给变量增加一个中括号，系统自动变成数组</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$变量[] = 值<span class="number">1</span>;	<span class="comment">//如果不提供下标也可以，系统自动生成（数字：从0开始）</span></span><br><span class="line">$变量[下标] = 值; <span class="comment">//中括号里面的内容称之为下标key，该下标可以是字母</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">$变量[] = 值<span class="hljs-number">1</span>;	<span class="hljs-comment">//如果不提供下标也可以，系统自动生成（数字：从0开始）</span><br>$变量[下标] = 值; <span class="hljs-comment">//中括号里面的内容称之为下标key，该下标可以是字母</span><br></code></pre></div></td></tr></table></figure></li>
 </ol>
 <h5 id="PHP-数组特点"><a href="#PHP-数组特点" class="headerlink" title="PHP 数组特点"></a>PHP 数组特点</h5><ol>
 <li><p>可以整数下标或者字符串下标</p>
@@ -794,9 +911,9 @@
 <h6 id="异性数组（不规则数组）"><a href="#异性数组（不规则数组）" class="headerlink" title="异性数组（不规则数组）"></a>异性数组（不规则数组）</h6><p>异形数组：数组中的元素不规则，有普通基本变量也有数组。</p>
 <p>在实际开发中，并不常用，尽量让数组元素规则化（便于进行访问）</p>
 <h5 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h5><h6 id="基本含义"><a href="#基本含义" class="headerlink" title="基本含义"></a>基本含义</h6><p>数组遍历：普通数组数据的访问都是通过数组元素的下标来实现访问，如果说数组中所有的数据都需要依次输出出来，就需要我们使用到一些简化的规则来实现自动获取下标以及输出数组元素。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(<span class="number">0</span>=&gt;<span class="keyword">array</span>(‘name’ =&gt; ‘Tom’),<span class="number">1</span>=&gt;<span class="keyword">array</span>(‘name’ =&gt; ‘Jim’));	<span class="comment">//二维数组</span></span><br><span class="line"><span class="comment">//访问一维元素：$arr[一维下标]</span></span><br><span class="line"><span class="variable">$arr</span>[<span class="number">0</span>];	<span class="comment">//结果：array(‘name’ =&gt; ‘Tom’);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//访问二维元素：$arr[一维下标][二维下标]</span></span><br><span class="line"><span class="variable">$arr</span>[<span class="number">1</span>][‘name’];	<span class="comment">//Jim</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-variable">$arr</span> = <span class="hljs-keyword">array</span>(<span class="hljs-number">0</span>=&gt;<span class="hljs-keyword">array</span>(‘name’ =&gt; ‘Tom’),<span class="hljs-number">1</span>=&gt;<span class="hljs-keyword">array</span>(‘name’ =&gt; ‘Jim’));	<span class="hljs-comment">//二维数组</span><br><span class="hljs-comment">//访问一维元素：$arr[一维下标]</span><br><span class="hljs-variable">$arr</span>[<span class="hljs-number">0</span>];	<span class="hljs-comment">//结果：array(‘name’ =&gt; ‘Tom’);</span><br><br><span class="hljs-comment">//访问二维元素：$arr[一维下标][二维下标]</span><br><span class="hljs-variable">$arr</span>[<span class="hljs-number">1</span>][‘name’];	<span class="hljs-comment">//Jim</span><br></code></pre></div></td></tr></table></figure>
 
-<h6 id="foreach-遍历语法"><a href="#foreach-遍历语法" class="headerlink" title="foreach 遍历语法"></a>foreach 遍历语法</h6><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>($数组变量 <span class="keyword">as</span> [$下标 =&gt;] $值)&#123;	<span class="comment">//下标可有可无</span></span><br><span class="line">	<span class="comment">//通过$下标访问元素的下标；通过$值访问元素的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="foreach-遍历语法"><a href="#foreach-遍历语法" class="headerlink" title="foreach 遍历语法"></a>foreach 遍历语法</h6><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">foreach</span>($数组变量 <span class="hljs-keyword">as</span> [$下标 =&gt;] $值)&#123;	<span class="hljs-comment">//下标可有可无</span><br>	<span class="hljs-comment">//通过$下标访问元素的下标；通过$值访问元素的值</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>通常：如果是关联数组（字母下标），就需要下标，如果是数字下标就直接访问值</p>
 
@@ -808,7 +925,7 @@
 
 
 <h6 id="foreach-遍历原理"><a href="#foreach-遍历原理" class="headerlink" title="foreach 遍历原理"></a>foreach 遍历原理</h6><p>foreach 遍历的原理：本质是数组的内部有一颗指针，默认是指向数组元素的第一个元素，foreach 就是利用指针去获取数据，同时移动指针。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$k</span> =&gt; <span class="variable">$v</span>)&#123;</span><br><span class="line">	<span class="comment">//循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">foreach</span>(<span class="hljs-variable">$arr</span> <span class="hljs-keyword">as</span> <span class="hljs-variable">$k</span> =&gt; <span class="hljs-variable">$v</span>)&#123;<br>	<span class="hljs-comment">//循环体</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <ol>
 <li>foreach 会重置指针：让指针指向第一个元素；</li>
@@ -860,13 +977,13 @@
 <li>array_values()：获取一个数组的所有值，返回一个索引数组</li>
 </ol>
 <h4 id="布尔类型（boolean）"><a href="#布尔类型（boolean）" class="headerlink" title="布尔类型（boolean）"></a>布尔类型（boolean）</h4><p>布尔类型：两个值 true 和 false，通常是用于判断比较</p>
-<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141333016.png" alt="image-20210628141333016"></p>
+<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141333016.png" srcset="/img/three2.gif" lazyload alt="image-20210628141333016"></p>
 <p>在进行某些数据判断的时候，需要特别注意类型转换</p>
-<pre><code>empty()：判断数据的值是否为“空”，不是NULL，如果为空返回true，不为空返回false
+<div class="hljs code-wrapper"><pre><code>empty()：判断数据的值是否为“空”，不是NULL，如果为空返回true，不为空返回false
 
 isset()：判断数据存储的变量本身是否存在，存在变量返回true，不存在返回false
-</code></pre>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141717452.png" class>
+</code></pre></div>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628141717452.png" srcset="/img/three2.gif" lazyload class>
 
 <h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>运算符：operator，是一种将数据进行运算的特殊符号，在 PHP 中一共有十种运算符之多</p>
 <h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p>符号是“=”，表示将右边的结果（可以是变量、数据、常量和其它运算出来的结果），保存到内存的某个位置，然后将位置的内存地址赋值给左侧的变量（常量）。</p>
@@ -912,7 +1029,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p><code>!</code> ：逻辑非，对已有条件进行取反，本身为 true，取反结果就是 false</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628142659903.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628142659903.png" srcset="/img/three2.gif" lazyload class>
 
 <p>逻辑与和逻辑或又称之为<strong>**短路运算**<strong>：如果第一个表达式结果已经满足条件了，那么就不会运行逻辑运算符后面的表达式：</strong>在书写代码的时候，尽量将出现概率最高的（能够直接判断出结果）的表达式放到第一位，提高运算效率</strong></p>
 <h4 id="连接运算符"><a href="#连接运算符" class="headerlink" title="连接运算符"></a>连接运算符</h4><p>是 PHP 中将多个字符串拼接的一种符号</p>
@@ -921,12 +1038,12 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><code>.=</code> ： 复合运算，将左边的内容与右边的内容连接起来，然后重新赋值给左边变量</li>
 </ul>
 <p>A .= b ⇔ A = A . b</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628143257603.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628143257603.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="错误抑制符"><a href="#错误抑制符" class="headerlink" title="错误抑制符"></a>错误抑制符</h4><p>在 PHP 中有一些错误可以提前预知，但是这些错误可能无法避免，但是又不希望报错给用户看，可以使用错误抑制符处理。</p>
-<pre><code>`@` ：在可能出错的表达式前面使用@符号即可
-</code></pre>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628143553218.png" class>
+<div class="hljs code-wrapper"><pre><code>`@` ：在可能出错的表达式前面使用@符号即可
+</code></pre></div>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628143553218.png" srcset="/img/three2.gif" lazyload class>
 
 <p>错误抑制符通常在生产环境（上线）会用到，在开发的时候不会用：系统本身最好没有任何错误。</p>
 <h4 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h4><p>三目运算：有三个表达式参与的运算（简单的的分支结构缩写）</p>
@@ -977,10 +1094,10 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </li>
 </ul>
 <p>系统中存在两个 0：+0 和-0 (0 的原码跟反码都有两个，因为这里 0 被分为+0 和-0)</p>
-<pre><code>+0： 00000000
+<div class="hljs code-wrapper"><pre><code>+0： 00000000
 
 -0 ： 10000000    原码
-</code></pre>
+</code></pre></div>
 <ul>
 <li>取反 11111111</li>
 <li>补码 00000000</li>
@@ -991,7 +1108,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </ul>
 <ol>
 <li><p>|：按位或，两个有一个为 1，结果为 1</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628151029489.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628151029489.png" srcset="/img/three2.gif" lazyload class>
 
 <p>注意：</p>
 <ol>
@@ -1006,17 +1123,17 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </ol>
 <ul>
 <li><p>~：按位非，一个位如果为 1 则变成 0，否则反之</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628151449325.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628151449325.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>^：按位异或，两个相同则为 0，不同则为 1</p>
 </li>
 <li><p>&lt;&lt;：按位左移，整个位（32 位），向左移动一位，右边补 0</p>
 </li>
 <li><p>&gt;&gt;：按位右移，整个位向右移动一位，左边补符号位对应内容</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628152113926.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628152113926.png" srcset="/img/three2.gif" lazyload class></li>
 </ul>
 <p>按位左移：乘以 2 的操作</p>
 <p>按位右移：除以 2 的操作（不完全正确）：整数除 2 会出现小数</p>
-<h4 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628152259662.png" class>
+<h4 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h4><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628152259662.png" srcset="/img/three2.gif" lazyload class>
 
 <h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h4 id="控制分类"><a href="#控制分类" class="headerlink" title="控制分类"></a>控制分类</h4><ul>
 <li>顺序结构：代码从上往下，顺序执行。（代码执行的最基本结构）</li>
@@ -1027,16 +1144,16 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <h4 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h4><p>在 PHP 中，分支结构主要有两种：if 分支 和 switch 分支</p>
 <h5 id="if-分支"><a href="#if-分支" class="headerlink" title="if 分支"></a>if 分支</h5><ol>
 <li><p>最简 if：只有一段代码，但是可以选择是否执行</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式)&#123;</span><br><span class="line">    <span class="comment">//满足条件所要执行的内容 //顺序结构</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(条件表达式)&#123;<br>    <span class="hljs-comment">//满足条件所要执行的内容 //顺序结构</span><br>&#125;<br></code></pre></div></td></tr></table></figure></li>
 <li><p>基础 if：有两面性，满足条件或者不满足条件都有对应的执行代码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式)&#123;</span><br><span class="line">    <span class="comment">//满足条件后执行的代码段;</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//不满足条件执行的代码段;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(条件表达式)&#123;<br>    <span class="hljs-comment">//满足条件后执行的代码段;</span><br>&#125;<span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-comment">//不满足条件执行的代码段;</span><br>&#125;<br></code></pre></div></td></tr></table></figure></li>
 <li><p>复杂 if 结构：在判断条件之后，通常就有两种结果：满足或者不满足，在不满足之后还可以再次进行条件判断</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="comment">//满足条件表达式1的代码段;</span></span><br><span class="line">&#125;<span class="keyword">elseif</span>(条件表达式<span class="number">2</span>)&#123;	<span class="comment">//`else if 分开也可以</span></span><br><span class="line">    <span class="comment">//不满足表达式1条件，但是满足表达式2的代码;</span></span><br><span class="line">&#125;…&#123;	<span class="comment">//可以使用多个elseif来进行再次条件筛选</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//全部不满足要执行的代码;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(条件表达式<span class="hljs-number">1</span>)&#123;<br>    <span class="hljs-comment">//满足条件表达式1的代码段;</span><br>&#125;<span class="hljs-keyword">elseif</span>(条件表达式<span class="hljs-number">2</span>)&#123;	<span class="hljs-comment">//`else if 分开也可以</span><br>    <span class="hljs-comment">//不满足表达式1条件，但是满足表达式2的代码;</span><br>&#125;…&#123;	<span class="hljs-comment">//可以使用多个elseif来进行再次条件筛选</span><br>&#125;<span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-comment">//全部不满足要执行的代码;</span><br>&#125;<br></code></pre></div></td></tr></table></figure></li>
 </ol>
 <h5 id="switch-分支"><a href="#switch-分支" class="headerlink" title="switch 分支"></a>switch 分支</h5><p>switch 分支：有一组情形存在，同过一条件，通常有多个值，但是每一个值都会有对应不同的代码要执行。</p>
 <p>switch 判断方式：是将条件放到分支结构内部判断。</p>
 <p>switch 基本语法：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(条件表达式)&#123;</span><br><span class="line">	<span class="comment">//所有条件判断：逐个进行</span></span><br><span class="line">    <span class="keyword">case</span> 值<span class="number">1</span>:	<span class="comment">//当前条件表达式的结果与值1相等（==）</span></span><br><span class="line">        要执行的代码段;</span><br><span class="line">        <span class="keyword">break</span>;	<span class="comment">//在switch中，如果条件匹配成功，那么系统就不会再次匹配条件，会自动顺序执行向下的所有代码（case代码除外），需要中断执行：break表示中断switch（结束）。</span></span><br><span class="line">    <span class="keyword">case</span> 值<span class="number">2</span>:</span><br><span class="line">        要执行的代码段;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="comment">//可以使用类似else的语法：都不匹配</span></span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">        <span class="comment">//匹配失败的代码;</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">switch</span>(条件表达式)&#123;<br>	<span class="hljs-comment">//所有条件判断：逐个进行</span><br>    <span class="hljs-keyword">case</span> 值<span class="hljs-number">1</span>:	<span class="hljs-comment">//当前条件表达式的结果与值1相等（==）</span><br>        要执行的代码段;<br>        <span class="hljs-keyword">break</span>;	<span class="hljs-comment">//在switch中，如果条件匹配成功，那么系统就不会再次匹配条件，会自动顺序执行向下的所有代码（case代码除外），需要中断执行：break表示中断switch（结束）。</span><br>    <span class="hljs-keyword">case</span> 值<span class="hljs-number">2</span>:<br>        要执行的代码段;<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-comment">//可以使用类似else的语法：都不匹配</span><br>	<span class="hljs-keyword">default</span>:<br>        <span class="hljs-comment">//匹配失败的代码;</span><br>        <span class="hljs-keyword">break</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>if 和 switch 的选择</p>
 <ol>
@@ -1046,7 +1163,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <h4 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h4><p>代码段在一定的控制下，可以多次执行。</p>
 <p>在 PHP 中循环结构有以下几种：</p>
 <h5 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h5><p>通过条件、起始和终止判断执行</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(条件表达式<span class="number">1</span>;条件表达式<span class="number">2</span>;条件表达式<span class="number">3</span>)&#123;</span><br><span class="line">    <span class="comment">//条件表达式1：定义初始化条件，可以有多种赋值语句存在，使用逗号分隔即可</span></span><br><span class="line">    <span class="comment">//条件表达式2：边界判定，限定循环执行的次数</span></span><br><span class="line">    <span class="comment">//条件表达式3：用来执行条件变化（自操作）</span></span><br><span class="line">    <span class="comment">//循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">for</span>(条件表达式<span class="hljs-number">1</span>;条件表达式<span class="hljs-number">2</span>;条件表达式<span class="hljs-number">3</span>)&#123;<br>    <span class="hljs-comment">//条件表达式1：定义初始化条件，可以有多种赋值语句存在，使用逗号分隔即可</span><br>    <span class="hljs-comment">//条件表达式2：边界判定，限定循环执行的次数</span><br>    <span class="hljs-comment">//条件表达式3：用来执行条件变化（自操作）</span><br>    <span class="hljs-comment">//循环体</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>for 循环执行原理：</p>
 <ol>
@@ -1062,39 +1179,39 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>重复执行 3-4-2 步骤：直到第 2 步不满足条件结束循环</li>
 </ol>
 <p>for 循环特殊使用：for 循环中对应的括号（条件）可以一个都没有（死循环）但一定要避免出现；</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(;;)&#123;</span><br><span class="line">    <span class="comment">//循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">for</span>(;;)&#123;<br>    <span class="hljs-comment">//循环体</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h5 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h5><p>通过判断条件终止</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">条件初始化;</span><br><span class="line"><span class="keyword">while</span>(条件表达式)&#123;</span><br><span class="line">    <span class="comment">//条件表达式就是判断边界条件</span></span><br><span class="line">    循环体;		<span class="comment">//循环条件的变化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">条件初始化;<br><span class="hljs-keyword">while</span>(条件表达式)&#123;<br>    <span class="hljs-comment">//条件表达式就是判断边界条件</span><br>    循环体;		<span class="hljs-comment">//循环条件的变化</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>For 与 while 的选择</p>
 <ol>
 <li>如果是基于固定已知条件（数值而且是有规律的变化），使用 for 循环</li>
 <li>while 可以做灵活的条件判定（while 使用的比较多）</li>
 </ol>
-<h5 id="do-while-循环"><a href="#do-while-循环" class="headerlink" title="do-while 循环"></a>do-while 循环</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    <span class="comment">//循环体</span></span><br><span class="line">&#125;<span class="keyword">while</span>(条件表达式);</span><br></pre></td></tr></table></figure>
+<h5 id="do-while-循环"><a href="#do-while-循环" class="headerlink" title="do-while 循环"></a>do-while 循环</h5><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">do</span>&#123;<br>    <span class="hljs-comment">//循环体</span><br>&#125;<span class="hljs-keyword">while</span>(条件表达式);<br></code></pre></div></td></tr></table></figure>
 
 <h5 id="foreach-循环"><a href="#foreach-循环" class="headerlink" title="foreach 循环"></a>foreach 循环</h5><p>专门针对数组</p>
 <h5 id="循环控制"><a href="#循环控制" class="headerlink" title="循环控制"></a>循环控制</h5><p>循环控制：在循环内部对循环本身进行控制</p>
 <ul>
 <li><p>中断控制：重新开始循环，循环体中还有其他内容，也不执行，重新执行</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">continue</span> 层级;	<span class="comment">//层级默认是1（循环可以多层嵌套）</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">continue</span> 层级;	<span class="hljs-comment">//层级默认是1（循环可以多层嵌套）</span><br></code></pre></div></td></tr></table></figure></li>
 <li><p>终止控制：循环直接结束</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">break</span> 层级;		<span class="comment">//层级默认是1</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">break</span> 层级;		<span class="hljs-comment">//层级默认是1</span><br></code></pre></div></td></tr></table></figure></li>
 </ul>
 <h4 id="流程控制替代语法"><a href="#流程控制替代语法" class="headerlink" title="流程控制替代语法"></a>流程控制替代语法</h4><p>流程控制替代语法：分支和循环结构的替代语法</p>
 <p>PHP 本身是嵌入到 HTML 中的脚本语言，需要在 HTML 中书写一些关于判断或者循环的结构语法，必须符合 PHP 标签规范，需要 HTML 与 PHP 进行混搭，如果使用原始的 PHP 代码那么会非常不美观。</p>
 <p>例子： 九九乘法表</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;table border=&quot;1&quot;&gt;</span><br><span class="line">    &lt;?php for ($i = 1; $i &lt; 10; $i++) &#123; ?&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;?php for ($j = 1; $j &lt;= $i; $j++) &#123; ?&gt;</span><br><span class="line">        &lt;td&gt;</span><br><span class="line">            &lt;?php echo $i . &#x27; * &#x27; . $j . &#x27; = &#x27; . $i * $j ?&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">        &lt;?php &#125; ?&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;?php &#125; ?&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php+HTML">&lt;table border=&quot;1&quot;&gt;<br>    &lt;?php for ($i = 1; $i &lt; 10; $i++) &#123; ?&gt;<br>    &lt;tr&gt;<br>        &lt;?php for ($j = 1; $j &lt;= $i; $j++) &#123; ?&gt;<br>        &lt;td&gt;<br>            &lt;?php echo $i . &#x27; * &#x27; . $j . &#x27; = &#x27; . $i * $j ?&gt;<br>        &lt;/td&gt;<br>        &lt;?php &#125; ?&gt;<br>    &lt;/tr&gt;<br>    &lt;?php &#125; ?&gt;<br>&lt;/table&gt;<br></code></pre></div></td></tr></table></figure>
 
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628160755681.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628160755681.png" srcset="/img/three2.gif" lazyload class>
 
 <p>在 PHP 书写到 HTML 中的这些大括号{}非常不美观，所以 PHP 提供了一种替代机制，让其可以不用书写大括号：</p>
 <ul>
 <li>For(;;){ –&gt; for(;;):</li>
 <li>} –&gt; endfor;</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628161032944.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628161032944.png" srcset="/img/three2.gif" lazyload class>
 
 <p>PHP 中具体有哪些替代语法呢？</p>
 <p>PHP 应该在 HTML 中只做数据输出，输出通常伴有条件判断和循环操作，因此 PHP 提供了对应分支结构和循环结构的替代语法：全部都是对应的一个模式：</p>
@@ -1165,10 +1282,10 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>Include(‘文件名字’); //文件名字：路径问题</p>
 </li>
 </ul>
-<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628163927572.png" alt="image-20210628163927572"></p>
+<p><img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628163927572.png" srcset="/img/three2.gif" lazyload alt="image-20210628163927572"></p>
 <p>以上方式：是先包含文件，后使用文件中的内容（向上包含）</p>
 <p>向下包含：先准备内容，然后包含另外的文件，在另外的文件中，使用当前的内容</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628164455678.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628164455678.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="文件加载原理"><a href="#文件加载原理" class="headerlink" title="文件加载原理"></a>文件加载原理</h4><p>PHP 代码的执行流程：</p>
 <ol>
@@ -1185,21 +1302,21 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </li>
 <li><p>在 PHP 中被包含的文件是单独进行编译的</p>
 <p>PHP 文件在编译的过程中如果出现了语法错误，那么会失败（不会执行）；但是如果被包含文件有错误的时候，系统会在执行到包含 include 这条语句的时候才会报错。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628165803659.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628165803659.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <h4 id="include-和-requist-的区别"><a href="#include-和-requist-的区别" class="headerlink" title="include 和 requist 的区别"></a>include 和 requist 的区别</h4><p>Include 和 include_once 的区别：</p>
 <ul>
 <li><p>Include 系统会碰到一次，执行一次；如果对统一个文件进行多次加载，那么系统会执行多次；</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170242685.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170242685.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>Include_once：系统碰到多次，也只会执行一次。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170333116.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170333116.png" srcset="/img/three2.gif" lazyload class></li>
 </ul>
 <p>Require 和 include 的区别：本质都是包含文件，唯一的区别在于包含不到文件的时候，报错的形式不一样</p>
 <ul>
 <li><p>include 的错误级别比较轻：不会阻止代码执行</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170614796.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170614796.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>require 要求较高：如果包含出错代码不再执行（require 后面的代码）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170729389.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628170729389.png" srcset="/img/three2.gif" lazyload class></li>
 </ul>
 <h4 id="文件加载路径"><a href="#文件加载路径" class="headerlink" title="文件加载路径"></a>文件加载路径</h4><p>文件在加载的时候需要指定文件路径才能保证 PHP 正确的找到对应的文件。</p>
 <p>文件的加载路径包含两大类：</p>
@@ -1218,7 +1335,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <p>Localhost/index.php -&gt; E:/server/apache/htdocs/index.php</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628172146092.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628172146092.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 </li>
 <li><p>相对路径：从当前文件所在目录开始的路径</p>
@@ -1226,7 +1343,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><code>.</code> 或 <code>./</code> ：表示当前文件夹</li>
 <li><code>../</code> ：上级目录（当前文件夹的上一层文件夹）</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628172039596.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628172039596.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <p>绝对路径和相对路径的加载区别：</p>
 <ol>
@@ -1237,7 +1354,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <p>嵌套包含的时候就很容易出现相对路径出错的问题：相对路径会因为文件的包含而改变（./和../），原因：windows 下面，每一个文件夹下都有.和..的文件夹。</p>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>function，是一种语法结构，将实现某一个功能的代码块（多行代码）封装到一个结构中，从而实现代码的重复利用（复用）。</p>
 <h4 id="定义语法"><a href="#定义语法" class="headerlink" title="定义语法"></a>定义语法</h4><p>函数有几个对应的关键点：function 关键字、函数名、参数（形参和实参）、函数体和返回值</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">[参数]</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//函数体</span></span><br><span class="line">    <span class="comment">//返回值：return 结果;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> 函数名(<span class="hljs-params">[参数]</span>)</span>&#123;<br>    <span class="hljs-comment">//函数体</span><br>    <span class="hljs-comment">//返回值：return 结果;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>定义函数的目的：是为了实现代码的重复利用，一个功能一个函数（简单明了）</p>
 <p>函数的使用：<code>函数名();</code> //如果函数在定义的过程中有参数，那么在调用的时候就必须传入对应的参数：函数是一种结构不会自动运行，必须通过调用才会执行</p>
@@ -1257,7 +1374,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <p><strong>形参</strong>：形式参数，不具有实际意义的参数，是在函数定义时使用的参数</p>
 <p><strong>实参</strong>：实际参数，具有实际数据意义的参数，是在函数调用时使用的参数</p>
 <p>形参是实参的载体：实参在调用时通常是需要传入到函数内部参与计算（运算），那么需要在函数内部去找到实际数据所在的位置才能找到数据本身：需要实际调用的时候，将数据以实参的形式传递给形参：给形参赋值，从而使得函数内部可以用到外部数据。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628173503789.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628173503789.png" srcset="/img/three2.gif" lazyload class>
 
 <p>注意：</p>
 <ol>
@@ -1266,7 +1383,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>在 PHP 中理论上形参个数没有限制（实际开发不会太多）</p>
 </li>
 <li><p>实参不能少于形参个数</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628173519627.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628173519627.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <h5 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h5><p>default value，指的是形参的默认值</p>
 <p>在函数定义的时候，就给形参进行一个初始赋值：如果实际调用传入的参数（实参）没有提供，那么形参就会使用定义时的值来进入函数内部参与运算。</p>
@@ -1293,7 +1410,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>return 在函数内部存在的价值：返回当前函数的结果、结束当前函数运行</p>
 </li>
 <li><p>return 还可以在文件中直接使用（不在函数里面）：代表文件将结果 return 后面跟的内容，转交给包含当前文件的位置。（通常在系统配置文件中使用较多），在文件中也代表中终止文件后面的代码：return 之后的内容不会执行。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628174307294.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628174307294.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>变量（常量）能够被访问的区域</p>
 <ol>
@@ -1315,7 +1432,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </li>
 </ol>
 <p>超全局变量会将全局变量自动纳入到 $GLOBALS 里面，而 $GLOBALS 没有作用域限制，所以能够帮助局部去访问全局变量：但是必须使用数组方式</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628174933758.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628174933758.png" srcset="/img/three2.gif" lazyload class>
 
 <p>除了$GLOBALS 之外，通过参数传值（如果要同步变化还可以使用引用传值）</p>
 <p>在 PHP 中，其实还有一种方式，能够实现全局访问局部，同时局部也可以访问全局：<strong>global 关键字</strong></p>
@@ -1326,15 +1443,15 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 </ol>
 <p>本质的形式：在函数的内部和外部，对一个同名变量（全局和局部）使用同一块内存地址保存数据，从而实现共同拥有。</p>
 <p>基本语法：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">global</span> 变量名;	 <span class="comment">// 不能赋值</span></span><br><span class="line">变量名 = 值;	<span class="comment">//修改</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">global</span> 变量名;	 <span class="hljs-comment">// 不能赋值</span><br>变量名 = 值;	<span class="hljs-comment">//修改</span><br></code></pre></div></td></tr></table></figure>
 
 <p>虽然以上方式可以实现局部与全局的互访，但是通常不会这么用。一般如果会存在特殊使用，也会使用参数的形式来访问（还可以使用常量：define 定义的）。</p>
 <h4 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h4><p>static，是在函数内部定义的变量，使用 static 关键字修饰，用来实现跨函数共享数据的变量：函数运行结束所有局部变量都会清空，如果重新运行一下函数，所有的局部变量又会重新初始化。</p>
 <p>基本语法：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//定义变量</span></span><br><span class="line">    <span class="built_in">static</span> $变量名 = 值;	<span class="comment">//通常会在定义的时候就直接赋值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> 函数名(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-comment">//定义变量</span><br>    <span class="hljs-built_in">static</span> $变量名 = 值;	<span class="hljs-comment">//通常会在定义的时候就直接赋值</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>静态变量的作用是为了跨函数共享数据（同一个函数被多次调用）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628180343510.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628180343510.png" srcset="/img/three2.gif" lazyload class>
 
 <p>函数在调用的时候，会自动跳过 static 关键字这一行：(即不再执行重新赋值为 1)</p>
 <p>静态变量的使用：</p>
@@ -1343,21 +1460,21 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>为了统筹函数多次调用得到的不同结果（递归思想）</li>
 </ol>
 <h4 id="可变函数"><a href="#可变函数" class="headerlink" title="可变函数"></a>可变函数</h4><p>当前有一个变量所保存到值，刚好是一个函数的名字，那么就可以使用<code>变量()</code> 来充当函数名使用</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$变量 = ‘display’;</span><br><span class="line"><span class="function"><span class="keyword">Function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可变函数</span></span><br><span class="line">$变量(); <span class="comment">// 等价于 display();</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">$变量 = ‘display’;<br><span class="hljs-function"><span class="hljs-keyword">Function</span> <span class="hljs-title">display</span>(<span class="hljs-params"></span>)</span>&#123;<br>&#125;<br><span class="hljs-comment">//可变函数</span><br>$变量(); <span class="hljs-comment">// 等价于 display();</span><br></code></pre></div></td></tr></table></figure>
 
 <p>可变函数在系统使用的过程中还是比较多的，尤其是使用很多系统函数的时候：需要用户在外部定义一个自定义函数，但是是需要传入到系统函数内部使用。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628181551870.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628181551870.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><h5 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h5><p>匿名函数：没有名字的函数</p>
 <p>基本语法：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">变量名 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    函数体</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">变量名 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    函数体<br>&#125;;<br></code></pre></div></td></tr></table></figure>
 
 <p>变量保存匿名函数，本质得到的是一个对象（Closure）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628224942148.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628224942148.png" srcset="/img/three2.gif" lazyload class>
 
 <h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><p>closure，一词来源于以下两者的结合：要执行的代码块（由于自由变量被包含在代码块中，这些自由变量以及它们引用的对象没有被释放）和为自由变量提供绑定的计算环境（作用域）</p>
 <p>简单理解：函数内部有一些局部变量（要执行的代码块）在函数执行之后没有被释放，是因为在函数内部还有对应的函数在引用（就是函数的内部函数：匿名函数）</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628225513934.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628225513934.png" srcset="/img/three2.gif" lazyload class>
 
 <p>证明：函数的局部变量在函数使用完之后没有被释放？</p>
 <ol>
@@ -1365,7 +1482,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>匿名函数使用局部变量：use；</li>
 <li>匿名函数被返回给外部使用；</li>
 </ol>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628225901656.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628225901656.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="伪类型"><a href="#伪类型" class="headerlink" title="伪类型"></a>伪类型</h4><p>假类型，实际上在 PHP 中不存在的类型。但是通过伪类型可以帮助程序员去更好的查看操作手册从而更方便学习。</p>
 <p>伪类型主要有两种：在三大类八小类之外</p>
@@ -1379,12 +1496,12 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>print_r()：类似于 var_dump，但是比 var_dump 简单，不会输出数据的类型，只会输出值（数组打印使用比较多）</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628231543632.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628231543632.png" srcset="/img/three2.gif" lazyload class>
 
 <h5 id="有关时间的函数"><a href="#有关时间的函数" class="headerlink" title="有关时间的函数"></a>有关时间的函数</h5><ul>
 <li>date()：按照指定格式对对应的时间戳（从 1970 年格林威治时间开始计算的秒数）转换成对应的格式，如果没有指定特定的时间戳，那么就是默认解释当前时间戳</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628231813625.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628231813625.png" srcset="/img/three2.gif" lazyload class>
 
 <ul>
 <li><p>time()：获取当前时间对应的时间戳</p>
@@ -1392,12 +1509,12 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>microtime()：获取微秒级别的时间</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628234013522.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628234013522.png" srcset="/img/three2.gif" lazyload class>
 
 <ul>
 <li>strtotime()：按照规定格式的字符串转换成时间戳 (中文不行)</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628234426704.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210628234426704.png" srcset="/img/three2.gif" lazyload class>
 
 <h5 id="关于数学的函数"><a href="#关于数学的函数" class="headerlink" title="关于数学的函数"></a>关于数学的函数</h5><ul>
 <li><p>max()：指定参数中最大的值</p>
@@ -1431,7 +1548,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>func_num_args()：获取当前自定义函数的参数数量 – 实参数量</p>
 </li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629000146909.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629000146909.png" srcset="/img/three2.gif" lazyload class>
 
 <h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>指的是系统（或者用户）在对某些代码进行执行的时候，发现有错误，就会通过错误处理的形式告知程序员。</p>
 <h5 id="错误分类"><a href="#错误分类" class="headerlink" title="错误分类"></a>错误分类</h5><ol>
@@ -1440,7 +1557,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li><p>运行时错误：代码编译通过，但是代码在执行的过程中会出现一些条件不满足导致的错误（<strong>runtime error</strong>）</p>
 </li>
 <li><p>逻辑错误：程序员在写代码时不够规范，出现了一些逻辑性的错误，导致代码正常执行，但是得不到想要的结果</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$a</span> = <span class="number">1</span>) &#123; <span class="comment">// 最常见问题：把 == 写成 =</span></span><br><span class="line">    <span class="comment">// 执行代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-variable">$a</span> = <span class="hljs-number">10</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-variable">$a</span> = <span class="hljs-number">1</span>) &#123; <span class="hljs-comment">// 最常见问题：把 == 写成 =</span><br>    <span class="hljs-comment">// 执行代码</span><br>&#125;<br></code></pre></div></td></tr></table></figure></li>
 </ol>
 <h5 id="错误代号"><a href="#错误代号" class="headerlink" title="错误代号"></a>错误代号</h5><p>所有看到的错误代号在 PHP 中都被定义成了系统常量（可以直接使用）</p>
 <ol>
@@ -1466,11 +1583,11 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>只要警告和通知：<code>E_WARNING | E_NOTICE</code></li>
 </ul>
 <h5 id="错误触发"><a href="#错误触发" class="headerlink" title="错误触发"></a>错误触发</h5><p>程序运行时触发：系统自动根据错误发生后，对比对应的错误信息，输出给用户：主要针对代码的语法错误和运行时错误。</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629185803983.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629185803983.png" srcset="/img/three2.gif" lazyload class>
 
 <p>人为触发：知道某些逻辑可能会出错，从而使用对应的判断代码来触发响应的错误提示</p>
 <p><code>Trigger_error(错误提示)</code>：产生一个用户级别的 error/warning/notice 信息</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629190645937.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629190645937.png" srcset="/img/three2.gif" lazyload class>
 
 <p>可以通过第二个参数进行严格性控制</p>
 <ul>
@@ -1478,7 +1595,7 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>E_USER_WARNING</li>
 <li>E_USER_NOTICE</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629190943882.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629190943882.png" srcset="/img/three2.gif" lazyload class>
 
 <h5 id="错误显示设置"><a href="#错误显示设置" class="headerlink" title="错误显示设置"></a>错误显示设置</h5><p>错误显示设置：哪些错误该显示，以及该如何显示</p>
 <p>在 PHP 中，其实有两种方式来设置当前脚本的错误处理：</p>
@@ -1488,10 +1605,10 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <li>display_errors：是否显示错误</li>
 <li>error_reporting：显示什么级别的错误</li>
 </ul>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629192249764.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629192249764.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>可以在运行的 PHP 脚本中去设置：在脚本中定义的配置项级别比配置文件高（通常在开发当中都会在代码中去进行控制和配置）</p>
 <p>error_reporting()：设置对应的错误显示级别,没有参数表示获取当前系统错误处理对应的级别</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(E_ERROR | E_WARNING | E_PARSE);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">error_reporting(E_ERROR | E_WARNING | E_PARSE);<br></code></pre></div></td></tr></table></figure>
 
 <p>ini_set(‘配置文件中的配置项’,配置值)</p>
 <p>ini_set(‘error_reporting’,E_ALL);</p>
@@ -1506,28 +1623,379 @@ isset()：判断数据存储的变量本身是否存在，存在变量返回true
 <p>所以在生产环境中，一般不显示错误（错误也比较少），但是不可能避免会出现错误（测试的时候不会发现所有的问题），这个时候不希望看到，但是又希望捕捉到可以让后台程序员去修改：需要保存到日志文件中，需要在 PHP 配置文件中或者代码中（ini_set）设置对应 error_log 配置项:</p>
 <ol>
 <li><p>开启日志功能</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193034111.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193034111.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>指定路径 (指定文件不会自动生成，必须手动创建)</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629192910558.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629192910558.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <h5 id="自定义错误处理"><a href="#自定义错误处理" class="headerlink" title="自定义错误处理"></a>自定义错误处理</h5><p>最简单的错误处理：<code>trigger_errors()</code> 函数，但是该函数不会阻止系统报错</p>
 <p>PHP 系统提供了一种用户处理错误的机制：用户自定义错误处理函数，然后将该函数增加操系统错误处理的句柄中，然后系统会在碰到错误之后，使用用户定义的错误函数。</p>
 <ol>
 <li><p>如何将用户自定义的函数放到系统中？</p>
 <p><code>set_error_handler()</code></p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193323858.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193323858.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>自定义错误处理函数，系统有要求</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193429192.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629193429192.png" srcset="/img/three2.gif" lazyload class></li>
 </ol>
 <p>代码实现：</p>
 <ol>
 <li><p>自定义错误处理函数：注意参数</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629194719236.png" class></li>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629194719236.png" srcset="/img/three2.gif" lazyload class></li>
 <li><p>注册自定义函数：修改错误处理机制</p>
-<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629195100688.png" class>
+<img src="/2021/07/29/php%E7%AC%94%E8%AE%B0/image-20210629195100688.png" srcset="/img/three2.gif" lazyload class>
 
 <p>当前属于简单自定义模式，如果要复杂，可以在某些影响代码功能的错误发生后，让用户跳转到某个指定界面。</p>
 </li>
 </ol>
 <p>笔记 CSDN 博客地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58163927/article/details/118691660?spm=1001.2014.3001.5502">https://blog.csdn.net/qq_58163927/article/details/118691660?spm=1001.2014.3001.5502</a></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">AgoniLay</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://agonilay.github.io/2021/07/29/php%E7%AC%94%E8%AE%B0/">https://agonilay.github.io/2021/07/29/php%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://agonilay.github.io" target="_blank">AgoniLay的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/php/">php</a><a class="post-meta__tags" href="/tags/Apache/">Apache</a><a class="post-meta__tags" href="/tags/mysql/">mysql</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/07/30/TypeScript%E7%AC%94%E8%AE%B0/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">TypeScript笔记</div></div></a></div><div class="next-post pull-right"><a href="/2021/07/29/npm%E7%AC%94%E8%AE%B0/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">npm笔记</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">AgoniLay</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3"><span class="toc-number">1.</span> <span class="toc-text">错误解决</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-number">1.0.1.</span> <span class="toc-text">中文乱码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">PHP 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-PHP"><span class="toc-number">2.0.1.</span> <span class="toc-text">什么是 PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%89%8D%E8%BA%AB"><span class="toc-number">2.0.1.2.</span> <span class="toc-text">前身</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="toc-number">2.0.2.</span> <span class="toc-text">PHP 发展史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%AB%99"><span class="toc-number">2.0.3.</span> <span class="toc-text">网站</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%89%B9%E7%82%B9"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">静态网站特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%BD%91%E7%AB%99%E7%89%B9%E7%82%B9"><span class="toc-number">2.0.3.2.</span> <span class="toc-text">动态网站特点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text">网站基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.0.1.</span> <span class="toc-text">服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IP"><span class="toc-number">3.0.2.</span> <span class="toc-text">IP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D"><span class="toc-number">3.0.3.</span> <span class="toc-text">域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DNS"><span class="toc-number">3.0.4.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3"><span class="toc-number">3.0.5.</span> <span class="toc-text">端口</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%AE%BF%E9%97%AE%E6%B5%81%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">Web 程序的访问流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="toc-number">4.0.1.</span> <span class="toc-text">静态网站的访问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%BD%91%E7%AB%99%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="toc-number">4.0.2.</span> <span class="toc-text">动态网站的访问</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Apache"><span class="toc-number">5.</span> <span class="toc-text">安装 Apache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Apache-%E8%BD%AF%E4%BB%B6"><span class="toc-number">5.0.1.</span> <span class="toc-text">安装 Apache 软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Apache-%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E"><span class="toc-number">5.0.2.</span> <span class="toc-text">Apache 的目录结构说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Httpd-exe-%E7%9A%84%E8%AF%A6%E7%BB%86%E5%BA%94%E7%94%A8"><span class="toc-number">5.0.3.</span> <span class="toc-text">Httpd.exe 的详细应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%AB%99%E7%82%B9"><span class="toc-number">6.</span> <span class="toc-text">配置默认站点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE-PHP"><span class="toc-number">7.</span> <span class="toc-text">安装与配置 PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-PHP-%E8%AF%AD%E8%A8%80"><span class="toc-number">7.0.1.</span> <span class="toc-text">安装 PHP 语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E"><span class="toc-number">7.0.2.</span> <span class="toc-text">PHP 目录结构说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php-exe-%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">7.0.3.</span> <span class="toc-text">php.exe 的应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Apache-%E5%8A%A0%E8%BD%BD-PHP-%E6%A8%A1%E5%9D%97"><span class="toc-number">8.</span> <span class="toc-text">配置 Apache 加载 PHP 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE-MySQL"><span class="toc-number">9.</span> <span class="toc-text">安装与配置 MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-MySQL-%E8%BD%AF%E4%BB%B6"><span class="toc-number">9.0.1.</span> <span class="toc-text">安装 MySQL 软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL-%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E"><span class="toc-number">9.0.2.</span> <span class="toc-text">MySQL 目录结构说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bin-%E7%9B%AE%E5%BD%95%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">9.0.3.</span> <span class="toc-text">Bin 目录的常用命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E8%AE%BF%E9%97%AE%E6%B5%81%E7%A8%8B"><span class="toc-number">10.</span> <span class="toc-text">MySQL 访问流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-%E8%BF%9E%E6%8E%A5-MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">11.</span> <span class="toc-text">PHP 连接 MySQL 数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%AE%9A-PHP-%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%97%B6%E5%8C%BA"><span class="toc-number">12.</span> <span class="toc-text">设定 PHP 的系统时区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"><span class="toc-number">13.</span> <span class="toc-text">配置虚拟主机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"><span class="toc-number">13.0.1.</span> <span class="toc-text">什么是虚拟主机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">13.0.2.</span> <span class="toc-text">虚拟主机的分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8E%E5%9F%9F%E5%90%8D%E7%9A%84%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"><span class="toc-number">14.</span> <span class="toc-text">搭建基于域名的虚拟主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-%E5%9F%BA%E7%A1%80"><span class="toc-number">15.</span> <span class="toc-text">PHP 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP-%E8%AF%AD%E6%B3%95%E5%88%9D%E6%AD%A5"><span class="toc-number">15.1.</span> <span class="toc-text">PHP 语法初步</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-%E4%BB%A3%E7%A0%81%E6%A0%87%E8%AE%B0"><span class="toc-number">15.1.1.</span> <span class="toc-text">PHP 代码标记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-%E6%B3%A8%E9%87%8A"><span class="toc-number">15.1.2.</span> <span class="toc-text">PHP 注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-%E8%AF%AD%E5%8F%A5%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-number">15.1.3.</span> <span class="toc-text">PHP 语句分隔符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">15.2.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">15.2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">15.2.2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">15.2.3.</span> <span class="toc-text">命名规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="toc-number">15.2.4.</span> <span class="toc-text">预定义变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%98%E9%87%8F"><span class="toc-number">15.2.5.</span> <span class="toc-text">可变变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%BC%A0%E5%80%BC"><span class="toc-number">15.2.6.</span> <span class="toc-text">变量传值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">15.3.</span> <span class="toc-text">常量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">15.3.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%BD%A2%E5%BC%8F"><span class="toc-number">15.3.2.</span> <span class="toc-text">定义形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99-1"><span class="toc-number">15.3.3.</span> <span class="toc-text">命名规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%BD%A2%E5%BC%8F"><span class="toc-number">15.3.4.</span> <span class="toc-text">使用形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%B8%B8%E9%87%8F"><span class="toc-number">15.3.5.</span> <span class="toc-text">系统常量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">15.4.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-%E7%9A%84%E5%85%AB%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">15.4.1.</span> <span class="toc-text">PHP 的八种数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">15.4.2.</span> <span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD"><span class="toc-number">15.4.3.</span> <span class="toc-text">类型判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B%EF%BC%88int%EF%BC%89"><span class="toc-number">15.4.4.</span> <span class="toc-text">整数类型（int）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F"><span class="toc-number">15.4.4.1.</span> <span class="toc-text">定义方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PHP-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2"><span class="toc-number">15.4.4.2.</span> <span class="toc-text">PHP 进制转换</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E7%B1%BB%E5%9E%8B%EF%BC%88float%EF%BC%89"><span class="toc-number">15.4.5.</span> <span class="toc-text">浮点类型（float）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F-1"><span class="toc-number">15.4.5.1.</span> <span class="toc-text">定义方式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%EF%BC%88string%EF%BC%89"><span class="toc-number">15.4.6.</span> <span class="toc-text">字符串类型（string）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AE%9A%E4%B9%89%E8%AF%AD%E6%B3%95"><span class="toc-number">15.4.6.1.</span> <span class="toc-text">字符串定义语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E4%B9%89"><span class="toc-number">15.4.6.2.</span> <span class="toc-text">字符串转义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6"><span class="toc-number">15.4.6.3.</span> <span class="toc-text">字符串长度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="toc-number">15.4.6.4.</span> <span class="toc-text">字符集相关函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%EF%BC%88array%EF%BC%89"><span class="toc-number">15.4.7.</span> <span class="toc-text">数组（array）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-number">15.4.7.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89%E8%AF%AD%E6%B3%95"><span class="toc-number">15.4.7.2.</span> <span class="toc-text">数组定义语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PHP-%E6%95%B0%E7%BB%84%E7%89%B9%E7%82%B9"><span class="toc-number">15.4.7.3.</span> <span class="toc-text">PHP 数组特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">15.4.7.4.</span> <span class="toc-text">多维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">15.4.7.4.1.</span> <span class="toc-text">二维数组</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84-1"><span class="toc-number">15.4.7.4.2.</span> <span class="toc-text">多维数组</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BC%82%E6%80%A7%E6%95%B0%E7%BB%84%EF%BC%88%E4%B8%8D%E8%A7%84%E5%88%99%E6%95%B0%E7%BB%84%EF%BC%89"><span class="toc-number">15.4.7.4.3.</span> <span class="toc-text">异性数组（不规则数组）</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E9%81%8D%E5%8E%86"><span class="toc-number">15.4.7.5.</span> <span class="toc-text">数组遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%90%AB%E4%B9%89"><span class="toc-number">15.4.7.5.1.</span> <span class="toc-text">基本含义</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#foreach-%E9%81%8D%E5%8E%86%E8%AF%AD%E6%B3%95"><span class="toc-number">15.4.7.5.2.</span> <span class="toc-text">foreach 遍历语法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#foreach-%E9%81%8D%E5%8E%86%E5%8E%9F%E7%90%86"><span class="toc-number">15.4.7.5.3.</span> <span class="toc-text">foreach 遍历原理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#for-%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84"><span class="toc-number">15.4.7.5.4.</span> <span class="toc-text">for 循环遍历数组</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#while-%E9%85%8D%E5%90%88-each-%E5%92%8C-list-%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84"><span class="toc-number">15.4.7.5.5.</span> <span class="toc-text">while 配合 each 和 list 遍历数组</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0"><span class="toc-number">15.4.7.6.</span> <span class="toc-text">数组函数</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E5%87%BD%E6%95%B0"><span class="toc-number">15.4.7.6.1.</span> <span class="toc-text">排序函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0"><span class="toc-number">15.4.7.6.2.</span> <span class="toc-text">指针函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0"><span class="toc-number">15.4.7.6.3.</span> <span class="toc-text">其他函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%EF%BC%88boolean%EF%BC%89"><span class="toc-number">15.4.8.</span> <span class="toc-text">布尔类型（boolean）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">15.5.</span> <span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">15.5.1.</span> <span class="toc-text">赋值运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">15.5.2.</span> <span class="toc-text">算数运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">15.5.3.</span> <span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">15.5.4.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">15.5.5.</span> <span class="toc-text">连接运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E6%8A%91%E5%88%B6%E7%AC%A6"><span class="toc-number">15.5.6.</span> <span class="toc-text">错误抑制符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">15.5.7.</span> <span class="toc-text">三目运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E6%93%8D%E4%BD%9C%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">15.5.8.</span> <span class="toc-text">自操作运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">15.5.9.</span> <span class="toc-text">位运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A0%81"><span class="toc-number">15.5.9.1.</span> <span class="toc-text">计算机码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">15.5.9.2.</span> <span class="toc-text">位运算</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">15.5.10.</span> <span class="toc-text">运算符优先级</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="toc-number">15.6.</span> <span class="toc-text">流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%88%86%E7%B1%BB"><span class="toc-number">15.6.1.</span> <span class="toc-text">控制分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">15.6.2.</span> <span class="toc-text">顺序结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84"><span class="toc-number">15.6.3.</span> <span class="toc-text">分支结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#if-%E5%88%86%E6%94%AF"><span class="toc-number">15.6.3.1.</span> <span class="toc-text">if 分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#switch-%E5%88%86%E6%94%AF"><span class="toc-number">15.6.3.2.</span> <span class="toc-text">switch 分支</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="toc-number">15.6.4.</span> <span class="toc-text">循环结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#for-%E5%BE%AA%E7%8E%AF"><span class="toc-number">15.6.4.1.</span> <span class="toc-text">for 循环</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#while-%E5%BE%AA%E7%8E%AF"><span class="toc-number">15.6.4.2.</span> <span class="toc-text">while 循环</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#do-while-%E5%BE%AA%E7%8E%AF"><span class="toc-number">15.6.4.3.</span> <span class="toc-text">do-while 循环</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#foreach-%E5%BE%AA%E7%8E%AF"><span class="toc-number">15.6.4.4.</span> <span class="toc-text">foreach 循环</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">15.6.4.5.</span> <span class="toc-text">循环控制</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E6%9B%BF%E4%BB%A3%E8%AF%AD%E6%B3%95"><span class="toc-number">15.6.5.</span> <span class="toc-text">流程控制替代语法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="toc-number">15.7.</span> <span class="toc-text">文件包含</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">15.7.1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E5%9B%9B%E7%A7%8D%E5%BD%A2%E5%BC%8F"><span class="toc-number">15.7.2.</span> <span class="toc-text">文件包含四种形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%8E%9F%E7%90%86"><span class="toc-number">15.7.3.</span> <span class="toc-text">文件加载原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#include-%E5%92%8C-requist-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">15.7.4.</span> <span class="toc-text">include 和 requist 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E8%B7%AF%E5%BE%84"><span class="toc-number">15.7.5.</span> <span class="toc-text">文件加载路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%B5%8C%E5%A5%97%E5%8C%85%E5%90%AB"><span class="toc-number">15.7.6.</span> <span class="toc-text">文件嵌套包含</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">15.8.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%AF%AD%E6%B3%95"><span class="toc-number">15.8.1.</span> <span class="toc-text">定义语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">15.8.2.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-number">15.8.3.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-number">15.8.3.1.</span> <span class="toc-text">默认值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="toc-number">15.8.3.2.</span> <span class="toc-text">引用传递</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BD%93"><span class="toc-number">15.8.4.</span> <span class="toc-text">函数体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">15.8.5.</span> <span class="toc-text">函数返回值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">15.8.6.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F"><span class="toc-number">15.8.7.</span> <span class="toc-text">静态变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E5%87%BD%E6%95%B0"><span class="toc-number">15.8.8.</span> <span class="toc-text">可变函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-number">15.8.9.</span> <span class="toc-text">匿名函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="toc-number">15.8.9.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-number">15.8.9.2.</span> <span class="toc-text">闭包</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%AA%E7%B1%BB%E5%9E%8B"><span class="toc-number">15.8.10.</span> <span class="toc-text">伪类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0"><span class="toc-number">15.8.11.</span> <span class="toc-text">常用系统函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E5%85%B3%E8%BE%93%E5%87%BA%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">15.8.11.1.</span> <span class="toc-text">有关输出的函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E5%85%B3%E6%97%B6%E9%97%B4%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">15.8.11.2.</span> <span class="toc-text">有关时间的函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%95%B0%E5%AD%A6%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">15.8.11.3.</span> <span class="toc-text">关于数学的函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E5%85%B3%E5%87%BD%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">15.8.11.4.</span> <span class="toc-text">有关函数的函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-number">15.8.12.</span> <span class="toc-text">错误处理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%88%86%E7%B1%BB"><span class="toc-number">15.8.12.1.</span> <span class="toc-text">错误分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E4%BB%A3%E5%8F%B7"><span class="toc-number">15.8.12.2.</span> <span class="toc-text">错误代号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E8%A7%A6%E5%8F%91"><span class="toc-number">15.8.12.3.</span> <span class="toc-text">错误触发</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E6%98%BE%E7%A4%BA%E8%AE%BE%E7%BD%AE"><span class="toc-number">15.8.12.4.</span> <span class="toc-text">错误显示设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E8%AE%BE%E7%BD%AE"><span class="toc-number">15.8.12.5.</span> <span class="toc-text">错误日志设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-number">15.8.12.6.</span> <span class="toc-text">自定义错误处理</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" title="前端面试八股"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端面试八股"/></a><div class="content"><a class="title" href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" title="前端面试八股">前端面试八股</a><time datetime="2022-04-11T07:34:22.000Z" title="发表于 2022-04-11 15:34:22">2022-04-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/10/Sass/" title="Sass"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Sass"/></a><div class="content"><a class="title" href="/2022/01/10/Sass/" title="Sass">Sass</a><time datetime="2022-01-10T07:13:45.000Z" title="发表于 2022-01-10 15:13:45">2022-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" title="Hexo 相册实现"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 相册实现"/></a><div class="content"><a class="title" href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" title="Hexo 相册实现">Hexo 相册实现</a><time datetime="2021-12-01T04:31:34.000Z" title="发表于 2021-12-01 12:31:34">2021-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 快速搭建博客"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 快速搭建博客"/></a><div class="content"><a class="title" href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 快速搭建博客">Hexo 快速搭建博客</a><time datetime="2021-11-30T07:08:11.000Z" title="发表于 2021-11-30 15:08:11">2021-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" title="闲谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="闲谈"/></a><div class="content"><a class="title" href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" title="闲谈">闲谈</a><time datetime="2021-11-30T06:52:28.000Z" title="发表于 2021-11-30 14:52:28">2021-11-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By AgoniLay</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/php/">php</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Apache/">Apache</a>
+                    
+                      <a class="hover-with-bg" href="/tags/mysql/">mysql</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均为本人原创，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/30/TypeScript%E7%AC%94%E8%AE%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TypeScript笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/29/npm%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">npm笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"fMlK1v2U3cjKJBIaYGEUd6iH-gzGzoHsz","appKey":"k49y92c0BEE6zL2mCA2AUHKu","placeholder":"说点什么","path":"window.location.pathname","avatar":"monsterid","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://fmlk1v2u.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/img/万事胜意.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;"> <h5 style="text-align: center; margin-top: 1rem;">谢谢您的光临噢！！！</h5> 
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>张宝文</span> ❤ <span>郑佳丽</span>  
+	<!--《添加网站运行时间 -->
+<br/>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+var now = new Date(); 
+
+function createtime() {
+    //此处修改你的建站时间或者网站上线时间
+    var grt = new Date('07/28/2020 17:53:14');
+    now.setTime(now.getTime() + 250);
+    days = (now - grt) / 1000 / 60 / 60 / 24;
+
+    dnum = Math.floor(days);
+    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+        hnum = "0" + hnum;
+    }
+    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+        mnum = "0" + mnum;
+    }
+    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+        snum = "0" + snum;
+    }
+    document.getElementById("timeDate").innerHTML = " 本站已安全运行 " + dnum + " 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+}
+setInterval("createtime()", 250);
+</script>
+
+<!-- 添加网站运行时间》-->
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        晋ICP备2021016698号-1
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=2021016698"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" alt="police-icon"/>
+            
+            <span>晋ICP备2021016698号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+  <script>
+    function typing(id, title){
+        var typed = new Typed('#' + id, {
+            strings: [
+              '  ',
+              title + "&nbsp;",
+            ],
+            cursorChar: "❤",
+            typeSpeed: 150,
+            loop: false,
+        });
+        typed.stop();
+        $(document).ready(function () {
+            $(".typed-cursor").addClass("h2");
+            typed.start();
+        });
+    }
+
+    
+        typing("subtitle", document.getElementById('subtitle').title)
+    
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
