@@ -1,365 +1,177 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>AgoniLay的博客 - AgoniLay</title><meta name="author" content="AgoniLay"><meta name="copyright" content="AgoniLay"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="努力努力再努力x">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AgoniLay的博客">
+<meta property="og:url" content="https://agonilay.github.io/index.html">
+<meta property="og:site_name" content="AgoniLay的博客">
+<meta property="og:description" content="努力努力再努力x">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://agonilay.github.io/img/zoro3.jpg">
+<meta property="article:author" content="AgoniLay">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://agonilay.github.io/img/zoro3.jpg"><link rel="shortcut icon" href="/img/zoro3.jpg"><link rel="canonical" href="https://agonilay.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?050530911bbf514fb098003dafd2a51e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AgoniLay的博客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-04-14 16:50:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/zoro3.jpg">
-  <link rel="icon" href="/img/zoro3.jpg">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-  <meta name="theme-color" content="#efb9b9">
-  <meta name="description" content="">
-  <meta name="author" content="AgoniLay">
-  <meta name="keywords" content="">
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  <title>AgoniLay的博客</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-  
-<link rel="stylesheet" href="/css/scroller.css">
-<link rel="stylesheet" href="/css/bynode.css">
-<link rel="stylesheet" href="/css/mouse.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"agonilay.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":150,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/three2.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-
-<body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>AgoniLay</strong>&nbsp;</a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" target="_self" role="button"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="iconfont icon-bookmark"></i>
-                索引
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/archives/">
-                    <i class="iconfont icon-archive-fill"></i>
-                    归档
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/categories/">
-                    <i class="iconfont icon-category-fill"></i>
-                    分类
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/tags/">
-                    <i class="iconfont icon-tags-fill"></i>
-                    标签
-                  </a>
-                
-              </div>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/huihui.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h3" id="subtitle" title="">
-              
-            </span>
-
-            
-			
-			
-				
-					<br>
-					<span class="h2" id="hitokoto">
-					
-					</span>
-				
-			
-          </div>
-
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" target="_self">
-          <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-818a9f73334ce7bbcdfef86baa2b06f4_1200x500.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640590591&t=23151aea458b642c1309c9e2abcc2275" alt="前端面试八股">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-        <a href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" target="_self">
-          前端面试八股
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" target="_self">
-          
-          
-            
-          
-          HTTP 和 HTTPS基本概念
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/zoro3.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/nuc.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">AgoniLay的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">AgoniLay的博客</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/AgoniLay" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1394310259@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" title="前端面试八股"><img class="post_bg" src="/img/meihao3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端面试八股"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" title="前端面试八股">前端面试八股</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-04-11T07:34:22.000Z" title="发表于 2022-04-11 15:34:22">2022-04-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">HTTP 和 HTTPS基本概念
 HTTP：是一个客户端和服务器端请求和应答的标准（TCP），用于从 WWW 服务器传输超文本到本地服务器的超文本传输协议；
 HTTPS：是以安全为目标的 HTTP 通道，即 HTTP 下加入 SSL 层进行加密，作用是：建立一个信息安全通道，来确保数据的传输，确保网站的真实性。
 
 区别以及优缺点
-HTTP 是超文本传输协议，信息是明文传输，HTTPS 要比 HTT
-        </a>
-      </p>
+HTTP 是超文本传输协议，信息是明文传输，HTTPS 要比 HTTP 协议安全，https 是具有安全性的 ssl 的加密传输协议，可以防止数据在传输过程中被窃取、改变，确保数据的完整性；
+http 协议的默认端口是 80，https 是 443；
+http 的连接比较简单，是无状态的；https 握手阶段比较费时，会使页面加载时间延长 50%，增加 10% ~ 20% 的耗电；
+https 缓存没有 http 高效，会增加数据开销；
+https 协议需要 ca 证书，费用较高，功能越强大的证书费用越高；
+SSL 证书需要绑定 IP，不能在同一个 IP 上绑定多个域名，IPv4 资源支持不了这种消耗；
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-11 15:34" pubdate>
-              2022-04-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-              <a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/10/Sass/" target="_self">
-          <img src="https://img0.baidu.com/it/u=2134113155,1156622243&fm=253&fmt=auto&app=138&f=JPEG?w=780&h=484" alt="Sass">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/10/Sass/" target="_self">
-          Sass
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/10/Sass/" target="_self">
-          
-          
-            
-          
-          快速入门使用变量sass 一个较大的好处就是为 css 引入了变量，可以把反复使用的 css 属性值定义成变量，然后通过变量名来引用。
+HTTPS 工作原理客户端在使用 HTTPS 方式与  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/01/10/Sass/" title="Sass"><img class="post_bg" src="https://img0.baidu.com/it/u=2134113155,1156622243&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=780&amp;h=484" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Sass"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/10/Sass/" title="Sass">Sass</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T07:13:45.000Z" title="发表于 2022-01-10 15:13:45">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Sass/">Sass</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2022/01/10/Sass/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2022/01/10/Sass/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">快速入门使用变量sass 一个较大的好处就是为 css 引入了变量，可以把反复使用的 css 属性值定义成变量，然后通过变量名来引用。
 sass 使用 $ 符号来标识变量。
 
 老版本的 sass 使用 ! 来标识变量。
 
-变量声明1$highlight-color: #F90;
+变量声明1$highlight-color: #f90;
 
 这意味着变量 $highlight-color 现在的值是 #F90。
-任何可以用作 css 属性值的赋值都可以用作 
-        </a>
-      </p>
+任何可以用作 css 属性值的赋值都可以用作 sass 的变量值：
+123$basic-border: 1px solid black;$plain-font: &quot;Myriad Pro&quot;, Myriad, &quot;Helvetica Neue&quot;, Helvetica,  &quot;Liberation Sans&quot;, Arial, sans-serif;
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-10 15:13" pubdate>
-              2022-01-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Sass/">Sass</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%A2%84%E7%BC%96%E8%AF%91%E5%99%A8/">预编译器</a>
-            
-              <a href="/tags/CSS/">CSS</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" target="_self">
-          <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-818a9f73334ce7bbcdfef86baa2b06f4_1200x500.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640590591&t=23151aea458b642c1309c9e2abcc2275" alt="Hexo 相册实现">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" target="_self">
-          Hexo 相册实现
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" target="_self">
-          
-          
-            
-          
-          图片存储使用七牛：访问速度快，用户体验良好
-配置七牛七牛云官网：https://portal.qiniu.com/ 
+在声明变量时，变量值也可以引用其他变量：
+12345$highlight-color: #f90;$highlight-border: 1px solid $highlight-color;.selected &#123;  border:  ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" title="Hexo 相册实现"><img class="post_bg" src="https://img0.baidu.com/it/u=1296802701,216986968&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 相册实现"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" title="Hexo 相册实现">Hexo 相册实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-12-01T04:31:34.000Z" title="发表于 2021-12-01 12:31:34">2021-12-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">图片存储使用七牛：访问速度快，用户体验良好
+配置七牛七牛云官网：https://portal.qiniu.com/
 右侧找到 对象存储 空间管理 新建存储空间
 
 
@@ -371,127 +183,46 @@ sass 使用 $ 符号来标识变量。
 
 
 
-记录类型
-        </a>
-      </p>
+记录类型选择 CNAME；
+主机记录要与 CDN 中加速域名一致；
+解析路线和 TTL 默认即可；
+记录值写入 刚刚复制的 CNAME。
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-01 12:31" pubdate>
-              2021-12-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Hexo/">Hexo</a>
-            
-              <a href="/tags/%E7%9B%B8%E5%86%8C/">相册</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          <img src="https://img0.baidu.com/it/u=1296802701,216986968&fm=26&fmt=auto" alt="Hexo 快速搭建博客">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          Hexo 快速搭建博客
-        </a>
-      </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          
-          
-            
-          
-          大致流程：使用 Hexo 搭建博客，部署在 gitee 或 github 上。
-环境配置NodeJS一、安装NodeJS 中文官网下载：https://nodejs.org/zh-cn/download/ 
+
+当出现 CNAME 记录和 A 记录冲突时，则需要将 CDN 加速域名变为二级域名，也就是之前将加速域名设置为 cdn.agonilay.top 的好处。
+
+检查是否配置成功：
+12345# windowsnslookup cdn.agonilay.top# linus/macdig cdn.agonilay.top
+
+
+
+出现你配置的 加速域名 和 CNAME 则为配置成功。
+上传图片安装七牛依赖：
+1npm install -S qiniu
+
+
+
+
+此处若 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 快速搭建博客"><img class="post_bg" src="https://img0.baidu.com/it/u=1296802701,216986968&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 快速搭建博客"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 快速搭建博客">Hexo 快速搭建博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-30T07:08:11.000Z" title="发表于 2021-11-30 15:08:11">2021-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">大致流程：使用 Hexo 搭建博客，部署在 gitee 或 github 上。
+环境配置NodeJS一、安装NodeJS 中文官网下载：https://nodejs.org/zh-cn/download/
 
 
 一路傻瓜式安装即可。
 二、验证安装完成后在命令行窗口（win + R =&gt; cmd）依次输入下列命令检查是否安装完成：
-12345# 检查 node 版本号node -v# 检查 n
-        </a>
-      </p>
+12345# 检查 node 版本号node -v# 检查 npm 版本号npm -v
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-30 15:08" pubdate>
-              2021-11-30
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Hexo/">Hexo</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" target="_self">
-          <img src="https://img1.baidu.com/it/u=1658741967,1399441621&fm=26&fmt=auto" alt="闲谈">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" target="_self">
-          闲谈
-        </a>
-      </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" target="_self">
-          
-          
-            
-          
-          学习课程&amp;考试学院安排的课程大部分没什么大用处，但都是基础，考试的内容都是在老师上课讲的里面（ppt、随堂测试、u+、学习通、云班课）
+三、配置
+在 NodeJS 安装目录下，如 C:\Program Files\nodejs 目录，新建两个文件夹 node_global（全局包存放目录）和 node_cache（缓存目录）；
+
+在命令行中执行：
+123npm config set prefix &quot;D:\soft\nodejs\node_global&quot;npm config set cache &quot;D:\soft\nodejs\node_cache&quot;
+配置环境变量：
+
+打开系统属性-高级-环境变量，在系统变量中新建变量名：NODE_PATH，变量值：D:\sof ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" title="闲谈"><img class="post_bg" src="https://img1.baidu.com/it/u=1658741967,1399441621&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="闲谈"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" title="闲谈">闲谈</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-30T06:52:28.000Z" title="发表于 2021-11-30 14:52:28">2021-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3/">学习相关</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2021/11/30/1130%E9%97%B2%E8%B0%88/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/11/30/1130%E9%97%B2%E8%B0%88/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">学习课程&amp;考试学院安排的课程大部分没什么大用处，但都是基础，考试的内容都是在老师上课讲的里面（ppt、随堂测试、u+、学习通、云班课）
 考试：提前复习，复习重点（前几年的题或者老师发的重点）
 比较重要的学科：
 
@@ -507,114 +238,50 @@ sass 使用 $ 符号来标识变量。
 毛概
 计算机系统基础
 数据库概论
-面向对象程序设计（Java）（
-        </a>
-      </p>
+面向对象程序设计（Java）（有课设）
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-30 14:52" pubdate>
-              2021-11-30
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3/">学习相关</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/29/SpringBoot-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
-          <img src="https://img1.baidu.com/it/u=1244635425,3010427070&fm=26&fmt=auto" alt="SpringBoot 复习笔记">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/29/SpringBoot-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
-          SpringBoot 复习笔记
-        </a>
-      </h1>
+大二下：
+马原
+算法分析与设计
+网络及其计算
+操作系统
+软件工程导论
+网页设计与网站建设（Java Web）
+软件质量保证与测试技术
 
-      <p class="index-excerpt">
-        <a href="/2021/11/29/SpringBoot-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
-          
-          
-            
-          
-          目录结构1234567|-- src/main 	# 项目根目录|-- java			# Java 源代码目录|-- resources # 资源目录	|-- static		# 静态资源目录	|-- templates	# 表示层页面目录	|-- application.properties	# springboot 配置文件|-- test			# 测试文件目录
 
-application.pr
-        </a>
-      </p>
+大三（分方向，后面说）（实训）
+大四（实习）
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-29 16:57" pubdate>
-              2021-11-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3/">学习相关</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/SpringBoot/">SpringBoot</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/26/vue%20%E6%BA%90%E7%A0%81/" target="_self">
-          <img src="https://img2.baidu.com/it/u=4070430052,2876771977&fm=26&fmt=auto" alt="Vue 源码剖析">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/26/vue%20%E6%BA%90%E7%A0%81/" target="_self">
-          Vue 源码剖析
-        </a>
-      </h1>
+若要考研则需额外着重注意的学科：高等数学、线性代数
 
-      <p class="index-excerpt">
-        <a href="/2021/11/26/vue%20%E6%BA%90%E7%A0%81/" target="_self">
-          
-          
-            
-          
-          准备工作认识 FlowFlow 是 facebook 出品的 JavaScript 静态类型检查工具。Vue.js 的源码利用了 Flow 做了静态类型检查，了解 Flow 有利于阅读源码。
+能考的好一些尽量就考好一些，有奖学金赚。
+自主学习 *
+首先最重要的是身体；
+可以很好的管理自己的时间，安排妥当，该玩玩，该学学；
+尽早会写使用笔记软件写笔记，推荐 Typora，养成学习中记笔记的好习惯（markdown 语法）；
+纸质笔记 VS 电子笔记
+
+
+其次在 CSDN 或其他文档网站上多发表自己的看法观点及笔记，最好尽快搭建一个属 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/29/SpringBoot-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="SpringBoot 复习笔记"><img class="post_bg" src="https://img1.baidu.com/it/u=1244635425,3010427070&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringBoot 复习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/29/SpringBoot-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="SpringBoot 复习笔记">SpringBoot 复习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-29T08:57:32.000Z" title="发表于 2021-11-29 16:57:32">2021-11-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3/">学习相关</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2021/11/29/SpringBoot-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/11/29/SpringBoot-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">目录结构1234567|-- src/main 	# 项目根目录|-- java			# Java 源代码目录|-- resources # 资源目录	|-- static		# 静态资源目录	|-- templates	# 表示层页面目录	|-- application.properties	# springboot 配置文件|-- test			# 测试文件目录
+
+application.properties 文件用于配置 springboot
+
+也可以是 application.yml 或 application.yaml 文件
+在 yml 语法中，相同缩进代表同一个级别，使用键值对语法：
+12server:	port: 8080
+
+mavendependencydependency 标签：用来导入依赖
+
+artifactId：用来导入项目（jar 包、各种场景启动器）
+groupId：这些项目的包名
+version：版本号
+type：该依赖的项目类型，jar、war…
+scope：该依赖的作用范围
+complie：默认值，用于编译、打包、测试、运行阶段
+provided：不用于 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/26/vue%20%E6%BA%90%E7%A0%81/" title="Vue 源码剖析"><img class="post_bg" src="https://img2.baidu.com/it/u=4070430052,2876771977&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue 源码剖析"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/26/vue%20%E6%BA%90%E7%A0%81/" title="Vue 源码剖析">Vue 源码剖析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-26T09:22:35.000Z" title="发表于 2021-11-26 17:22:35">2021-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2021/11/26/vue%20%E6%BA%90%E7%A0%81/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/11/26/vue%20%E6%BA%90%E7%A0%81/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">准备工作认识 FlowFlow 是 facebook 出品的 JavaScript 静态类型检查工具。Vue.js 的源码利用了 Flow 做了静态类型检查，了解 Flow 有利于阅读源码。
 使用安装命令：
 1npm install flow-bin -g
 
@@ -622,67 +289,19 @@ flow 初始化：
 会在本目录下生成一个 .flowconfig 文件
 1flow init
 
-![](vue 源码/image-20211
-        </a>
-      </p>
+![](vue 源码/image-20211112125710450.png)
+在文件中加入：
+123/* @flow  */或// @flow
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-26 17:22" pubdate>
-              2021-11-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%BA%90%E7%A0%81/">源码</a>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">前端框架</a>
-            
-              <a href="/tags/vue/">vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
+就会被 Flow 检查，否则会跳过
+运行检查：
+1flow check
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/26/React/" target="_self">
-          <img src="https://img1.baidu.com/it/u=2721501999,167662473&fm=26&fmt=auto" alt="React">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/26/React/" target="_self">
-          React
-        </a>
-      </h1>
+为什么用 FlowJavaScript 是动态类型语言，它的灵活性有目共睹，但是过于灵活的副作用是很容易就写出非常隐蔽的隐患代码，在编译期甚至看上去都不会报错，但在运行阶段就可能出现各种奇怪的 bug。
 
-      <p class="index-excerpt">
-        <a href="/2021/11/26/React/" target="_self">
-          
-          
-            
-          
-          入门教程目的：了解 React，完成一个小游戏。
+类型检查：就是在编译期尽早发现（由类型错误引起的）bug，又不影响代码运行（不需要运行时动态检查类型），使编写 JavaScript 具有和编写 Java 等强类型语言相近的体验。
+
+项目越复杂就越需要通过工具的手段 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/26/React/" title="React"><img class="post_bg" src="https://img1.baidu.com/it/u=2721501999,167662473&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="React"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/26/React/" title="React">React</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-26T08:59:23.000Z" title="发表于 2021-11-26 16:59:23">2021-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2021/11/26/React/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/11/26/React/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">入门教程目的：了解 React，完成一个小游戏。
 环境准备方式一、在浏览器中编写代码直接在浏览器中打开这个 初始模板 。是一个空的井字棋盘和 React 代码。
 方式二、搭建本地开发环境
 安装并配置了 Node.js；
@@ -692,64 +311,7 @@ flow 初始化：
 删掉创建好的 src/ 文件夹下的所有文件。
 
 在 src/ 文件夹下创建 index.css：
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-26 16:59" pubdate>
-              2021-11-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/React/">React</a>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">前端框架</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/11/JS%E6%A8%A1%E5%9D%97%E5%8C%96/" target="_self">
-          <img src="https://img0.baidu.com/it/u=392452111,1511286792&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=250" alt="JS模块化">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/11/JS%E6%A8%A1%E5%9D%97%E5%8C%96/" target="_self">
-          JS模块化
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/11/JS%E6%A8%A1%E5%9D%97%E5%8C%96/" target="_self">
-          
-          
-            
-          
-          模块化进化路线：
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051body &#123;  font: 14px &quot;Century Gothic&quot;, Futura, sans-serif;  margin: 20px;&#125;ol,ul &#123;  padding-left: 30px;&#125;.board-row:after &#123;  clear: both;  content: &quot;&quot;;  display: tab ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/11/11/JS%E6%A8%A1%E5%9D%97%E5%8C%96/" title="JS模块化"><img class="post_bg" src="https://img0.baidu.com/it/u=392452111,1511286792&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=250" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS模块化"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/11/JS%E6%A8%A1%E5%9D%97%E5%8C%96/" title="JS模块化">JS模块化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-11T02:36:12.000Z" title="发表于 2021-11-11 10:36:12">2021-11-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2021/11/11/JS%E6%A8%A1%E5%9D%97%E5%8C%96/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/11/11/JS%E6%A8%A1%E5%9D%97%E5%8C%96/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">模块化进化路线：
 全局 function 模式 –&gt; namespace 模式 –&gt; IIFE 模式（匿名函数自调用，闭包） –&gt; IIFE 增强：引入依赖
 好处：
 
@@ -766,65 +328,31 @@ flow 初始化：
 
 模块化规范CommonJS规范说明：
 
-http://wiki.commonjs.org/
-        </a>
-      </p>
+http://wiki.commonjs.org/wiki/Modules/1.1
+每个文件都可当作一个模块
+在服务器端：模块的加载时运行时同步加载的
+在浏览器端：模块需要提前编译打包处理
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-11 10:36" pubdate>
-              2021-11-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/JavaScript/">JavaScript</a>
-            
-              <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/">模块化</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
+基本语法：
+暴露模块
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/11/NodeJS%E9%BB%91%E9%A9%AC/" target="_self">
-          <img src="https://img2.baidu.com/it/u=2903413025,1209967719&fm=26&fmt=auto" alt="NodeJS 黑马笔记">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/11/NodeJS%E9%BB%91%E9%A9%AC/" target="_self">
-          NodeJS 黑马笔记
-        </a>
-      </h1>
+module.exports = value
+exports.xxx = value
+暴露的本质：都是 exports 这个对象
 
-      <p class="index-excerpt">
-        <a href="/2021/11/11/NodeJS%E9%BB%91%E9%A9%AC/" target="_self">
-          
-          
-            
-          
-          Node.jsNode.js 介绍node 作者：Ryan Dahl
+引入模块
+
+require(xxx)
+第三方模块：xxx 为模块名
+自定义模块：xxx 为模块文件路径
+
+
+
+实现使用 browserify 工具打包
+12npm install browser -g // 全局安装npm install browser -D // 项目内开发安装
+
+生成时：
+1br ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/11/11/NodeJS%E9%BB%91%E9%A9%AC/" title="NodeJS 黑马笔记"><img class="post_bg" src="https://img2.baidu.com/it/u=2903413025,1209967719&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NodeJS 黑马笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/11/11/NodeJS%E9%BB%91%E9%A9%AC/" title="NodeJS 黑马笔记">NodeJS 黑马笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-11-11T02:34:52.000Z" title="发表于 2021-11-11 10:34:52">2021-11-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2021/11/11/NodeJS%E9%BB%91%E9%A9%AC/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2021/11/11/NodeJS%E9%BB%91%E9%A9%AC/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">Node.jsNode.js 介绍node 作者：Ryan Dahl
 为什么要学习 Node.js企业需求
 
 具有服务端开发经验
@@ -843,296 +371,83 @@ back-end 后端
 多人社区
 
 Node.js 是什么
-==Node.js® is a JavaScript runtime built on Chrome’s V8
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-11 10:34" pubdate>
-              2021-11-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-              <a href="/tags/nodejs/">nodejs</a>
-            
-              <a href="/tags/express/">express</a>
-            
-              <a href="/tags/MongoDB/">MongoDB</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
+==Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.==
+Node.js 不是一门语言
+Node.js 不是库、不是框架
+Node.js 是一个基于 Chorme V8 引擎的 JavaScript 运行时环境
+简单来说，Node.js 可以解析和执行 JavaScript 代码
+以前只有浏览器可以解析执行 JavaScript 代码
+现在的 JavaScript 可以完全脱离浏览器来运行，一切都归功于：Node.js
 
 
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
+浏览器中的 JavaScript：
+ECMAScript
+基本的语法：if、var、function、Object、Array…
 
 
+BOM
+DOM
 
-              </div>
+
+Node.js 中的 JavaS ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/zoro3.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">AgoniLay</div><div class="author-info__description">努力努力再努力x</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/AgoniLay" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1394310259@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" title="前端面试八股"><img src="/img/meihao3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端面试八股"/></a><div class="content"><a class="title" href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/" title="前端面试八股">前端面试八股</a><time datetime="2022-04-11T07:34:22.000Z" title="发表于 2022-04-11 15:34:22">2022-04-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/10/Sass/" title="Sass"><img src="https://img0.baidu.com/it/u=2134113155,1156622243&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=780&amp;h=484" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Sass"/></a><div class="content"><a class="title" href="/2022/01/10/Sass/" title="Sass">Sass</a><time datetime="2022-01-10T07:13:45.000Z" title="发表于 2022-01-10 15:13:45">2022-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" title="Hexo 相册实现"><img src="https://img0.baidu.com/it/u=1296802701,216986968&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 相册实现"/></a><div class="content"><a class="title" href="/2021/12/01/Hexo-%E7%9B%B8%E5%86%8C%E5%AE%9E%E7%8E%B0/" title="Hexo 相册实现">Hexo 相册实现</a><time datetime="2021-12-01T04:31:34.000Z" title="发表于 2021-12-01 12:31:34">2021-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 快速搭建博客"><img src="https://img0.baidu.com/it/u=1296802701,216986968&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 快速搭建博客"/></a><div class="content"><a class="title" href="/2021/11/30/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 快速搭建博客">Hexo 快速搭建博客</a><time datetime="2021-11-30T07:08:11.000Z" title="发表于 2021-11-30 15:08:11">2021-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" title="闲谈"><img src="https://img1.baidu.com/it/u=1658741967,1399441621&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="闲谈"/></a><div class="content"><a class="title" href="/2021/11/30/1130%E9%97%B2%E8%B0%88/" title="闲谈">闲谈</a><time datetime="2021-11-30T06:52:28.000Z" title="发表于 2021-11-30 14:52:28">2021-11-30</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
             </div>
-          </div>
-        </div>
-      </div>
-    
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Sass/"><span class="card-category-list-name">Sass</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">22</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/"><span class="card-category-list-name">博客</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/"><span class="card-category-list-name">后端</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3/"><span class="card-category-list-name">学习相关</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">工具</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/ES7/" style="font-size: 1.15em; color: rgb(127, 120, 128)">ES7</a><a href="/tags/JavaScript/" style="font-size: 1.38em; color: rgb(90, 27, 31)">JavaScript</a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.45em; color: rgb(174, 154, 56)">前端</a><a href="/tags/ES8/" style="font-size: 1.15em; color: rgb(71, 140, 195)">ES8</a><a href="/tags/Hexo/" style="font-size: 1.22em; color: rgb(116, 97, 130)">Hexo</a><a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 1.15em; color: rgb(109, 191, 95)">模块化</a><a href="/tags/%E7%9B%B8%E5%86%8C/" style="font-size: 1.15em; color: rgb(107, 105, 134)">相册</a><a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8/" style="font-size: 1.15em; color: rgb(150, 110, 152)">浏览器内核</a><a href="/tags/DOM/" style="font-size: 1.22em; color: rgb(182, 46, 20)">DOM</a><a href="/tags/BOM/" style="font-size: 1.22em; color: rgb(152, 87, 162)">BOM</a><a href="/tags/JSON/" style="font-size: 1.15em; color: rgb(43, 141, 115)">JSON</a><a href="/tags/nodejs/" style="font-size: 1.3em; color: rgb(128, 45, 96)">nodejs</a><a href="/tags/SpringBoot/" style="font-size: 1.15em; color: rgb(154, 189, 127)">SpringBoot</a><a href="/tags/Webpack/" style="font-size: 1.15em; color: rgb(131, 141, 121)">Webpack</a><a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 1.15em; color: rgb(65, 90, 184)">前端工程化</a><a href="/tags/Ajax/" style="font-size: 1.15em; color: rgb(142, 89, 47)">Ajax</a><a href="/tags/axios/" style="font-size: 1.22em; color: rgb(115, 27, 96)">axios</a><a href="/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 1.15em; color: rgb(41, 162, 76)">跨域</a><a href="/tags/npm/" style="font-size: 1.15em; color: rgb(182, 110, 75)">npm</a><a href="/tags/nodemon/" style="font-size: 1.15em; color: rgb(116, 1, 192)">nodemon</a><a href="/tags/ES6/" style="font-size: 1.15em; color: rgb(81, 163, 81)">ES6</a><a href="/tags/ECMAScript/" style="font-size: 1.22em; color: rgb(124, 173, 43)">ECMAScript</a><a href="/tags/express/" style="font-size: 1.22em; color: rgb(93, 51, 17)">express</a><a href="/tags/HTML/" style="font-size: 1.22em; color: rgb(125, 135, 111)">HTML</a><a href="/tags/HTML5/" style="font-size: 1.22em; color: rgb(106, 199, 64)">HTML5</a><a href="/tags/%E9%A2%84%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 1.15em; color: rgb(125, 40, 175)">预编译器</a><a href="/tags/CSS/" style="font-size: 1.3em; color: rgb(123, 14, 113)">CSS</a><a href="/tags/TypeScript/" style="font-size: 1.15em; color: rgb(115, 84, 62)">TypeScript</a><a href="/tags/webpack/" style="font-size: 1.22em; color: rgb(173, 68, 76)">webpack</a><a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 1.22em; color: rgb(110, 126, 35)">源码</a><a href="/tags/MongoDB/" style="font-size: 1.15em; color: rgb(153, 154, 31)">MongoDB</a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.22em; color: rgb(24, 14, 5)">面试</a><a href="/tags/CSS3/" style="font-size: 1.22em; color: rgb(101, 41, 147)">CSS3</a><a href="/tags/React/" style="font-size: 1.15em; color: rgb(24, 93, 97)">React</a><a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 1.3em; color: rgb(125, 45, 13)">前端框架</a><a href="/tags/php/" style="font-size: 1.15em; color: rgb(36, 20, 97)">php</a><a href="/tags/Apache/" style="font-size: 1.15em; color: rgb(35, 134, 4)">Apache</a><a href="/tags/mysql/" style="font-size: 1.15em; color: rgb(40, 178, 110)">mysql</a><a href="/tags/vue/" style="font-size: 1.3em; color: rgb(164, 126, 182)">vue</a><a href="/tags/jQuery/" style="font-size: 1.15em; color: rgb(104, 13, 146)">jQuery</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">14</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">31</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-07-28T09:53:14.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">251.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-04-14T08:50:46.110Z"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/nuc.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By AgoniLay</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
 
-    
-      <a id="scroll-top-button" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-
-    
-  </main>
-
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <span>张宝文</span> ❤ <span>郑佳丽</span>  
-	<!--《添加网站运行时间 -->
-<br/>
-
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
-<script>
-var now = new Date(); 
-
-function createtime() {
-    //此处修改你的建站时间或者网站上线时间
-    var grt = new Date('07/28/2020 17:53:14');
-    now.setTime(now.getTime() + 250);
-    days = (now - grt) / 1000 / 60 / 60 / 24;
-
-    dnum = Math.floor(days);
-    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-    hnum = Math.floor(hours);
-    if (String(hnum).length == 1) {
-        hnum = "0" + hnum;
-    }
-    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-    mnum = Math.floor(minutes);
-    if (String(mnum).length == 1) {
-        mnum = "0" + mnum;
-    }
-    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-    snum = Math.round(seconds);
-    if (String(snum).length == 1) {
-        snum = "0" + snum;
-    }
-    document.getElementById("timeDate").innerHTML = " 本站已安全运行 " + dnum + " 天 ";
-    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+  }
 }
-setInterval("createtime()", 250);
-</script>
-
-<!-- 添加网站运行时间》-->
-  </div>
-  
-  <div class="statistics">
-    
-    
-
-    
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: 'fMlK1v2U3cjKJBIaYGEUd6iH-gzGzoHsz',
+        appKey: 'k49y92c0BEE6zL2mCA2AUHKu',
+      }
       
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
-  
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        晋ICP备2021016698号-1
-      </a>
-    </span>
-    
-      
-        <span>
-          <a
-            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=2021016698"
-            rel="nofollow noopener"
-            class="beian-police"
-            target="_blank"
-          >
-            
-              <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" alt="police-icon"/>
-            
-            <span>晋ICP备2021016698号</span>
-          </a>
-        </span>
-      
-    
-  </div>
-
-
-  
-</footer>
-
-
-  <!-- SCRIPTS -->
-  
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
-  
-    
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
-  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-
-  <script>
-    function typing(id, title){
-        var typed = new Typed('#' + id, {
-            strings: [
-              '  ',
-              title + "&nbsp;",
-            ],
-            cursorChar: "❤",
-            typeSpeed: 150,
-            loop: false,
-        });
-        typed.stop();
-        $(document).ready(function () {
-            $(".typed-cursor").addClass("h2");
-            typed.start();
-        });
+      const valine = new Valine(initData)
     }
 
-    
-		// a: 动画; b: 漫画; c: 游戏; d: 小说; e: 原创; f: 来自网络; g: 其他;
-        fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-           typing("hitokoto", '<span>『' + data.hitokoto + '』</span>' + '<br/><div>'+ '——' + '「' + data.from + '」' + '</div>')
-        })
-        .catch(console.error)
-    
+    if (typeof Valine === 'function') initValine() 
+    else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
 
-  </script>
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script><script>function subtitleType () {
+  if (true) { 
+    window.typed = new Typed("#subtitle", {
+      strings: ["背后の伤痕是剑士の耻辱","我が名はめぐみん、红魔族随一の魔法の使い手にして、爆裂魔法を操りし者、我が力、见るが良い!Explosion!","海贼王におれはなる","まだまだだね！"],
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '背后の伤痕是剑士の耻辱'
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

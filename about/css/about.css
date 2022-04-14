@@ -5,11 +5,13 @@
   display: flex;
   justify-content: space-around;
 }
+
 .small-title {
   text-align: center;
   color: #efb9b9;
   font-weight: bold;
 }
+
 .top-content {
   text-align: center;
   color: #e58a8a;
@@ -24,6 +26,7 @@
   /* 改变左右上下,图片方块移动 */
   z-index: 99;
 }
+
 /* 包裹所有容器样式 */
 .cube {
   min-width: 300px;
@@ -35,10 +38,17 @@
   /* 匀速 */
   animation-timing-function: linear;
 }
+
 @keyframes rotate {
-  from { transform: rotateX(0deg) rotateY(0deg); }
-  to { transform: rotateX(360deg) rotateY(360deg); }
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
 }
+
 .cube div {
   position: absolute;
   width: 100%;
@@ -46,31 +56,39 @@
   opacity: 0.8;
   transition: all .4s;
 }
+
 /* 定义所有图片样式 */
-.pic{
+.pic {
   width: 300px;
   height: 300px;
 }
-.cube .out_front{
+
+.cube .out_front {
   transform: rotateY(0deg) translateZ(150px);
 }
-.cube .out_back{
+
+.cube .out_back {
   transform: translateZ(-150px) rotateY(180deg);
 }
-.cube .out_left{
+
+.cube .out_left {
   transform: rotateY(90deg) translateZ(150px);
 }
-.cube .out_right{
+
+.cube .out_right {
   transform: rotateY(-90deg) translateZ(150px);
 }
-.cube .out_top{
+
+.cube .out_top {
   transform: rotateX(90deg) translateZ(150px);
 }
-.cube .out_bottom{
+
+.cube .out_bottom {
   transform: rotateX(-90deg) translateZ(150px);
 }
+
 /* 定义小正方体样式 */
-.cube span{
+.cube span {
   display: bloack;
   width: 150px;
   height: 150px;
@@ -78,58 +96,76 @@
   top: 75px;
   left: 75px;
 }
-.cube .in_pic{
+
+.cube .in_pic {
   width: 150px;
   height: 150px;
 }
-.cube .in_front{
+
+.cube .in_front {
   transform: rotateY(0deg) translateZ(75px);
 }
-.cube .in_back{
+
+.cube .in_back {
   transform: translateZ(-75px) rotateY(180deg);
 }
-.cube .in_left{
+
+.cube .in_left {
   transform: rotateY(90deg) translateZ(75px);
 }
-.cube .in_right{
+
+.cube .in_right {
   transform: rotateY(-90deg) translateZ(75px);
 }
-.cube .in_top{
+
+.cube .in_top {
   transform: rotateX(90deg) translateZ(75px);
 }
-.cube .in_bottom{
+
+.cube .in_bottom {
   transform: rotateX(-90deg) translateZ(75px);
 }
+
 /* 鼠标移入后样式 */
 .cube:hover .pic {
-  max-width: none;
+  max-width: none !important;
   width: 500px;
   height: 500px;
 }
+
 .cube:hover span {
   box-shadow: 2px 2px 5px 0 gold;
 }
-.cube:hover .out_front{
+
+.cube:hover .out_front {
   transform: rotateY(0deg) translateZ(400px) translateX(-100px) translateY(-100px);
 }
-.cube:hover .out_back{
+
+.cube:hover .out_back {
   transform: translateZ(-400px) rotateY(180deg) translateX(-100px) translateY(-100px);
 }
-.cube:hover .out_left{
+
+.cube:hover .out_left {
   transform: rotateY(90deg) translateZ(400px) translateX(-100px) translateY(-100px);
 }
-.cube:hover .out_right{
+
+.cube:hover .out_right {
   transform: rotateY(-90deg) translateZ(400px) translateX(-100px) translateY(-100px);
 }
-.cube:hover .out_top{
+
+.cube:hover .out_top {
   transform: rotateX(90deg) translateZ(400px) translateX(-100px) translateY(-100px);
 }
-.cube:hover .out_bottom{
+
+.cube:hover .out_bottom {
   transform: rotateX(-90deg) translateZ(400px) translateX(-100px) translateY(-100px);
 }
-.py-5, #board {
-  padding-bottom: 0!important;
+
+.py-5,
+#board {
+  padding-bottom: 0 !important;
 }
+
 .onepiece_footer {
   position: absolute;
   bottom: 0;
