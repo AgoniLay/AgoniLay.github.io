@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>手写JS相关</title>
+      <link href="/2022/04/15/%E6%89%8B%E5%86%99JS%E7%9B%B8%E5%85%B3/"/>
+      <url>/2022/04/15/%E6%89%8B%E5%86%99JS%E7%9B%B8%E5%85%B3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数据类型判断"><a href="#数据类型判断" class="headerlink" title="数据类型判断"></a>数据类型判断</h2><h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myInstanceof</span> (<span class="params">l, r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = r.prototype</span><br><span class="line">  l = l.__proto__</span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (l == <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l == o) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    l = l.__proto__</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 手写 </tag>
+            
+            <tag> JS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前端面试八股</title>
       <link href="/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/"/>
       <url>/2022/04/11/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/</url>
